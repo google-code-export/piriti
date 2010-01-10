@@ -1,14 +1,73 @@
-#summary One-sentence summary of this page.
+#summary A short introduction to the library.
 #labels Featured
+
+This is a short introduction to the API, essentially showing an example how to map a XML document to a POJO.
 
 = Introduction =
 
-Add your content here.
+To use piriti you must first add the following jar files to your project:
+  * Piriti
+  * [http://code.google.com/p/google-gin/ GIN]
+  * [http://code.google.com/p/gwtxpath/ GWTXPath]
 
+Then add the following to your GWT module definition
+{{{
+    <inherits name="name.pehl.gwt.piriti.Piriti" />
+}}}
 
-= Details =
+= Mapping =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Piriti does not require your model classes to inherit some base class. Instead it heavily makes use of annotations and deferred binding. The way it works is similiar to the UiBinder in GWT 2.0. 
+
+Imagine you have a XML document like this:
+{{{
+<book>
+    <isbn>978-0345417954</isbn>
+    <pages>432</pages>
+    <title>The Hotel New Hampshire</title>
+    <author>
+        <firstname>John</firstname>
+        <surname>Irving</surname>
+    </author>
+</book>
+}}}
+
+and the model classes
+{{{
+public class Book
+{
+    String isbn;
+    int pages;
+    String title;
+    Author author;
+}
+
+public class Author
+{
+    String firstname;
+    String surname;
+}
+}}}
+
+you can define the mapping by adding annotations and an inner interfaces:
+{{{
+public class Book
+{
+    interface BookReader extends XmlReader<Book> {}
+    public static final BookReader XML = GWT.create(BookReader);
+
+    @XmlField String isbn;
+    @XmlField int pages;
+    @XmlField String title;
+    @XmlField Author author;
+}
+
+public class Author
+{
+    interface AuthorReader extends XmlReader<Author> {}
+    public static final AuthorReader XML = GWT.create(AuthorReader);
+
+    @XmlField String firstname;
+    @XmlField String surname;
+}
+}}}
