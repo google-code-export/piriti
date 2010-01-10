@@ -19,7 +19,7 @@ Then add the following to your GWT module definition
 
 Piriti does not require your model classes to inherit some base class. Instead it heavily makes use of annotations and deferred binding. The way it works is similiar to the UiBinder in GWT 2.0. 
 
-Imagine you have a XML document like this:
+Imagine you have a XML document like this
 {{{
 <book>
     <isbn>978-0345417954</isbn>
@@ -49,7 +49,7 @@ public class Author
 }
 }}}
 
-you can define the mapping by adding annotations and an inner interfaces:
+you can define the mapping by adding annotations and an inner interfaces
 {{{
 public class Book
 {
@@ -71,3 +71,18 @@ public class Author
     @XmlField String surname;
 }
 }}}
+
+Having a XML document you can then read and map the document by calling
+{{{
+Document document = ...;
+Book book = Book.XML.readSingle(document);
+}}}
+
+= How it works = 
+As mentioned above piriti makes heavy use of deferred binding.
+{{{
+public static final BookReader XML = GWT.create(BookReader);
+}}}
+generates an implementation which evaluates xpath expressions and assigns the results to the annotated fields. The xpath expression defaults to the fields name and an assignment is done only if the xpath expression results in a none-null value. Please note that at the moment the annotations can only be on fields and that the fields must have default or protected access modifiers. 
+
+Because all XmlReader instances are registered against a global registry, nested POJOs which also have an static reference to a XmlReader are recognized and mapped.
