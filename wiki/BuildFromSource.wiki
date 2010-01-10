@@ -5,19 +5,41 @@ Piriti is build using maven. Not all dependencies are available in remote reposi
 
   # Guice 2.0
   {{{
-  mvn install:install-file -DgroupId=com.google.inject -DartifactId=guice -Dversion=2.0 -Dpackaging=jar -Dfile=<location on disk>
+  mvn install:install-file 
+      -DgroupId=com.google.inject 
+      -DartifactId=guice 
+      -Dversion=2.0 
+      -Dpackaging=jar 
+      -Dfile=<location on disk>
   }}}
   # Gin
   {{{
-  mvn install:install-file -DgroupId=com.google.gwt.inject -DartifactId=gin -Dversion=1.0 -Dpackaging=jar -Dfile=<location on disk>
+  mvn install:install-file 
+      -DgroupId=com.google.gwt.inject 
+      -DartifactId=gin 
+      -Dversion=1.0 
+      -Dpackaging=jar 
+      -Dfile=<location on disk>
   }}}
   # GWTXPath
   {{{
-  mvn install:install-file -DgroupId=com.mouchel.gwt.xpath -DartifactId=gwtxpath -Dversion=1.0 -Dpackaging=jar -Dfile=<location on disk>
+  mvn install:install-file 
+      -DgroupId=com.mouchel.gwt.xpath 
+      -DartifactId=gwtxpath 
+      -Dversion=1.0 
+      -Dpackaging=jar 
+      -Dfile=<location on disk>
   }}}  
 
 = Build Instructions =
 
-After installing these dependencies to your local repository, you should be able to build piriti by calling {{{mvn clean install}}}
+After installing these dependencies to your local repository, you should be able to build piriti by calling 
+{{{
+mvn clean install
+}}}
 
-If you working with eclipse you can generate the necessary project files by calling {{{mvn eclipse:eclipse}}} The generated project has the relevant GWT natures and is recognized by the Goole Eclipse plug-in.
+If you working with eclipse you can generate the necessary project files by calling 
+{{{
+mvn eclipse:eclipse
+}}} 
+The generated project has the relevant GWT natures and is recognized by the Goole Eclipse plug-in.
