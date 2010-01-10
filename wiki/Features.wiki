@@ -1,14 +1,53 @@
-#summary One-sentence summary of this page.
+#summary Description of the features and limitations of piriti.
 #labels Featured
 
-= Introduction =
+*This is the first version of piriti. So please be aware that not all features might work as expected.*
 
-Add your content here.
+= Features =
 
+All information for the XML mapping is defined in the @XmlField annotation. This annotations works with fields which have one of the following types:
+|| Type || Default xpath expression || Format options ||
+|| boolean, Boolean || fieldname/text() || No format supported. If specified it is ignored. ||
+|| byte, Byte || fieldname/text() || No format supported. If specified it is ignored. ||
+|| char, Character || fieldname/text() || No format supported. If specified it is ignored. ||
+|| java.util.Date || fieldname/text() || If no format is specified a default format is used. Otherwise must be a valid date format as described by DateTimeFormat. ||
+|| double, Double || fieldname/text() || If no format is specified the XML data is converted using Double.parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
+|| float, Float || fieldname/text() || If no format is specified the XML data is converted using Float#parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
+|| int, Integer || fieldname/text() || If no format is specified the XML data is converted using Integer#parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
+|| long, Long || fieldname/text() || If no format is specified the XML data is converted using Long#parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
+|| short, Short || fieldname/text() || No format supported. If specified it is ignored. ||
+|| String || fieldname/text() || No format supported. If specified it is ignored. ||
+|| POJOs for which a XmlReader is registered || fieldname || No format supported. If specified it is ignored. ||
+|| Arrays of the above types || fieldname || If a format is specified it is applied for all array elements. ||
+|| Typed collections of the above types || fieldname || If a format is specified it is applied for all collection elements. ||
+|| Typed maps the above types || fieldname || No format supported. ||
 
-= Details =
+Supported collections:
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * Collection
+  * List
+  * ArrayList
+  * LinkedList
+  * Set
+  * HashSet
+  * SortedSet
+  * TreeSet 
+
+Supported maps:
+
+  * Map
+  * HashMap
+  * SortedMap
+  * TreeMap 
+
+Please note that all collections and maps must have type parameters, otherwise they cannot be mapped. 
+
+= Limitations = 
+
+  * The mapping of arrays, collections and maps is not yet implemented.
+  * Annotations are currently limited to fields. 
+  * The annotated fields must have default or protected access modifiers.
+
+= Planed =
+
+  * Add the ability to also generate XML from the annotated pojos.
