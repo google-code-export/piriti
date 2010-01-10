@@ -5,16 +5,16 @@
 
 = Features =
 
-All information for the XML mapping is defined in the @XmlField annotation. This annotations works with fields which have one of the following types:
+All information for the XML mapping is defined in the @XmlField annotation. This annotation works on fields which have one of the following types:
 || Type || Default xpath expression || Format options ||
 || boolean, Boolean || fieldname/text() || No format supported. If specified it is ignored. ||
 || byte, Byte || fieldname/text() || No format supported. If specified it is ignored. ||
 || char, Character || fieldname/text() || No format supported. If specified it is ignored. ||
 || java.util.Date || fieldname/text() || If no format is specified a default format is used. Otherwise must be a valid date format as described by DateTimeFormat. ||
 || double, Double || fieldname/text() || If no format is specified the XML data is converted using Double.parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
-|| float, Float || fieldname/text() || If no format is specified the XML data is converted using Float#parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
-|| int, Integer || fieldname/text() || If no format is specified the XML data is converted using Integer#parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
-|| long, Long || fieldname/text() || If no format is specified the XML data is converted using Long#parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
+|| float, Float || fieldname/text() || If no format is specified the XML data is converted using Float.parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
+|| int, Integer || fieldname/text() || If no format is specified the XML data is converted using Integer.parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
+|| long, Long || fieldname/text() || If no format is specified the XML data is converted using Long.parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
 || short, Short || fieldname/text() || No format supported. If specified it is ignored. ||
 || String || fieldname/text() || No format supported. If specified it is ignored. ||
 || POJOs for which a XmlReader is registered || fieldname || No format supported. If specified it is ignored. ||
