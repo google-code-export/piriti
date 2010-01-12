@@ -49,7 +49,7 @@ public class Author
 }
 }}}
 
-you can define the mapping by adding annotations and an inner interfaces
+you can define the mapping by adding annotations and inner interfaces
 {{{
 public class Book
 {
