@@ -51,7 +51,7 @@ public class Author
 }
 }}}
 
-To map the XML to your model, all you have to do is annotate the relevant fields in your model and define an interface of type XmlReader&lt;T&gt;
+To map the XML to your model, all you have to do is annotate the relevant fields in your model and define an interface of type XmlReader`<T>`;
 {{{
 public class Book
 {
@@ -77,7 +77,7 @@ public class Author
 
 Now you can map the XML to your model by calling
 {{{
-Document document = ...; // XML representation of the book resource
+Document document = ...; // the com.google.gwt.xml.client.Document for the book
 Book book = Book.XML.readSingle(document);
 }}}
 
