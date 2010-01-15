@@ -96,7 +96,7 @@ as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/go
 </tr>
 </table>
 
-= Array And Collections Mapping =
+= Array And Collection Mapping =
 
 When mapping arrays and collections the XPath expression should return a list of elements:
 {{{
@@ -109,7 +109,8 @@ When mapping arrays and collections the XPath expression should return a list of
     </reviews>
     ...
 </book>
-
+}}}
+{{{
 public class Book
 {
     ...
@@ -117,7 +118,6 @@ public class Book
     ...
 }
 }}}
-
 In the example above the XPath expression "reviews/review" selects the three reviews which are inserted in a new list and assigned to Book.reviews.
 
 == Supported collections ==
