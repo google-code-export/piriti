@@ -10,11 +10,11 @@ All mapping information in piriti is provided by the [http://piriti.googlecode.c
 = Supported types =
 
 The @XmlField annotation does not work on all types. The following tables show which types are supported and which XPath expression is the default for that type.
-<table>
+<table cellpadding="3">
 <tr>
-<th>Type</th>
-<th>Default xpath expression</th>
-<th>Format options</th>
+<th align="left">Type</th>
+<th align="left">Default xpath expression</th>
+<th align="left">Format options</th>
 </tr>
 <tr>
 <td>boolean, Boolean</td>
@@ -49,6 +49,7 @@ as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/go
 <td>If no format is specified the XML data is converted using
 [http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Float.html#parseFloat(java.lang.String) Float.parseFloat(String)]. Otherwise must be a valid number format
 as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
+</tr>
 <tr>
 <td>int, Integer</td>
 <td>`<fieldname>`/text()</td>
