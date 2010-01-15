@@ -10,12 +10,12 @@ All mapping information in piriti is provided by the [http://piriti.googlecode.c
 = Supported types =
 
 The @XmlField annotation does not work on all types. The following tables show which types are supported and which XPath expression is the default for that type.
-<table cellpadding="3">
+<table cellpadding=3>
 <thead>
 <tr>
-<th align="left">Type</th>
-<th align="left">Default xpath expression</th>
-<th align="left">Format options</th>
+<th align=left>Type</th>
+<th align=left>Default xpath expression</th>
+<th align=left>Format options</th>
 </tr>
 </thead>
 <tbody>
