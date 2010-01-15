@@ -3,15 +3,6 @@
 = Requirements =
 Piriti is build using maven. Not all dependencies are available in remote repositories. To sucessfully build piriti from source you have to add some of its dependencies to your local repository (a more detailed description of the dependencies can be found in  [http://piriti.googlecode.com/svn/trunk/site/dependencies.html]):
 
-  # Guice 2.0
-  {{{
-  mvn install:install-file 
-      -DgroupId=com.google.inject 
-      -DartifactId=guice 
-      -Dversion=2.0 
-      -Dpackaging=jar 
-      -Dfile=<location on disk>
-  }}}
   # Gin
   {{{
   mvn install:install-file 
