@@ -34,7 +34,7 @@ The @XmlField annotation does not work on all types. The following tables show w
 <tr>
 <td>java.util.Date</td>
 <td>`<fieldname>`/text()</td>
-<td>If no format is specified a default format is used. Otherwise must be a valid date format as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/DateTimeFormat.html DateTimeFormat]</td>
+<td>If no format is specified a [http://piriti.googlecode.com/svn/trunk/site/apidocs/constant-values.html#name.pehl.gwt.piriti.client.converter.DateConverter.DEFAULT_FORMAT default format] is used. Otherwise must be a valid date format as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/DateTimeFormat.html DateTimeFormat]</td>
 </tr>
 <tr>
 <td>double, Double</td>
