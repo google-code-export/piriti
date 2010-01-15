@@ -123,20 +123,18 @@ In the example above the XPath expression "reviews/review" selects the three rev
 == Supported collections ==
 
 When mapping collections the following types are supported:
-
-  * Collection`<T>`. ArrayList`<T>` i choosen as the implementation.
-  * List`<T>`. ArrayList`<T>` i choosen as the implementation.
+  * Collection`<T>`. ArrayList`<T>` is choosen as the implementation.
+  * List`<T>`. ArrayList`<T>` is choosen as the implementation.
   * ArrayList`<T>`
   * LinkedList`<T>`
-  * Set`<T>`. HashSet`<T>` i choosen as the implementation.
+  * Set`<T>`. HashSet`<T>` is choosen as the implementation.
   * HashSet`<T>`
-  * SortedSet`<T>`. TreeSet`<T>` i choosen as the implementation.
+  * SortedSet`<T>`. TreeSet`<T>` is choosen as the implementation.
   * TreeSet`<T>`
 
 = Limitations = 
 
 The following lists summarize the limitations in piriti.
-
   * Multi-dimensional arrays are not supported.
   * Arrays of collections / maps are not supported.
   * Untyped collections are not supported.
@@ -146,4 +144,5 @@ The following lists summarize the limitations in piriti.
 
 = Planed =
 
+In future releases the following features might be implemented:
   * Add the ability to also generate XML from the annotated models.
