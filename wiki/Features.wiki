@@ -1,26 +1,104 @@
 #summary Description of the features and limitations of piriti.
 #labels Featured
 
-*This is the first version of piriti. So please be aware that not all features might work as expected.*
+= Mapping =
 
-= Features =
+All mapping information in piriti is provided by the [http://piriti.googlecode.com/svn/trunk/site/apidocs/name/pehl/gwt/piriti/client/xml/XmlField.html @XmlField] annotation. This annotation takes two optional parameters:
+  # The XPath expression. 
+  If omitted the field name is taken as a basis for the XPath expression
+  # The format for converting the XML to the fields type. 
+  If omitted no format is used.
 
-All information for the XML mapping is defined in the @XmlField annotation. This annotation works on fields which have one of the following types:
-|| Type || Default xpath expression || Format options ||
-|| boolean, Boolean || fieldname/text() || No format supported. If specified it is ignored. ||
-|| byte, Byte || fieldname/text() || No format supported. If specified it is ignored. ||
-|| char, Character || fieldname/text() || No format supported. If specified it is ignored. ||
-|| java.util.Date || fieldname/text() || If no format is specified a default format is used. Otherwise must be a valid date format as described by DateTimeFormat. ||
-|| double, Double || fieldname/text() || If no format is specified the XML data is converted using Double.parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
-|| float, Float || fieldname/text() || If no format is specified the XML data is converted using Float.parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
-|| int, Integer || fieldname/text() || If no format is specified the XML data is converted using Integer.parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
-|| long, Long || fieldname/text() || If no format is specified the XML data is converted using Long.parseDouble(String). Otherwise must be a valid number format as described by NumberFormat. ||
-|| short, Short || fieldname/text() || No format supported. If specified it is ignored. ||
-|| String || fieldname/text() || No format supported. If specified it is ignored. ||
-|| POJOs for which a XmlReader is registered || fieldname || No format supported. If specified it is ignored. ||
-|| Arrays of the above types || fieldname || If a format is specified it is applied for all array elements. ||
-|| Typed collections of the above types || fieldname || If a format is specified it is applied for all collection elements. ||
-|| Typed maps the above types || fieldname || No format supported. ||
+= Supported types =
+
+The @XmlField annotation does not work on all types. The following tables show which types are supported and which XPath expression is the default for that type.
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Default xpath expression</th>
+<th>Format options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean, Boolean</td>
+<td>`<fieldname>`/text()</td>
+<td>No format supported. If specified it is ignored.</td>
+</tr>
+<tr>
+<td>byte, Byte</td>
+<td>`<fieldname>`/text()</td>
+<td>No format supported. If specified it is ignored.</td>
+</tr>
+<tr>
+<td>char, Character</td>
+<td>`<fieldname>`/text()</td>
+<td>No format supported. If specified it is ignored.</td>
+</tr>
+<tr>
+<td>java.util.Date</td>
+<td>`<fieldname>`/text()</td>
+<td>If no format is specified a
+{@linkplain name.pehl.gwt.piriti.client.converter.DateConverter#DEFAULT_FORMAT
+default format} is used. Otherwise must be a valid date format as described
+by {@link DateTimeFormat}</td>
+</tr>
+<tr>
+<td>double, Double</td>
+<td>`<fieldname>`/text()</td>
+<td>If no format is specified the XML data is converted using
+{@link Double#parseDouble(String)}. Otherwise must be a valid number format
+as described by {@link NumberFormat}</td>
+</tr>
+<tr>
+<td>float, Float</td>
+<td>`<fieldname>`/text()</td>
+<td>If no format is specified the XML data is converted using
+{@link Float#parseFloat(String)}. Otherwise must be a valid number format as
+described by {@link NumberFormat}</td>
+</tr>
+<tr>
+<td>int, Integer</td>
+<td>`<fieldname>`/text()</td>
+<td>If no format is specified the XML data is converted using
+{@link Integer#parseInt(String)}. Otherwise must be a valid number format as
+described by {@link NumberFormat}</td>
+</tr>
+<tr>
+<td>long, Long</td>
+<td>`<fieldname>`/text()</td>
+<td>If no format is specified the XML data is converted using
+{@link Long#parseLong(String)}. Otherwise must be a valid number format as
+described by {@link NumberFormat}</td>
+</tr>
+<tr>
+<td>short, Short</td>
+<td>`<fieldname>`/text()</td>
+<td>No format supported. If specified it is ignored.</td>
+</tr>
+<tr>
+<td>String</td>
+<td>`<fieldname>`/text()</td>
+<td>No format supported. If specified it is ignored.</td>
+</tr>
+<tr>
+<td>POJOs for which a {@link XmlReader} is registered</td>
+<td>`<fieldname>`</td>
+<td>No format supported. If specified it is ignored.</td>
+</tr>
+<tr>
+<td>Arrays of the above types</td>
+<td>`<fieldname>`</td>
+<td>If a format is specified it is applied for all array elements.</td>
+</tr>
+<tr>
+<td>Typed collections of the above types</td>
+<td>`<fieldname>`</td>
+<td>If a format is specified it is applied for all collection elements.</td>
+</tr>
+</tbody>
+</table>
 
 Supported collections:
 
