@@ -11,14 +11,11 @@ All mapping information in piriti is provided by the [http://piriti.googlecode.c
 
 The @XmlField annotation does not work on all types. The following tables show which types are supported and which XPath expression is the default for that type.
 <table>
-<thead>
 <tr>
 <th>Type</th>
 <th>Default xpath expression</th>
 <th>Format options</th>
 </tr>
-</thead>
-<tbody>
 <tr>
 <td>boolean, Boolean</td>
 <td>`<fieldname>`/text()</td>
@@ -96,7 +93,6 @@ as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/go
 <td>`<fieldname>`</td>
 <td>If a format is specified it is applied for all collection elements.</td>
 </tr>
-</tbody>
 </table>
 
 = Array And Collections Mapping =
