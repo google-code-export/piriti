@@ -1,7 +1,7 @@
 #summary Instructions on how to build piriti.
 
 = Requirements =
-Piriti is build using maven. Not all dependencies are available in remote repositories. To sucessfully build piriti from source you have to add some of its dependencies to your local repository (a more detailed description of the dependencies can be found in  [http://piriti.googlecode.com/svn/trunk/site/dependencies.html]):
+Piriti is build using maven. Not all dependencies are available in remote repositories. To sucessfully build piriti from source you have to add some of its dependencies to your local repository:
 
   # Gin
   {{{
@@ -21,6 +21,8 @@ Piriti is build using maven. Not all dependencies are available in remote reposi
       -Dpackaging=jar 
       -Dfile=<location on disk>
   }}}  
+
+A more detailed description of the dependencies can be found in  [http://piriti.googlecode.com/svn/trunk/site/dependencies.html].
 
 = Build Instructions =
 
