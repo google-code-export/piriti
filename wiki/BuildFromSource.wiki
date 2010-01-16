@@ -1,32 +1,8 @@
 #summary Instructions on how to build piriti.
 
-= Requirements =
-Piriti is build using maven. Not all dependencies are available in remote repositories. To sucessfully build piriti from source you have to add some of its dependencies to your local repository:
-
-  # Gin
-  {{{
-  mvn install:install-file 
-      -DgroupId=com.google.gwt.inject 
-      -DartifactId=gin 
-      -Dversion=1.0 
-      -Dpackaging=jar 
-      -Dfile=<location on disk>
-  }}}
-  # GWTXPath
-  {{{
-  mvn install:install-file 
-      -DgroupId=com.mouchel.gwt.xpath 
-      -DartifactId=gwtxpath 
-      -Dversion=1.0 
-      -Dpackaging=jar 
-      -Dfile=<location on disk>
-  }}}  
-
-A more detailed description of the dependencies can be found in  [http://piriti.googlecode.com/svn/trunk/site/dependencies.html].
-
 = Build Instructions =
 
-After installing these dependencies to your local repository, you should be able to build piriti by calling 
+Piriti is build using maven. To compile and install call
 {{{
 mvn clean install
 }}}
