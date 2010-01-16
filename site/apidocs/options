@@ -1,0 +1,28 @@
+-classpath
+'/home/pehlh/Projekte/TiRe/impl/piriti/target/classes:/home/pehlh/Repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-dev/2.0.0/gwt-dev-2.0.0.jar:/home/pehlh/Repo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/Repo/com/mouchel/gwt/xpath/gwtxpath/1.0/gwtxpath-1.0.jar:/home/pehlh/Repo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-user/2.0.0/gwt-user-2.0.0.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/pehlh/Projekte/TiRe/impl/piriti/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2010 <a href="http://harald.pehl.name">Harald Pehl</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/home/pehlh/Projekte/TiRe/impl/piriti/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Piriti API 0.2'
+-link
+'http://google-web-toolkit.googlecode.com/svn/javadoc/2.0'
+-link
+'http://java.sun.com/javase/6/docs/api'
+-stylesheetfile
+'/home/pehlh/Projekte/TiRe/impl/piriti/target/site/apidocs/stylesheet.css'
+-use
+-version
+-windowtitle
+'Piriti API 0.2'
