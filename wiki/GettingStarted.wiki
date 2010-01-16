@@ -5,11 +5,25 @@ This page shows how to use piriti by mapping a XML document to model classes.
 
 = Prerequisites =
 
-Piriti maps the XML by using XPath expressions. Therefore [http://code.google.com/p/gwtxpath/ GWTXPath] is used. Furthermore [http://code.google.com/p/google-gin/ GIN] is used for the wiring of some classes. Finally add the following to your GWT module definition
+Piriti maps the XML by using XPath expressions. Therefore [http://code.google.com/p/gwtxpath/ GWTXPath] is used. Furthermore [http://code.google.com/p/google-gin/ GIN] is used for the wiring of some classes. If you use maven add the following repository to your pom:
+{{{
+<repository>
+    <id>piriti-repo</id>
+    <name>Piriti Repository</name>
+    <url>http://piriti.googlecode.com/svn/repository</url>
+</repository>
+}}}
+Otherwise add the following jar files to your project:
+  * gin.jar
+  * guice.jar
+  * aopalliance.jar
+  * gwtxpath.jar
+
+Finally add the following to your GWT module definition
 {{{
     <inherits name="name.pehl.gwt.piriti.Piriti" />
 }}}
-For a more detailed description of the dependencies take a look at [http://piriti.googlecode.com/svn/trunk/site/dependencies.html].
+For a more detailed description of the dependencies take a look at [http://piriti.googlecode.com/svn/site/dependencies.html].
 
 = Mapping =
 
