@@ -2,3 +2,4 @@
   * [Features]
   * [Examples]
   * [BuildFromSource Build From Source]
+  * [ReleaseNotes Release Notes]
