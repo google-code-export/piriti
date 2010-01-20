@@ -34,34 +34,39 @@ The @XmlField annotation does not work on all types. The following tables show w
 <tr>
 <td>java.util.Date</td>
 <td>`<fieldname>`/text()</td>
-<td>If no format is specified a [http://piriti.googlecode.com/svn/site/apidocs/constant-values.html#name.pehl.gwt.piriti.client.converter.DateConverter.DEFAULT_FORMAT default format] is used. Otherwise must be a valid date format as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/DateTimeFormat.html DateTimeFormat]</td>
+<td>If no format is specified a [http://piriti.googlecode.com/svn/site/apidocs/constant-values.html#name.pehl.gwt.piriti.client.converter.DateConverter.DEFAULT_FORMAT default format] is used. 
+Otherwise must be a valid date format as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/DateTimeFormat.html DateTimeFormat]</td>
 </tr>
 <tr>
 <td>double, Double</td>
 <td>`<fieldname>`/text()</td>
 <td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Double.html#parseDouble(java.lang.String) Double.parseDouble(String)]. Otherwise must be a valid number format
+[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Double.html#parseDouble(java.lang.String) Double.parseDouble(String)]. 
+Otherwise must be a valid number format
 as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
 </tr>
 <tr>
 <td>float, Float</td>
 <td>`<fieldname>`/text()</td>
 <td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Float.html#parseFloat(java.lang.String) Float.parseFloat(String)]. Otherwise must be a valid number format
+[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Float.html#parseFloat(java.lang.String) Float.parseFloat(String)]. 
+Otherwise must be a valid number format
 as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
 </tr>
 <tr>
 <td>int, Integer</td>
 <td>`<fieldname>`/text()</td>
 <td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Integer.html#parseInt(java.lang.String) Integer.parseInt(String)]. Otherwise must be a valid number format
+[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Integer.html#parseInt(java.lang.String) Integer.parseInt(String)]. 
+Otherwise must be a valid number format
 as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
 </tr>
 <tr>
 <td>long, Long</td>
 <td>`<fieldname>`/text()</td>
 <td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Long.html#parseLong(java.lang.String) Long.parseLong(String)]. Otherwise must be a valid number format
+[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Long.html#parseLong(java.lang.String) Long.parseLong(String)]. 
+Otherwise must be a valid number format
 as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
 </tr>
 <tr>
@@ -103,7 +108,8 @@ When mapping arrays and collections the XPath expression should return a list of
 <book>
     ...
     <reviews>
-        <review>A hectic gaudy saga with the verve of a Marx Brothers movie.</review>
+        <review>
+            A hectic gaudy saga with the verve of a Marx Brothers movie.</review>
         <review>Rejoice! John Irving has written another book according to your world. You must read this book.</review>
         <review>Spellbinding, intensely human, a high-wire act of dazzling virtuosity.</review>
     </reviews>
