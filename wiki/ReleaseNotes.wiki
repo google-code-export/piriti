@@ -1,8 +1,8 @@
 #summary Piriti release notes.
 
-= Piriti 0.2 =
+== Piriti 0.2 ==
   * Added collection and array mapping.
   * Discarded the mapping of maps.
 
-= Piriti 0.1 =
+== Piriti 0.1 ==
   * Initial release
