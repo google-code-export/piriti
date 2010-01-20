@@ -108,9 +108,9 @@ As mentioned above piriti uses deferred binding behind the scenes. The line
 {{{
 public static final BookReader XML = GWT.create(BookReader);
 }}}
-generates an implementation which evaluates the XPath expressions of the XmlField annotation. If no XPath expression is given the fields name is taken as default value. An assignment is done only if the XPath expression results in a none-null value. 
+generates an implementation which evaluates the XPath expressions in the XmlField annotations. If no XPath expression is given the fields name is taken as default value. If the XPath expression results in some none-null data it is converted to the fields type and assigned to the field. 
 
-Please note that at the moment the annotations can only be on fields and that the fields must have default or protected access modifiers. 
+Please note that at the moment the annotations can only be on fields. The fields must have default or protected access modifiers. 
 
 Because all XmlReader instances are registered against a global registry, references to other models (like the above Book.author property) are recognized and also mapped. 
 
