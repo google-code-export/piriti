@@ -40,9 +40,17 @@ Let's assume you want to map the following XML
         <surname>Irving</surname>
     </author>
     <reviews>
-        <review>A hectic gaudy saga with the verve of a Marx Brothers movie.</review>
-        <review>Rejoice! John Irving has written another book according to your world. You must read this book.</review>
-        <review>Spellbinding, intensely human, a high-wire act of dazzling virtuosity.</review>
+        <review>
+            A hectic gaudy saga with the verve of a Marx Brothers movie.
+        </review>
+        <review>
+            Rejoice! John Irving has written another book according to your world. 
+            You must read this book.
+        </review>
+        <review>
+            Spellbinding, intensely human, a high-wire act of 
+            dazzling virtuosity.
+        </review>
     </reviews>
 </book>
 }}}
