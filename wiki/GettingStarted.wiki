@@ -96,7 +96,7 @@ Book book = Book.XML.readSingle(document);
 }}}
 
 = How it works = 
-As mentioned above piriti makes heavy use of deferred binding. The line
+As mentioned above piriti uses deferred binding behind the scenes. The line
 {{{
 public static final BookReader XML = GWT.create(BookReader);
 }}}
