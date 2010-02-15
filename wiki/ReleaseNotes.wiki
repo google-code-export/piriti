@@ -1,5 +1,9 @@
 #summary Piriti release notes.
 
+== Piriti 0.2.1 ==
+  * Added import statements in generated XmlReader implementations.
+  * Added GWT unit test for Book / Author example from [GettingStarted Getting Started Page]
+
 == Piriti 0.2 ==
   * Added collection and array mapping.
   * Discarded the mapping of maps.
