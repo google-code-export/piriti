@@ -1,21 +1,21 @@
 -classpath
-'/home/pehlh/Projekte/TiRe/impl/piriti/target/classes:/home/pehlh/Projekte/TiRe/impl/piriti/target/test-classes:/home/pehlh/Repo/org/easymock/easymock/2.4/easymock-2.4.jar:/home/pehlh/Repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/Repo/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/home/pehlh/Repo/com/google/gwt/gwt-dev/2.0.0/gwt-dev-2.0.0.jar:/home/pehlh/Repo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/Repo/com/mouchel/gwt/xpath/gwtxpath/1.0/gwtxpath-1.0.jar:/home/pehlh/Repo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-user/2.0.0/gwt-user-2.0.0.jar:/home/pehlh/Repo/junit/junit/4.7/junit-4.7.jar:/home/pehlh/Repo/org/easymock/easymockclassextension/2.4/easymockclassextension-2.4.jar'
+'/home/lfstad-pehl/Projekte/TiRe/impl/piriti/target/classes:/home/lfstad-pehl/Projekte/TiRe/impl/piriti/target/test-classes:/home/lfstad-pehl/MavenRepo/org/easymock/easymock/2.4/easymock-2.4.jar:/home/lfstad-pehl/MavenRepo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/lfstad-pehl/MavenRepo/com/google/gwt/gwt-dev/2.0.1/gwt-dev-2.0.1.jar:/home/lfstad-pehl/MavenRepo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/lfstad-pehl/MavenRepo/com/mouchel/gwt/xpath/gwtxpath/1.0/gwtxpath-1.0.jar:/home/lfstad-pehl/MavenRepo/com/google/inject/guice/2.0/guice-2.0.jar:/home/lfstad-pehl/MavenRepo/com/google/gwt/gwt-user/2.0.1/gwt-user-2.0.1.jar:/home/lfstad-pehl/MavenRepo/junit/junit/4.7/junit-4.7.jar'
 -encoding
 'UTF-8'
 -protected
 -sourcepath
-'/home/pehlh/Projekte/TiRe/impl/piriti/src/test/java'
+'/home/lfstad-pehl/Projekte/TiRe/impl/piriti/src/test/java'
 -author
 -bottom
 'Copyright &#169; 2010 <a href="http://harald.pehl.name">Harald Pehl</a>. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
-'/home/pehlh/Projekte/TiRe/impl/piriti/target/site/testapidocs'
+'/home/lfstad-pehl/Projekte/TiRe/impl/piriti/target/site/testapidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'Piriti API 0.2'
+'Piriti API 0.2.1'
 -link
 'http://google-web-toolkit.googlecode.com/svn/javadoc/2.0'
 -link
@@ -23,8 +23,8 @@
 -link
 'http://java.sun.com/javase/6/docs/api'
 -stylesheetfile
-'/home/pehlh/Projekte/TiRe/impl/piriti/target/site/testapidocs/stylesheet.css'
+'/home/lfstad-pehl/Projekte/TiRe/impl/piriti/target/site/testapidocs/stylesheet.css'
 -use
 -version
 -windowtitle
-'Piriti API 0.2'
+'Piriti API 0.2.1'
