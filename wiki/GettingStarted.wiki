@@ -78,7 +78,7 @@ To map the XML to your model, all you have to do is annotate the relevant fields
 public class Book
 {
     interface BookReader extends XmlReader<Book> {}
-    public static final BookReader XML = GWT.create(BookReader);
+    public static final BookReader XML = GWT.create(BookReader.class);
 
     @XmlField String isbn;
     @XmlField int pages;
@@ -90,7 +90,7 @@ public class Book
 public class Author
 {
     interface AuthorReader extends XmlReader<Author> {}
-    public static final AuthorReader XML = GWT.create(AuthorReader);
+    public static final AuthorReader XML = GWT.create(AuthorReader.class);
 
     @XmlField String firstname;
     @XmlField String surname;
