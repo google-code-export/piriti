@@ -152,6 +152,7 @@ The following lists summarize the limitations in piriti.
   * Arrays of collections / maps are not supported.
   * Untyped collections are not supported.
   * Collections of collections / maps are not supported.
+  * Recursion is not supported. Neither as single reference nor as array / collection.
   * Annotations are currently limited to fields. 
   * The annotated fields must have default or protected access modifiers.
 
