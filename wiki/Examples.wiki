@@ -1,6 +1,0 @@
-#summary More examples on how to use piriti.
-#labels Featured
-
-= TODO =
-
-No content here.
