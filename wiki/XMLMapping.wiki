@@ -1,4 +1,4 @@
-#summary XML Mapping with Piriti
+#summary XML Mapping with Piriti.
 
 = Introduction =
 
