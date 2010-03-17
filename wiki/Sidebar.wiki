@@ -1,5 +1,6 @@
   * [GettingStarted Getting Started]
   * [Features]
-  * [Examples]
+  * [XMLMapping XML Mapping]
+  * [JSONMapping JSON Mapping]
   * [BuildFromSource Build From Source]
   * [ReleaseNotes Release Notes]
