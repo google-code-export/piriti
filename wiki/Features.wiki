@@ -1,137 +1,25 @@
 #summary Description of the features and limitations of piriti.
 #labels Featured
 
-= Mapping =
-
-All mapping information in piriti is provided by the [http://piriti.googlecode.com/svn/site/apidocs/name/pehl/gwt/piriti/client/xml/XmlField.html @XmlField] annotation. This annotation takes two optional parameters:
-  # The XPath expression. If omitted the field name is taken as a basis for the XPath expression
-  # The format for converting the XML to the fields type. If omitted no format is used.
+Piriti is able to map fairly complex *JSON* and *XML* data to arbitrary POJOs. All mapping information is provided using annotations. The actual mapping code is generated for you by deferred binding. 
 
 = Supported types =
 
-The @XmlField annotation does not work on all types. The following tables show which types are supported and which XPath expression is the default for that type.
-<table cellpadding="3" cellspacing="0" border="1">
-<tr>
-<th align="left">Type</th>
-<th align="left">Default xpath expression</th>
-<th align="left">Format options</th>
-</tr>
-<tr>
-<td>boolean, Boolean</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>byte, Byte</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>char, Character</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>java.util.Date</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified a [http://piriti.googlecode.com/svn/site/apidocs/constant-values.html#name.pehl.gwt.piriti.client.converter.DateConverter.DEFAULT_FORMAT default format] is used.<br/> 
-Otherwise must be a valid date format as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/DateTimeFormat.html DateTimeFormat]</td>
-</tr>
-<tr>
-<td>double, Double</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Double.html#parseDouble(java.lang.String) Double.parseDouble(String)].<br/> 
-Otherwise must be a valid number format
-as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-</tr>
-<tr>
-<td>float, Float</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Float.html#parseFloat(java.lang.String) Float.parseFloat(String)].<br/> 
-Otherwise must be a valid number format
-as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-</tr>
-<tr>
-<td>int, Integer</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Integer.html#parseInt(java.lang.String) Integer.parseInt(String)].<br/> 
-Otherwise must be a valid number format
-as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-</tr>
-<tr>
-<td>long, Long</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Long.html#parseLong(java.lang.String) Long.parseLong(String)].<br/> 
-Otherwise must be a valid number format
-as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/1.5/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-</tr>
-<tr>
-<td>short, Short</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>String</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>Enums</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>All types T for which a XmlReader`<T>` is registered</td>
-<td>`<fieldname>`</td>
-<td>No format supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>Arrays of the above types</td>
-<td>`<fieldname>`</td>
-<td>If a format is specified it is applied for all array elements.</td>
-</tr>
-<tr>
-<td>Typed collections of the above types</td>
-<td>`<fieldname>`</td>
-<td>If a format is specified it is applied for all collection elements.</td>
-</tr>
-</table>
-
-= Array And Collection Mapping =
-
-When mapping arrays and collections the XPath expression should return a list of elements:
-{{{
-<book>
-    ...
-    <reviews>
-        <review>
-            A hectic gaudy saga with the verve of a Marx Brothers movie.
-        </review>
-        <review>
-            Rejoice! John Irving has written another book according to your world. 
-            You must read this book.
-        </review>
-        <review>
-            Spellbinding, intensely human, a high-wire act of 
-            dazzling virtuosity.
-        </review>
-    </reviews>
-    ...
-</book>
-}}}
-{{{
-public class Book
-{
-    ...
-    @XmlField("reviews/review") List<String> reviews;
-    ...
-}
-}}}
-In the example above the XPath expression "reviews/review" selects the three reviews which are inserted in a new list and assigned to Book.reviews.
+The mapping annotations do not work on all types. The following tables show which types are supported by Piriti.
+  * boolean, Boolean
+  * byte, Byte
+  * short, Short
+  * int, Integer
+  * long, Long
+  * float, Float
+  * double, Double
+  * char, Character
+  * String
+  * java.util.Date
+  * Enums
+  * All types T for which a reader registered
+  * Arrays of the above types
+  * Typed collections of the above types
 
 == Supported collections ==
 
@@ -147,16 +35,17 @@ When mapping collections the following types are supported:
 
 = Limitations = 
 
-The following lists summarize the limitations in piriti.
+The following lists summarize the limitations in Piriti.
   * Multi-dimensional arrays are not supported.
   * Arrays of collections / maps are not supported.
   * Untyped collections are not supported.
   * Collections of collections / maps are not supported.
-  * Recursion is not supported. Neither as single reference nor as array / collection.
+  * Recursive models are not supported (Book contains a list of related books).
   * Annotations are currently limited to fields. 
-  * The annotated fields must have default or protected access modifiers.
+  * The annotated fields must not have private access modifiers.
 
 = Planed =
 
 In future releases the following features might be implemented:
-  * Add the ability to also generate XML from the annotated models.
+  * Support for recursive models
+  * Add the ability to also generate JSON / XML data from the annotated models.
