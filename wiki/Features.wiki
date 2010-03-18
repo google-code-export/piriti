@@ -4,7 +4,6 @@
 Piriti is able to map fairly complex *JSON* and *XML* data to arbitrary POJOs. All mapping information is provided using annotations. The actual mapping code is generated for you using deferred binding and code generators. 
 
 = Supported types =
-
 The mapping annotations do not work on all types. The following tables show which types are supported by Piriti.
   * boolean, Boolean
   * byte, Byte
@@ -21,8 +20,29 @@ The mapping annotations do not work on all types. The following tables show whic
   * Arrays of the above types
   * Typed collections of the above types
 
-== Supported collections ==
+== Nested Models ==
+Because all reader instances are registered against a global registry, references to other models that also have a reader are recognized and also mapped. Therefore the reader instances must be defined as public static fields (name must not be `XML`):
+{{{
+public class Book
+{
+    interface BookReader extends XmlReader<Book> {}
+    public static final BookReader XML = GWT.create(BookReader.class);
 
+    ...
+    @XmlField Author author;
+}
+
+public class Author
+{
+    interface AuthorReader extends XmlReader<Author> {}
+    public static final AuthorReader SOME_FANCY_NAME = GWT.create(AuthorReader.class);
+
+    ...
+}
+}}}
+
+
+== Supported collections ==
 When mapping collections the following types are supported:
   * Collection`<T>`. ArrayList`<T>` is choosen as the implementation.
   * List`<T>`. ArrayList`<T>` is choosen as the implementation.
