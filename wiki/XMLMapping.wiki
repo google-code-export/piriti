@@ -194,3 +194,34 @@ Now you can map the XML to your model by calling
 Document document = ...; // the com.google.gwt.xml.client.Document for the book
 Book book = Book.XML.readSingle(document);
 }}}
+
+= Array And Collection Mapping =
+When mapping arrays and collections the XPath expression should return a list of elements:
+{{{
+<book>
+    ...
+    <reviews>
+        <review>
+            A hectic gaudy saga with the verve of a Marx Brothers movie.
+        </review>
+        <review>
+            Rejoice! John Irving has written another book according to your world. 
+            You must read this book.
+        </review>
+        <review>
+            Spellbinding, intensely human, a high-wire act of 
+            dazzling virtuosity.
+        </review>
+    </reviews>
+    ...
+</book>
+}}}
+{{{
+public class Book
+{
+    ...
+    @XmlField("reviews/review") List<String> reviews;
+    ...
+}
+}}}
+In the example above the XPath expression "reviews/review" selects the three reviews which are inserted in a new list and assigned to Book.reviews.
