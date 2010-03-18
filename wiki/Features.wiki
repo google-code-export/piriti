@@ -17,7 +17,7 @@ The mapping annotations do not work on all types. The following tables show whic
   * String
   * java.util.Date
   * Enums
-  * All types T for which a reader registered
+  * All types T for which a reader is registered
   * Arrays of the above types
   * Typed collections of the above types
 
