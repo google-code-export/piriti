@@ -8,7 +8,7 @@ Actually Piriti consists of four modules:
   * [Sample piriti-sample]: A sample application deployed on Google AppEngine which demonstrates Piritis features. Work in progress...
 
 = Prerequisites =
-To use piriti-core add the following repository and dependency to your pom:
+To use Piriti add the following repository and dependencies to your pom:
 {{{
 <repository>
     <id>piriti-repo</id>
@@ -21,6 +21,18 @@ To use piriti-core add the following repository and dependency to your pom:
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-core</artifactId>
+    <version>0.3</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>name.pehl.piriti</groupId>
+    <artifactId>piriti-gxt</artifactId>
+    <version>0.3</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>name.pehl.piriti</groupId>
+    <artifactId>piriti-restlet</artifactId>
     <version>0.3</version>
     <scope>provided</scope>
 </dependency>
