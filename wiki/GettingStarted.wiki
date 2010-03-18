@@ -1,117 +1,30 @@
-#summary A short introduction to the library.
+#summary How to get started.
 #labels Featured
 
-This page shows how to use piriti by mapping a XML document to model classes.
+Actually Piriti consists of three modules:
+  * piriti-core: The core classes to map JSON and XML
+  * piriti-gxt: An extension to map the data into GXT ModelData instance. Work in progress...
+  * piriti-restlet: An extension for the Restlet GWT edition. Contains resources which use the readers from piriti-core. Work in progress...
 
-= Prerequisites =
-
-Piriti maps the XML by using XPath expressions. Therefore [http://code.google.com/p/gwtxpath/ GWTXPath] is used. Furthermore [http://code.google.com/p/google-gin/ GIN] is used for the wiring of some classes. If you use maven add the following repository to your pom:
+To use piriti-core add the following repository and dependency to your pom:
 {{{
 <repository>
     <id>piriti-repo</id>
     <name>Piriti Repository</name>
     <url>http://piriti.googlecode.com/svn/repository</url>
 </repository>
+
+...
+
+<dependency>
+    <groupId>name.pehl.piriti</groupId>
+    <artifactId>piriti-core</artifactId>
+    <version>0.3</version>
+    <scope>provided</scope>
+</dependency>
 }}}
-Otherwise add the following jar files to your project:
-  * gin.jar
-  * guice.jar
-  * aopalliance.jar
-  * gwtxpath.jar
 
 Finally add the following to your GWT module definition
 {{{
-    <inherits name="name.pehl.gwt.piriti.Piriti" />
+<inherits name="name.pehl.piriti.Piriti" />
 }}}
-For a more detailed description of the dependencies take a look at [http://piriti.googlecode.com/svn/site/dependencies.html].
-
-= Mapping =
-
-Piriti does not require your model classes to inherit some base class. Instead it heavily makes use of annotations and deferred binding. The way it works is similiar to the UiBinder in GWT 2.0. 
-
-Let's assume you want to map the following XML
-{{{
-<book>
-    <isbn>978-0345417954</isbn>
-    <pages>432</pages>
-    <title>The Hotel New Hampshire</title>
-    <author>
-        <firstname>John</firstname>
-        <surname>Irving</surname>
-    </author>
-    <reviews>
-        <review>
-            A hectic gaudy saga with the verve of a Marx Brothers movie.
-        </review>
-        <review>
-            Rejoice! John Irving has written another book according to your world. 
-            You must read this book.
-        </review>
-        <review>
-            Spellbinding, intensely human, a high-wire act of 
-            dazzling virtuosity.
-        </review>
-    </reviews>
-</book>
-}}}
-
-Therefore you have the following model classes in your GWT client
-{{{
-public class Book
-{
-    String isbn;
-    int pages;
-    String title;
-    Author author;
-    List<String> reviews;
-}
-
-public class Author
-{
-    String firstname;
-    String surname;
-}
-}}}
-
-To map the XML to your model, all you have to do is annotate the relevant fields in your model and define an interface of type XmlReader`<T>`;
-{{{
-public class Book
-{
-    interface BookReader extends XmlReader<Book> {}
-    public static final BookReader XML = GWT.create(BookReader.class);
-
-    @XmlField String isbn;
-    @XmlField int pages;
-    @XmlField String title;
-    @XmlField Author author;
-    @XmlField("reviews/review") List<String> reviews;
-}
-
-public class Author
-{
-    interface AuthorReader extends XmlReader<Author> {}
-    public static final AuthorReader XML = GWT.create(AuthorReader.class);
-
-    @XmlField String firstname;
-    @XmlField String surname;
-}
-}}}
-
-Now you can map the XML to your model by calling
-{{{
-Document document = ...; // the com.google.gwt.xml.client.Document for the book
-Book book = Book.XML.readSingle(document);
-}}}
-
-= How it works = 
-As mentioned above piriti uses deferred binding behind the scenes. The line
-{{{
-public static final BookReader XML = GWT.create(BookReader);
-}}}
-generates an implementation which evaluates the XPath expressions in the XmlField annotations. If no XPath expression is given the fields name is taken as default value. If the XPath expression results in some none-null data it is converted to the fields type and assigned to the field. 
-
-Please note that at the moment the annotations can only be on fields. The fields must have default or protected access modifiers. 
-
-Because all XmlReader instances are registered against a global registry, references to other models (like the above Book.author property) are recognized and also mapped. 
-
-Please take a look at the [Features features] page for a more detailed description of piriti.
