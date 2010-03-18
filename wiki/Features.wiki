@@ -1,7 +1,7 @@
 #summary Description of the features and limitations of piriti.
 #labels Featured
 
-Piriti is able to map fairly complex *JSON* and *XML* data to arbitrary POJOs. All mapping information is provided using annotations. The actual mapping code is generated for you by deferred binding. 
+Piriti is able to map fairly complex *JSON* and *XML* data to arbitrary POJOs. All mapping information is provided using annotations. The actual mapping code is generated for you using deferred binding and code generators. 
 
 = Supported types =
 
