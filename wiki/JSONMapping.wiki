@@ -122,7 +122,7 @@ Let's assume you want to map the following JSON data
     reviews: [
         "A hectic gaudy saga with the verve of a Marx Brothers movie.", 
         "Rejoice! John Irving has written another book according to your world.", 
-        Spellbinding, intensely human, a high-wire act of dazzling virtuosity."
+        "Spellbinding, intensely human, a high-wire act of dazzling virtuosity."
     ]
 }    
 }}}
@@ -172,5 +172,5 @@ public class Author
 Now you can map the JSON data to your model by calling
 {{{
 String jsonString = ...; // the above JSON data
-Book book = Book.JSON.read(document);
+Book book = Book.JSON.read(jsonString);
 }}}
