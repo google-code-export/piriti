@@ -195,7 +195,7 @@ Document document = ...; // the com.google.gwt.xml.client.Document for the book
 Book book = Book.XML.readSingle(document);
 }}}
 
-= Array And Collection Mapping =
+== Array And Collection Mapping ==
 When mapping arrays and collections the XPath expression should return a list of elements:
 {{{
 <book>
