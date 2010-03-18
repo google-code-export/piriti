@@ -2,5 +2,7 @@
   * [Features]
   * [XMLMapping XML Mapping]
   * [JSONMapping JSON Mapping]
+  * [GXT Extension GXTExtension]
+  * [Restlet Extension RestletExtension]
   * [BuildFromSource Build From Source]
   * [ReleaseNotes Release Notes]
