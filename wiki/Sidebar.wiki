@@ -4,5 +4,6 @@
   * [JSONMapping JSON Mapping]
   * [GXTExtension GXT Extension]
   * [RestletExtension Restlet Extension]
+  * [Sample Sample Application]
   * [BuildFromSource Build From Source]
   * [ReleaseNotes Release Notes]
