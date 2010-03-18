@@ -1,4 +1,4 @@
-#summary Instructions on how to build piriti.
+#summary Instructions on how to build Piriti.
 
 = Build Instructions =
 
