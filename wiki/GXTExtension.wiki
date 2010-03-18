@@ -1,4 +1,4 @@
-#summary GXT extension.
+#summary Extension for the GXT framework.
 
 = Introduction =
 
