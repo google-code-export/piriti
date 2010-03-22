@@ -43,7 +43,7 @@ This annotation is specified for every field you want to map. If no path express
 <tr>
 <td>byte, Byte</td>
 <td>`<fieldname>`</td>
-<td>No format supported. If specified it is ignored.</td>
+<td>Must be a JSON number. No format supported. If specified it is ignored.</td>
 </tr>
 <tr>
 <td>char, Character</td>
@@ -79,7 +79,7 @@ Otherwise must be a valid date format as described by [http://google-web-toolkit
 <tr>
 <td>short, Short</td>
 <td>`<fieldname>`</td>
-<td>No format supported. If specified it is ignored.</td>
+<td>Must be a JSON number. No format supported. If specified it is ignored.</td>
 </tr>
 <tr>
 <td>String</td>
