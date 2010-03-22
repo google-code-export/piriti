@@ -2,7 +2,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <!--
         $LastChangedBy: harald.pehl 
-        $LastChangedRevision: 156 $
+        $LastChangedRevision: 243 $
     -->
 
 
@@ -12,7 +12,7 @@
     <version>0.3</version>
     <packaging>pom</packaging>
     <name>Piriti</name>
-    <description>Annotation based XML mapper for GWT</description>
+    <description>Annotation based JSON and XML mapper for GWT</description>
     <url>http://code.google.com/p/piriti/</url>
     <organization>
         <name>Harald Pehl</name>
@@ -121,6 +121,13 @@
             </dependency>
             <dependency>
                 <groupId>name.pehl.piriti</groupId>
+                <artifactId>piriti-core</artifactId>
+                <version>${piriti.version}</version>
+                <classifier>tests</classifier>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>name.pehl.piriti</groupId>
                 <artifactId>piriti-gxt</artifactId>
                 <version>${piriti.version}</version>
                 <scope>provided</scope>
@@ -189,6 +196,18 @@
                 <version>${restlet.version}</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>org.restlet.gwt</groupId>
+                <artifactId>org.restlet.ext.json</artifactId>
+                <version>${restlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.restlet.gwt</groupId>
+                <artifactId>org.restlet.ext.xml</artifactId>
+                <version>${restlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
 
             <!-- Test -->
             <dependency>
@@ -210,6 +229,14 @@
     <!-- Global dependencies used in all modules -->
     <dependencies>
         <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
@@ -229,6 +256,14 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/java</directory>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
 
 
         <pluginManagement>
@@ -270,6 +305,7 @@
                         <classpathContainer>com.google.gwt.eclipse.core.GWT_CONTAINER</classpathContainer>
                     </classpathContainers>
                     <additionalBuildcommands>
+                        <buildcommand>com.google.gdt.eclipse.core.webAppProjectValidator</buildcommand>
                         <buildcommand>com.google.gwt.eclipse.core.gwtProjectValidator</buildcommand>
                     </additionalBuildcommands>
                     <additionalProjectnatures>
@@ -282,30 +318,6 @@
                                 <![CDATA[
 eclipse.preferences.version=1
 encoding/<project>=${project.build.sourceEncoding}]]>
-                            </content>
-                        </file>
-                        <file>
-                            <name>.settings/com.google.appengine.eclipse.core.prefs</name>
-                            <content>
-                                <![CDATA[
-eclipse.preferences.version=1
-filesCopiedToWebInfLib=]]>
-                            </content>
-                        </file>
-                        <file>
-                            <name>.settings/com.google.gdt.eclipse.core.prefs</name>
-                            <content>
-                                <![CDATA[
-eclipse.preferences.version=1
-jarsExcludedFromWebInfLib=]]>
-                            </content>
-                        </file>
-                        <file>
-                            <name>.settings/com.google.gwt.eclipse.core.prefs</name>
-                            <content>
-                                <![CDATA[
-eclipse.preferences.version=1
-entryPointModules=]]>
                             </content>
                         </file>
                     </additionalConfig>
