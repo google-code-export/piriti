@@ -2,7 +2,7 @@
 
 = Introduction =
 
-[http://www.extjs.com/products/gwt/ GXT] uses the class [http://www.extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/data/ModelData.html ModelData] for their widgets. Using the Piriti-GXT extension it is possible to map XML / JSON data right into GXT models. Simply put GXT models are kind of maps with key value pairs. Due to the lack of fields in the GXT models the mapping information is placed inside a class annotation:
+[http://www.extjs.com/products/gwt/ GXT] uses the class [http://www.extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/data/ModelData.html ModelData] for their widgets. Using the GXT extension it is possible to map XML / JSON data right into GXT models. Simply put GXT models are kind of maps with key value pairs. Due to the lack of fields in the GXT models the mapping information is placed inside a class annotation:
 
 {{{
 @XmlModel({@XmlField(property = "isbn", type = String.class), 
