@@ -38,7 +38,7 @@ This annotation is specified for every field you want to map. If no path express
 <tr>
 <td>boolean, Boolean</td>
 <td>`<fieldname>`</td>
-<td>No format supported. If specified it is ignored.</td>
+<td>Must be a JSON boolean. No format supported. If specified it is ignored.</td>
 </tr>
 <tr>
 <td>byte, Byte</td>
