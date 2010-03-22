@@ -2,7 +2,7 @@
 
 == Piriti 0.3 ==
   * Added support for JSON mapping
-  * Devided into three modules: piriti-core, piriti-gxt and piriti-restlet
+  * Split Piriti into three modules: piriti-core, piriti-gxt and piriti-restlet
   * Added a sample application
 
 == Piriti 0.2.1 ==
