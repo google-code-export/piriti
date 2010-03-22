@@ -18,12 +18,6 @@ public class Book extends BaseModel
     }
 
     public static final BookXmlReader XML = GWT.create(BookXmlReader.class);
-
-    public interface BookJsonReader extends JsonModelReader<Book>
-    {
-    }
-
-    public static final BookJsonReader JSON = GWT.create(BookJsonReader.class);
 }
 }}}
 
