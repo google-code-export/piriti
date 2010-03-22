@@ -2,4 +2,34 @@
 
 = Introduction =
 
-Work in progress...
+[http://www.extjs.com/products/gwt/ GXT] uses the class [http://www.extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/data/ModelData.html ModelData] for their widgets. Using the Piriti-GXT extension it is possible to map XML / JSON data right into GXT models. Simply put GXT models are kind of maps with key value pairs. Due to the lack of fields in the GXT models the mapping information is placed inside a class annotation:
+
+{{{
+@XmlModel({@XmlField(property = "isbn", type = String.class), 
+    @XmlField(property = "pages", type = Integer.class),
+    @XmlField(property = "title", type = String.class), 
+    @XmlField(property = "author", type = Author.class),
+    @XmlField(path = "reviews/review", property = "reviews", type = List.class, typeVariable = String.class)})
+public class Book extends BaseModel
+{
+    public interface BookXmlReader extends XmlModelReader<Book>
+    {
+    }
+
+    public static final BookXmlReader XML = GWT.create(BookXmlReader.class);
+
+    public interface BookJsonReader extends JsonModelReader<Book>
+    {
+    }
+
+    public static final BookJsonReader JSON = GWT.create(BookJsonReader.class);
+}
+}}}
+
+= XML Mappnig = 
+
+= JSON Mapping = 
+
+= Arrays =
+
+= Collections = 
