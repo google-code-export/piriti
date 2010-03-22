@@ -9,7 +9,8 @@
     @XmlField(property = "pages", type = Integer.class),
     @XmlField(property = "title", type = String.class), 
     @XmlField(property = "author", type = Author.class),
-    @XmlField(path = "reviews/review", property = "reviews", type = List.class, typeVariable = String.class)})
+    @XmlField(path = "reviews/review", property = "reviews", 
+        type = List.class, typeVariable = String.class)})
 public class Book extends BaseModel
 {
     public interface BookXmlReader extends XmlModelReader<Book>
