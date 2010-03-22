@@ -53,6 +53,11 @@ When mapping collections the following types are supported:
   * SortedSet`<T>`. TreeSet`<T>` is choosen as the implementation.
   * TreeSet`<T>`
 
+= Extensions = 
+Currently there are two extensions for Piriti:
+  * [GXTExtension GXT extension]: Allows JSON / XML mapping to GXT models.
+  * [RestletExtension Restlet extension]: Offers representations which use an XML / JSON reader.
+
 = Limitations = 
 
 The following lists summarize the limitations in Piriti.
