@@ -45,7 +45,7 @@ Due to the lack of real fields in the GXT model, the mapping annotations have to
 The path and format parameters follow the same rules as described in [XMLMapping XML mapping] and [JSONMapping JSON mapping].
   
 = Arrays =
-When mapping arrays you have to specify the component type of the array as `type` parameter in the `@Jsonfield` or `@XmlField` annotation and set the `array` parameter to true:
+When mapping arrays you have to specify the component type of the array as `type` parameter and set the `array` parameter to true:
 {{{
 {numbers: [4 8 15 16 23 42]}
 }}}
@@ -60,6 +60,12 @@ public class LotteryTicket extends BaseModel
 
     public static final LotteryTicketReader JSON = GWT.create(LotteryTicketReader.class);
 }
+}}}
+
+{{{
+String jsonString = ...;
+LotteryTicket lt = LotteryTicket.JSON.read(jsonString);
+Integer[] numbers = lt.get("numbers");
 }}}
 
 Pleas note that you can only use objects as component types. Primitive types are not supported.
@@ -91,4 +97,10 @@ public class LotteryTicket extends BaseModel
 
     public static final LotteryTicketReader XML = GWT.create(LotteryTicketReader.class);
 }
+}}}
+
+{{{
+Document document = ...;
+LotteryTicket lt = LotteryTicket.XML.read(document);
+List<Integer> numbers = lt.get("numbers");
 }}}
