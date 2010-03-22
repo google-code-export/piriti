@@ -36,10 +36,10 @@ The JSON mapping is done using
 = Differences to the POJO mapping =
 Due to the lack of real fields in the GXT model, the mapping annotations have to provide all relevant information: 
   * `property`: The name of the property in the GXT model.
-  * `type`: A class literal of the properties type.
-  * `path` (optional): An XPath expression to select the XML data. If not specified, the property is taken as a base for the XPath expression.
+  * `type`: A class literal for the properties type.
   * `array` (optional): True if the type is an array.
   * `typeVariable` (optional): The type variable in case of a collection
+  * `path` (optional): An path expression to select the data. If not specified, the property is taken as a default.
   * `format` (optional): The format to use when converting the data to the type.
   
 The path and format parameters follow the same rules as described in [XMLMapping XML mapping] and [JSONMapping JSON mapping].
@@ -47,9 +47,7 @@ The path and format parameters follow the same rules as described in [XMLMapping
 = Arrays =
 When mapping arrays you have to specify the component type of the array as `type` parameter in the `@Jsonfield` or `@XmlField` annotation and set the `array` parameter to true:
 {{{
-{
-    numbers: [4 8 15 16 23 42]
-}
+{numbers: [4 8 15 16 23 42]}
 }}}
 
 {{{
@@ -82,7 +80,9 @@ When mapping collections you have to specify the type variable of the collection
 }}}
 
 {{{
-@XmlModel(@XmlField(property = "numbers", type = List.class, typeVariable = Integer.class, path = "//number"))
+@XmlModel(@XmlField(property = "numbers", 
+    type = List.class, typeVariable = Integer.class, 
+    path = "//number"))
 public class LotteryTicket extends BaseModel
 {
     public interface LotteryTicketReader extends XmlModelReader<LotteryTicket>
