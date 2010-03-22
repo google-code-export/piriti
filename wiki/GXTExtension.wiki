@@ -23,15 +23,15 @@ public class Book extends BaseModel
 
 = XML Mappnig = 
 The XML mapping is done using
-  * @XmlModel class level annotations which contains several 
-  * @XmlField annotations together with
-  * XmlModelReader<T extends ModelData>
+  * `@XmlModel` class level annotations which contains several 
+  * `@XmlField` annotations together with
+  * `XmlModelReader<T extends ModelData>`
 
 = JSON Mapping = 
 The JSON mapping is done using
-  * @JsonModel class level annotations which contains several 
-  * @JsonField annotations together with
-  * JsonModelReader<T extends ModelData> 
+  * `@JsonModel` class level annotations which contains several 
+  * `@JsonField` annotations together with
+  * `JsonModelReader<T extends ModelData>`
 
 = Differences To The Core Mapping =
 
