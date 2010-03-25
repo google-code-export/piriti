@@ -27,7 +27,7 @@ clientResource.setOnResponse(new Uniform()
     public void handle(Request request, Response response)
     {
         PiritiJsonRepresentation<Book> representation = 
-            new PiritiJsonRepresentation<Book>(Book.JSON, request.getEntity());
+            new PiritiJsonRepresentation<Book>(Book.JSON, response.getEntity());
         try
         {
             // Depending whether there's one book or an array of books
@@ -68,7 +68,7 @@ clientResource.setOnResponse(new Uniform()
     public void handle(Request request, Response response)
     {
         PiritiXmlRepresentation<Book> representation = 
-            new PiritiXmlRepresentation<Book>(Book.XML, request.getEntity());
+            new PiritiXmlRepresentation<Book>(Book.XML, response.getEntity());
         try
         {
             // Depending whether there's one book element or a list of book
