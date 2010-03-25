@@ -2,4 +2,85 @@
 
 = Introduction =
 
-Work in progress...
+[http://www.restlet.org Restlet] is a RESTful Web framework for Java. There's also a [http://blog.noelios.com/2008/07/25/restlet-ported-to-gwt/ GWT edition] available. The Piriti Restlet extensions is built on top of that edition. There are two representations available which use the Piriti readers to convert JSON and XML data to your model (POJOs and/or GXT models). 
+
+== Read and convert JSON ==
+To read the JSON data you need an instance of JsonReader<T>
+{{{
+public class Book
+{
+    interface BookReader extends JsonReader<Book> {}
+    public static final BookReader JSON = GWT.create(BookReader.class);
+
+    // Fields annotated with @JsonField
+    ...
+}
+}}}
+
+Then you can read the JSON data like this:
+{{{
+ClientResource clientResource = 
+    new ClientResource("/resource/with/json/representation");
+clientResource.setOnResponse(new Uniform()
+{
+    @Override
+    public void handle(Request request, Response response)
+    {
+        PiritiJsonRepresentation<Book> representation = 
+            new PiritiJsonRepresentation<Book>(Book.JSON, request.getEntity());
+        try
+        {
+            // Depending whether there's one book or an array of books
+            // in your JSON data
+            List<Book> books = representation.getModels();
+            Book book = representation.getModel();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+});
+clientResource.get(MediaType.APPLICATION_JSON);
+}}}
+
+
+== Read and convert XML ==
+To read the XML data you need an instance of XmlReader<T>
+{{{
+public class Book
+{
+    interface BookReader extends XmlReader<Book> {}
+    public static final BookReader XML = GWT.create(BookReader.class);
+
+    // Fields annotated with @XmlField
+    ...
+}
+}}}
+
+Then you can read the XML data like this:
+{{{
+ClientResource clientResource = 
+    new ClientResource("/resource/with/xml/representation");
+clientResource.setOnResponse(new Uniform()
+{
+    @Override
+    public void handle(Request request, Response response)
+    {
+        PiritiXmlRepresentation<Book> representation = 
+            new PiritiXmlRepresentation<Book>(Book.XML, request.getEntity());
+        try
+        {
+            // Depending whether there's one book element or a list of book
+            // elements in your XML data
+            List<Book> books = representation.getModels();
+            Book book = representation.getModel();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+});
+clientResource.get(MediaType.TEXT_XML);
+}}}
