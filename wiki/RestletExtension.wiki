@@ -44,6 +44,11 @@ clientResource.setOnResponse(new Uniform()
 clientResource.get(MediaType.APPLICATION_JSON);
 }}}
 
+The entity returned by the resource has to be a valid JSON object. In case you want to read a list of books the JSON object has to contain one key (name does not matter) with the array of books as value: 
+{{{
+{books: [{isbn: "0815", title: "Foo"}, {isbn: "1234", title: "Bar"}]}
+}}}
+
 
 == Read and convert XML ==
 To read the XML data you need an instance of XmlReader`<T>`
@@ -83,4 +88,18 @@ clientResource.setOnResponse(new Uniform()
     }
 });
 clientResource.get(MediaType.TEXT_XML);
+}}}
+
+The entity returned by the resource has to be a valid XML document. In case you want to read a list of books the document must contain a list of book elements as direct children of the root element: 
+{{{
+<books>
+    <book>
+        <isbn>0815</isbn>
+        <title>Foo</title>
+    </book>
+    <book>
+        <isbn>1234</isbn>
+        <title>Bar</title>
+    </book>
+</books>
 }}}
