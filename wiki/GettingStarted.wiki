@@ -4,7 +4,7 @@
 Actually Piriti consists of four modules:
   * [Features piriti-core]: The core classes to map JSON and XML to POJOs.
   * [GXTExtension piriti-gxt]: An extension to map the data to GXT ModelData instances. 
-  * [RestletExtension piriti-restlet]: An extension for the Restlet GWT edition. Contains representations which use the readers from piriti-core. 
+  * [RestletExtension piriti-restlet]: An extension for the Restlet GWT edition. Contains representations which use the readers from Piriti Core. 
   * [SampleApplication piriti-sample]: A sample application deployed on Google AppEngine which demonstrates Piritis features.
 
 = Prerequisites =
