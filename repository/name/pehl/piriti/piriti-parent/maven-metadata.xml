@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>name.pehl.piriti</groupId>
+  <artifactId>piriti-parent</artifactId>
+  <version>0.3.1</version>
+  <versioning>
+    <versions>
+      <version>0.3.1</version>
+    </versions>
+    <lastUpdated>20100326093518</lastUpdated>
+  </versioning>
+</metadata>
