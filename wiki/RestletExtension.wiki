@@ -2,7 +2,7 @@
 
 = Introduction =
 
-[http://www.restlet.org Restlet] is a RESTful Web framework for Java. There's also a [http://blog.noelios.com/2008/07/25/restlet-ported-to-gwt/ GWT edition] available. The Piriti Restlet extensions is built on top of that edition. There are two representations available which use the Piriti readers to convert JSON and XML data to your model (POJOs and/or GXT models). 
+[http://www.restlet.org Restlet] is a RESTful Web framework for Java. There's also a [http://blog.noelios.com/2008/07/25/restlet-ported-to-gwt/ GWT edition] available. The Piriti Restlet extensions builts on top of that edition. Therefore the 2.x version of Restlet is used. There are two representations available which use the Piriti readers to convert JSON and XML data to your model (POJOs and/or GXT models). 
 
 == Read and convert JSON ==
 To read the JSON data you need an instance of JsonReader`<T>`
