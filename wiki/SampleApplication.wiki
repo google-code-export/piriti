@@ -11,7 +11,7 @@ The sample provides a 'books' resources which returns three books. The resource 
   # [http://piriti-sample.appspot.com/rest/v1/books XML]
   # JSON. To see the representation use some kind of rest client (e.g. [http://hypertopic.org/index.php/RESTClient RESTClient for Firefox]), call 'http://piriti-sample.appspot.com/rest/v1/books' and set the 'Accept' header to 'application/json'
 
-The sample has links to request each representation and convert the results to POJOs and GXT models. For each request the relevant source code plus the processing time is displayd. Pleas note that the processing time does not include the network traffic.
+The sample has links to request each representation and convert the results to POJOs and GXT models. For each request the relevant source code plus the processing time (without network traffic) is displayed.
 
 = Source = 
 The full source code of the sample application is available in the subversion repository or as seperate [http://code.google.com/p/piriti/downloads/list download].  
