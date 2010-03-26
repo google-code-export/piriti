@@ -14,4 +14,4 @@ The sample provides a 'books' resources which returns three books. The resource 
 The sample has links to request each representation and convert the results to POJOs and GXT models. For each request the relevant source code plus the processing time (without network traffic) is displayed.
 
 = Source = 
-The full source code of the sample application is available in the subversion [http://code.google.com/p/piriti/source/browse repository] or as seperate [http://code.google.com/p/piriti/downloads/list download].  
+The full source code of the sample application is available in the subversion [http://code.google.com/p/piriti/source/browse repository] or as seperate [http://piriti.googlecode.com/files/piriti-sample-0.3.1.zip download].  
