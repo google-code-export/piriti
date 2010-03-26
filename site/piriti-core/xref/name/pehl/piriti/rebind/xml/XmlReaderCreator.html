@@ -6,7 +6,7 @@
 <link type="text/css" rel="stylesheet" href="../../../../../stylesheet.css" />
 </head>
 <body>
-<div id="overview"><a href="../../../../../../../../../../../../../core/target/site/apidocs/name/pehl/piriti/rebind/xml/XmlReaderCreator.html">View Javadoc</a></div><pre>
+<div id="overview"><a href="../../../../../../apidocs/name/pehl/piriti/rebind/xml/XmlReaderCreator.html">View Javadoc</a></div><pre>
 
 <a name="1" href="#1">1</a>   <strong class="jxr_keyword">package</strong> name.pehl.piriti.rebind.xml;
 <a name="2" href="#2">2</a>   
@@ -86,132 +86,172 @@
 <a name="76" href="#76">76</a>          readListFromDocument(writer);
 <a name="77" href="#77">77</a>          writer.newline();
 <a name="78" href="#78">78</a>  
-<a name="79" href="#79">79</a>          readListFromElement(writer);
+<a name="79" href="#79">79</a>          readListFromDocumentUsingXpath(writer);
 <a name="80" href="#80">80</a>          writer.newline();
-<a name="81" href="#81">81</a>      }
-<a name="82" href="#82">82</a>  
-<a name="83" href="#83">83</a>  
-<a name="84" href="#84">84</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readFromDocument(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
-<a name="85" href="#85">85</a>      {
-<a name="86" href="#86">86</a>          read(writer, <span class="jxr_string">"Document"</span>, <span class="jxr_string">"document"</span>);
-<a name="87" href="#87">87</a>      }
-<a name="88" href="#88">88</a>  
-<a name="89" href="#89">89</a>  
-<a name="90" href="#90">90</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readFromElement(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
-<a name="91" href="#91">91</a>      {
-<a name="92" href="#92">92</a>          read(writer, <span class="jxr_string">"Element"</span>, <span class="jxr_string">"element"</span>);
-<a name="93" href="#93">93</a>      }
-<a name="94" href="#94">94</a>  
-<a name="95" href="#95">95</a>  
-<a name="96" href="#96">96</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> read(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer, String xmlType, String xmlVariable) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
-<a name="97" href="#97">97</a>      {
-<a name="98" href="#98">98</a>          writer.write(<span class="jxr_string">"public %s read(%s %s) {"</span>, modelType.getParameterizedQualifiedSourceName(), xmlType, xmlVariable);
-<a name="99" href="#99">99</a>          writer.indent();
-<a name="100" href="#100">100</a>         writer.write(<span class="jxr_string">"%s model = null;"</span>, modelType.getParameterizedQualifiedSourceName());
-<a name="101" href="#101">101</a>         writer.write(<span class="jxr_string">"if (%s != null) {"</span>, xmlVariable);
-<a name="102" href="#102">102</a>         writer.indent();
-<a name="103" href="#103">103</a>         writer.write(<span class="jxr_string">"model = new %s();"</span>, modelType.getParameterizedQualifiedSourceName());
-<a name="104" href="#104">104</a>         processMappings(writer, xmlVariable);
-<a name="105" href="#105">105</a>         writer.outdent();
-<a name="106" href="#106">106</a>         writer.write(<span class="jxr_string">"}"</span>);
-<a name="107" href="#107">107</a>         writer.write(<span class="jxr_string">"return model;"</span>);
-<a name="108" href="#108">108</a>         writer.outdent();
-<a name="109" href="#109">109</a>         writer.write(<span class="jxr_string">"}"</span>);
-<a name="110" href="#110">110</a>     }
-<a name="111" href="#111">111</a> 
-<a name="112" href="#112">112</a> 
-<a name="113" href="#113">113</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readListFromDocument(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
-<a name="114" href="#114">114</a>     {
-<a name="115" href="#115">115</a>         readList(writer, <span class="jxr_string">"Document"</span>, <span class="jxr_string">"document"</span>);
-<a name="116" href="#116">116</a>     }
-<a name="117" href="#117">117</a> 
-<a name="118" href="#118">118</a> 
-<a name="119" href="#119">119</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readListFromElement(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
-<a name="120" href="#120">120</a>     {
-<a name="121" href="#121">121</a>         readList(writer, <span class="jxr_string">"Element"</span>, <span class="jxr_string">"element"</span>);
-<a name="122" href="#122">122</a>     }
-<a name="123" href="#123">123</a> 
-<a name="124" href="#124">124</a> 
-<a name="125" href="#125">125</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readList(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer, String xmlType, String xmlVariable) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
-<a name="126" href="#126">126</a>     {
-<a name="127" href="#127">127</a>         writer.write(<span class="jxr_string">"public List&lt;%s&gt; readList(%s %s, String xpath) {"</span>,
-<a name="128" href="#128">128</a>                 modelType.getParameterizedQualifiedSourceName(), xmlType, xmlVariable);
-<a name="129" href="#129">129</a>         writer.indent();
-<a name="130" href="#130">130</a>         writer.write(<span class="jxr_string">"List&lt;%1$s&gt; models = new ArrayList&lt;%1$s&gt;();"</span>, modelType.getParameterizedQualifiedSourceName());
-<a name="131" href="#131">131</a>         writer.write(<span class="jxr_string">"if (%s != null &amp;&amp; xpath != null &amp;&amp; xpath.length() != 0) {"</span>, xmlVariable);
-<a name="132" href="#132">132</a>         writer.indent();
-<a name="133" href="#133">133</a>         writer.write(<span class="jxr_string">"List&lt;Element&gt; elements = XPathUtils.getElements(%s, xpath);"</span>, xmlVariable);
-<a name="134" href="#134">134</a>         writer.write(<span class="jxr_string">"if (elements != null &amp;&amp; !elements.isEmpty()) {"</span>);
-<a name="135" href="#135">135</a>         writer.indent();
-<a name="136" href="#136">136</a>         writer.write(<span class="jxr_string">"for (Element currentElement : elements) {"</span>);
-<a name="137" href="#137">137</a>         writer.indent();
-<a name="138" href="#138">138</a>         writer.write(<span class="jxr_string">"%s model = read(currentElement);"</span>, modelType.getParameterizedQualifiedSourceName());
-<a name="139" href="#139">139</a>         writer.write(<span class="jxr_string">"if (model != null) {"</span>);
-<a name="140" href="#140">140</a>         writer.indent();
-<a name="141" href="#141">141</a>         writer.write(<span class="jxr_string">"models.add(model);"</span>);
-<a name="142" href="#142">142</a>         writer.outdent();
-<a name="143" href="#143">143</a>         writer.write(<span class="jxr_string">"}"</span>);
-<a name="144" href="#144">144</a>         writer.outdent();
-<a name="145" href="#145">145</a>         writer.write(<span class="jxr_string">"}"</span>);
-<a name="146" href="#146">146</a>         writer.outdent();
-<a name="147" href="#147">147</a>         writer.write(<span class="jxr_string">"}"</span>);
-<a name="148" href="#148">148</a>         writer.outdent();
-<a name="149" href="#149">149</a>         writer.write(<span class="jxr_string">"}"</span>);
-<a name="150" href="#150">150</a>         writer.write(<span class="jxr_string">"return models;"</span>);
-<a name="151" href="#151">151</a>         writer.outdent();
-<a name="152" href="#152">152</a>         writer.write(<span class="jxr_string">"}"</span>);
-<a name="153" href="#153">153</a>     }
-<a name="154" href="#154">154</a> 
-<a name="155" href="#155">155</a> 
-<a name="156" href="#156">156</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> processMappings(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer, String xmlVariable) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
-<a name="157" href="#157">157</a>     {
-<a name="158" href="#158">158</a>         JField[] fields = modelType.getFields();
-<a name="159" href="#159">159</a>         <strong class="jxr_keyword">if</strong> (fields != <strong class="jxr_keyword">null</strong> &amp;&amp; fields.length != 0)
-<a name="160" href="#160">160</a>         {
-<a name="161" href="#161">161</a>             <strong class="jxr_keyword">int</strong> counter = 0;
-<a name="162" href="#162">162</a>             <strong class="jxr_keyword">for</strong> (JField field : fields)
-<a name="163" href="#163">163</a>             {
-<a name="164" href="#164">164</a>                 <a href="../../../../../name/pehl/piriti/client/xml/XmlField.html">XmlField</a> xmlField = field.getAnnotation(XmlField.<strong class="jxr_keyword">class</strong>);
-<a name="165" href="#165">165</a>                 <strong class="jxr_keyword">if</strong> (xmlField != <strong class="jxr_keyword">null</strong>)
-<a name="166" href="#166">166</a>                 {
-<a name="167" href="#167">167</a>                     writer.newline();
-<a name="168" href="#168">168</a>                     String xpath = calculateXpath(field, xmlField);
-<a name="169" href="#169">169</a>                     <a href="../../../../../name/pehl/piriti/rebind/FieldContext.html">FieldContext</a> fieldContext = <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/FieldContext.html">FieldContext</a>(context.getTypeOracle(), handlerRegistry, modelType,
-<a name="170" href="#170">170</a>                             field.getType(), field.getName(), xpath, xmlField.format(), xmlVariable, <span class="jxr_string">"value"</span> + counter);
-<a name="171" href="#171">171</a>                     <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> handler = handlerRegistry.findFieldHandler(fieldContext);
-<a name="172" href="#172">172</a>                     <strong class="jxr_keyword">if</strong> (handler != <strong class="jxr_keyword">null</strong>)
-<a name="173" href="#173">173</a>                     {
-<a name="174" href="#174">174</a>                         <strong class="jxr_keyword">if</strong> (handler.isValid(writer, fieldContext))
-<a name="175" href="#175">175</a>                         {
-<a name="176" href="#176">176</a>                             handler.writeComment(writer, fieldContext);
-<a name="177" href="#177">177</a>                             handler.writeDeclaration(writer, fieldContext);
-<a name="178" href="#178">178</a>                             handler.writeConverterCode(writer, fieldContext);
-<a name="179" href="#179">179</a>                             handler.writeAssignment(writer, fieldContext);
-<a name="180" href="#180">180</a>                             counter++;
-<a name="181" href="#181">181</a>                         }
-<a name="182" href="#182">182</a>                     }
-<a name="183" href="#183">183</a>                     <em class="jxr_comment">// TODO What to do if no handler was found?</em>
-<a name="184" href="#184">184</a>                 }
-<a name="185" href="#185">185</a>             }
-<a name="186" href="#186">186</a>         }
-<a name="187" href="#187">187</a>     }
-<a name="188" href="#188">188</a> 
-<a name="189" href="#189">189</a> 
-<a name="190" href="#190">190</a>     <strong class="jxr_keyword">protected</strong> String calculateXpath(JField field, <a href="../../../../../name/pehl/piriti/client/xml/XmlField.html">XmlField</a> xmlField)
-<a name="191" href="#191">191</a>     {
-<a name="192" href="#192">192</a>         String xpath = xmlField.value();
-<a name="193" href="#193">193</a>         <strong class="jxr_keyword">if</strong> (xpath == <strong class="jxr_keyword">null</strong> || xpath.length() == 0)
-<a name="194" href="#194">194</a>         {
-<a name="195" href="#195">195</a>             xpath = field.getName();
-<a name="196" href="#196">196</a>             JType fieldType = field.getType();
-<a name="197" href="#197">197</a>             <strong class="jxr_keyword">if</strong> (fieldType.isPrimitive() != <strong class="jxr_keyword">null</strong> || TypeUtils.isBasicType(fieldType) || fieldType.isEnum() != <strong class="jxr_keyword">null</strong>)
-<a name="198" href="#198">198</a>             {
-<a name="199" href="#199">199</a>                 xpath += <span class="jxr_string">"/text()"</span>;
-<a name="200" href="#200">200</a>             }
-<a name="201" href="#201">201</a>         }
-<a name="202" href="#202">202</a>         <strong class="jxr_keyword">return</strong> xpath;
-<a name="203" href="#203">203</a>     }
-<a name="204" href="#204">204</a> }
+<a name="81" href="#81">81</a>  
+<a name="82" href="#82">82</a>          readListFromElement(writer);
+<a name="83" href="#83">83</a>          writer.newline();
+<a name="84" href="#84">84</a>  
+<a name="85" href="#85">85</a>          readListFromElementUsingXpath(writer);
+<a name="86" href="#86">86</a>          writer.newline();
+<a name="87" href="#87">87</a>          
+<a name="88" href="#88">88</a>          readListInternal(writer);
+<a name="89" href="#89">89</a>          writer.newline();
+<a name="90" href="#90">90</a>      }
+<a name="91" href="#91">91</a>  
+<a name="92" href="#92">92</a>  
+<a name="93" href="#93">93</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readFromDocument(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="94" href="#94">94</a>      {
+<a name="95" href="#95">95</a>          read(writer, <span class="jxr_string">"Document"</span>, <span class="jxr_string">"document"</span>);
+<a name="96" href="#96">96</a>      }
+<a name="97" href="#97">97</a>  
+<a name="98" href="#98">98</a>  
+<a name="99" href="#99">99</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readFromElement(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="100" href="#100">100</a>     {
+<a name="101" href="#101">101</a>         read(writer, <span class="jxr_string">"Element"</span>, <span class="jxr_string">"element"</span>);
+<a name="102" href="#102">102</a>     }
+<a name="103" href="#103">103</a> 
+<a name="104" href="#104">104</a> 
+<a name="105" href="#105">105</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> read(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer, String xmlType, String xmlVariable) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="106" href="#106">106</a>     {
+<a name="107" href="#107">107</a>         writer.write(<span class="jxr_string">"public %s read(%s %s) {"</span>, modelType.getParameterizedQualifiedSourceName(), xmlType, xmlVariable);
+<a name="108" href="#108">108</a>         writer.indent();
+<a name="109" href="#109">109</a>         writer.write(<span class="jxr_string">"%s model = null;"</span>, modelType.getParameterizedQualifiedSourceName());
+<a name="110" href="#110">110</a>         writer.write(<span class="jxr_string">"if (%s != null) {"</span>, xmlVariable);
+<a name="111" href="#111">111</a>         writer.indent();
+<a name="112" href="#112">112</a>         writer.write(<span class="jxr_string">"model = new %s();"</span>, modelType.getParameterizedQualifiedSourceName());
+<a name="113" href="#113">113</a>         processMappings(writer, xmlVariable);
+<a name="114" href="#114">114</a>         writer.outdent();
+<a name="115" href="#115">115</a>         writer.write(<span class="jxr_string">"}"</span>);
+<a name="116" href="#116">116</a>         writer.write(<span class="jxr_string">"return model;"</span>);
+<a name="117" href="#117">117</a>         writer.outdent();
+<a name="118" href="#118">118</a>         writer.write(<span class="jxr_string">"}"</span>);
+<a name="119" href="#119">119</a>     }
+<a name="120" href="#120">120</a> 
+<a name="121" href="#121">121</a> 
+<a name="122" href="#122">122</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readListFromDocument(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="123" href="#123">123</a>     {
+<a name="124" href="#124">124</a>         readList(writer, <span class="jxr_string">"Document"</span>, <span class="jxr_string">"document"</span>);
+<a name="125" href="#125">125</a>     }
+<a name="126" href="#126">126</a> 
+<a name="127" href="#127">127</a> 
+<a name="128" href="#128">128</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readListFromDocumentUsingXpath(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="129" href="#129">129</a>     {
+<a name="130" href="#130">130</a>         readListUsingXpath(writer, <span class="jxr_string">"Document"</span>, <span class="jxr_string">"document"</span>);
+<a name="131" href="#131">131</a>     }
+<a name="132" href="#132">132</a> 
+<a name="133" href="#133">133</a> 
+<a name="134" href="#134">134</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readListFromElement(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="135" href="#135">135</a>     {
+<a name="136" href="#136">136</a>         readList(writer, <span class="jxr_string">"Element"</span>, <span class="jxr_string">"element"</span>);
+<a name="137" href="#137">137</a>     }
+<a name="138" href="#138">138</a> 
+<a name="139" href="#139">139</a> 
+<a name="140" href="#140">140</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readListFromElementUsingXpath(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="141" href="#141">141</a>     {
+<a name="142" href="#142">142</a>         readListUsingXpath(writer, <span class="jxr_string">"Element"</span>, <span class="jxr_string">"element"</span>);
+<a name="143" href="#143">143</a>     }
+<a name="144" href="#144">144</a> 
+<a name="145" href="#145">145</a> 
+<a name="146" href="#146">146</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readList(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer, String xmlType, String xmlVariable) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="147" href="#147">147</a>     {
+<a name="148" href="#148">148</a>         writer.write(<span class="jxr_string">"public List&lt;%s&gt; readList(%s %s) {"</span>, modelType.getParameterizedQualifiedSourceName(), xmlType,
+<a name="149" href="#149">149</a>                 xmlVariable);
+<a name="150" href="#150">150</a>         writer.indent();
+<a name="151" href="#151">151</a>         writer.write(<span class="jxr_string">"List&lt;Element&gt; elements = XPathUtils.getElements(%s);"</span>, xmlVariable);
+<a name="152" href="#152">152</a>         writer.write(<span class="jxr_string">"return readListInternal(elements);"</span>);
+<a name="153" href="#153">153</a>         writer.outdent();
+<a name="154" href="#154">154</a>         writer.write(<span class="jxr_string">"}"</span>);
+<a name="155" href="#155">155</a>     }
+<a name="156" href="#156">156</a> 
+<a name="157" href="#157">157</a> 
+<a name="158" href="#158">158</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readListUsingXpath(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer, String xmlType, String xmlVariable)
+<a name="159" href="#159">159</a>             <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="160" href="#160">160</a>     {
+<a name="161" href="#161">161</a>         writer.write(<span class="jxr_string">"public List&lt;%s&gt; readList(%s %s, String xpath) {"</span>,
+<a name="162" href="#162">162</a>                 modelType.getParameterizedQualifiedSourceName(), xmlType, xmlVariable);
+<a name="163" href="#163">163</a>         writer.indent();
+<a name="164" href="#164">164</a>         writer.write(<span class="jxr_string">"List&lt;Element&gt; elements = XPathUtils.getElements(%s, xpath);"</span>, xmlVariable);
+<a name="165" href="#165">165</a>         writer.write(<span class="jxr_string">"return readListInternal(elements);"</span>);
+<a name="166" href="#166">166</a>         writer.outdent();
+<a name="167" href="#167">167</a>         writer.write(<span class="jxr_string">"}"</span>);
+<a name="168" href="#168">168</a>     }
+<a name="169" href="#169">169</a> 
+<a name="170" href="#170">170</a> 
+<a name="171" href="#171">171</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> readListInternal(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer)
+<a name="172" href="#172">172</a>     {
+<a name="173" href="#173">173</a>         writer.write(<span class="jxr_string">"private List&lt;%s&gt; readListInternal(List&lt;Element&gt; elements) {"</span>, modelType.getParameterizedQualifiedSourceName());
+<a name="174" href="#174">174</a>         writer.indent();
+<a name="175" href="#175">175</a>         writer.write(<span class="jxr_string">"List&lt;%1$s&gt; models = new ArrayList&lt;%1$s&gt;();"</span>, modelType.getParameterizedQualifiedSourceName());
+<a name="176" href="#176">176</a>         writer.write(<span class="jxr_string">"if (elements != null &amp;&amp; !elements.isEmpty()) {"</span>);
+<a name="177" href="#177">177</a>         writer.indent();
+<a name="178" href="#178">178</a>         writer.write(<span class="jxr_string">"for (Element element : elements) {"</span>);
+<a name="179" href="#179">179</a>         writer.indent();
+<a name="180" href="#180">180</a>         writer.write(<span class="jxr_string">"%s model = read(element);"</span>, modelType.getParameterizedQualifiedSourceName());
+<a name="181" href="#181">181</a>         writer.write(<span class="jxr_string">"if (model != null) {"</span>);
+<a name="182" href="#182">182</a>         writer.indent();
+<a name="183" href="#183">183</a>         writer.write(<span class="jxr_string">"models.add(model);"</span>);
+<a name="184" href="#184">184</a>         writer.outdent();
+<a name="185" href="#185">185</a>         writer.write(<span class="jxr_string">"}"</span>);
+<a name="186" href="#186">186</a>         writer.outdent();
+<a name="187" href="#187">187</a>         writer.write(<span class="jxr_string">"}"</span>);
+<a name="188" href="#188">188</a>         writer.outdent();
+<a name="189" href="#189">189</a>         writer.write(<span class="jxr_string">"}"</span>);
+<a name="190" href="#190">190</a>         writer.write(<span class="jxr_string">"return models;"</span>);
+<a name="191" href="#191">191</a>         writer.outdent();
+<a name="192" href="#192">192</a>         writer.write(<span class="jxr_string">"}"</span>);
+<a name="193" href="#193">193</a>     }
+<a name="194" href="#194">194</a> 
+<a name="195" href="#195">195</a> 
+<a name="196" href="#196">196</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> processMappings(<a href="../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer, String xmlVariable) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="197" href="#197">197</a>     {
+<a name="198" href="#198">198</a>         JField[] fields = modelType.getFields();
+<a name="199" href="#199">199</a>         <strong class="jxr_keyword">if</strong> (fields != <strong class="jxr_keyword">null</strong> &amp;&amp; fields.length != 0)
+<a name="200" href="#200">200</a>         {
+<a name="201" href="#201">201</a>             <strong class="jxr_keyword">int</strong> counter = 0;
+<a name="202" href="#202">202</a>             <strong class="jxr_keyword">for</strong> (JField field : fields)
+<a name="203" href="#203">203</a>             {
+<a name="204" href="#204">204</a>                 <a href="../../../../../name/pehl/piriti/client/xml/XmlField.html">XmlField</a> xmlField = field.getAnnotation(XmlField.<strong class="jxr_keyword">class</strong>);
+<a name="205" href="#205">205</a>                 <strong class="jxr_keyword">if</strong> (xmlField != <strong class="jxr_keyword">null</strong>)
+<a name="206" href="#206">206</a>                 {
+<a name="207" href="#207">207</a>                     writer.newline();
+<a name="208" href="#208">208</a>                     String xpath = calculateXpath(field, xmlField);
+<a name="209" href="#209">209</a>                     <a href="../../../../../name/pehl/piriti/rebind/FieldContext.html">FieldContext</a> fieldContext = <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/FieldContext.html">FieldContext</a>(context.getTypeOracle(), handlerRegistry, modelType,
+<a name="210" href="#210">210</a>                             field.getType(), field.getName(), xpath, xmlField.format(), xmlVariable, <span class="jxr_string">"value"</span> + counter);
+<a name="211" href="#211">211</a>                     <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> handler = handlerRegistry.findFieldHandler(fieldContext);
+<a name="212" href="#212">212</a>                     <strong class="jxr_keyword">if</strong> (handler != <strong class="jxr_keyword">null</strong>)
+<a name="213" href="#213">213</a>                     {
+<a name="214" href="#214">214</a>                         <strong class="jxr_keyword">if</strong> (handler.isValid(writer, fieldContext))
+<a name="215" href="#215">215</a>                         {
+<a name="216" href="#216">216</a>                             handler.writeComment(writer, fieldContext);
+<a name="217" href="#217">217</a>                             handler.writeDeclaration(writer, fieldContext);
+<a name="218" href="#218">218</a>                             handler.writeConverterCode(writer, fieldContext);
+<a name="219" href="#219">219</a>                             handler.writeAssignment(writer, fieldContext);
+<a name="220" href="#220">220</a>                             counter++;
+<a name="221" href="#221">221</a>                         }
+<a name="222" href="#222">222</a>                     }
+<a name="223" href="#223">223</a>                     <em class="jxr_comment">// TODO What to do if no handler was found?</em>
+<a name="224" href="#224">224</a>                 }
+<a name="225" href="#225">225</a>             }
+<a name="226" href="#226">226</a>         }
+<a name="227" href="#227">227</a>     }
+<a name="228" href="#228">228</a> 
+<a name="229" href="#229">229</a> 
+<a name="230" href="#230">230</a>     <strong class="jxr_keyword">protected</strong> String calculateXpath(JField field, <a href="../../../../../name/pehl/piriti/client/xml/XmlField.html">XmlField</a> xmlField)
+<a name="231" href="#231">231</a>     {
+<a name="232" href="#232">232</a>         String xpath = xmlField.value();
+<a name="233" href="#233">233</a>         <strong class="jxr_keyword">if</strong> (xpath == <strong class="jxr_keyword">null</strong> || xpath.length() == 0)
+<a name="234" href="#234">234</a>         {
+<a name="235" href="#235">235</a>             xpath = field.getName();
+<a name="236" href="#236">236</a>             JType fieldType = field.getType();
+<a name="237" href="#237">237</a>             <strong class="jxr_keyword">if</strong> (fieldType.isPrimitive() != <strong class="jxr_keyword">null</strong> || TypeUtils.isBasicType(fieldType) || fieldType.isEnum() != <strong class="jxr_keyword">null</strong>)
+<a name="238" href="#238">238</a>             {
+<a name="239" href="#239">239</a>                 xpath += <span class="jxr_string">"/text()"</span>;
+<a name="240" href="#240">240</a>             }
+<a name="241" href="#241">241</a>         }
+<a name="242" href="#242">242</a>         <strong class="jxr_keyword">return</strong> xpath;
+<a name="243" href="#243">243</a>     }
+<a name="244" href="#244">244</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>
