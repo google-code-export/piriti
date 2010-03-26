@@ -1,3 +1,13 @@
-name.pehl.gwt.piriti.client.xml.book
-name.pehl.gwt.piriti.client.xml.demo
-name.pehl.gwt.piriti.client.converter
+name.pehl.piriti.client.gwttest.fat
+name.pehl.piriti.client.gwttest.fat.json
+name.pehl.piriti.client.gwttest.fat.xml
+name.pehl.piriti.client.gwttest.book
+name.pehl.piriti.client.gwttest.book.json
+name.pehl.piriti.client.gwttest.book.xml
+name.pehl.piriti.client.converter
+name.pehl.piriti.gxt.client.gwttest.fat
+name.pehl.piriti.gxt.client.gwttest.fat.json
+name.pehl.piriti.gxt.client.gwttest.fat.xml
+name.pehl.piriti.gxt.client.gwttest.book
+name.pehl.piriti.gxt.client.gwttest.book.json
+name.pehl.piriti.gxt.client.gwttest.book.xml
