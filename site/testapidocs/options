@@ -19,6 +19,8 @@
 -link
 'http://google-web-toolkit.googlecode.com/svn/javadoc/2.0'
 -link
+'../apidocs'
+-link
 'http://java.sun.com/javase/6/docs/api'
 -stylesheetfile
 '/home/pehlh/Projekte/Piriti/impl/target/site/testapidocs/stylesheet.css'
