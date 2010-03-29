@@ -71,5 +71,4 @@ The following lists summarize the limitations in Piriti.
 = Planed =
 
 In future releases the following features might be implemented:
-  * Support for recursive models
   * Add the ability to also generate JSON / XML data from the annotated models.
