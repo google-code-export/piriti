@@ -71,5 +71,5 @@ The following lists summarize the limitations in Piriti.
 = Planed =
 
 In future releases the following features might be implemented:
-  * Add support for references in JSON / XML data (see [http://xstream.codehaus.org/graphs.html XStream] and [http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO])
+  * Add support for references in JSON / XML data (see [https://jaxb.dev.java.net/guide/Mapping_cyclic_references_to_XML.html JAXB],  [http://xstream.codehaus.org/graphs.html XStream] and [http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO])
   * Add the ability to also generate JSON / XML data from the annotated models.
