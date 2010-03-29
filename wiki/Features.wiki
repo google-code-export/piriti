@@ -65,7 +65,6 @@ The following lists summarize the limitations in Piriti.
   * Arrays of collections / maps are not supported.
   * Untyped collections are not supported.
   * Collections of collections / maps are not supported.
-  * Recursive models are not supported (Book contains a list of related books).
   * Annotations are currently limited to fields. 
   * The annotated fields must not have private access modifiers.
 
