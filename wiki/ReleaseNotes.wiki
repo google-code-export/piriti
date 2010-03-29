@@ -2,7 +2,7 @@
 
 == Piriti 0.3.2 ==
   * Added checks for NPE in generated JsonReader code
-  * Added support for nested models of same type: 1-1 and 1-n 
+  * Added support for nested models of same type: 1-1 and 1-n. See GWT tests for an example. 
 
 == Piriti 0.3.1 ==
   * Added methods to JsonReader for reading lists of models
