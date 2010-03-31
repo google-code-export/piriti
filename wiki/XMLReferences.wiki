@@ -56,7 +56,7 @@ The XML document uses references for
   * employees of a department and
   * departments itself
 
-Piriti supports the mapping of those references. So you end up with references to POJOs in your mapped POJO. The 'boss' POJO has references to the 'seller' and 'engineer' POJO. Let's take a look at the annotated classes.
+Piriti supports the mapping of those references. So you end up with references to POJOs in your mapped POJO. The 'boss' POJO has references to the 'seller' and 'engineer' POJO. Let's take a look at the POJOs.
 
 = Mapping =
 To map the XML document use the following mapping:
