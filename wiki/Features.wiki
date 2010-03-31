@@ -50,7 +50,26 @@ public class Author
 }}}
 
 == References ==
-The core XML mapping supports the mapping of XML references using ID and IDREF. See [XMLReferences XML references] for more info.
+The core XML mapping supports the mapping of XML references using ID and IDREF. 
+{{{
+<employees>
+    <employee id="boss">
+        <name>Big Boss</name>
+        <team>
+            <member ref="seller" />
+        </team>
+        <department id="board">
+            <name>Board</name>
+            <employees members="boss" />
+        </department>
+    </employee>
+    <employee id="seller">
+        <name>Sally Seller</name>
+        <boss ref="boss" />
+    </employee>
+</employees>
+}}}
+See [XMLReferences XML references] for more info.
 
 = Extensions = 
 Currently there are two extensions for Piriti:
