@@ -50,7 +50,7 @@ public class Author
 }}}
 
 == References ==
-The core XML mapping supports the mapping of XML references using ID and IDREF. 
+Piriti supports the mapping of XML references using ID and IDREF. 
 {{{
 <employees>
     <employee id="boss">
@@ -58,10 +58,6 @@ The core XML mapping supports the mapping of XML references using ID and IDREF.
         <team>
             <member ref="seller" />
         </team>
-        <department id="board">
-            <name>Board</name>
-            <employees members="boss" />
-        </department>
     </employee>
     <employee id="seller">
         <name>Sally Seller</name>
