@@ -20,7 +20,18 @@ The mapping annotations do not work on all types. The following tables show whic
   * Arrays of the above types
   * Typed collections of the above types
 
-== Nested Models ==
+= Supported collections =
+When mapping collections the following types are supported:
+  * Collection`<T>`. ArrayList`<T>` is choosen as the implementation.
+  * List`<T>`. ArrayList`<T>` is choosen as the implementation.
+  * ArrayList`<T>`
+  * LinkedList`<T>`
+  * Set`<T>`. HashSet`<T>` is choosen as the implementation.
+  * HashSet`<T>`
+  * SortedSet`<T>`. TreeSet`<T>` is choosen as the implementation.
+  * TreeSet`<T>`
+
+= Nested Models =
 Because all reader instances are registered against a global registry, references to other models that also have a reader are recognized and also mapped. Therefore the reader instances must be defined as public static fields (name must not be `XML`):
 {{{
 public class Book
@@ -41,17 +52,9 @@ public class Author
 }
 }}}
 
+== References ==
+The core XML mapping supports the mapping of XML references using ID and IDREF. See [XMLReferences] for more info.
 
-== Supported collections ==
-When mapping collections the following types are supported:
-  * Collection`<T>`. ArrayList`<T>` is choosen as the implementation.
-  * List`<T>`. ArrayList`<T>` is choosen as the implementation.
-  * ArrayList`<T>`
-  * LinkedList`<T>`
-  * Set`<T>`. HashSet`<T>` is choosen as the implementation.
-  * HashSet`<T>`
-  * SortedSet`<T>`. TreeSet`<T>` is choosen as the implementation.
-  * TreeSet`<T>`
 
 = Extensions = 
 Currently there are two extensions for Piriti:
@@ -59,7 +62,6 @@ Currently there are two extensions for Piriti:
   * [RestletExtension Restlet extension]: Offers representations which use an XML / JSON reader.
 
 = Limitations = 
-
 The following lists summarize the limitations in Piriti.
   * Multi-dimensional arrays are not supported.
   * Arrays of collections / maps are not supported.
@@ -69,7 +71,6 @@ The following lists summarize the limitations in Piriti.
   * The annotated fields must not have private access modifiers.
 
 = Planed =
-
 In future releases the following features might be implemented:
-  * Add support for references in JSON / XML data (see [https://jaxb.dev.java.net/guide/Mapping_cyclic_references_to_XML.html JAXB],  [http://xstream.codehaus.org/graphs.html XStream] and [http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO])
+  * Add support for references in JSON ([http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO])
   * Add the ability to also generate JSON / XML data from the annotated models.
