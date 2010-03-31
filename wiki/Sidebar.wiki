@@ -1,6 +1,7 @@
   * [GettingStarted Getting Started]
   * [Features]
   * [XMLMapping XML Mapping]
+    * [XMLReferences XML References]
   * [JSONMapping JSON Mapping]
   * [GXTExtension GXT Extension]
   * [RestletExtension Restlet Extension]
