@@ -1,13 +1,109 @@
-#summary One-sentence summary of this page.
+#summary Mapping of references.
 
 = Introduction =
+Often you have references in your XML data. More often than not these references are expressed by using the ID and IDREF. Let's take the following XML document as an example:
+{{{
+<employees>
+    <employee id="boss">
+        <name>Big Boss</name>
+        <team>
+            <member ref="seller" />
+            <member ref="engineer" />
+        </team>
+        <department id="board">
+            <name>Board</name>
+            <employees members="boss" />
+        </department>
+    </employee>
 
-Add your content here.
+    <employee id="seller">
+        <name>Sally Seller</name>
+        <boss ref="boss" />
+        <department id="sales">
+            <name>Sales</name>
+            <employees members="seller" />
+        </department>
+    </employee>
 
+    <employee id="engineer">
+        <name>Ed Engineer</name>
+        <boss ref="boss" />
+        <team>
+            <member ref="coder" />
+            <member ref="tester" />
+        </team>
+        <department id="it">
+            <name>IT</name>
+            <employees members="engineer coder test" />
+        </department>
+    </employee>
+
+    <employee id="coder">
+        <name>Carl Coder</name>
+        <boss ref="engineer" />
+        <department ref="it" />
+    </employee>
+
+    <employee id="tester">
+        <name>Tom Tester</name>
+        <boss ref="engineer" />
+        <department ref="it" />
+    </employee>
+</employees>
+}}}
+The XML document uses references for
+  * team members
+  * employees of a department and
+  * departments itself
+
+Piriti supports the mapping of those references. So you end up with references to POJOs in your mapped POJO. The 'boss' POJO has references to the 'seller' and 'engineer' POJO. Let's take a look at the annotated classes.
+
+= Mapping =
+To map the XML document use the following mapping:
+{{{
+public class Employee
+{
+    public interface EmployeeXmlReader extends XmlReader<Employee>
+    {
+    }
+
+    public static final EmployeeXmlReader XML = GWT.create(EmployeeXmlReader.class);
+
+    @XmlId
+    String id;
+
+    @XmlField
+    String name;
+
+    @XmlIdRef("boss/@ref")
+    Employee boss;
+
+    @XmlIdRef("team/member/@ref")
+    List<Employee> team;
+
+    @XmlField
+    @XmlIdRef("department/@ref")
+    Department department;
+}
+
+public class Department
+{
+    public interface DepartmentXmlReader extends XmlReader<Department>
+    {
+    }
+
+    public static final DepartmentXmlReader XML = GWT.create(DepartmentXmlReader.class);
+
+    @XmlId
+    String id;
+
+    @XmlField
+    String name;
+
+    @XmlIdRef("employees/@members")
+    Employee[] employees;
+}
+}}}
 
 = Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+TODO
