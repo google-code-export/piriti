@@ -1,7 +1,7 @@
 #summary Mapping of references.
 
 = Introduction =
-Often you have references in your XML data. More often than not these references are expressed by using the ID and IDREF. Let's take the following XML document as an example:
+Often you have references in your XML data. More often than not these references are expressed by using ID and IDREF expressions. Let's take the following XML document as an example:
 {{{
 <employees>
     <employee id="boss">
@@ -56,18 +56,18 @@ The XML document uses references for
   * employees of a department and
   * departments itself
 
-Piriti supports the mapping of those references. So you end up with references to POJOs in your mapped POJO. The 'boss' POJO has references to the 'seller' and 'engineer' POJO. Let's take a look at the POJOs.
+Piriti supports the mapping of those references. So you end up with references to other POJOs in the mapped POJO. In the given example the 'boss' POJO has references to the 'seller' and 'engineer' POJO.
 
 = Mapping =
-To map the XML document use the following mapping:
+Let's take a look at the mapping: 
 {{{
 public class Employee
 {
-    public interface EmployeeXmlReader extends XmlReader<Employee>
+    public interface EmployeeReader extends XmlReader<Employee>
     {
     }
 
-    public static final EmployeeXmlReader XML = GWT.create(EmployeeXmlReader.class);
+    public static final EmployeeReader XML = GWT.create(EmployeeReader.class);
 
     @XmlId
     String id;
@@ -88,11 +88,11 @@ public class Employee
 
 public class Department
 {
-    public interface DepartmentXmlReader extends XmlReader<Department>
+    public interface DepartmentReader extends XmlReader<Department>
     {
     }
 
-    public static final DepartmentXmlReader XML = GWT.create(DepartmentXmlReader.class);
+    public static final DepartmentReader XML = GWT.create(DepartmentReader.class);
 
     @XmlId
     String id;
@@ -106,4 +106,19 @@ public class Department
 }}}
 
 = Details =
-TODO
+To map references you have to use `@XmlId` and `@XmlIdRef` annotations. 
+
+== @XmlId ==
+Identifiers in the XML document have to be marked with the `@XmlId` annotation. The value of the annotations has to be an XPath expressions which selects the id value. It defaults to `@id` which selects the id attribute of the current element. The selected value is mapped to a String member of the POJO. The `@XmlId` annotation can be used only once in a POJO. The POJO instance which contains the `@XmlId` annotation is put into an internal map using the identifier as key. The method `XmlReader<T>.idRef(String id)` can be used to select the mapped POJO instance. In the example above 
+{{{
+Employee boss = Employee.XML.idRef("boss");
+}}}
+selects the 'boss' instance. 
+
+== @XmlIdRef == 
+Using the `@XmlIdRef` annotation you can define reference to other POJOs. These POJOs must contain an identifier marked with `@XmlId`. The value of the `@XmlIdRef` annotation has to be an XPath expression selecting one or multiple string values. 
+  * One string value: The type of the field marked with the `@XmlIdRef` annotation has to be a type with a registered XmlReader. 
+  * Multiple string values: The type of the field has to be an array or collection of types with a registered XmlReader. 
+  
+== @XmlField _and_ @XmlIdRef
+In the example above the `department` field of the `Employee` class is marked with both an `@XmlField` and `@XmlIdRef` annotation. This is because the department is defined and also referenced in the XML document. 
