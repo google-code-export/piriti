@@ -1,30 +1,28 @@
 -classpath
-'/home/pehlh/Projekte/Piriti/impl/target/classes:/home/pehlh/Projekte/Piriti/impl/target/test-classes:/home/pehlh/Projekte/Piriti/impl/core/target/classes:/home/pehlh/Projekte/Piriti/impl/core/target/test-classes:/home/pehlh/Projekte/Piriti/impl/gxt/target/classes:/home/pehlh/Projekte/Piriti/impl/gxt/target/test-classes:/home/pehlh/Projekte/Piriti/impl/restlet/target/classes:/home/pehlh/Projekte/Piriti/impl/restlet/target/test-classes:/home/pehlh/Repo/name/pehl/piriti/piriti-core/0.3/piriti-core-0.3-tests.jar:/home/pehlh/Repo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/Repo/name/pehl/piriti/piriti-core/0.3/piriti-core-0.3.jar:/home/pehlh/Repo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-user/2.0.3/gwt-user-2.0.3.jar:/home/pehlh/Repo/junit/junit/4.7/junit-4.7.jar:/home/pehlh/Repo/com/google/gwt/gwt-servlet/2.0.3/gwt-servlet-2.0.3.jar:/home/pehlh/Repo/org/easymock/easymock/2.4/easymock-2.4.jar:/home/pehlh/Repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/Repo/com/extjs/gxt/2.1.1/gxt-2.1.1.jar:/home/pehlh/Repo/com/google/gwt/gwt-dev/2.0.3/gwt-dev-2.0.3.jar:/home/pehlh/Repo/org/restlet/gwt/org.restlet.ext.xml/2.0-SNAPSHOT/org.restlet.ext.xml-2.0-SNAPSHOT.jar:/home/pehlh/Repo/com/mouchel/gwt/xpath/gwtxpath/1.0/gwtxpath-1.0.jar:/home/pehlh/Repo/org/restlet/gwt/org.restlet.ext.json/2.0-SNAPSHOT/org.restlet.ext.json-2.0-SNAPSHOT.jar:/home/pehlh/Repo/org/restlet/gwt/org.restlet/2.0-SNAPSHOT/org.restlet-2.0-SNAPSHOT.jar'
+'/home/lfstad-pehl/Projekte/Piriti/impl/target/classes:/home/lfstad-pehl/Projekte/Piriti/impl/target/test-classes:/home/lfstad-pehl/Projekte/Piriti/impl/core/target/classes:/home/lfstad-pehl/Projekte/Piriti/impl/core/target/test-classes:/home/lfstad-pehl/Projekte/Piriti/impl/gxt/target/classes:/home/lfstad-pehl/Projekte/Piriti/impl/gxt/target/test-classes:/home/lfstad-pehl/Projekte/Piriti/impl/restlet/target/classes:/home/lfstad-pehl/Projekte/Piriti/impl/restlet/target/test-classes:/home/lfstad-pehl/MavenRepo/name/pehl/piriti/piriti-core/0.3.4/piriti-core-0.3.4-tests.jar:/home/lfstad-pehl/MavenRepo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/lfstad-pehl/MavenRepo/name/pehl/piriti/piriti-core/0.3.4/piriti-core-0.3.4.jar:/home/lfstad-pehl/MavenRepo/com/google/inject/guice/2.0/guice-2.0.jar:/home/lfstad-pehl/MavenRepo/com/google/gwt/gwt-user/2.0.3/gwt-user-2.0.3.jar:/home/lfstad-pehl/MavenRepo/junit/junit/4.7/junit-4.7.jar:/home/lfstad-pehl/MavenRepo/com/google/gwt/gwt-servlet/2.0.3/gwt-servlet-2.0.3.jar:/home/lfstad-pehl/MavenRepo/org/easymock/easymock/2.4/easymock-2.4.jar:/home/lfstad-pehl/MavenRepo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/lfstad-pehl/MavenRepo/com/extjs/gxt/2.1.1/gxt-2.1.1.jar:/home/lfstad-pehl/MavenRepo/com/google/gwt/gwt-dev/2.0.3/gwt-dev-2.0.3.jar:/home/lfstad-pehl/MavenRepo/org/restlet/gwt/org.restlet.ext.xml/2.0-RC2/org.restlet.ext.xml-2.0-RC2.jar:/home/lfstad-pehl/MavenRepo/com/mouchel/gwt/xpath/gwtxpath/1.0/gwtxpath-1.0.jar:/home/lfstad-pehl/MavenRepo/org/restlet/gwt/org.restlet.ext.json/2.0-RC2/org.restlet.ext.json-2.0-RC2.jar:/home/lfstad-pehl/MavenRepo/org/restlet/gwt/org.restlet/2.0-RC2/org.restlet-2.0-RC2.jar'
 -encoding
 'UTF-8'
 -protected
 -sourcepath
-'/home/pehlh/Projekte/Piriti/impl/core/src/test/java:/home/pehlh/Projekte/Piriti/impl/gxt/src/test/java:/home/pehlh/Projekte/Piriti/impl/restlet/src/test/java'
+'/home/lfstad-pehl/Projekte/Piriti/impl/core/src/test/java:/home/lfstad-pehl/Projekte/Piriti/impl/gxt/src/test/java:/home/lfstad-pehl/Projekte/Piriti/impl/restlet/src/test/java'
 -author
 -bottom
 'Copyright &#169; 2010 <a href="http://harald.pehl.name">Harald Pehl</a>. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
-'/home/pehlh/Projekte/Piriti/impl/target/site/testapidocs'
+'/home/lfstad-pehl/Projekte/Piriti/impl/target/site/testapidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'Piriti API 0.3.1'
+'Piriti API 0.3.4'
 -link
 'http://google-web-toolkit.googlecode.com/svn/javadoc/2.0'
 -link
-'../apidocs'
--link
 'http://java.sun.com/javase/6/docs/api'
 -stylesheetfile
-'/home/pehlh/Projekte/Piriti/impl/target/site/testapidocs/stylesheet.css'
+'/home/lfstad-pehl/Projekte/Piriti/impl/target/site/testapidocs/stylesheet.css'
 -use
 -version
 -windowtitle
-'Piriti API 0.3.1'
+'Piriti API 0.3.4'
