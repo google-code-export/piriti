@@ -1,5 +1,8 @@
 #summary Piriti release notes.
 
+== Piriti 0.3.4 ==
+  * Fixed bug related to @XmlId / @XmlIdRef processing
+
 == Piriti 0.3.3 ==
   * Added @XmlId and @XmlIdRef to map references. See [XMLReferences XML references] for an example
 
