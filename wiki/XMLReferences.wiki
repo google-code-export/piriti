@@ -105,9 +105,6 @@ public class Department
 }
 }}}
 
-= Details =
-To map references you have to use `@XmlId` and `@XmlIdRef` annotations. 
-
 == @XmlId ==
 Identifiers in the XML document have to be marked with the `@XmlId` annotation. The value of the annotations has to be an XPath expressions which selects the id value. It defaults to `@id` which selects the id attribute of the current element. The selected value is mapped to a String member of the POJO. The `@XmlId` annotation can be used only once in a POJO. The POJO instance which contains the `@XmlId` annotation is put into an internal map using the identifier as key. The method `XmlReader<T>.idRef(String id)` can be used to select the mapped POJO instance. In the example above 
 {{{
