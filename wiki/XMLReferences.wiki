@@ -118,4 +118,4 @@ Using the `@XmlIdRef` annotation you can define reference to other POJOs. These 
   * Multiple string values: The type of the field has to be an array or collection of types with a registered XmlReader. 
   
 == @XmlField _and_ @XmlIdRef ==
-In the example above the `department` field of the `Employee` class is marked with both an `@XmlField` and `@XmlIdRef` annotation. This is because the department is defined and also referenced in the XML document. 
+In the example above the `department` field of the `Employee` class is marked with both an `@XmlField` and `@XmlIdRef` annotation. This is because the department is defined as nested element but also referenced in the XML document. 
