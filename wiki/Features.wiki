@@ -85,3 +85,4 @@ The following lists summarize the limitations in Piriti.
 In future releases the following features might be implemented:
   * Add support for references in JSON (see [http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO] for an example of references in JSON)
   * Add the ability to also generate JSON / XML data from the annotated models.
+  * Use JAXB annotations for the mapping
