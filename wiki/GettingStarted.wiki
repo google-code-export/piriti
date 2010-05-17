@@ -8,7 +8,7 @@ Actually Piriti consists of four modules:
   * [SampleApplication piriti-sample]: A sample application deployed on Google AppEngine which demonstrates Piritis features.
 
 = Prerequisites =
-Piriti uses [http://code.google.com/p/google-gin/ google-gin] and [http://code.google.com/p/gwtxpath/ gwtxpath]. For maven users just add the following repository to your pom and you're done (the repository contains all necessary dependencies):
+Piriti relies on [http://code.google.com/p/google-gin/ google-gin] and [http://code.google.com/p/gwtxpath/ gwtxpath]. For maven users just add the following repository to your pom and you're done (the repository contains all necessary dependencies):
 {{{
 <repository>
     <id>piriti-repo</id>
