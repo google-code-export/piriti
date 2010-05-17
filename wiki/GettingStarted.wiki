@@ -8,28 +8,31 @@ Actually Piriti consists of four modules:
   * [SampleApplication piriti-sample]: A sample application deployed on Google AppEngine which demonstrates Piritis features.
 
 = Prerequisites =
-To use Piriti add the following repository and dependencies to your pom:
+Piriti uses [http://code.google.com/p/google-gin/ google-gin] and [http://code.google.com/p/gwtxpath/ gwtxpath]. For maven users just add the following repository to your pom and you're done (the repository contains all necessary dependencies):
 {{{
 <repository>
     <id>piriti-repo</id>
     <name>Piriti Repository</name>
     <url>http://piriti.googlecode.com/svn/repository</url>
 </repository>
+}}}
 
-...
-
+Then depending on how much functionality you need add the following dependencies to your pom
+{{{
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-core</artifactId>
     <version>0.3</version>
     <scope>provided</scope>
 </dependency>
+<!-- For GXT model support -->
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-gxt</artifactId>
     <version>0.3</version>
     <scope>provided</scope>
 </dependency>
+<!-- For Restlet support -->
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-restlet</artifactId>
@@ -37,6 +40,10 @@ To use Piriti add the following repository and dependencies to your pom:
     <scope>provided</scope>
 </dependency>
 }}}
+
+For non-maven users make sure you have the jar files of the following projects on your classpath:
+  * [http://code.google.com/p/google-gin/ google-gin]
+  * [http://code.google.com/p/gwtxpath/ gwtxpath]
 
 = Mapping =
 To actually map JSON and/or XML data you have to first make sure that Piriti is referenced in your module definition:
