@@ -12,7 +12,7 @@
 <a name="2" href="#2">2</a>   
 <a name="3" href="#3">3</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.client.xml.XmlReader;
 <a name="4" href="#4">4</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.gxt.client.xml.XmlModelReader;
-<a name="5" href="#5">5</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.gxt.rebind.AssignmentHelper;
+<a name="5" href="#5">5</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.gxt.rebind.CodeGeneration;
 <a name="6" href="#6">6</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.FieldContext;
 <a name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.IndentedWriter;
 <a name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.fieldhandler.FieldHandler;
@@ -23,14 +23,14 @@
 <a name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> * {@link FieldHandler} implementation for types with an own {@link XmlReader}.</em>
 <a name="14" href="#14">14</a>  <em class="jxr_javadoccomment"> * </em>
 <a name="15" href="#15">15</a>  <em class="jxr_javadoccomment"> * @author $LastChangedBy: harald.pehl $</em>
-<a name="16" href="#16">16</a>  <em class="jxr_javadoccomment"> * @version $LastChangedRevision: 236 $</em>
+<a name="16" href="#16">16</a>  <em class="jxr_javadoccomment"> * @version $LastChangedRevision: 527 $</em>
 <a name="17" href="#17">17</a>  <em class="jxr_javadoccomment"> */</em>
 <a name="18" href="#18">18</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../../name/pehl/piriti/gxt/rebind/xml/fieldhandler/XmlRegistryFieldHandler.html">XmlRegistryFieldHandler</a> <strong class="jxr_keyword">extends</strong> name.pehl.piriti.rebind.xml.fieldhandler.XmlRegistryFieldHandler
 <a name="19" href="#19">19</a>  {
 <a name="20" href="#20">20</a>      @Override
 <a name="21" href="#21">21</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> writeAssignment(IndentedWriter writer, FieldContext fieldContext) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
 <a name="22" href="#22">22</a>      {
-<a name="23" href="#23">23</a>          AssignmentHelper.writeAssignement(writer, fieldContext);
+<a name="23" href="#23">23</a>          CodeGeneration.writeAssignement(writer, fieldContext);
 <a name="24" href="#24">24</a>      }
 <a name="25" href="#25">25</a>  
 <a name="26" href="#26">26</a>  
