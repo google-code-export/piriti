@@ -12,7 +12,6 @@ you have to use
 { "readonly": true, "name": "Foo", "createdAt": "08.01.2010", "count": 20 }
 }}}
 
-
 = Supported types =
 The mapping annotations do not work on all types. The following tables show which types are supported by Piriti.
   * boolean, Boolean
