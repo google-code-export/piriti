@@ -1,6 +1,8 @@
 name.pehl.piriti.client.converter
 name.pehl.piriti.client.json
+name.pehl.piriti.client.json.internal
 name.pehl.piriti.client.xml
+name.pehl.piriti.client.xml.internal
 name.pehl.piriti.gxt.client.json
 name.pehl.piriti.gxt.client.xml
 name.pehl.piriti.gxt.rebind
