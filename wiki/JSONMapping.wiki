@@ -11,6 +11,7 @@ you have to use
 { "readonly": true, "name": "Foo", "createdAt": "08.01.2010", "count": 20 }
 }}}
 
+= Mapping =
 JSON mapping is done using the `JsonField` annotation:
 {{{
 @Documented
