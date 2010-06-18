@@ -1,4 +1,5 @@
 #summary Piriti release notes.
+#labels Featured
 
 === Piriti 0.3.5 ===
   * Fix for issue 5: Nested readers are now initialized correctly (thanks to dusan.maliarik)
