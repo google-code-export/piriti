@@ -112,14 +112,14 @@ Otherwise must be a valid date format as described by [http://google-web-toolkit
 Let's assume you want to map the following JSON data
 {{{
 {
-    isbn: "978-0345417954", 
-    pages: 432,
-    title: "The Hotel New Hampshire",
-    author: {
-        firstname: "John",
-        surname: "Irving", 
+    "isbn": "978-0345417954", 
+    "pages": 432,
+    "title": "The Hotel New Hampshire",
+    "author": {
+        "firstname": "John",
+        "surname": "Irving", 
     },
-    reviews: [
+    "reviews": [
         "A hectic gaudy saga with the verve of a Marx Brothers movie.", 
         "Rejoice! John Irving has written another book according to your world.", 
         "Spellbinding, intensely human, a high-wire act of dazzling virtuosity."
