@@ -12,6 +12,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Piriti Core - Surefire Report</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
@@ -19,8 +20,7 @@
       @import url("./css/site.css");
     </style>
     <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-      </head>
+          </head>
   <body class="composite">
     <div id="banner">
                     <span id="bannerLeft">
@@ -42,9 +42,9 @@
   
     
             <div class="xleft">
-        Last Published: 2010-04-04
+        Last Published: 2010-06-18
                       </div>
-            <div class="xright">            <a href="">Piriti Core</a>
+            <div class="xright">            <a href="http://code.google.com/p/piriti/piriti-core" class="externalLink">Piriti Core</a>
             
   
 
@@ -68,7 +68,14 @@
   
   
     
-                             <h5>Project Documentation</h5>
+                   <h5>Parent Project</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="../index.html">Piriti</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
             <ul>
               
                 
@@ -168,12 +175,12 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th>
 </tr>
-<tr class="b"><td>70</td>
+<tr class="b"><td>75</td>
 <td>0</td>
-<td>1</td>
 <td>0</td>
-<td>98.571%</td>
-<td>413.06</td>
+<td>0</td>
+<td>100%</td>
+<td>248.27</td>
 </tr>
 </table>
 <br />
@@ -196,36 +203,44 @@ Note: failures are anticipated and checked for with assertions while errors are 
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>26.089</td>
+<td>22.462</td>
 </tr>
 <tr class="a"><td><a href="#name.pehl.piriti.client.gwttest.fat.xml">name.pehl.piriti.client.gwttest.fat.xml</a></td>
-<td>4</td>
-<td>0</td>
 <td>1</td>
 <td>0</td>
-<td>75%</td>
-<td>354.063</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>88.064</td>
 </tr>
-<tr class="b"><td><a href="#name.pehl.piriti.client.gwttest.book.xml">name.pehl.piriti.client.gwttest.book.xml</a></td>
+<tr class="b"><td><a href="#name.pehl.piriti.client.gwttest.fat.json">name.pehl.piriti.client.gwttest.fat.json</a></td>
 <td>4</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>32.748</td>
+<td>72.806</td>
 </tr>
-<tr class="a"><td><a href="#name.pehl.piriti.client.converter">name.pehl.piriti.client.converter</a></td>
+<tr class="a"><td><a href="#name.pehl.piriti.client.gwttest.book.xml">name.pehl.piriti.client.gwttest.book.xml</a></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>64.82</td>
+</tr>
+<tr class="b"><td><a href="#name.pehl.piriti.client.converter">name.pehl.piriti.client.converter</a></td>
 <td>61</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.16</td>
+<td>0.118</td>
 </tr>
 </table>
 <br />
 Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.<div class="section"><h3><a name="name.pehl.piriti.client.gwttest.employee.xml"></a>name.pehl.piriti.client.gwttest.employee.xml</h3>
-<table class="bodyTable"><tr class="b"><th></th>
+<table class="bodyTable"><tr class="a"><th></th>
 <th>Class</th>
 <th>Tests</th>
 <th>Errors </th>
@@ -234,19 +249,19 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <th>Success Rate</th>
 <th>Time</th>
 </tr>
-<tr class="a"><td><a href="#name.pehl.piriti.client.gwttest.employee.xmlGwtTestXmlEmployeeReader"><img src="images/icon_success_sml.gif" /></a></td>
+<tr class="b"><td><a href="#name.pehl.piriti.client.gwttest.employee.xmlGwtTestXmlEmployeeReader"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.gwttest.employee.xmlGwtTestXmlEmployeeReader">GwtTestXmlEmployeeReader</a></td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>26.089</td>
+<td>22.462</td>
 </tr>
 </table>
 </div>
 <div class="section"><h3><a name="name.pehl.piriti.client.gwttest.fat.xml"></a>name.pehl.piriti.client.gwttest.fat.xml</h3>
-<table class="bodyTable"><tr class="b"><th></th>
+<table class="bodyTable"><tr class="a"><th></th>
 <th>Class</th>
 <th>Tests</th>
 <th>Errors </th>
@@ -255,19 +270,40 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <th>Success Rate</th>
 <th>Time</th>
 </tr>
-<tr class="a"><td><a href="#name.pehl.piriti.client.gwttest.fat.xmlGwtTestXmlFatGlobalItemReader"><img src="images/icon_warning_sml.gif" /></a></td>
+<tr class="b"><td><a href="#name.pehl.piriti.client.gwttest.fat.xmlGwtTestXmlFatGlobalItemReader"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.gwttest.fat.xmlGwtTestXmlFatGlobalItemReader">GwtTestXmlFatGlobalItemReader</a></td>
-<td>4</td>
-<td>0</td>
 <td>1</td>
 <td>0</td>
-<td>75%</td>
-<td>354.063</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>88.064</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="name.pehl.piriti.client.gwttest.fat.json"></a>name.pehl.piriti.client.gwttest.fat.json</h3>
+<table class="bodyTable"><tr class="a"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#name.pehl.piriti.client.gwttest.fat.jsonGwtTestJsonFatGlobalItemReader"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#name.pehl.piriti.client.gwttest.fat.jsonGwtTestJsonFatGlobalItemReader">GwtTestJsonFatGlobalItemReader</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>72.806</td>
 </tr>
 </table>
 </div>
 <div class="section"><h3><a name="name.pehl.piriti.client.gwttest.book.xml"></a>name.pehl.piriti.client.gwttest.book.xml</h3>
-<table class="bodyTable"><tr class="b"><th></th>
+<table class="bodyTable"><tr class="a"><th></th>
 <th>Class</th>
 <th>Tests</th>
 <th>Errors </th>
@@ -275,6 +311,15 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <th>Skipped</th>
 <th>Success Rate</th>
 <th>Time</th>
+</tr>
+<tr class="b"><td><a href="#name.pehl.piriti.client.gwttest.book.xmlGwtTestXmlBookReader"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#name.pehl.piriti.client.gwttest.book.xmlGwtTestXmlBookReader">GwtTestXmlBookReader</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>34.039</td>
 </tr>
 <tr class="a"><td><a href="#name.pehl.piriti.client.gwttest.book.xmlGwtTestXmlBookReader"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.gwttest.book.xmlGwtTestXmlBookReader">GwtTestXmlBookReader</a></td>
@@ -283,7 +328,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>32.748</td>
+<td>30.781</td>
 </tr>
 </table>
 </div>
@@ -304,7 +349,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.02</td>
+<td>0.018</td>
 </tr>
 <tr class="b"><td><a href="#name.pehl.piriti.client.converterDoubleConverterTest"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.converterDoubleConverterTest">DoubleConverterTest</a></td>
@@ -313,7 +358,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.006</td>
+<td>0.015</td>
 </tr>
 <tr class="a"><td><a href="#name.pehl.piriti.client.converterByteConverterTest"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.converterByteConverterTest">ByteConverterTest</a></td>
@@ -322,7 +367,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.024</td>
+<td>0.011</td>
 </tr>
 <tr class="b"><td><a href="#name.pehl.piriti.client.converterIntegerConverterTest"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.converterIntegerConverterTest">IntegerConverterTest</a></td>
@@ -331,7 +376,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.039</td>
+<td>0.033</td>
 </tr>
 <tr class="a"><td><a href="#name.pehl.piriti.client.converterShortConverterTest"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.converterShortConverterTest">ShortConverterTest</a></td>
@@ -340,7 +385,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.009</td>
+<td>0.014</td>
 </tr>
 <tr class="b"><td><a href="#name.pehl.piriti.client.converterBooleanConverterTest"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.converterBooleanConverterTest">BooleanConverterTest</a></td>
@@ -349,7 +394,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.005</td>
+<td>0.006</td>
 </tr>
 <tr class="a"><td><a href="#name.pehl.piriti.client.converterLongConverterTest"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.converterLongConverterTest">LongConverterTest</a></td>
@@ -358,7 +403,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.008</td>
+<td>0.007</td>
 </tr>
 <tr class="b"><td><a href="#name.pehl.piriti.client.converterCharacterConverterTest"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.converterCharacterConverterTest">CharacterConverterTest</a></td>
@@ -367,7 +412,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.013</td>
+<td>0.007</td>
 </tr>
 <tr class="a"><td><a href="#name.pehl.piriti.client.converterFloatConverterTest"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#name.pehl.piriti.client.converterFloatConverterTest">FloatConverterTest</a></td>
@@ -376,7 +421,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.036</td>
+<td>0.007</td>
 </tr>
 </table>
 </div>
@@ -395,11 +440,11 @@ Note: package statistics are not computed recursively, they only sum up all of i
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertBlank</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertFoo</td>
-<td>0.012</td>
+<td>0.01</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertDefaultFormat</td>
@@ -407,7 +452,7 @@ Note: package statistics are not computed recursively, they only sum up all of i
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertCustomFormat</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 </table>
 </div>
@@ -418,19 +463,19 @@ Note: package statistics are not computed recursively, they only sum up all of i
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertEmpty</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertBlank</td>
-<td>0.001</td>
+<td>0</td>
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertFoo</td>
-<td>0</td>
+<td>0.004</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertPositive</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertNegative</td>
@@ -438,81 +483,83 @@ Note: package statistics are not computed recursively, they only sum up all of i
 </tr>
 </table>
 </div>
-<div class="section"><h3><a name="name.pehl.piriti.client.converterByteConverterTest"></a>ByteConverterTest</h3>
+<div class="section"><h3><a name="name.pehl.piriti.client.gwttest.fat.xmlGwtTestXmlFatGlobalItemReader"></a>GwtTestXmlFatGlobalItemReader</h3>
 <table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testRead</td>
+<td>88.064</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="name.pehl.piriti.client.converterByteConverterTest"></a>ByteConverterTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertNull</td>
 <td>0</td>
 </tr>
-<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertEmpty</td>
 <td>0</td>
 </tr>
-<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertBlank</td>
 <td>0</td>
 </tr>
-<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertFoo</td>
-<td>0</td>
-</tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testConvertFoo</td>
+<td>0.001</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertPositive</td>
 <td>0</td>
 </tr>
-<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertNegative</td>
 <td>0</td>
 </tr>
-<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertLessThanMin</td>
 <td>0</td>
 </tr>
-<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertMoreThanMax</td>
 <td>0</td>
 </tr>
 </table>
 </div>
-<div class="section"><h3><a name="name.pehl.piriti.client.gwttest.employee.xmlGwtTestXmlEmployeeReader"></a>GwtTestXmlEmployeeReader</h3>
-<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testRead</td>
-<td>26.089</td>
-</tr>
-</table>
-</div>
-<div class="section"><h3><a name="name.pehl.piriti.client.gwttest.fat.xmlGwtTestXmlFatGlobalItemReader"></a>GwtTestXmlFatGlobalItemReader</h3>
+<div class="section"><h3><a name="name.pehl.piriti.client.gwttest.fat.jsonGwtTestJsonFatGlobalItemReader"></a>GwtTestJsonFatGlobalItemReader</h3>
 <table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testRead</td>
-<td>51.536</td>
+<td>41.27</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testReadList</td>
-<td>99.14</td>
+<td>16.107</td>
 </tr>
-<tr class="a"><td><a href="#name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testReadListWithXpath"><img src="images/icon_warning_sml.gif" /></a></td>
-<td><a href="#name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testReadListWithXpath">testReadListWithXpath</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testReadListWithXpath');"><span style="display: inline;" id="testReadListWithXpathoff">+</span><span id="testReadListWithXpathon" style="display: none;">-</span> [ Detail ]</a></div></td>
-<td>193.618</td>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testReadListWithKey</td>
+<td>15.322</td>
 </tr>
-<tr class="b"><td></td>
-<td>Remote test failed at 127.0.1.1 / Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.1) Gecko/2008070208 Firefox/3.0.1  expected=3 actual=42</td>
-<td></td>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testReadListWithWrongKey</td>
+<td>0.107</td>
 </tr>
-<tr class="a"><td></td>
-<td>  <div id="testReadListWithXpatherror" style="display:none;"><div class="source"><pre>junit.framework.AssertionFailedError: Remote test failed at 127.0.1.1 / Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.1) Gecko/2008070208 Firefox/3.0.1<br />
-expected=3 actual=42<br />
-at junit.framework.Assert.fail(Assert.java:197)<br />
-at junit.framework.Assert.assertEquals(Assert.java:94)<br />
-at junit.framework.Assert.assertEquals(Assert.java:43)<br />
-at name.pehl.piriti.client.gwttest.fat.FatGlobalItemTestCase.assertFatGlobalItems(FatGlobalItemTestCase.java:57)<br />
-at name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testReadListWithXpath(GwtTestXmlFatGlobalItemReader.java:36)<br />
-</pre>
+</table>
 </div>
-</div></td>
-<td></td>
+<div class="section"><h3><a name="name.pehl.piriti.client.gwttest.book.xmlGwtTestXmlBookReader"></a>GwtTestXmlBookReader</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testRead</td>
+<td>26.62</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testReadList</td>
+<td>4.517</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testReadListWithXpath</td>
+<td>2.722</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testReadListWithWrongXpath</td>
-<td>9.769</td>
+<td>0.18</td>
 </tr>
 </table>
 </div>
@@ -535,7 +582,7 @@ at name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testRea
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertPositive</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertNegative</td>
@@ -543,7 +590,7 @@ at name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testRea
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertLessThanMin</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertMoreThanMax</td>
@@ -558,19 +605,19 @@ at name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testRea
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertEmpty</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertBlank</td>
-<td>0.001</td>
+<td>0</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertFoo</td>
-<td>0.001</td>
+<td>0</td>
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertPositive</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertNegative</td>
@@ -578,18 +625,18 @@ at name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testRea
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertLessThanMin</td>
-<td>0.001</td>
+<td>0</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertMoreThanMax</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 </table>
 </div>
 <div class="section"><h3><a name="name.pehl.piriti.client.converterBooleanConverterTest"></a>BooleanConverterTest</h3>
 <table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertNull</td>
-<td>0.001</td>
+<td>0</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertEmpty</td>
@@ -609,95 +656,79 @@ at name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testRea
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertTrue</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 </table>
 </div>
 <div class="section"><h3><a name="name.pehl.piriti.client.gwttest.book.xmlGwtTestXmlBookReader"></a>GwtTestXmlBookReader</h3>
 <table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testRead</td>
-<td>29.024</td>
+<td>23.873</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testReadList</td>
-<td>1.556</td>
+<td>4.159</td>
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testReadListWithXpath</td>
-<td>1.704</td>
+<td>2.539</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testReadListWithWrongXpath</td>
-<td>0.464</td>
+<td>0.21</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="name.pehl.piriti.client.gwttest.employee.xmlGwtTestXmlEmployeeReader"></a>GwtTestXmlEmployeeReader</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testRead</td>
+<td>22.462</td>
 </tr>
 </table>
 </div>
 <div class="section"><h3><a name="name.pehl.piriti.client.converterLongConverterTest"></a>LongConverterTest</h3>
-<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertNull</td>
 <td>0.001</td>
 </tr>
-<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertEmpty</td>
 <td>0</td>
 </tr>
-<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertBlank</td>
-<td>0</td>
-</tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testConvertBlank</td>
+<td>0.001</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertFoo</td>
 <td>0</td>
 </tr>
-<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertPositive</td>
-<td>0.001</td>
-</tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testConvertPositive</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertNegative</td>
 <td>0</td>
 </tr>
-<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertLessThanMin</td>
 <td>0</td>
 </tr>
-<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertMoreThanMax</td>
 <td>0</td>
 </tr>
 </table>
 </div>
 <div class="section"><h3><a name="name.pehl.piriti.client.converterCharacterConverterTest"></a>CharacterConverterTest</h3>
-<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertNull</td>
-<td>0.001</td>
-</tr>
-<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertEmpty</td>
-<td>0.001</td>
-</tr>
-<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertBlank</td>
-<td>0.001</td>
-</tr>
-<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertFoo</td>
-<td>0.001</td>
-</tr>
-<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertValidCharacter</td>
-<td>0</td>
-</tr>
-</table>
-</div>
-<div class="section"><h3><a name="name.pehl.piriti.client.converterFloatConverterTest"></a>FloatConverterTest</h3>
 <table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertNull</td>
 <td>0</td>
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertEmpty</td>
-<td>0</td>
+<td>0.001</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
 <td>testConvertBlank</td>
@@ -708,30 +739,38 @@ at name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testRea
 <td>0</td>
 </tr>
 <tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertPositive</td>
+<td>testConvertValidCharacter</td>
+<td>0.001</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="name.pehl.piriti.client.converterFloatConverterTest"></a>FloatConverterTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testConvertNull</td>
+<td>0.001</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testConvertEmpty</td>
 <td>0</td>
 </tr>
 <tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
-<td>testConvertNegative</td>
+<td>testConvertBlank</td>
 <td>0</td>
 </tr>
-</table>
-</div>
-<br />
-</div>
-<div class="section"><h2><a name="Failure_Details"></a>Failure Details</h2>
-<div class="section">[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</div>
-<br />
-<table class="bodyTable"><tr class="b"><td><img src="images/icon_warning_sml.gif" /></td>
-<td><a name="name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader.testReadListWithXpath"></a>testReadListWithXpath</td>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testConvertFoo</td>
+<td>0</td>
 </tr>
-<tr class="a"><td></td>
-<td>junit.framework.AssertionFailedError: Remote test failed at 127.0.1.1 / Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.1) Gecko/2008070208 Firefox/3.0.1  expected=3 actual=42</td>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testConvertPositive</td>
+<td>0</td>
 </tr>
-                        <tr class="b"><td></td>
-<td>  <div id="testReadListWithXpatherror" ><a href="./xref-test/name/pehl/piriti/client/gwttest/fat/xml/GwtTestXmlFatGlobalItemReader.html#36">name.pehl.piriti.client.gwttest.fat.xml.GwtTestXmlFatGlobalItemReader:36</a></div></td>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testConvertNegative</td>
+<td>0.001</td>
 </tr>
 </table>
+</div>
 <br />
 </div>
 <br />

@@ -28,7 +28,7 @@
 <a name="18" href="#18">18</a>  {
 <a name="19" href="#19">19</a>      <em class="jxr_javadoccomment">/**</em>
 <a name="20" href="#20">20</a>  <em class="jxr_javadoccomment">     * Reads the string value using</em>
-<a name="21" href="#21">21</a>  <em class="jxr_javadoccomment">     * &lt;code&gt;XPathUtils.getValue(&amp;lt;element&amp;gt;, &amp;lt;xpath&amp;gt;)&lt;/code&gt;</em>
+<a name="21" href="#21">21</a>  <em class="jxr_javadoccomment">     * &lt;code&gt;XPath.getValue(&amp;lt;element&amp;gt;, &amp;lt;xpath&amp;gt;)&lt;/code&gt;</em>
 <a name="22" href="#22">22</a>  <em class="jxr_javadoccomment">     * </em>
 <a name="23" href="#23">23</a>  <em class="jxr_javadoccomment">     * @param writer</em>
 <a name="24" href="#24">24</a>  <em class="jxr_javadoccomment">     * @param fieldContext</em>
@@ -38,7 +38,7 @@
 <a name="28" href="#28">28</a>      @Override
 <a name="29" href="#29">29</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> writeReadValueAsString(<a href="../../../../../../name/pehl/piriti/rebind/IndentedWriter.html">IndentedWriter</a> writer, <a href="../../../../../../name/pehl/piriti/rebind/FieldContext.html">FieldContext</a> fieldContext)
 <a name="30" href="#30">30</a>      {
-<a name="31" href="#31">31</a>          writer.write(<span class="jxr_string">"String %s = XPathUtils.getValue(%s, \&quot;%s\&quot;);"</span>, fieldContext.getValueAsStringVariable(),
+<a name="31" href="#31">31</a>          writer.write(<span class="jxr_string">"String %s = this.xpath.getValue(%s, \&quot;%s\&quot;);"</span>, fieldContext.getValueAsStringVariable(),
 <a name="32" href="#32">32</a>                  fieldContext.getInputVariable(), fieldContext.getPath());
 <a name="33" href="#33">33</a>      }
 <a name="34" href="#34">34</a>  }
