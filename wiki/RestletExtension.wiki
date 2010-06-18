@@ -46,7 +46,7 @@ clientResource.get(MediaType.APPLICATION_JSON);
 
 The entity returned by the resource has to be a valid JSON object. In case you want to read a list of books, the JSON object has to contain one key (name does not matter) with the array of books: 
 {{{
-{books: [{isbn: "0815", title: "Foo"}, {isbn: "1234", title: "Bar"}]}
+{"books": [{"isbn": "0815", "title": "Foo"}, {"isbn": "1234", "title": "Bar"}]}
 }}}
 
 
