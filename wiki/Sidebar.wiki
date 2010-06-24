@@ -2,6 +2,7 @@
   * [Features]
   * [XMLMapping XML Mapping]
     * [XMLReferences XML References]
+    * [Namespaces]
   * [JSONMapping JSON Mapping]
   * [GXTExtension GXT Extension]
   * [RestletExtension Restlet Extension]
