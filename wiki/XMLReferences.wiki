@@ -1,7 +1,7 @@
 #summary Mapping of references.
 
 = Introduction =
-Often you have references in your XML data. More often than not these references are expressed by using ID and IDREF expressions. Let's take the following XML document as an example:
+Often you have references in your XML data. Piriti can resolve those references if expressed by using ID and IDREF. Let's take the following XML document as an example:
 {{{
 <employees>
     <employee id="boss">
