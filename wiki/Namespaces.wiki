@@ -32,7 +32,6 @@ That's the easy part, so we start with this. Suppose you have the following XML 
         <number>23</number>
         <number>42</number>
     </numbers>
-
 </lotteryTicket>
 }}}
 
@@ -115,4 +114,67 @@ public class Player
 
 
 = XML with a default namespace = 
-Things get a little 
+Things get a little bit more complicated if your XML uses a default namespace (DNS). When you want to use the DNS in your XPath expression you have to provide a prefix for the DNS. Let's add a default namespace to our lotteryTicket.xml:
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Please make sure that there are no line line breaks
+    in the elements. Otherwise the asserts will fail!
+-->
+<lotteryTicket xmlns="http://code.google.com/p/piriti"
+    xmlns:foo="http://code.google.com/p/piriti/foo"
+    xmlns:bar="http://code.google.com/p/piriti/bar" date="10.10.2010">
+
+    <foo:player foo:gender="male" age="42">
+        <foo:firstname>Homer</foo:firstname>
+        <foo:surname>Simpson</foo:surname>
+        <bar:address bar:type="home" foo:valid="true">
+            24, evergreen terrace, springfield
+        </bar:address>
+    </foo:player>
+
+    <numbers game="6x49">
+        <number>4</number>
+        <number>8</number>
+        <number>15</number>
+        <number>16</number>
+        <number>23</number>
+        <number>42</number>
+    </numbers>
+</lotteryTicket>
+}}}
+So this document uses the default namespace {{{http://code.google.com/p/piriti}}}. 
+
+== Specify namespaces ==
+When parsing the XML you now have to specify a prefix for the DNS. You can choose whtever you like as long as it is not already used (I will use "dns" in the following examples): 
+  * Providing a whilespace-seperated list of namespace declarations as those would appear in an XML document:
+    {{{
+String namespaces = "xmlns:dns=\"http://code.google.com/p/piriti\" "
+    + "xmlns:foo=\"http://code.google.com/p/piriti/foo\" "
+    + "xmlns:bar=\"http://code.google.com/p/piriti/bar\"";
+Document document = new XmlParser().parse(xmlAsString, namespaces);
+    }}}
+  * By providing a map with the namespace prefix as key and the namespace URI as value:
+    {{{
+Map<String,String> namespaces = new HashMap<String,String>();
+namespaces.put("dns", "http://code.google.com/p/piriti");
+namespaces.put("foo", "http://code.google.com/p/piriti/foo");
+namespaces.put("bar", "http://code.google.com/p/piriti/bar");
+Document document = new XmlParser().parse(xmlAsString, namespaces);
+    }}}
+
+== Add namespace to the annotations ==
+Finally the prefix has to be used in the annotations of your POJOs:
+{{{
+public class LotteryTicketDns
+{
+    public interface LotteryTicketReader extends XmlReader<LotteryTicketDns> {}
+    public static final LotteryTicketReader XML = GWT.create(LotteryTicketReader.class);
+
+    @XmlField(value = "@date", format = "dd.MM.yyyy") Date date;
+    @XmlField("foo:player") Player player;
+    @XmlField("dns:numbers/@game") String game;
+    @XmlField("dns:numbers/dns:number") List<Integer> numbers;
+}
+}}}
+As the mapping for {{{Player}}} does not use the default namespace the code is like in the first example without a default namespace.
