@@ -191,7 +191,7 @@ public class Author
 
 Now you can map the XML to your model by calling
 {{{
-Document document = new XmlParser().parse(...);
+Document document = new XmlParser().parse(xmlAsString);
 Book book = Book.XML.read(document);
 }}}
 
