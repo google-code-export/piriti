@@ -3,7 +3,7 @@
 <wiki:toc/>
 
 = Introduction =
-Starting with version 0.4 Piriti supports namespaces in XML documents and XPath expressions. This was possible due to a change of the underlying XML parser and XPath engine ([http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsXML.html GWTs XML parser] and [http://code.google.com/p/gwtxpath/ gwtxpath] were exchanged by [http://code.google.com/p/totoe/ Totoe]. 
+Starting with version 0.4 Piriti supports namespaces in XML documents and XPath expressions. This was possible due to a change of the underlying XML parser and XPath engine ([http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsXML.html GWTs XML parser] and [http://code.google.com/p/gwtxpath/ gwtxpath] were exchanged by [http://code.google.com/p/totoe/ Totoe]). 
 
 When mapping XML documents we have to distinguish two use cases:
   # XML documents *without* a default namespace
