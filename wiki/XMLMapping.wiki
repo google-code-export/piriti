@@ -191,7 +191,7 @@ public class Author
 
 Now you can map the XML to your model by calling
 {{{
-Document document = ...; // the com.google.gwt.xml.client.Document for the book
+Document document = new XmlParser().parse(...);
 Book book = Book.XML.read(document);
 }}}
 
