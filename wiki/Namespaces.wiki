@@ -35,7 +35,7 @@ That's the easy part, so we start with this. Suppose you have the following XML 
 </lotteryTicket>
 }}}
 
-and you want to map this XML to the following POJOs
+Now you want to map this XML to the following POJOs
 {{{
 public class LotteryTicket
 {
