@@ -8,8 +8,13 @@ Actually Piriti consists of four modules:
   * [SampleApplication piriti-sample]: A sample application deployed on Google AppEngine which demonstrates Piritis features.
 
 = Prerequisites =
-Piriti relies on [http://code.google.com/p/google-gin/ google-gin] and [http://code.google.com/p/gwtxpath/ gwtxpath]. For maven users just add the following repository to your pom and you're done (the repository contains all necessary dependencies):
+Piriti relies on [http://code.google.com/p/google-gin/ google-gin] and [http://code.google.com/p/totoe/ totoe]. For maven users just add the following repository to your pom and you're done (the repository contains all necessary dependencies):
 {{{
+<repository>
+    <id>totoe-repo</id>
+    <name>Totoe Repository</name>
+    <url>http://totoe.googlecode.com/svn/repository</url>
+</repository>
 <repository>
     <id>piriti-repo</id>
     <name>Piriti Repository</name>
@@ -43,7 +48,7 @@ Then depending on how much functionality you need add the following dependencies
 
 For non-maven users make sure you have the jar files of the following projects on your classpath:
   * [http://code.google.com/p/google-gin/ google-gin]
-  * [http://code.google.com/p/gwtxpath/ gwtxpath]
+  * [http://code.google.com/p/totoe/ totoe]
 
 = Mapping =
 To actually map JSON and/or XML data you have to first make sure that Piriti is referenced in your module definition:
