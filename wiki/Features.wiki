@@ -12,7 +12,7 @@ you have to use
 { "readonly": true, "name": "Foo", "createdAt": "08.01.2010", "count": 20 }
 }}}
 
-Starting with Piriti 0.4 namespaces including default namespaces are supported in the XML document and in the XPath expressions.
+Starting with Piriti 0.4 namespaces including default namespaces are supported in the XML document and in the XPath expressions. See [Namespaces namespaces] for further information.
 
 = Supported types =
 The mapping annotations do not work on all types. The following tables show which types are supported by Piriti.
