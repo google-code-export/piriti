@@ -63,9 +63,9 @@ public enum Gender
 }
 }}}
 
-To do this you need to 
-  # Specify the namespaces when parsing the XML
-  # add the namespace prefix to the XPath expression in your {{{@XmlField}}} annotation
+To do this you need to:
+  # Specify the namespaces when parsing the XML.
+  # Include the namespace prefix in the XPath expression of your {{{@XmlField}}} annotation.
 
 == Specify namespaces ==
 When parsing the XML you have to specify the namespaces. This can be done in two ways:
@@ -83,7 +83,7 @@ namespaces.put("bar", "http://code.google.com/p/piriti/bar");
 Document document = new XmlParser().parse(xmlAsString, namespaces);
     }}}
 
-== Add namespace to the annotations ==
+== Include the namespace prefix in the annotations ==
 In the annotations of your POJOs you have to adjust the XPath expressions to include the namespace prefix:
 {{{
 public class LotteryTicket
@@ -114,13 +114,9 @@ public class Player
 
 
 = XML with a default namespace = 
-Things get a little bit more complicated if your XML uses a default namespace (DNS). When you want to use the DNS in your XPath expression you have to provide a prefix for the DNS. Let's add a default namespace to our lotteryTicket.xml:
+Things get a little bit more complicated if your XML uses a default namespace (DNS). When you want to use the DNS in your XPath expression you have to provide a prefix for the DNS. Let's add a default namespace to our {{{lotteryTicket.xml}}}:
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Please make sure that there are no line line breaks
-    in the elements. Otherwise the asserts will fail!
--->
 <lotteryTicket xmlns="http://code.google.com/p/piriti"
     xmlns:foo="http://code.google.com/p/piriti/foo"
     xmlns:bar="http://code.google.com/p/piriti/bar" date="10.10.2010">
@@ -143,18 +139,18 @@ Things get a little bit more complicated if your XML uses a default namespace (D
     </numbers>
 </lotteryTicket>
 }}}
-So this document uses the default namespace {{{http://code.google.com/p/piriti}}}. 
+Now this document uses the default namespace {{{http://code.google.com/p/piriti}}}. 
 
 == Specify namespaces ==
 When parsing the XML you now have to specify a prefix for the DNS. You can choose whtever you like as long as it is not already used (I will use "dns" in the following examples): 
-  * Providing a whilespace-seperated list of namespace declarations as those would appear in an XML document:
+  * Providing a whilespace-seperated list of namespace declarations as those would appear in an XML document (plus the dns prefix):
     {{{
 String namespaces = "xmlns:dns=\"http://code.google.com/p/piriti\" "
     + "xmlns:foo=\"http://code.google.com/p/piriti/foo\" "
     + "xmlns:bar=\"http://code.google.com/p/piriti/bar\"";
 Document document = new XmlParser().parse(xmlAsString, namespaces);
     }}}
-  * By providing a map with the namespace prefix as key and the namespace URI as value:
+  * By providing a map with the namespace prefix as key and the namespace URI as value  (plus the dns prefix):
     {{{
 Map<String,String> namespaces = new HashMap<String,String>();
 namespaces.put("dns", "http://code.google.com/p/piriti");
@@ -163,8 +159,8 @@ namespaces.put("bar", "http://code.google.com/p/piriti/bar");
 Document document = new XmlParser().parse(xmlAsString, namespaces);
     }}}
 
-== Add namespace to the annotations ==
-Finally the prefix has to be used in the annotations of your POJOs:
+== Include the namespace prefix in the annotations ==
+Finally the prefix of the DNS has to be added to the annotations in your POJOs:
 {{{
 public class LotteryTicketDns
 {
@@ -177,4 +173,4 @@ public class LotteryTicketDns
     @XmlField("dns:numbers/dns:number") List<Integer> numbers;
 }
 }}}
-As the mapping for {{{Player}}} does not use the default namespace the code is like in the first example without a default namespace.
+As the mapping for {{{Player}}} does not use the DNS the code does not change compared to the first example without a default namespace.
