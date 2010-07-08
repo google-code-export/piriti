@@ -2,7 +2,6 @@ name.pehl.piriti.client.converter
 name.pehl.piriti.client.json
 name.pehl.piriti.client.json.internal
 name.pehl.piriti.client.xml
-name.pehl.piriti.client.xml.internal
 name.pehl.piriti.rebind
 name.pehl.piriti.rebind.fieldhandler
 name.pehl.piriti.rebind.json
