@@ -1,21 +1,13 @@
 #summary Description of the features and limitations of Piriti.
 #labels Featured
 
-Piriti is able to map fairly complex *JSON* and *XML* data to arbitrary POJOs. All mapping information is provided using annotations. The actual mapping code is generated for you using deferred binding and code generators. 
+<wiki:toc/>
 
-Please note that starting with Piriti 0.3.5 the JSON data is no longer parsed using javascript eval() but the native JSON parser (or a javascript emulation if no native parser is available). Hence the JSON data must confirm to the syntax described at [http://json.org/ JSON.org]. Especially the keys must be enclosed in ". So instead of 
-{{{
-{ readonly: true, name: "Foo", createdAt: "08.01.2010", count: 20 }
-}}}
-you have to use
-{{{
-{ "readonly": true, "name": "Foo", "createdAt": "08.01.2010", "count": 20 }
-}}}
+= Common Features =
+Piriti is able to map fairly complex *JSON* and *XML* data to arbitrary POJOs and GXT models. All mapping information is provided using annotations. The actual mapping code is generated for you using deferred binding and code generators. 
 
-Starting with Piriti 0.4 namespaces including default namespaces are supported in the XML document and in the XPath expressions. See [Namespaces namespaces] for further information.
-
-= Supported types =
-The mapping annotations do not work on all types. The following tables show which types are supported by Piriti.
+== Supported Types ==
+The mapping annotations do not work on all types. The following list shows which types are supported by Piriti.
   * boolean, Boolean
   * byte, Byte
   * short, Short
@@ -31,7 +23,7 @@ The mapping annotations do not work on all types. The following tables show whic
   * Arrays of the above types
   * Typed collections of the above types
 
-= Supported collections =
+== Collections ==
 When mapping collections the following types are supported:
   * Collection`<T>`. ArrayList`<T>` is choosen as the implementation.
   * List`<T>`. ArrayList`<T>` is choosen as the implementation.
@@ -42,7 +34,42 @@ When mapping collections the following types are supported:
   * SortedSet`<T>`. TreeSet`<T>` is choosen as the implementation.
   * TreeSet`<T>`
 
-= Nested Models =
+== Inheritance ==
+Inheritance in POJOs and GXT models is supported. Suppose you have the following class hirarchy:
+{{{
+abstract class Animal
+{
+    @JsonField String name;
+    @JsonField int legs;
+    @JsonField double intelligence;
+}
+
+abstract class Mammal extends Animal
+{
+    @JsonField Gender gender;
+}
+
+public class Cat extends Mammal
+{
+    public interface CatJsonReader extends JsonReader<Cat> {}
+    public static final CatJsonReader JSON = GWT.create(CatJsonReader.class);
+    
+    @JsonField String color;
+}
+}}}
+
+and the following JSON data
+{{{
+{ "name": "Snowball", "legs": 4, "intelligence": 0.4, "gender": "female", "color": "dark grey" }
+}}}
+
+You can read Snowball using
+{{{
+String json = ...;
+Cat snowball = Cat.JSON.read(json);
+}}}
+
+== Nested Types ==
 Because all reader instances are registered against a global registry, references to other models that also have a reader are recognized and also mapped. Therefore the reader instances must be defined as public static fields (name must not be `XML`):
 {{{
 public class Book
@@ -60,6 +87,7 @@ public class Author
 }
 }}}
 
+= XML =
 == References ==
 Piriti supports the mapping of XML references using ID and IDREF. 
 {{{
@@ -78,6 +106,20 @@ Piriti supports the mapping of XML references using ID and IDREF.
 }}}
 See [XMLReferences XML references] for more info.
 
+== Namespaces ==
+Starting with Piriti 0.4 namespaces including default namespaces are supported in the XML document and in the XPath expressions. See [Namespaces namespaces] for further information.
+
+= JSON =
+== Native JSON Parser ==
+Starting with Piriti 0.3.5 the JSON data is no longer parsed using javascript eval() but the native JSON parser (or a javascript emulation if no native parser is available). Hence the JSON data must confirm to the syntax described at [http://json.org/ JSON.org]. Especially the keys must be enclosed in ". So instead of 
+{{{
+{ readonly: true, name: "Foo", createdAt: "08.01.2010", count: 20 }
+}}}
+you have to use
+{{{
+{ "readonly": true, "name": "Foo", "createdAt": "08.01.2010", "count": 20 }
+}}}
+
 = Extensions = 
 Currently there are two extensions for Piriti:
   * [GXTExtension GXT extension]: Allows JSON / XML mapping to GXT models.
@@ -94,7 +136,8 @@ The following lists summarize the limitations in Piriti.
 
 = Planed =
 In future releases the following features might be implemented:
-  * Add support for namespaces in XML
+  * ~~Add support for namespaces in XML~~
+  * Add the possibility to define mappings for POJOs where you don't have access to the source code, i.e. mapping without the use of annotations.
   * Use JAXB annotations for the mapping.
   * ~~Replace JSONParser.parse() with native implementation~~ (implemented in Piriti 0.3.5).
   * Add support for references in JSON (see [http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO] for an example of references in JSON).
