@@ -1,40 +1,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
 <title>XmlModelReaderGenerator xref</title>
 <link type="text/css" rel="stylesheet" href="../../../../../../stylesheet.css" />
 </head>
 <body>
 <div id="overview"><a href="../../../../../../../apidocs/name/pehl/piriti/gxt/rebind/xml/XmlModelReaderGenerator.html">View Javadoc</a></div><pre>
 
-<a class="jxr_linenumber" name="1" href="#1">1</a>   <strong class="jxr_keyword">package</strong> name.pehl.piriti.gxt.rebind.xml;
-<a class="jxr_linenumber" name="2" href="#2">2</a>   
-<a class="jxr_linenumber" name="3" href="#3">3</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.client.xml.XmlReader;
-<a class="jxr_linenumber" name="4" href="#4">4</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.AbstractReaderCreator;
-<a class="jxr_linenumber" name="5" href="#5">5</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.AbstractReaderGenerator;
-<a class="jxr_linenumber" name="6" href="#6">6</a>   
-<a class="jxr_linenumber" name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> com.google.gwt.core.ext.GeneratorContext;
-<a class="jxr_linenumber" name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> com.google.gwt.core.ext.TreeLogger;
-<a class="jxr_linenumber" name="9" href="#9">9</a>   <strong class="jxr_keyword">import</strong> com.google.gwt.core.ext.UnableToCompleteException;
-<a class="jxr_linenumber" name="10" href="#10">10</a>  <strong class="jxr_keyword">import</strong> com.google.gwt.core.ext.typeinfo.JClassType;
-<a class="jxr_linenumber" name="11" href="#11">11</a>  
-<a class="jxr_linenumber" name="12" href="#12">12</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> * GWT Generator for XmlReaders. The generator delegates to</em>
-<a class="jxr_linenumber" name="14" href="#14">14</a>  <em class="jxr_javadoccomment"> * {@link XmlModelReaderCreator} which is responsible for generating the code.</em>
-<a class="jxr_linenumber" name="15" href="#15">15</a>  <em class="jxr_javadoccomment"> * </em>
-<a class="jxr_linenumber" name="16" href="#16">16</a>  <em class="jxr_javadoccomment"> * @author $LastChangedBy: harald.pehl $</em>
-<a class="jxr_linenumber" name="17" href="#17">17</a>  <em class="jxr_javadoccomment"> * @version $LastChangedRevision: 140 $</em>
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../name/pehl/piriti/gxt/rebind/xml/XmlModelReaderGenerator.html">XmlModelReaderGenerator</a> <strong class="jxr_keyword">extends</strong> AbstractReaderGenerator
-<a class="jxr_linenumber" name="20" href="#20">20</a>  {
-<a class="jxr_linenumber" name="21" href="#21">21</a>      @Override
-<a class="jxr_linenumber" name="22" href="#22">22</a>      <strong class="jxr_keyword">protected</strong> AbstractReaderCreator createCreator(GeneratorContext context, JClassType interfaceType, String implName,
-<a class="jxr_linenumber" name="23" href="#23">23</a>              TreeLogger logger) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
-<a class="jxr_linenumber" name="24" href="#24">24</a>      {
-<a class="jxr_linenumber" name="25" href="#25">25</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../name/pehl/piriti/gxt/rebind/xml/XmlModelReaderCreator.html">XmlModelReaderCreator</a>(context, interfaceType, implName, XmlReader.<strong class="jxr_keyword">class</strong>.getCanonicalName(), logger);
-<a class="jxr_linenumber" name="26" href="#26">26</a>      }
-<a class="jxr_linenumber" name="27" href="#27">27</a>  }
+<a name="1" href="#1">1</a>   <strong class="jxr_keyword">package</strong> name.pehl.piriti.gxt.rebind.xml;
+<a name="2" href="#2">2</a>   
+<a name="3" href="#3">3</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.client.xml.XmlReader;
+<a name="4" href="#4">4</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.AbstractReaderCreator;
+<a name="5" href="#5">5</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.AbstractReaderGenerator;
+<a name="6" href="#6">6</a>   
+<a name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> com.google.gwt.core.ext.GeneratorContext;
+<a name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> com.google.gwt.core.ext.TreeLogger;
+<a name="9" href="#9">9</a>   <strong class="jxr_keyword">import</strong> com.google.gwt.core.ext.UnableToCompleteException;
+<a name="10" href="#10">10</a>  <strong class="jxr_keyword">import</strong> com.google.gwt.core.ext.typeinfo.JClassType;
+<a name="11" href="#11">11</a>  
+<a name="12" href="#12">12</a>  <em class="jxr_javadoccomment">/**</em>
+<a name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> * GWT Generator for XmlReaders. The generator delegates to</em>
+<a name="14" href="#14">14</a>  <em class="jxr_javadoccomment"> * {@link XmlModelReaderCreator} which is responsible for generating the code.</em>
+<a name="15" href="#15">15</a>  <em class="jxr_javadoccomment"> * </em>
+<a name="16" href="#16">16</a>  <em class="jxr_javadoccomment"> * @author $LastChangedBy: harald.pehl $</em>
+<a name="17" href="#17">17</a>  <em class="jxr_javadoccomment"> * @version $LastChangedRevision: 140 $</em>
+<a name="18" href="#18">18</a>  <em class="jxr_javadoccomment"> */</em>
+<a name="19" href="#19">19</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../name/pehl/piriti/gxt/rebind/xml/XmlModelReaderGenerator.html">XmlModelReaderGenerator</a> <strong class="jxr_keyword">extends</strong> AbstractReaderGenerator
+<a name="20" href="#20">20</a>  {
+<a name="21" href="#21">21</a>      @Override
+<a name="22" href="#22">22</a>      <strong class="jxr_keyword">protected</strong> AbstractReaderCreator createCreator(GeneratorContext context, JClassType interfaceType, String implName,
+<a name="23" href="#23">23</a>              TreeLogger logger) <strong class="jxr_keyword">throws</strong> UnableToCompleteException
+<a name="24" href="#24">24</a>      {
+<a name="25" href="#25">25</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../name/pehl/piriti/gxt/rebind/xml/XmlModelReaderCreator.html">XmlModelReaderCreator</a>(context, interfaceType, implName, XmlReader.<strong class="jxr_keyword">class</strong>.getCanonicalName(), logger);
+<a name="26" href="#26">26</a>      }
+<a name="27" href="#27">27</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>
