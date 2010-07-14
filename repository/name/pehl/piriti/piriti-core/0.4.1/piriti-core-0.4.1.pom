@@ -1,0 +1,238 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <!--
+        $LastChangedBy: harald.pehl 
+        $LastChangedRevision: 137 $
+    -->
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>name.pehl.piriti</groupId>
+        <artifactId>piriti-parent</artifactId>
+        <version>0.4.1</version>
+    </parent>
+
+
+    <artifactId>piriti-core</artifactId>
+    <name>Piriti Core</name>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt.inject</groupId>
+            <artifactId>gin</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/java</directory>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <excludes>
+                    <exclude>selenium-ff3-profile/**</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>name/pehl/piriti/PiritiCoreGwtTestSuite.java</exclude>
+                        <exclude>name/pehl/piriti/client/gwttest/**/*Test.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>(******** ff3-dev ********)</id>
+                        <configuration>
+                            <testTimeOut>300</testTimeOut>
+                            <runStyle>HtmlUnit:FF3</runStyle>
+                            <productionMode>false</productionMode>
+                            <gwtVersion>${gwt.version}</gwtVersion>
+                            <module>name.pehl.piriti.PiritiTest</module>
+                            <includes>name/pehl/piriti/PiritiCoreGwtTestSuite.java</includes>
+                        </configuration>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>(******** ff3-prod ********)</id>
+                        <configuration>
+                            <testTimeOut>300</testTimeOut>
+                            <userAgents>gecko1_8</userAgents>
+                            <runStyle>HtmlUnit:FF3</runStyle>
+                            <productionMode>true</productionMode>
+                            <gwtVersion>${gwt.version}</gwtVersion>
+                            <module>name.pehl.piriti.PiritiTest</module>
+                            <includes>name/pehl/piriti/PiritiCoreGwtTestSuite.java</includes>
+                        </configuration>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>(******** ie7_8-dev ********)</id>
+                        <configuration>
+                            <testTimeOut>600</testTimeOut>
+                            <runStyle>HtmlUnit:IE7</runStyle>
+                            <productionMode>false</productionMode>
+                            <gwtVersion>${gwt.version}</gwtVersion>
+                            <module>name.pehl.piriti.PiritiTest</module>
+                            <includes>name/pehl/piriti/PiritiCoreGwtTestSuite.java</includes>
+                        </configuration>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>(******** ie7_8-prod ********)</id>
+                        <configuration>
+                            <testTimeOut>600</testTimeOut>
+                            <userAgents>ie8</userAgents>
+                            <runStyle>HtmlUnit:IE7</runStyle>
+                            <productionMode>true</productionMode>
+                            <gwtVersion>${gwt.version}</gwtVersion>
+                            <module>name.pehl.piriti.PiritiTest</module>
+                            <includes>name/pehl/piriti/PiritiCoreGwtTestSuite.java</includes>
+                        </configuration>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <profiles>
+        <profile>
+            <!--
+                This profile runs GWT unit tests against a selenium server. 
+                Please note that this requires a firefox installation on your 
+                machine!
+            -->
+            <id>firefox</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.seleniumhq.selenium.client-drivers</groupId>
+                    <artifactId>selenium-java-client-driver</artifactId>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>selenium-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>start</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>start-server</goal>
+                                </goals>
+                                <configuration>
+                                    <background>true</background>
+                                    <firefoxProfileTemplate>
+                                        src/test/resources/selenium-ff3-profile
+                                    </firefoxProfileTemplate>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>stop</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>stop-server</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>gwt-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>(******** ff3-dev ********)</id>
+                                <configuration>
+                                    <testTimeOut>300</testTimeOut>
+                                    <runStyle>Selenium:localhost:4444/*firefox</runStyle>
+                                    <productionMode>false</productionMode>
+                                    <gwtVersion>${gwt.version}</gwtVersion>
+                                    <module>name.pehl.piriti.PiritiTest</module>
+                                    <includes>name/pehl/piriti/PiritiCoreGwtTestSuiteDns.java</includes>
+                                </configuration>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>(******** ff3-prod ********)</id>
+                                <configuration>
+                                    <testTimeOut>300</testTimeOut>
+                                    <userAgents>gecko1_8</userAgents>
+                                    <runStyle>Selenium:localhost:4444/*firefox</runStyle>
+                                    <productionMode>true</productionMode>
+                                    <gwtVersion>${gwt.version}</gwtVersion>
+                                    <module>name.pehl.piriti.PiritiTest</module>
+                                    <includes>name/pehl/piriti/PiritiCoreGwtTestSuiteDns.java</includes>
+                                </configuration>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>(******** ie7_8-dev ********)</id>
+                                <configuration>
+                                    <skip>true</skip>
+                                </configuration>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>(******** ie7_8-prod ********)</id>
+                                <configuration>
+                                    <skip>true</skip>
+                                </configuration>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
