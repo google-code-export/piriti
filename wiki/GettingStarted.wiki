@@ -27,21 +27,21 @@ Then depending on how much functionality you need add the following dependencies
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-core</artifactId>
-    <version>0.3.4</version>
+    <version>0.4.1</version>
     <scope>provided</scope>
 </dependency>
 <!-- For GXT model support -->
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-gxt</artifactId>
-    <version>0.3.4</version>
+    <version>0.4.1</version>
     <scope>provided</scope>
 </dependency>
 <!-- For Restlet support -->
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-restlet</artifactId>
-    <version>0.3.4</version>
+    <version>0.4.1</version>
     <scope>provided</scope>
 </dependency>
 }}}
