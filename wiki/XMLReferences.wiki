@@ -63,45 +63,24 @@ Let's take a look at the mapping:
 {{{
 public class Employee
 {
-    public interface EmployeeReader extends XmlReader<Employee>
-    {
-    }
-
+    public interface EmployeeReader extends XmlReader<Employee> {}
     public static final EmployeeReader XML = GWT.create(EmployeeReader.class);
 
-    @XmlId
-    String id;
-
-    @XmlField
-    String name;
-
-    @XmlIdRef("boss/@ref")
-    Employee boss;
-
-    @XmlIdRef("team/member/@ref")
-    List<Employee> team;
-
-    @XmlField
-    @XmlIdRef("department/@ref")
-    Department department;
+    @XmlId String id;
+    @XmlField String name;
+    @XmlIdRef("boss/@ref") Employee boss;
+    @XmlIdRef("team/member/@ref") List<Employee> team;
+    @XmlField @XmlIdRef("department/@ref") Department department;
 }
 
 public class Department
 {
-    public interface DepartmentReader extends XmlReader<Department>
-    {
-    }
-
+    public interface DepartmentReader extends XmlReader<Department> {}
     public static final DepartmentReader XML = GWT.create(DepartmentReader.class);
 
-    @XmlId
-    String id;
-
-    @XmlField
-    String name;
-
-    @XmlIdRef("employees/@members")
-    Employee[] employees;
+    @XmlId String id;
+    @XmlField String name;
+    @XmlIdRef("employees/@members") Employee[] employees;
 }
 }}}
 
