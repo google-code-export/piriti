@@ -1,6 +1,9 @@
 #summary Piriti release notes.
 #labels Featured
 
+=== Piriti 0.4.1 ===
+  * Added support for inheritance in POJOs and GXT models (see issue 6)
+
 === Piriti 0.4 ===
   * Added support for [Namespaces namespaces].
   * Removed dependency to [http://code.google.com/p/gwtxpath gwtxpath]
