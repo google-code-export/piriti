@@ -136,7 +136,7 @@ The following lists summarize the limitations in Piriti.
 
 = Planed =
 In future releases the following features might be implemented:
-  * ~~Add support for namespaces in XML~~
+  * ~~Add support for namespaces in XML~~ (implemented in Piriti 0.4).
   * Add the possibility to define mappings for POJOs where you don't have access to the source code, i.e. mapping without the use of annotations.
   * Use JAXB annotations for the mapping.
   * ~~Replace JSONParser.parse() with native implementation~~ (implemented in Piriti 0.3.5).
