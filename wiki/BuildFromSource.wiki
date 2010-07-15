@@ -12,10 +12,3 @@ If you working with eclipse you can generate the necessary project files by call
 mvn eclipse:eclipse
 }}} 
 The generated projects have GWT natures and are recognized by the Goole Eclipse plug-in.
-
-= Selenium Tests = 
-The pom contains the profile {{{firefox}}}. When calling
-{{{
-mvn integration-test -P firefox
-}}}
-maven will start a selenium server and run some GWT test cases against a firefox browser. Please note that you will need a firefox instalation on your machine.
