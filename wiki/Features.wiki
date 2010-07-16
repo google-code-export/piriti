@@ -70,7 +70,7 @@ Cat snowball = Cat.JSON.read(json);
 }}}
 
 == Nested Types ==
-Because all reader instances are registered against a global registry, references to other types that also have a reader are recognized and mapped. Therefore the reader instances must be defined as public static fields (name must not be `XML`):
+Because all reader instances are registered against a global registry, references to other types that also have a reader are recognized and mapped:
 {{{
 public class Book
 {
