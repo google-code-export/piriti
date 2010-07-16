@@ -142,8 +142,8 @@ The following lists summarize the limitations in Piriti.
 In future releases the following features might be implemented:
   * ~~Add support for namespaces in XML~~ (implemented in Piriti 0.4).
   * Add possibility to annotate setters instead of fields.
-  * Enable mapping for POJOs / GXT models without source code.
-  * Use JAXB annotations for the mapping.
+  * Enable mappings for POJOs / GXT models without source code.
+  * Enable JAXB annotations for the mapping.
   * ~~Replace JSONParser.parse() with native implementation~~ (implemented in Piriti 0.3.5).
   * Add support for references in JSON (see [http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO] for an example of references in JSON).
   * Add the ability to also generate JSON / XML data from the annotated models.
