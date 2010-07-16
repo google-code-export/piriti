@@ -69,21 +69,25 @@ String json = ...;
 Cat snowball = Cat.JSON.read(json);
 }}}
 
-== Nested Types ==
-Because all reader instances are registered against a global registry, references to other types that also have a reader are recognized and mapped:
+== References ==
+Because all reader instances are registered against a global registry, references to other types that also have a reader are recognized and mapped. The only requirement is, that the reader definitions must be static:
 {{{
 public class Book
 {
     interface BookReader extends XmlReader<Book> {}
     public static final BookReader XML = GWT.create(BookReader.class);
 
+    @XmlField String name;
     @XmlField Author author;
 }
 
 public class Author
 {
     interface AuthorReader extends XmlReader<Author> {}
-    public static final AuthorReader SOME_FANCY_NAME = GWT.create(AuthorReader.class);
+    public static final AuthorReader XML = GWT.create(AuthorReader.class);
+
+    @XmlField String firstname;
+    @XmlField String surname;
 }
 }}}
 
