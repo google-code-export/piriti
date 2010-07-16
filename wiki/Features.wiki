@@ -92,7 +92,7 @@ public class Author
 }}}
 
 = XML =
-== References ==
+== ID & IDREF ==
 Piriti supports the mapping of XML references using ID and IDREF. 
 {{{
 <employees>
