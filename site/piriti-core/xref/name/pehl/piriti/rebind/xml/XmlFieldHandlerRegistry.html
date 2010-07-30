@@ -22,7 +22,7 @@
 <a name="12" href="#12">12</a>  <strong class="jxr_keyword">import</strong> java.util.SortedSet;
 <a name="13" href="#13">13</a>  <strong class="jxr_keyword">import</strong> java.util.TreeSet;
 <a name="14" href="#14">14</a>  
-<a name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.AssignmentType;
+<a name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.fieldhandler.AssignmentType;
 <a name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.fieldhandler.FieldContext;
 <a name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.fieldhandler.FieldHandler;
 <a name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> name.pehl.piriti.rebind.fieldhandler.FieldHandlerRegistry;
@@ -127,106 +127,110 @@
 <a name="117" href="#117">117</a> <em class="jxr_javadoccomment">     * Looks up a field handler based on the information provided in the field</em>
 <a name="118" href="#118">118</a> <em class="jxr_javadoccomment">     * context. The lookup logic is implemented like this:</em>
 <a name="119" href="#119">119</a> <em class="jxr_javadoccomment">     * &lt;ol&gt;</em>
-<a name="120" href="#120">120</a> <em class="jxr_javadoccomment">     * &lt;li&gt;If the fields type is a primitive return the</em>
-<a name="121" href="#121">121</a> <em class="jxr_javadoccomment">     * {@link ConverterFieldHandler}</em>
-<a name="122" href="#122">122</a> <em class="jxr_javadoccomment">     * &lt;li&gt;if the fields type is an enum return {@link EnumFieldHandler}</em>
-<a name="123" href="#123">123</a> <em class="jxr_javadoccomment">     * &lt;li&gt;If the fields type is an array return {@link ArrayFieldHandler}</em>
-<a name="124" href="#124">124</a> <em class="jxr_javadoccomment">     * &lt;li&gt;Try to lookup the field handler by the fields type classname (this</em>
-<a name="125" href="#125">125</a> <em class="jxr_javadoccomment">     * will resolve all types registered in</em>
-<a name="126" href="#126">126</a> <em class="jxr_javadoccomment">     * {@link #registerInitialFieldHandlers()}</em>
-<a name="127" href="#127">127</a> <em class="jxr_javadoccomment">     * &lt;li&gt;If no field handler return {@link XmlRegistryFieldHandler}.</em>
-<a name="128" href="#128">128</a> <em class="jxr_javadoccomment">     * &lt;/ol&gt;</em>
-<a name="129" href="#129">129</a> <em class="jxr_javadoccomment">     * </em>
-<a name="130" href="#130">130</a> <em class="jxr_javadoccomment">     * @param fieldContext</em>
-<a name="131" href="#131">131</a> <em class="jxr_javadoccomment">     * @return</em>
-<a name="132" href="#132">132</a> <em class="jxr_javadoccomment">     * @see name.pehl.piriti.rebind.fieldhandler.FieldHandlerRegistry#findFieldHandler(name.pehl.piriti.rebind.fieldhandler.FieldContext)</em>
-<a name="133" href="#133">133</a> <em class="jxr_javadoccomment">     */</em>
-<a name="134" href="#134">134</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> findFieldHandler(<a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldContext.html">FieldContext</a> fieldContext)
-<a name="135" href="#135">135</a>     {
-<a name="136" href="#136">136</a>         <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> handler = <strong class="jxr_keyword">null</strong>;
-<a name="137" href="#137">137</a> 
-<a name="138" href="#138">138</a>         <strong class="jxr_keyword">if</strong> (fieldContext.getAssignmentType() == AssignmentType.ID)
-<a name="139" href="#139">139</a>         {
-<a name="140" href="#140">140</a>             handler = newIdFieldHandler();
-<a name="141" href="#141">141</a>         }
-<a name="142" href="#142">142</a>         <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fieldContext.getAssignmentType() == AssignmentType.IDREF)
+<a name="120" href="#120">120</a> <em class="jxr_javadoccomment">     * &lt;li&gt;If the assignment type is {@link AssignmentType#ID} return</em>
+<a name="121" href="#121">121</a> <em class="jxr_javadoccomment">     * {@link IdFieldHandler}</em>
+<a name="122" href="#122">122</a> <em class="jxr_javadoccomment">     * &lt;li&gt;if the assignment type is {@link AssignmentType#IDREF} return</em>
+<a name="123" href="#123">123</a> <em class="jxr_javadoccomment">     * {@link IdRefFieldHandler}</em>
+<a name="124" href="#124">124</a> <em class="jxr_javadoccomment">     * &lt;li&gt;if the fields type is a primitive return the</em>
+<a name="125" href="#125">125</a> <em class="jxr_javadoccomment">     * {@link ConverterFieldHandler}</em>
+<a name="126" href="#126">126</a> <em class="jxr_javadoccomment">     * &lt;li&gt;if the fields type is an enum return {@link EnumFieldHandler}</em>
+<a name="127" href="#127">127</a> <em class="jxr_javadoccomment">     * &lt;li&gt;If the fields type is an array return {@link ArrayFieldHandler}</em>
+<a name="128" href="#128">128</a> <em class="jxr_javadoccomment">     * &lt;li&gt;Try to lookup the field handler by the fields type classname (this</em>
+<a name="129" href="#129">129</a> <em class="jxr_javadoccomment">     * will resolve all types registered in</em>
+<a name="130" href="#130">130</a> <em class="jxr_javadoccomment">     * {@link #registerInitialFieldHandlers()}</em>
+<a name="131" href="#131">131</a> <em class="jxr_javadoccomment">     * &lt;li&gt;If no field handler return {@link XmlRegistryFieldHandler}.</em>
+<a name="132" href="#132">132</a> <em class="jxr_javadoccomment">     * &lt;/ol&gt;</em>
+<a name="133" href="#133">133</a> <em class="jxr_javadoccomment">     * </em>
+<a name="134" href="#134">134</a> <em class="jxr_javadoccomment">     * @param fieldContext</em>
+<a name="135" href="#135">135</a> <em class="jxr_javadoccomment">     * @return</em>
+<a name="136" href="#136">136</a> <em class="jxr_javadoccomment">     * @see name.pehl.piriti.rebind.fieldhandler.FieldHandlerRegistry#findFieldHandler(name.pehl.piriti.rebind.fieldhandler.FieldContext)</em>
+<a name="137" href="#137">137</a> <em class="jxr_javadoccomment">     */</em>
+<a name="138" href="#138">138</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> findFieldHandler(<a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldContext.html">FieldContext</a> fieldContext)
+<a name="139" href="#139">139</a>     {
+<a name="140" href="#140">140</a>         <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> handler = <strong class="jxr_keyword">null</strong>;
+<a name="141" href="#141">141</a> 
+<a name="142" href="#142">142</a>         <strong class="jxr_keyword">if</strong> (fieldContext.getAssignmentType() == AssignmentType.ID)
 <a name="143" href="#143">143</a>         {
-<a name="144" href="#144">144</a>             handler = newIdRefFieldHandler();
+<a name="144" href="#144">144</a>             handler = newIdFieldHandler();
 <a name="145" href="#145">145</a>         }
-<a name="146" href="#146">146</a>         <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fieldContext.isPrimitive())
+<a name="146" href="#146">146</a>         <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fieldContext.getAssignmentType() == AssignmentType.IDREF)
 <a name="147" href="#147">147</a>         {
-<a name="148" href="#148">148</a>             handler = newConverterFieldHandler();
+<a name="148" href="#148">148</a>             handler = newIdRefFieldHandler();
 <a name="149" href="#149">149</a>         }
-<a name="150" href="#150">150</a>         <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fieldContext.isEnum())
+<a name="150" href="#150">150</a>         <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fieldContext.isPrimitive())
 <a name="151" href="#151">151</a>         {
-<a name="152" href="#152">152</a>             handler = newEnumFieldHandler();
+<a name="152" href="#152">152</a>             handler = newConverterFieldHandler();
 <a name="153" href="#153">153</a>         }
-<a name="154" href="#154">154</a>         <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fieldContext.isArray())
+<a name="154" href="#154">154</a>         <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fieldContext.isEnum())
 <a name="155" href="#155">155</a>         {
-<a name="156" href="#156">156</a>             handler = newArrayFieldHandler();
+<a name="156" href="#156">156</a>             handler = newEnumFieldHandler();
 <a name="157" href="#157">157</a>         }
-<a name="158" href="#158">158</a>         <strong class="jxr_keyword">else</strong>
+<a name="158" href="#158">158</a>         <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fieldContext.isArray())
 <a name="159" href="#159">159</a>         {
-<a name="160" href="#160">160</a>             <em class="jxr_comment">// Ask the registry for all other stuff (basic types,</em>
-<a name="161" href="#161">161</a>             <em class="jxr_comment">// collections, maps, ...)</em>
-<a name="162" href="#162">162</a>             handler = registry.get(fieldContext.getFieldType().getQualifiedSourceName());
-<a name="163" href="#163">163</a>             <strong class="jxr_keyword">if</strong> (handler == <strong class="jxr_keyword">null</strong>)
-<a name="164" href="#164">164</a>             {
-<a name="165" href="#165">165</a>                 <em class="jxr_comment">// Delegate to the XmlRegistry to resolve other mapped models</em>
-<a name="166" href="#166">166</a>                 handler = newRegistryFieldHandler();
-<a name="167" href="#167">167</a>             }
-<a name="168" href="#168">168</a>         }
-<a name="169" href="#169">169</a>         <strong class="jxr_keyword">return</strong> handler;
-<a name="170" href="#170">170</a>     }
-<a name="171" href="#171">171</a> 
-<a name="172" href="#172">172</a> 
-<a name="173" href="#173">173</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newIdFieldHandler()
-<a name="174" href="#174">174</a>     {
-<a name="175" href="#175">175</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/IdFieldHandler.html">IdFieldHandler</a>();
-<a name="176" href="#176">176</a>     }
-<a name="177" href="#177">177</a> 
-<a name="178" href="#178">178</a> 
-<a name="179" href="#179">179</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newIdRefFieldHandler()
-<a name="180" href="#180">180</a>     {
-<a name="181" href="#181">181</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/IdRefFieldHandler.html">IdRefFieldHandler</a>();
-<a name="182" href="#182">182</a>     }
-<a name="183" href="#183">183</a> 
-<a name="184" href="#184">184</a> 
-<a name="185" href="#185">185</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newConverterFieldHandler()
-<a name="186" href="#186">186</a>     {
-<a name="187" href="#187">187</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/ConverterFieldHandler.html">ConverterFieldHandler</a>();
-<a name="188" href="#188">188</a>     }
-<a name="189" href="#189">189</a> 
-<a name="190" href="#190">190</a> 
-<a name="191" href="#191">191</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newStringFieldHandler()
-<a name="192" href="#192">192</a>     {
-<a name="193" href="#193">193</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/StringFieldHandler.html">StringFieldHandler</a>();
-<a name="194" href="#194">194</a>     }
-<a name="195" href="#195">195</a> 
-<a name="196" href="#196">196</a> 
-<a name="197" href="#197">197</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newEnumFieldHandler()
-<a name="198" href="#198">198</a>     {
-<a name="199" href="#199">199</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/EnumFieldHandler.html">EnumFieldHandler</a>();
-<a name="200" href="#200">200</a>     }
-<a name="201" href="#201">201</a> 
-<a name="202" href="#202">202</a> 
-<a name="203" href="#203">203</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newArrayFieldHandler()
-<a name="204" href="#204">204</a>     {
-<a name="205" href="#205">205</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/ArrayFieldHandler.html">ArrayFieldHandler</a>();
-<a name="206" href="#206">206</a>     }
-<a name="207" href="#207">207</a> 
-<a name="208" href="#208">208</a> 
-<a name="209" href="#209">209</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newCollectionFieldHandler()
-<a name="210" href="#210">210</a>     {
-<a name="211" href="#211">211</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/CollectionFieldHandler.html">CollectionFieldHandler</a>();
-<a name="212" href="#212">212</a>     }
-<a name="213" href="#213">213</a> 
-<a name="214" href="#214">214</a> 
-<a name="215" href="#215">215</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newRegistryFieldHandler()
-<a name="216" href="#216">216</a>     {
-<a name="217" href="#217">217</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/XmlRegistryFieldHandler.html">XmlRegistryFieldHandler</a>();
-<a name="218" href="#218">218</a>     }
-<a name="219" href="#219">219</a> }
+<a name="160" href="#160">160</a>             handler = newArrayFieldHandler();
+<a name="161" href="#161">161</a>         }
+<a name="162" href="#162">162</a>         <strong class="jxr_keyword">else</strong>
+<a name="163" href="#163">163</a>         {
+<a name="164" href="#164">164</a>             <em class="jxr_comment">// Ask the registry for all other stuff (basic types,</em>
+<a name="165" href="#165">165</a>             <em class="jxr_comment">// collections, maps, ...)</em>
+<a name="166" href="#166">166</a>             handler = registry.get(fieldContext.getFieldType().getQualifiedSourceName());
+<a name="167" href="#167">167</a>             <strong class="jxr_keyword">if</strong> (handler == <strong class="jxr_keyword">null</strong>)
+<a name="168" href="#168">168</a>             {
+<a name="169" href="#169">169</a>                 <em class="jxr_comment">// Delegate to the XmlRegistry to resolve other mapped models</em>
+<a name="170" href="#170">170</a>                 handler = newRegistryFieldHandler();
+<a name="171" href="#171">171</a>             }
+<a name="172" href="#172">172</a>         }
+<a name="173" href="#173">173</a>         <strong class="jxr_keyword">return</strong> handler;
+<a name="174" href="#174">174</a>     }
+<a name="175" href="#175">175</a> 
+<a name="176" href="#176">176</a> 
+<a name="177" href="#177">177</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newIdFieldHandler()
+<a name="178" href="#178">178</a>     {
+<a name="179" href="#179">179</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/IdFieldHandler.html">IdFieldHandler</a>();
+<a name="180" href="#180">180</a>     }
+<a name="181" href="#181">181</a> 
+<a name="182" href="#182">182</a> 
+<a name="183" href="#183">183</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newIdRefFieldHandler()
+<a name="184" href="#184">184</a>     {
+<a name="185" href="#185">185</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/IdRefFieldHandler.html">IdRefFieldHandler</a>();
+<a name="186" href="#186">186</a>     }
+<a name="187" href="#187">187</a> 
+<a name="188" href="#188">188</a> 
+<a name="189" href="#189">189</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newConverterFieldHandler()
+<a name="190" href="#190">190</a>     {
+<a name="191" href="#191">191</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/ConverterFieldHandler.html">ConverterFieldHandler</a>();
+<a name="192" href="#192">192</a>     }
+<a name="193" href="#193">193</a> 
+<a name="194" href="#194">194</a> 
+<a name="195" href="#195">195</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newStringFieldHandler()
+<a name="196" href="#196">196</a>     {
+<a name="197" href="#197">197</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/StringFieldHandler.html">StringFieldHandler</a>();
+<a name="198" href="#198">198</a>     }
+<a name="199" href="#199">199</a> 
+<a name="200" href="#200">200</a> 
+<a name="201" href="#201">201</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newEnumFieldHandler()
+<a name="202" href="#202">202</a>     {
+<a name="203" href="#203">203</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/EnumFieldHandler.html">EnumFieldHandler</a>();
+<a name="204" href="#204">204</a>     }
+<a name="205" href="#205">205</a> 
+<a name="206" href="#206">206</a> 
+<a name="207" href="#207">207</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newArrayFieldHandler()
+<a name="208" href="#208">208</a>     {
+<a name="209" href="#209">209</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/ArrayFieldHandler.html">ArrayFieldHandler</a>();
+<a name="210" href="#210">210</a>     }
+<a name="211" href="#211">211</a> 
+<a name="212" href="#212">212</a> 
+<a name="213" href="#213">213</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newCollectionFieldHandler()
+<a name="214" href="#214">214</a>     {
+<a name="215" href="#215">215</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/CollectionFieldHandler.html">CollectionFieldHandler</a>();
+<a name="216" href="#216">216</a>     }
+<a name="217" href="#217">217</a> 
+<a name="218" href="#218">218</a> 
+<a name="219" href="#219">219</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../name/pehl/piriti/rebind/fieldhandler/FieldHandler.html">FieldHandler</a> newRegistryFieldHandler()
+<a name="220" href="#220">220</a>     {
+<a name="221" href="#221">221</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../name/pehl/piriti/rebind/xml/fieldhandler/XmlRegistryFieldHandler.html">XmlRegistryFieldHandler</a>();
+<a name="222" href="#222">222</a>     }
+<a name="223" href="#223">223</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

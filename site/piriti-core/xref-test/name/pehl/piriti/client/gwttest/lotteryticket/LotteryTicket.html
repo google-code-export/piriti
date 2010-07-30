@@ -15,33 +15,44 @@
 <a name="5" href="#5">5</a>   
 <a name="6" href="#6">6</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.client.xml.XmlField;
 <a name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.client.xml.XmlReader;
-<a name="8" href="#8">8</a>   
-<a name="9" href="#9">9</a>   <strong class="jxr_keyword">import</strong> com.google.gwt.core.client.GWT;
-<a name="10" href="#10">10</a>  
-<a name="11" href="#11">11</a>  <em class="jxr_javadoccomment">/**</em>
-<a name="12" href="#12">12</a>  <em class="jxr_javadoccomment"> * @author $LastChangedBy:$</em>
-<a name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> * @version $LastChangedRevision:$</em>
-<a name="14" href="#14">14</a>  <em class="jxr_javadoccomment"> */</em>
-<a name="15" href="#15">15</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/LotteryTicket.html">LotteryTicket</a>
-<a name="16" href="#16">16</a>  {
-<a name="17" href="#17">17</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/LotteryTicket.html">LotteryTicketReader</a> <strong class="jxr_keyword">extends</strong> XmlReader&lt;LotteryTicket&gt;
-<a name="18" href="#18">18</a>      {
-<a name="19" href="#19">19</a>      }
-<a name="20" href="#20">20</a>  
-<a name="21" href="#21">21</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/LotteryTicket.html">LotteryTicketReader</a> XML = GWT.create(LotteryTicketReader.<strong class="jxr_keyword">class</strong>);
-<a name="22" href="#22">22</a>  
-<a name="23" href="#23">23</a>      @XmlField(value = <span class="jxr_string">"@date"</span>, format = <span class="jxr_string">"dd.MM.yyyy"</span>)
-<a name="24" href="#24">24</a>      Date date;
+<a name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> name.pehl.piriti.client.xml.XmlWriter;
+<a name="9" href="#9">9</a>   
+<a name="10" href="#10">10</a>  <strong class="jxr_keyword">import</strong> com.google.gwt.core.client.GWT;
+<a name="11" href="#11">11</a>  
+<a name="12" href="#12">12</a>  <em class="jxr_javadoccomment">/**</em>
+<a name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> * @author $LastChangedBy:$</em>
+<a name="14" href="#14">14</a>  <em class="jxr_javadoccomment"> * @version $LastChangedRevision:$</em>
+<a name="15" href="#15">15</a>  <em class="jxr_javadoccomment"> */</em>
+<a name="16" href="#16">16</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/LotteryTicket.html">LotteryTicket</a>
+<a name="17" href="#17">17</a>  {
+<a name="18" href="#18">18</a>      <em class="jxr_comment">// ---------------------------------------------------- xml reader / writer</em>
+<a name="19" href="#19">19</a>  
+<a name="20" href="#20">20</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/LotteryTicket.html">LotteryTicketReader</a> <strong class="jxr_keyword">extends</strong> XmlReader&lt;LotteryTicket&gt;
+<a name="21" href="#21">21</a>      {
+<a name="22" href="#22">22</a>      }
+<a name="23" href="#23">23</a>  
+<a name="24" href="#24">24</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/LotteryTicket.html">LotteryTicketReader</a> XML_READER = GWT.create(LotteryTicketReader.<strong class="jxr_keyword">class</strong>);
 <a name="25" href="#25">25</a>  
-<a name="26" href="#26">26</a>      @XmlField(<span class="jxr_string">"foo:player"</span>)
-<a name="27" href="#27">27</a>      <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/Player.html">Player</a> player;
-<a name="28" href="#28">28</a>  
-<a name="29" href="#29">29</a>      @XmlField(<span class="jxr_string">"numbers/@game"</span>)
-<a name="30" href="#30">30</a>      String game;
+<a name="26" href="#26">26</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/LotteryTicket.html">LotteryTicketWriter</a> <strong class="jxr_keyword">extends</strong> XmlWriter&lt;LotteryTicket&gt;
+<a name="27" href="#27">27</a>      {
+<a name="28" href="#28">28</a>      }
+<a name="29" href="#29">29</a>  
+<a name="30" href="#30">30</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/LotteryTicket.html">LotteryTicketWriter</a> XML_WRITER = GWT.create(LotteryTicketWriter.<strong class="jxr_keyword">class</strong>);
 <a name="31" href="#31">31</a>  
-<a name="32" href="#32">32</a>      @XmlField(<span class="jxr_string">"numbers/number"</span>)
-<a name="33" href="#33">33</a>      List&lt;Integer&gt; numbers;
-<a name="34" href="#34">34</a>  }
+<a name="32" href="#32">32</a>      <em class="jxr_comment">// ------------------------------------------------------------------- data</em>
+<a name="33" href="#33">33</a>  
+<a name="34" href="#34">34</a>      @XmlField(value = <span class="jxr_string">"@date"</span>, format = <span class="jxr_string">"dd.MM.yyyy"</span>)
+<a name="35" href="#35">35</a>      Date date;
+<a name="36" href="#36">36</a>  
+<a name="37" href="#37">37</a>      @XmlField(<span class="jxr_string">"foo:player"</span>)
+<a name="38" href="#38">38</a>      <a href="../../../../../../name/pehl/piriti/client/gwttest/lotteryticket/Player.html">Player</a> player;
+<a name="39" href="#39">39</a>  
+<a name="40" href="#40">40</a>      @XmlField(<span class="jxr_string">"numbers/@game"</span>)
+<a name="41" href="#41">41</a>      String game;
+<a name="42" href="#42">42</a>  
+<a name="43" href="#43">43</a>      @XmlField(<span class="jxr_string">"numbers/number"</span>)
+<a name="44" href="#44">44</a>      List&lt;Integer&gt; numbers;
+<a name="45" href="#45">45</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>
