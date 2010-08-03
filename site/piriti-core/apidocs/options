@@ -1,5 +1,5 @@
 -classpath
-'/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/classes:/home/pehlh/Repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-dev/2.0.4/gwt-dev-2.0.4.jar:/home/pehlh/Repo/name/pehl/totoe/0.1/totoe-0.1.jar:/home/pehlh/Repo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/Repo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-user/2.0.4/gwt-user-2.0.4.jar'
+'/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/classes:/home/pehlh/MavenRepo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/MavenRepo/com/google/gwt/gwt-dev/2.0.4/gwt-dev-2.0.4.jar:/home/pehlh/MavenRepo/name/pehl/totoe/0.1/totoe-0.1.jar:/home/pehlh/MavenRepo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/MavenRepo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/MavenRepo/com/google/gwt/gwt-user/2.0.4/gwt-user-2.0.4.jar'
 -encoding
 'UTF-8'
 -protected
