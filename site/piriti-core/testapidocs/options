@@ -21,6 +21,8 @@
 -link
 'http://totoe.googlecode.com/svn/site/apidocs'
 -link
+'../apidocs'
+-link
 'http://java.sun.com/javase/6/docs/api'
 -linkoffline
 'http://code.google.com/p/piriti/piriti-gxt/apidocs' '/home/pehlh/Projekte/GoogleCode/Piriti/impl/gxt/target/site/testapidocs'
