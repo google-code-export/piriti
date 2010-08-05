@@ -21,6 +21,8 @@
 -link
 'http://totoe.googlecode.com/svn/site/apidocs'
 -link
+'../apidocs'
+-link
 'http://java.sun.com/javase/6/docs/api'
 -stylesheetfile
 '/home/pehlh/Projekte/GoogleCode/Piriti/impl/target/site/testapidocs/stylesheet.css'
