@@ -108,10 +108,10 @@ Piriti supports the mapping of XML references using ID and IDREF.
     </employee>
 </employees>
 }}}
-See [XMLReferences XML references] for more info.
+See [XmlReferences XML references] for more info.
 
 == Namespaces ==
-Starting with Piriti 0.4 namespaces including default namespaces are supported in the XML document and in the XPath expressions. See [Namespaces namespaces] for further information.
+Starting with Piriti 0.4 namespaces including default namespaces are supported in the XML document and in the XPath expressions. See [XmlNamespaces namespaces] for further information.
 
 = JSON =
 == Native JSON Parser ==
@@ -142,8 +142,8 @@ The following lists summarize the limitations in Piriti.
 In future releases the following features might be implemented:
   * ~~Add support for namespaces in XML~~ (implemented in Piriti 0.4).
   * Add possibility to annotate setters instead of fields.
-  * Enable mappings for POJOs / GXT models without source code.
+  * ~~Enable mappings for POJOs / GXT models without source code~~ (implemented in Piriti 0.5).
   * Enable JAXB annotations for the mapping.
   * ~~Replace JSONParser.parse() with native implementation~~ (implemented in Piriti 0.3.5).
   * Add support for references in JSON (see [http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO] for an example of references in JSON).
-  * Add the ability to also generate JSON / XML data from the annotated models.
+  * Add the ability to also generate ~~JSON~~ / XML data from the annotated models (implemented in Piriti 0.5).
