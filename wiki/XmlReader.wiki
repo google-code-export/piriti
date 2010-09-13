@@ -2,7 +2,7 @@
 
 = Introduction =
 
-XML mapping is done using the `[http://piriti.googlecode.com/svn/site/apidocs/name/pehl/piriti/client/xml/XmlField.html @XmlField]` annotation. This annotation has the following attributes:
+XML mapping is done using the [http://piriti.googlecode.com/svn/site/apidocs/name/pehl/piriti/client/xml/XmlField.html @XmlField] annotation. This annotation has the following attributes:
   * name: The name of the field / property. Only necessary for [Features#External_Mappings external mappings].
   * value: An XPath expression to select the XML data. Defaults to "" which means that the fields name is taken as a base for the XPath expression.
   * format: The format to use when converting the XML data to the fields type. Defaults to "".
