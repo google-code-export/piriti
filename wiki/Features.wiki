@@ -94,20 +94,9 @@ public class Author
 == External Mappings  ==
 The previous samples all used the mapping annotations directly in the POJO. If you don't want to 'pollute' your POJOs with Piriti annotations or you don't have direct access to the POJOs source code, you can also define the mapping in an extra class:
 {{{
-public class Product
-{
-    private String id;
-    private String name;
-    private double price;
-    
-    // getters
-    ...
-}
-
 public class Order
 {
     private Date date;
-    private Customer customer;
     private List<OrderItem> items;
     
     // getters
@@ -123,18 +112,20 @@ public class OrderItem
     ...
 }
 
+public class Product
+{
+    private String id;
+    private String name;
+    private double price;
+    
+    // getters
+    ...
+}
+
 public class Readers
 {
     @JsonFields({
-        @JsonField(name = "id"), 
-        @JsonField(name = "name"), 
-        @JsonField(name = "price")})
-    public interface ProductJsonReader extends JsonReader<Product> {}
-    public static final ProductJsonReader PRODUCT = GWT.create(ProductJsonReader.class);
-
-    @JsonFields({
         @JsonField(name = "date", format = "dd.MM.yyyy"), 
-        @JsonField(name = "customer"),
         @JsonField(name = "items")})
     public interface OrderJsonReader extends JsonReader<Order> {}
     public static final OrderJsonReader ORDER = GWT.create(OrderJsonReader.class);
@@ -144,6 +135,13 @@ public class Readers
         @JsonField(name = "amount")})
     public interface OrderItemJsonReader extends JsonReader<OrderItem> {}
     public static final OrderItemJsonReader ORDER_ITEM = GWT.create(OrderItemJsonReader.class);
+
+    @JsonFields({
+        @JsonField(name = "id"), 
+        @JsonField(name = "name"), 
+        @JsonField(name = "price")})
+    public interface ProductJsonReader extends JsonReader<Product> {}
+    public static final ProductJsonReader PRODUCT = GWT.create(ProductJsonReader.class);
 }
 }}}    
 When using external mappings there are a few things to notice:
