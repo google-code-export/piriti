@@ -114,12 +114,9 @@ public class OrderItem
 
 public class Product
 {
-    private String id;
-    private String name;
-    private double price;
-    
-    // getters
-    ...
+    public String id;
+    public String name;
+    public double price;
 }
 
 public class Readers
@@ -145,8 +142,8 @@ public class Readers
 }
 }}}    
 When using external mappings there are a few things to notice:
-  * The annotation must contain the property name
-  * All mappings are collected in an `@JsonFields` or `@XmlFields` annotation 
+  * The `@JsonField` or `@XmlField` annotation must contain the property name
+  * All mappings are collected in a `@JsonFields` or `@XmlFields` annotation 
   * If there's no getter for the mapped data, the field must not be private
   * The reader definitions must be static
 
@@ -171,11 +168,11 @@ Piriti supports the mapping of XML references using ID and IDREF.
 See [XmlReferences XML references] for more info.
 
 == Namespaces ==
-Starting with Piriti 0.4 namespaces including default namespaces are supported in the XML document and in the XPath expressions. See [XmlNamespaces namespaces] for further information.
+Namespaces including default namespaces are supported in both the XML document and XPath expressions. See [XmlNamespaces namespaces] for further information.
 
 = JSON =
 == Native JSON Parser ==
-Starting with Piriti 0.3.5 the JSON data is no longer parsed using javascript eval() but the native JSON parser (or a javascript emulation if no native parser is available). Hence the JSON data must confirm to the syntax described at [http://json.org/ JSON.org]. Especially the keys must be enclosed in ". So instead of 
+JSON data is *not* parsed using javascript `eval()` but the native JSON parser (or a javascript emulation if no native parser is available). Hence the JSON data must confirm to the syntax described at [http://json.org/ JSON.org]. Especially the keys must be enclosed in ". So instead of 
 {{{
 { readonly: true, name: "Foo", createdAt: "08.01.2010", count: 20 }
 }}}
@@ -206,4 +203,4 @@ In future releases the following features might be implemented:
   * Enable JAXB annotations for the mapping.
   * ~~Replace JSONParser.parse() with native implementation~~ (implemented in Piriti 0.3.5).
   * Add support for references in JSON (see [http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO] for an example of references in JSON).
-  * Add the ability to also generate ~~JSON~~ / XML data from the annotated models (implemented in Piriti 0.5).
+  * Add the ability to also generate ~~JSON /~~ XML data from the annotated models (implemented in Piriti 0.5).
