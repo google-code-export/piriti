@@ -5,15 +5,15 @@
 POJOs can be serialized to JSON by using the same [http://piriti.googlecode.com/svn/site/apidocs/name/pehl/piriti/client/json/JsonField.html @JsonField] annotation which is used for parsing. 
 
 = Serialization = 
-To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface. In almost any case you would also have a `JsonReader<T>` for parsing  
+To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface. In almost any cases you would also have a `JsonReader<T>` for parsing  
 {{{
 public class Book
 {
-    public interface BookJsonReader extends JsonReader<Book> {}
-    public static final BookJsonReader IN = GWT.create(BookJsonReader.class);
+    public interface BookReader extends JsonReader<Book> {}
+    public static final BookReader READER = GWT.create(BookReader.class);
 
-    public interface BookJsonWriter extends JsonWriter<Book> {}
-    public static final BookJsonWriter OUT = GWT.create(BookJsonWriter.class);
+    public interface BookWriter extends JsonWriter<Book> {}
+    public static final BookWriter WRITER = GWT.create(BookWriter.class);
 
     @JsonField String isbn;
     @JsonField int pages;
@@ -25,11 +25,11 @@ public class Book
 
 public class Author
 {
-    public interface AuthorJsonReader extends JsonReader<Author> {}
-    public static final AuthorJsonReader IN = GWT.create(AuthorJsonReader.class);
+    public interface AuthorReader extends JsonReader<Author> {}
+    public static final AuthorReader READER = GWT.create(AuthorReader.class);
 
-    public interface AuthorJsonWriter extends JsonWriter<Author> {}
-    public static final AuthorJsonWriter OUT = GWT.create(AuthorJsonWriter.class);
+    public interface AuthorWriter extends JsonWriter<Author> {}
+    public static final AuthorWriter WRITER = GWT.create(AuthorWriter.class);
 
     @JsonField String firstname;
     @JsonField String surname;
@@ -40,7 +40,7 @@ public class Author
 A typical scenario is to parse the JSON data from the server, make some modifications and send back the modified JSON:
 {{{
 String json = ...; // received from the server
-Book book = Book.IN.read(json);
+Book book = Book.READER.read(json);
 book.title += " 2nd edition";
-json = Book.OUT(book);
+json = Book.WRITER(book);
 }}} 
