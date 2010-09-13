@@ -1,4 +1,4 @@
-#summary Namespace handling.
+#summary Namespace handling
 
 <wiki:toc/>
 

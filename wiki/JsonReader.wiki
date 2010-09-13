@@ -1,4 +1,4 @@
-#summary JSON Mapping with Piriti.
+#summary Mapping JSON to POJOs
 
 = Introduction =
 

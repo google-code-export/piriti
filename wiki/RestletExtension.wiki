@@ -1,4 +1,4 @@
-#summary Extension for the Restlet GWT edition.
+#summary Extension for the Restlet GWT edition
 
 = Introduction =
 

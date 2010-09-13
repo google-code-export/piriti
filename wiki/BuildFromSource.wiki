@@ -1,8 +1,8 @@
-#summary Instructions on how to build Piriti.
+#summary How to build Piriti
 
 = Build Instructions =
 
-Piriti is build using maven. To compile and install call
+Piriti uses maven. To compile and install call
 {{{
 mvn clean install
 }}}
@@ -11,4 +11,4 @@ If you working with eclipse you can generate the necessary project files by call
 {{{
 mvn eclipse:eclipse
 }}} 
-The generated projects have GWT natures and are recognized by the Goole Eclipse plug-in.
+The generated projects will have GWT natures and are recognized by the Goole Eclipse plug-in.

@@ -1,4 +1,4 @@
-#summary Mapping of references.
+#summary Mapping of references
 
 = Introduction =
 Often you have references in XML. Piriti can resolve those references if expressed by ID and IDREF. Let's take the following XML document as an example:

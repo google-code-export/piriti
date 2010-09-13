@@ -1,4 +1,4 @@
-#summary Piriti release notes.
+#summary Release notes
 #labels Featured
 
 === Piriti 0.4.1 ===

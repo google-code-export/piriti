@@ -1,4 +1,4 @@
-#summary Description of the features and limitations of Piriti.
+#summary Features and limitations of Piriti
 #labels Featured
 
 <wiki:toc/>

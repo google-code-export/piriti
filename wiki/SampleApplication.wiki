@@ -1,4 +1,4 @@
-#summary Sample application for Piriti.
+#summary Sample application for Piriti
 
 = Introduction =
 

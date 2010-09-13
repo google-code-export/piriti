@@ -1,4 +1,4 @@
-#summary XML Mapping with Piriti.
+#summary Mapping XML to POJOs
 
 = Introduction =
 

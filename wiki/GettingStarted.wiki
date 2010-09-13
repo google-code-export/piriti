@@ -1,4 +1,4 @@
-#summary How to get started.
+#summary How to get started
 #labels Featured
 
 Actually Piriti consists of four modules:
