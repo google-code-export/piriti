@@ -8,7 +8,8 @@ XML mapping is done using the [http://piriti.googlecode.com/svn/site/apidocs/nam
   * format: The format to use when converting the XML data to the fields type. Defaults to "".
   * stripWsnl: Flag whether to white spaces and new lines.
 
-The |XmlField annotation is specified for every field you want to map. If no XPath expression is given, the fields name is taken as a base for the XPath expression. The following table shows what XPath expressions are used and which format options are possible:
+= Mapping =
+The `@XmlField` annotation is specified for every field you want to map. If no XPath expression is given, the fields name is taken as a base for the XPath expression. The following table shows what XPath expressions are used and which format options are possible:
 <table cellpadding="3" cellspacing="0" border="1">
 <tr>
 <th align="left">Type</th>
@@ -145,7 +146,7 @@ public class Author
 }
 }}}
 
-To map the XML to your classes, all you have to do is annotate the relevant fields in your code and define an interface of type XmlReader`<T>`;
+To map the XML to your classes, all you have to do is annotate the relevant fields and define an interface of type XmlReader`<T>`;
 {{{
 public class Book
 {

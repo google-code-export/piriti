@@ -3,18 +3,18 @@
 <wiki:toc/>
 
 = Introduction =
-Starting with version 0.4 Piriti supports namespaces in XML documents and XPath expressions. This was possible due to a change of the underlying XML parser and XPath engine ([http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsXML.html GWTs XML parser] and [http://code.google.com/p/gwtxpath/ gwtxpath] were exchanged by [http://code.google.com/p/totoe/ Totoe]). 
+Piriti supports namespaces in XML documents and XPath expressions. This is possible because the XML is not parsed with GWTs built-in [http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsXML.html parser], but with the parser from [http://code.google.com/p/totoe/ Totoe] which supports namespaces. 
 
 When mapping XML documents we have to distinguish two use cases:
   # XML documents *without* a default namespace
   # XML documents *with* a default namespace
 
-= XML without a default namespace = 
+= Default Namespace = 
 That's the easy part, so we start with this. Suppose you have the following XML document
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
-<lotteryTicket xmlns:foo="http://code.google.com/p/piriti/foo"
-    xmlns:bar="http://code.google.com/p/piriti/bar" date="10.10.2010">
+<lotteryTicket date="10.10.2010" xmlns:foo="http://code.google.com/p/piriti/foo"
+    xmlns:bar="http://code.google.com/p/piriti/bar">
 
     <foo:player foo:gender="male" age="42">
         <foo:firstname>Homer</foo:firstname>
@@ -64,8 +64,8 @@ public enum Gender
 }}}
 
 To do this you need to:
-  # Specify the namespaces when parsing the XML.
-  # Include the namespace prefix in the XPath expression of your {{{@XmlField}}} annotation.
+  # specify the namespaces when parsing the XML and
+  # include the namespace prefix in the XPath expression of your {{{@XmlField}}} annotation.
 
 == Specify namespaces ==
 When parsing the XML you have to specify the namespaces. This can be done in two ways:
@@ -113,8 +113,8 @@ public class Player
 }}}
 
 
-= XML with a default namespace = 
-Things get a little bit more complicated if your XML uses a default namespace (DNS). When you want to use the DNS in your XPath expression you have to provide a prefix for the DNS. Let's add a default namespace to our {{{lotteryTicket.xml}}}:
+= No Default Namespace =
+Things get a little bit more complicated if your XML uses a default namespace (DNS). When you want to use the DNS in your XPath expression you also have to provide a prefix for that DNS. Let's add a default namespace to our {{{lotteryTicket.xml}}}:
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
 <lotteryTicket xmlns="http://code.google.com/p/piriti"
