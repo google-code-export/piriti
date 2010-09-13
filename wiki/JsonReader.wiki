@@ -155,7 +155,7 @@ String jsonString = ...; // the above JSON data
 Book book = Book.JSON.read(jsonString);
 }}}
 
-Please note that Piriti does *not* use javascript `eval()`, but the native JSON parser (or a javascript emulation if no native parser is available) to read and parse the data. Hence the JSON data must confirm to the syntax described at [http://json.org/ JSON.org]. Especially the keys must be enclosed in ". So instead of 
+Please note that Piriti does *not* use javascript `eval()` but the browsers native JSON parser (or a javascript emulation if no native parser is available). Hence the JSON data must confirm to the syntax described at [http://json.org/ JSON.org]. Especially the keys must be enclosed in ". So instead of 
 {{{
 { readonly: true, name: "Foo", createdAt: "08.01.2010", count: 20 }
 }}}
