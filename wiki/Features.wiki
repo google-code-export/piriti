@@ -114,9 +114,9 @@ public class OrderItem
 
 public class Product
 {
-    public String id;
-    public String name;
-    public double price;
+    String id;
+    String name;
+    double price;
 }
 
 public class Readers
