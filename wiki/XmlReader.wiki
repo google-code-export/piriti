@@ -2,30 +2,11 @@
 
 = Introduction =
 
-XML mapping is done using the `XmlField` annotation:
-{{{
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface XmlField
-{
-    /**
-     * An XPath expression to select the XML data. Defaults to "" which means
-     * that the fields name is taken as a base for the XPath expression.
-     * 
-     * @return
-     */
-    String value() default "";
-
-
-    /**
-     * The format to use when converting the XML data to the fields type.
-     * Defaults to "".
-     * 
-     * @return
-     */
-    String format() default "";
-}
+XML mapping is done using the `[http://piriti.googlecode.com/svn/site/apidocs/name/pehl/piriti/client/xml/XmlField.html @XmlField]` annotation. This annotation has the following attributes:
+  * name: The name of the field / property. Only necessary for [Features#External_Mappings external mappings].
+  * value: An XPath expression to select the XML data. Defaults to "" which means that the fields name is taken as a base for the XPath expression.
+  * format: The format to use when converting the XML data to the fields type. Defaults to "".
+  * stripWsnl: Flag whether to white spaces and new lines.
 }}}
 
 This annotation is specified for every field you want to map. If no XPath expression is given, the fields name is taken as a base for the XPath expression. The following table shows what XPath expressions are used and which format options are possible:

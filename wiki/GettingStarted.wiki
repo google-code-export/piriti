@@ -3,7 +3,7 @@
 
 Actually Piriti consists of four modules:
   * [Features piriti-core]: The core classes to map JSON and XML to POJOs.
-  * [GXTExtension piriti-gxt]: An extension to map the data to GXT ModelData instances. 
+  * [GxtExtension piriti-gxt]: An extension to map the data to GXT ModelData instances. 
   * [RestletExtension piriti-restlet]: An extension for the Restlet GWT edition. Contains representations which use the readers from Piriti Core. 
   * [SampleApplication piriti-sample]: A sample application deployed on Google AppEngine which demonstrates Piritis features.
 
@@ -27,49 +27,28 @@ Then depending on how much functionality you need add the following dependencies
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-core</artifactId>
-    <version>0.4.1</version>
     <scope>provided</scope>
 </dependency>
 <!-- For GXT model support -->
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-gxt</artifactId>
-    <version>0.4.1</version>
     <scope>provided</scope>
 </dependency>
 <!-- For Restlet support -->
 <dependency>
     <groupId>name.pehl.piriti</groupId>
     <artifactId>piriti-restlet</artifactId>
-    <version>0.4.1</version>
     <scope>provided</scope>
 </dependency>
 }}}
 
-For non-maven users make sure you have the jar files of the following projects on your classpath:
+For non-maven users make sure you have at least the jar files from the following projects on your classpath:
   * [http://code.google.com/p/google-gin/ google-gin]
   * [http://code.google.com/p/totoe/ totoe]
 
-= Mapping =
-To actually map JSON and/or XML data you have to first make sure that Piriti is referenced in your module definition:
+= Module =
+To actually use Piriti make sure that you inherit the following module:
 {{{
 <inherits name="name.pehl.piriti.Piriti" />
-}}}
-
-Then you define the reader instance and annotations in your your model classes:
-{{{
-public class Book
-{
-    interface BookReader extends XmlReader<Book> {}
-    public static final BookReader XML = GWT.create(BookReader.class);
-
-    @XmlField String isbn;
-    @XmlField int pages;
-    @XmlField String title;
-}
-}}}
-Doing so you can read and convert an XML document to an instance of Book by calling:
-{{{
-Document document = ...
-Book book = Book.XML.read(document);
 }}}
