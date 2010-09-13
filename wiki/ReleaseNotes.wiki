@@ -3,7 +3,7 @@
 
 === Piriti 0.5 ===
   * Added support to serialize [JsonWriter POJOs to JSON]
-  * Added the possibilty for [Features#External_Mappings external mappings] 
+  * Added the possibilty to use [Features#External_Mappings external mappings] 
 
 === Piriti 0.4.1 ===
   * Added support for inheritance in POJOs and GXT models (see issue 6)
