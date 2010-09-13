@@ -91,6 +91,62 @@ public class Author
 }
 }}}
 
+== External mapping  ==
+The previous samples all used the mapping annotations directly in the POJO. If you don't want to _pollute_ your POJOs with Piriti annotations or in case you don't have direct access to the POJOs source, you can also define the mapping in an extra class:
+{{{
+public class Product
+{
+    private String id;
+    private String name;
+    private double price;
+    
+    // getters
+    ...
+}
+
+public class Order
+{
+    private Date date;
+    private Customer customer;
+    private List<OrderItem> items;
+    
+    // getters
+    ...
+}
+
+public class OrderItem
+{
+    private Product product;
+    private int amount;
+    
+    // getters
+    ...
+}
+
+public class Readers
+{
+    @JsonFields({
+        @JsonField(name = "id"), 
+        @JsonField(name = "name"), 
+        @JsonField(name = "price")})
+    public interface ProductJsonReader extends JsonReader<Product> {}
+    public static final ProductJsonReader PRODUCT = GWT.create(ProductJsonReader.class);
+
+    @JsonFields({
+        @JsonField(name = "date", format = "dd.MM.yyyy"), 
+        @JsonField(name = "customer"),
+        @JsonField(name = "items")})
+    public interface OrderJsonReader extends JsonReader<Order> {}
+    public static final OrderJsonReader ORDER = GWT.create(OrderJsonReader.class);
+
+    @JsonFields({
+        @JsonField(name = "product"), 
+        @JsonField(name = "amount")})
+    public interface OrderItemJsonReader extends JsonReader<OrderItem> {}
+    public static final OrderItemJsonReader ORDER_ITEM = GWT.create(OrderItemJsonReader.class);
+}
+}}}    
+
 = XML =
 == ID & IDREF ==
 Piriti supports the mapping of XML references using ID and IDREF. 
@@ -126,7 +182,7 @@ you have to use
 
 = Extensions = 
 Currently there are two extensions for Piriti:
-  * [GXTExtension GXT extension]: Allows JSON / XML mapping to GXT models.
+  * [GxtExtension GXT extension]: Allows JSON / XML mapping to GXT models.
   * [RestletExtension Restlet extension]: Offers representations which use an XML / JSON reader.
 
 = Limitations = 
