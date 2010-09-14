@@ -37,10 +37,11 @@ public class Author
 }
 }}}
 
-A typical scenario is to parse the JSON data from the server, make some modifications and send back the modified JSON:
+A typical scenario would be to parse the JSON received from the server, make some modifications and send back the modified JSON:
 {{{
 String json = ...; // received from the server
 Book book = Book.READER.read(json);
 book.title += " 2nd edition";
 json = Book.WRITER(book);
+// do some REST request
 }}} 
