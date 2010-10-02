@@ -1,6 +1,9 @@
 #summary Release notes
 #labels Featured
 
+=== Piriti 0.51 ===
+  * Added support for custom key names when serializing to JSON (see issue 9)
+
 === Piriti 0.5 ===
   * Added support to serialize [JsonWriter POJOs to JSON]
   * Added the possibilty to use [Features#External_Mappings external mappings] 
