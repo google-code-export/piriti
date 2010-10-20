@@ -21,24 +21,18 @@ Then you can read the JSON data like this:
 {{{
 ClientResource clientResource = 
     new ClientResource("/resource/with/json/representation");
-clientResource.setOnResponse(new Uniform()
+clientResource.setOnResponse(new JsonModelResponse(Book.JSON)
 {
     @Override
-    public void handle(Request request, Response response)
+    public void onSuccess(Book book, Request request, Response response)
     {
-        PiritiJsonRepresentation<Book> representation = 
-            new PiritiJsonRepresentation<Book>(Book.JSON, response.getEntity());
-        try
-        {
-            // Depending whether there's one book or an array of books
-            // in your JSON data
-            List<Book> books = representation.getModels();
-            Book book = representation.getModel();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        ...
+    }
+
+    @Override
+    public void onError(IOException error, Request request, Response response)
+    {
+        ...
     }
 });
 clientResource.get(MediaType.APPLICATION_JSON);
@@ -67,24 +61,18 @@ Then you can read the XML data like this:
 {{{
 ClientResource clientResource = 
     new ClientResource("/resource/with/xml/representation");
-clientResource.setOnResponse(new Uniform()
+clientResource.setOnResponse(new XmlModelResponse(Book.XML)
 {
     @Override
-    public void handle(Request request, Response response)
+    public void onSuccess(Book book, Request request, Response response)
     {
-        PiritiXmlRepresentation<Book> representation = 
-            new PiritiXmlRepresentation<Book>(Book.XML, response.getEntity());
-        try
-        {
-            // Depending whether there's one book element or a list of book
-            // elements in your XML data
-            List<Book> books = representation.getModels();
-            Book book = representation.getModel();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        ...
+    }
+
+    @Override
+    public void onError(IOException error, Request request, Response response)
+    {
+        ...
     }
 });
 clientResource.get(MediaType.TEXT_XML);
