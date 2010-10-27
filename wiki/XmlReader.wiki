@@ -2,40 +2,50 @@
 
 = Introduction =
 
-XML mapping is done using the [http://piriti.googlecode.com/svn/site/apidocs/name/pehl/piriti/client/xml/XmlField.html @XmlField] annotation. This annotation has the following attributes:
-  * name: The name of the field / property. Only necessary for [Features#External_Mappings external mappings].
+XML mapping is done using the [http://piriti.googlecode.com/svn/site/apidocs/name/pehl/piriti/client/xml/Xml.html @Xml] annotation. This annotation has the following attributes:
+  * order: TODO
+  * property: The name of the field / property. Only necessary for [Features#External_Mappings external mappings].
   * value: An XPath expression to select the XML data. Defaults to "" which means that the fields name is taken as a base for the XPath expression.
   * format: The format to use when converting the XML data to the fields type. Defaults to "".
   * stripWsnl: Flag whether to white spaces and new lines.
+  * converter: TODO
+  * getter: TODO 
+  * setter: TODO  
 
 = Mapping =
-The `@XmlField` annotation is specified for every field you want to map. If no XPath expression is given, the fields name is taken as a base for the XPath expression. The following table shows what XPath expressions are used and which format options are possible:
+The @Xml annotation is specified for every field you want to map. If no XPath expression is given, the fields name is taken as a base for the XPath expression. The XML is selected and converted if necessary to the type of the annotated property. For some types you can specify a format and a custom converter which is used to parse / serialize the XML data to / from the properties type.
+The annotation must be placed on a field in the POJO or must be part of the @XmlMappings annotation. When placed on a field and the field is not accessible, Piriti tries to use setters / getters instead. 
 <table cellpadding="3" cellspacing="0" border="1">
 <tr>
 <th align="left">Type</th>
 <th align="left">Default XPath expression</th>
 <th align="left">Format options</th>
+<th>Converter options</th>
 </tr>
 <tr>
 <td>boolean, Boolean</td>
 <td>`<fieldname>`/text()</td>
 <td>No format supported. If specified it is ignored.</td>
+<td>No custom converter supported. If specified it is ignored.</td>
 </tr>
 <tr>
 <td>byte, Byte</td>
 <td>`<fieldname>`/text()</td>
 <td>No format supported. If specified it is ignored.</td>
+<td>No custom converter supported. If specified it is ignored.</td>
 </tr>
 <tr>
 <td>char, Character</td>
 <td>`<fieldname>`/text()</td>
 <td>No format supported. If specified it is ignored.</td>
+<td>No custom converter supported. If specified it is ignored.</td>
 </tr>
 <tr>
 <td>java.util.Date</td>
 <td>`<fieldname>`/text()</td>
 <td>If no format is specified a [http://piriti.googlecode.com/svn/site/apidocs/constant-values.html#name.pehl.gwt.piriti.client.converter.DateConverter.DEFAULT_FORMAT default format] is used.<br/> 
 Otherwise must be a valid date format as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/DateTimeFormat.html DateTimeFormat]</td>
+<td>Custom converter supported</td>
 </tr>
 <tr>
 <td>double, Double</td>
@@ -44,6 +54,7 @@ Otherwise must be a valid date format as described by [http://google-web-toolkit
 [http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Double.html#parseDouble(java.lang.String) Double.parseDouble(String)].<br/> 
 Otherwise must be a valid number format
 as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
+<td>Custom converter supported</td>
 </tr>
 <tr>
 <td>float, Float</td>
@@ -52,6 +63,7 @@ as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/go
 [http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Float.html#parseFloat(java.lang.String) Float.parseFloat(String)].<br/> 
 Otherwise must be a valid number format
 as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
+<td>Custom converter supported</td>
 </tr>
 <tr>
 <td>int, Integer</td>
@@ -60,6 +72,7 @@ as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/go
 [http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Integer.html#parseInt(java.lang.String) Integer.parseInt(String)].<br/> 
 Otherwise must be a valid number format
 as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
+<td>Custom converter supported</td>
 </tr>
 <tr>
 <td>long, Long</td>
@@ -68,16 +81,19 @@ as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/go
 [http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Long.html#parseLong(java.lang.String) Long.parseLong(String)].<br/> 
 Otherwise must be a valid number format
 as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
+<td>Custom converter supported</td>
 </tr>
 <tr>
 <td>short, Short</td>
 <td>`<fieldname>`/text()</td>
 <td>No format supported. If specified it is ignored.</td>
+<td>No custom converter supported. If specified it is ignored.</td>
 </tr>
 <tr>
 <td>String</td>
 <td>`<fieldname>`/text()</td>
 <td>No format supported. If specified it is ignored.</td>
+<td>No custom converter supported. If specified it is ignored.</td>
 </tr>
 <tr>
 <td>Enums</td>
@@ -88,16 +104,19 @@ as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/go
 <td>All types T for which a XmlReader`<T>` is registered</td>
 <td>`<fieldname>`</td>
 <td>No format supported. If specified it is ignored.</td>
+<td>No custom converter supported. If specified it is ignored.</td>
 </tr>
 <tr>
 <td>Arrays of the above types</td>
 <td>`<fieldname>`</td>
 <td>If a format is specified it is applied for all array elements.</td>
+<td>If a custom converter is specified it is applied to all array elements.</td>
 </tr>
 <tr>
 <td>Typed collections of the above types</td>
 <td>`<fieldname>`</td>
 <td>If a format is specified it is applied for all collection elements.</td>
+<td>If a custom converter is specified it is applied to all array elements.</td>
 </tr>
 </table>
 
@@ -153,11 +172,11 @@ public class Book
     interface BookReader extends XmlReader<Book> {}
     public static final BookReader XML = GWT.create(BookReader.class);
 
-    @XmlField String isbn;
-    @XmlField int pages;
-    @XmlField String title;
-    @XmlField Author author;
-    @XmlField("reviews/review") List<String> reviews;
+    @Xml String isbn;
+    @Xml int pages;
+    @Xml String title;
+    @Xml Author author;
+    @Xml("reviews/review") List<String> reviews;
 }
 
 public class Author
@@ -165,8 +184,8 @@ public class Author
     interface AuthorReader extends XmlReader<Author> {}
     public static final AuthorReader XML = GWT.create(AuthorReader.class);
 
-    @XmlField String firstname;
-    @XmlField String surname;
+    @Xml String firstname;
+    @Xml String surname;
 }
 }}}
 
@@ -201,7 +220,7 @@ When mapping arrays and collections the XPath expression should return a list of
 public class Book
 {
     ...
-    @XmlField("reviews/review") List<String> reviews;
+    @Xml("reviews/review") List<String> reviews;
     ...
 }
 }}}

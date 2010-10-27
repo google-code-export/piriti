@@ -65,7 +65,7 @@ public enum Gender
 
 To do this you need to:
   # specify the namespaces when parsing the XML and
-  # include the namespace prefix in the XPath expression of your {{{@XmlField}}} annotation.
+  # include the namespace prefix in the XPath expression of your {{{@Xml}}} annotation.
 
 == Specify namespaces ==
 When parsing the XML you have to specify the namespaces. This can be done in two ways:
@@ -91,10 +91,10 @@ public class LotteryTicket
     public interface LotteryTicketReader extends XmlReader<LotteryTicket> {}
     public static final LotteryTicketReader XML = GWT.create(LotteryTicketReader.class);
 
-    @XmlField(value = "@date", format = "dd.MM.yyyy") Date date;
-    @XmlField("foo:player") Player player;
-    @XmlField("numbers/@game") String game;
-    @XmlField("numbers/number") List<Integer> numbers;
+    @Xml(value = "@date", format = "dd.MM.yyyy") Date date;
+    @Xml("foo:player") Player player;
+    @Xml("numbers/@game") String game;
+    @Xml("numbers/number") List<Integer> numbers;
 }
 
 public class Player
@@ -102,13 +102,13 @@ public class Player
     public interface PlayerXmlReader extends XmlReader<Player> {}
     public static final PlayerXmlReader XML = GWT.create(PlayerXmlReader.class);
 
-    @XmlField("@foo:gender") Gender gender;
-    @XmlField("@age") int age;
-    @XmlField("foo:firstname/text()") String firstname;
-    @XmlField("foo:surname/text()") String surname;
-    @XmlField("bar:address/text()") String address;
-    @XmlField("bar:address/@bar:type") String addressType;
-    @XmlField("bar:address/@foo:valid") boolean validAddress;
+    @Xml("@foo:gender") Gender gender;
+    @Xml("@age") int age;
+    @Xml("foo:firstname/text()") String firstname;
+    @Xml("foo:surname/text()") String surname;
+    @Xml("bar:address/text()") String address;
+    @Xml("bar:address/@bar:type") String addressType;
+    @Xml("bar:address/@foo:valid") boolean validAddress;
 }
 }}}
 
@@ -167,10 +167,10 @@ public class LotteryTicketDns
     public interface LotteryTicketReader extends XmlReader<LotteryTicketDns> {}
     public static final LotteryTicketReader XML = GWT.create(LotteryTicketReader.class);
 
-    @XmlField(value = "@date", format = "dd.MM.yyyy") Date date;
-    @XmlField("foo:player") Player player;
-    @XmlField("dns:numbers/@game") String game;
-    @XmlField("dns:numbers/dns:number") List<Integer> numbers;
+    @Xml(value = "@date", format = "dd.MM.yyyy") Date date;
+    @Xml("foo:player") Player player;
+    @Xml("dns:numbers/@game") String game;
+    @Xml("dns:numbers/dns:number") List<Integer> numbers;
 }
 }}}
 As the mapping for {{{Player}}} does not use the DNS the code does not change compared to the first example without a default namespace.

@@ -2,7 +2,7 @@
 
 = Introduction =
 
-POJOs can be serialized to JSON by using the same [http://piriti.googlecode.com/svn/site/apidocs/name/pehl/piriti/client/json/JsonField.html @JsonField] annotations which are used for parsing. 
+POJOs can be serialized to JSON by using the same [http://piriti.googlecode.com/svn/site/apidocs/name/pehl/piriti/client/json/Json.html @Json] annotations which are used for parsing. 
 
 = Serialization = 
 To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface. In almost any cases you would also have a `JsonReader<T>` for parsing  
@@ -15,12 +15,12 @@ public class Book
     public interface BookWriter extends JsonWriter<Book> {}
     public static final BookWriter WRITER = GWT.create(BookWriter.class);
 
-    @JsonField String isbn;
-    @JsonField int pages;
-    @JsonField String title;
-    @JsonField Author author;
-    @JsonField List<String> reviews;
-    @JsonField List<Book> related;
+    @Json String isbn;
+    @Json int pages;
+    @Json String title;
+    @Json Author author;
+    @Json List<String> reviews;
+    @Json List<Book> related;
 }
 
 public class Author
@@ -31,9 +31,9 @@ public class Author
     public interface AuthorWriter extends JsonWriter<Author> {}
     public static final AuthorWriter WRITER = GWT.create(AuthorWriter.class);
 
-    @JsonField String firstname;
-    @JsonField String surname;
-    @JsonField Book bestseller;
+    @Json String firstname;
+    @Json String surname;
+    @Json Book bestseller;
 }
 }}}
 

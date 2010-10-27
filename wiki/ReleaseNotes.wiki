@@ -1,6 +1,16 @@
 #summary Release notes
 #labels Featured
 
+=== Piriti 0.6 ===
+  * Breaking API changes: 
+    * Renamed @JsonField to @Json and @XmlField to @Xml
+    * Renamed @JsonFields and @JsonModel to @JsonMappings
+    * Renamed @XmlFields and @XmlModel to @XmlMappings
+  * Added support for [http://www.sitepen.com/blog/2008/03/17/jsonpath-support/ JSONPath] expressions (see issue 12)
+  * Added order() to @Json and @Xml annotations to ensure a distinct processing order (see issue 11)
+  * Added support for custom converters (see issue 13)
+  * Added support for private fields and custom getters and setters (see issue 14)
+
 === Piriti 0.51 ===
   * Added support for custom key names when serializing to JSON (see issue 9)
 

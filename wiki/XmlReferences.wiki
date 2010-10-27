@@ -67,10 +67,10 @@ public class Employee
     public static final EmployeeReader XML = GWT.create(EmployeeReader.class);
 
     @XmlId String id;
-    @XmlField String name;
+    @Xml String name;
     @XmlIdRef("boss/@ref") Employee boss;
     @XmlIdRef("team/member/@ref") List<Employee> team;
-    @XmlField @XmlIdRef("department/@ref") Department department;
+    @Xml @XmlIdRef("department/@ref") Department department;
 }
 
 public class Department
@@ -79,7 +79,7 @@ public class Department
     public static final DepartmentReader XML = GWT.create(DepartmentReader.class);
 
     @XmlId String id;
-    @XmlField String name;
+    @Xml String name;
     @XmlIdRef("employees/@members") Employee[] employees;
 }
 }}}
@@ -96,5 +96,5 @@ Using the `@XmlIdRef` annotation you can define reference to other POJOs. These 
   * One string value: The type of the field marked with the `@XmlIdRef` annotation has to be a type with a registered XmlReader. 
   * Multiple string values: The type of the field has to be an array or collection of types with a registered XmlReader. 
   
-== @XmlField _and_ @XmlIdRef ==
-In the example above the `department` field of the `Employee` class is marked with both an `@XmlField` and `@XmlIdRef` annotation. This is because the department is defined as nested element but also referenced in the XML document. 
+== @Xml _and_ @XmlIdRef ==
+In the example above the `department` field of the `Employee` class is marked with both an `@Xml` and `@XmlIdRef` annotation. This is because the department is defined as nested element but also referenced in the XML document. 

@@ -4,59 +4,53 @@
 [http://www.extjs.com/products/gwt/ GXT] uses the class [http://www.extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/data/ModelData.html ModelData] for their widgets. Using the GXT extension it is possible to map XML / JSON data right into GXT models. Simply put GXT models are kind of maps with key value pairs. Hence the mapping information is placed inside a class annotation with nested mapping annotations:
 
 {{{
-@XmlModel({@XmlField(property = "isbn", type = String.class), 
-    @XmlField(property = "pages", type = Integer.class),
-    @XmlField(property = "title", type = String.class), 
-    @XmlField(property = "author", type = Author.class),
-    @XmlField(path = "reviews/review", property = "reviews", 
+@XmlMappings({@Xml(property = "isbn", type = String.class), 
+    @Xml(property = "pages", type = Integer.class),
+    @Xml(property = "title", type = String.class), 
+    @Xml(property = "author", type = Author.class),
+    @Xml(path = "reviews/review", property = "reviews", 
         type = List.class, typeVariable = String.class)})
 public class Book extends BaseModel
 {
-    public interface BookXmlReader extends XmlModelReader<Book>
-    {
-    }
-
+    public interface BookXmlReader extends XmlModelReader<Book> {}
     public static final BookXmlReader XML = GWT.create(BookXmlReader.class);
 }
 }}}
 
 = XML Mappnig = 
 The XML mapping is done using
-  * `@XmlModel` class level annotation which contains several 
-  * `@XmlField` annotations together with
-  * `XmlModelReader<T extends ModelData>`
+  * @XmlMappings class level annotation which contains several 
+  * @Xml annotations together with
+  * XmlModelReader<T extends ModelData>
 
 = JSON Mapping = 
 The JSON mapping is done using
-  * `@JsonModel` class level annotation which contains several 
-  * `@JsonField` annotations together with
-  * `JsonModelReader<T extends ModelData>`
+  * @JsonMappings class level annotation which contains several 
+  * @Json annotations together with
+  * JsonModelReader<T extends ModelData>
 
 = Differences to the POJO mapping =
 Due to the lack of real fields in the GXT model, the mapping annotations have to provide all relevant information: 
-  * `property`: The name of the property in the GXT model.
-  * `type`: A class literal for the properties type.
-  * `array` (optional): True if the type is an array.
-  * `typeVariable` (optional): The type variable in case of a collection
-  * `path` (optional): An path expression to select the data. If not specified, the property is taken as a default.
-  * `format` (optional): The format to use when converting the data to the type.
+  * property: The name of the property in the GXT model.
+  * type: A class literal for the properties type.
+  * array (optional): True if the type is an array.
+  * typeVariable (optional): The type variable in case of a collection
+  * path (optional): An path expression to select the data. If not specified, the property is taken as a default.
+  * format (optional): The format to use when converting the data to the type.
   
 The path and format parameters follow the same rules as described in [XMLMapping XML mapping] and [JSONMapping JSON mapping].
   
 = Arrays =
-When mapping arrays you have to specify the component type of the array as `type` parameter and set the `array` parameter to true:
+When mapping arrays you have to specify the component type of the array and set the array flag to true:
 {{{
 {"numbers": [4, 8, 15, 16, 23, 42]}
 }}}
 
 {{{
-@JsonModel(@JsonField(property = "numbers", type = Integer.class, array = true))
+@JsonMappings(@Json(property = "numbers", type = Integer.class, array = true))
 public class LotteryTicket extends BaseModel
 {
-    public interface LotteryTicketReader extends JsonModelReader<LotteryTicket>
-    {
-    }
-
+    public interface LotteryTicketReader extends JsonModelReader<LotteryTicket> {}
     public static final LotteryTicketReader JSON = GWT.create(LotteryTicketReader.class);
 }
 }}}
@@ -85,15 +79,12 @@ When mapping collections you have to specify the type variable of the collection
 }}}
 
 {{{
-@XmlModel(@XmlField(property = "numbers", 
+@XmlMappings(@Xml(property = "numbers", 
     type = List.class, typeVariable = Integer.class, 
     path = "//number"))
 public class LotteryTicket extends BaseModel
 {
-    public interface LotteryTicketReader extends XmlModelReader<LotteryTicket>
-    {
-    }
-
+    public interface LotteryTicketReader extends XmlModelReader<LotteryTicket> {}
     public static final LotteryTicketReader XML = GWT.create(LotteryTicketReader.class);
 }
 }}}
