@@ -147,7 +147,7 @@ public class Readers
 When using external mappings there are a few things to notice:
   * The @Json or @Xml annotation must contain the properties name
   * All mappings are collected in a @JsonMappings or @XmlMappings annotation
-  * The @JsonMappings or @XmlMappings annotation must be placed on the reader writer interface
+  * The @JsonMappings or @XmlMappings annotation must be placed on the reader / writer interface
   * The reader / writer definitions must be static
 
 == Order ==
