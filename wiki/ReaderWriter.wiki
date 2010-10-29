@@ -27,9 +27,11 @@ public class Book
 }}}
 
 But it is also ok to define the readers / writers as standalone interfaces:
+{{{
 public interface BookReader extends JsonReader<Book>
 {
     BookReader INSTANCE = GWT.create(BookReader.class);
 }
+}}}
 
 However the actual implementation is generated for you using defered binding.
