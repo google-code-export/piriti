@@ -1,0 +1,36 @@
+#summary Supported Types in Piriti
+
+= Supported Types =
+The mapping annotations do not work on all types. The following list shows which types are supported by Piriti.
+  * boolean, Boolean
+  * byte, Byte
+  * short, Short
+  * int, Integer
+  * long, Long
+  * float, Float
+  * double, Double
+  * char, Character
+  * String
+  * java.util.Date
+  * Enums
+  * All types T for which a reader is registered
+  * Arrays of the above types
+  * Typed collections of the above types
+
+== Collections ==
+When mapping collections the following types are supported:
+  * `Collection<T>`. `ArrayList<T>` is choosen as the implementation.
+  * `List<T>`. `ArrayList<T>` is choosen as the implementation.
+  * `ArrayList<T>`
+  * `LinkedList<T>`
+  * `Set<T>`. `HashSet<T>` is choosen as the implementation.
+  * `HashSet<T>`
+  * `SortedSet<T>`. `TreeSet<T>` is choosen as the implementation.
+  * `TreeSet<T>`
+
+== Limitations == 
+  * Multi-dimensional arrays are not supported.
+  * Arrays of collections / maps are not supported.
+  * Untyped collections are not supported.
+  * Collections of collections / maps are not supported.
+  

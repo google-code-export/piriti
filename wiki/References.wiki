@@ -1,0 +1,25 @@
+#summary References in Piriti
+
+= References =
+Because all reader / writer instances are registered against a global registry, references to other types that also have a reader / writer are recognized and mapped. The only requirement is, that the reader / writer definitions must be static:
+{{{
+public class Book
+{
+    interface BookReader extends XmlReader<Book> {}
+    public static final BookReader XML = GWT.create(BookReader.class);
+
+    @Xml String name;
+    @Xml Author author;
+}
+
+public class Author
+{
+    interface AuthorReader extends XmlReader<Author> {}
+    public static final AuthorReader XML = GWT.create(AuthorReader.class);
+
+    @Xml String firstname;
+    @Xml String surname;
+}
+}}}
+
+When reading a book from JSON which also contains author information, the author is mapped and assigned to Book.author.

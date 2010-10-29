@@ -1,0 +1,21 @@
+#summary Ordering in Piriti
+#labels Featured
+
+= Order =
+Piriti processes all annotated fields in random order. If you depend on a specific order, you can use the `order` attribute. Suppose you have the following model:
+{{{
+public class User
+{
+    @Json(order = 0) String username;
+    @Json(order = 2) String firstname; 
+    @Json(order = 1) String surname;
+    @Json int age; 
+    @Json boolean valid;
+}
+}}}
+
+When reading / writing JSON data the fields are proceesed in this order
+  # username
+  # surname
+  # firstname
+  # age / valid (order is not specified)

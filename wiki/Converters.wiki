@@ -1,0 +1,89 @@
+#summary Converters in Piriti
+
+= Converters =
+Most of the data read from JSON and XML is converted to the fields type using specific converters. When serializing POJOs to JSON / XML these converters are used to convert from the fields type to string. Piriti uses an internal registry with these default converters:
+  * boolean / Boolean → BooleanConverter
+  * byte / Byte → ByteConverter
+  * char / Character → CharacterConverter
+  * Date → DateConverter
+  * double / Double → DoubleConverter
+  * float / Float → FloatConverter
+  * int / Integer → IntegerConverter
+  * long / Long → LongConverter
+  * short / Short → ShortConverter
+  
+All converters implement the Converter interface:
+{{{
+public interface Converter<T>
+{
+    /**
+     * Converts the specified value to the type T.
+     * 
+     * @param value
+     *            The string to be converted. May be <code>null</code>.
+     * @param format
+     *            An optional format of the value (eg for dates). Should be
+     *            {@code null} if no format is supported
+     * @return The converted type or <code>null</code> if a conversion is not
+     *         possible
+     */
+    T convert(@Nullable String value, @Nullable String format);
+
+
+    /**
+     * Serializes the specified value to a string.
+     * 
+     * @param value
+     *            The value to serialize. May be <code>null</code>.
+     * @param format
+     *            An optional format of the value (eg for dates). Should be
+     *            {@code null} if no format is supported
+     * @return The serialized string or <code>null</code> if no value was given.
+     */
+    String serialize(@Nullable T value, @Nullable String format);
+}
+}}}
+
+For some mappings you can specify a custom converter (see [Json JSON] and [Xml XML] for details). Suppose you want to map the following JSON data:
+{{{
+{"24.10.2010", "4.5h"}
+}}}
+to this model
+{{{
+public class TimeEntry
+{
+    @Json Data date;
+    @Json double duration;
+}
+}}}
+To convert "4.5h" to double use the following converter
+{{{
+public DurationConverter extends Converter<Double>
+{
+    @Override
+    public Double convert(String value, String format)
+    {
+        if (value != null && value.length() > 0)
+        {
+            return Double.valueOf(value.substring(0, value.length() - 1));
+        }
+        return 0d;
+    }
+
+
+    @Override
+    public String serialize(Double value, String format)
+    {
+        return value + "h";
+    }
+}
+}}}
+and change the mapping to use the converter
+{{{
+public class TimeEntry
+{
+    @Json Data date;
+    @Json(converter = DurationConverter.class) double duration;
+}
+}}}
+ 
