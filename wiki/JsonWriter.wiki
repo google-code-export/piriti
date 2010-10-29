@@ -1,10 +1,8 @@
 #summary Serializing POJOs to JSON
 
 = Introduction =
-
 POJOs can be serialized to JSON by using the same @Json annotations which are used for parsing. 
 
-= Serialization = 
 To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface. In almost any cases you would also have a `JsonReader<T>` for parsing  
 {{{
 public class Book
