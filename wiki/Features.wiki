@@ -1,222 +1,24 @@
-#summary Features and limitations of Piriti
+#summary Features of Piriti
 #labels Featured
 
-<wiki:toc/>
-
-= Common Features =
+= Features =
 Piriti is able to map fairly complex *JSON* and *XML* data to arbitrary POJOs and GXT models. All mapping information is provided using annotations. The actual mapping code is generated for you using deferred binding and code generators. 
 
-== Supported Types ==
-The mapping annotations do not work on all types. The following list shows which types are supported by Piriti.
-  * boolean, Boolean
-  * byte, Byte
-  * short, Short
-  * int, Integer
-  * long, Long
-  * float, Float
-  * double, Double
-  * char, Character
-  * String
-  * java.util.Date
-  * Enums
-  * All types T for which a reader is registered
-  * Arrays of the above types
-  * Typed collections of the above types
+On the following pages the common features for both JSON and XML mapping are described:
+  * [Annotations]
+  * [ReaderWriter Readers / Writers]
+  * [SupportedTypes Supported Types]
+  * [Converters]
+  * [GetterSetter Getters / Setters]
+  * [Order]
+  * [Inheritance]
+  * [References]
+  * [ExternalMappings External Mappings]
 
-== Collections ==
-When mapping collections the following types are supported:
-  * `Collection<T>`. `ArrayList<T>` is choosen as the implementation.
-  * `List<T>`. `ArrayList<T>` is choosen as the implementation.
-  * `ArrayList<T>`
-  * `LinkedList<T>`
-  * `Set<T>`. `HashSet<T>` is choosen as the implementation.
-  * `HashSet<T>`
-  * `SortedSet<T>`. `TreeSet<T>` is choosen as the implementation.
-  * `TreeSet<T>`
-
-== Inheritance ==
-Inheritance in POJOs and GXT models is supported. Suppose you have the following class hirarchy:
-{{{
-abstract class Animal
-{
-    @Json String name;
-    @Json int legs;
-    @Json double intelligence;
-}
-
-abstract class Mammal extends Animal
-{
-    @Json Gender gender;
-}
-
-public class Cat extends Mammal
-{
-    public interface CatJsonReader extends JsonReader<Cat> {}
-    public static final CatJsonReader JSON = GWT.create(CatJsonReader.class);
-    
-    @Json String color;
-}
-}}}
-
-and the following JSON data
-{{{
-{ "name": "Snowball", "legs": 4, "intelligence": 0.4, "gender": "female", "color": "dark grey" }
-}}}
-
-You can read Snowball using
-{{{
-String json = ...;
-Cat snowball = Cat.JSON.read(json);
-}}}
-
-== References ==
-Because all reader instances are registered against a global registry, references to other types that also have a reader are recognized and mapped. The only requirement is, that the reader definitions must be static:
-{{{
-public class Book
-{
-    interface BookReader extends XmlReader<Book> {}
-    public static final BookReader XML = GWT.create(BookReader.class);
-
-    @Xml String name;
-    @Xml Author author;
-}
-
-public class Author
-{
-    interface AuthorReader extends XmlReader<Author> {}
-    public static final AuthorReader XML = GWT.create(AuthorReader.class);
-
-    @Xml String firstname;
-    @Xml String surname;
-}
-}}}
-
-== External Mappings  ==
-The previous samples all used the mapping annotations directly in the POJO. If you don't want to 'pollute' your POJOs with Piriti annotations or you don't have direct access to the POJOs source code, you can also define the mapping in an extra class:
-{{{
-public class Order
-{
-    private Date date;
-    private List<OrderItem> items;
-    
-    // getters & setters
-    ...
-}
-
-public class OrderItem
-{
-    private Product product;
-    private int amount;
-    
-    // getters & setters
-    ...
-}
-
-public class Product
-{
-    String id;
-    String name;
-    double price;
-
-    // getters & setters
-    ...
-}
-
-public class Readers
-{
-    @JsonMappings({
-        @Json(property = "date", format = "dd.MM.yyyy"), 
-        @Json(property = "items")})
-    public interface OrderJsonReader extends JsonReader<Order> {}
-    public static final OrderJsonReader ORDER = GWT.create(OrderJsonReader.class);
-
-    @JsonMappings({
-        @Json(property = "product"), 
-        @Json(property = "amount")})
-    public interface OrderItemJsonReader extends JsonReader<OrderItem> {}
-    public static final OrderItemJsonReader ORDER_ITEM = GWT.create(OrderItemJsonReader.class);
-
-    @JsonMappings({
-        @Json(property = "id"), 
-        @Json(property = "name"), 
-        @Json(property = "price")})
-    public interface ProductJsonReader extends JsonReader<Product> {}
-    public static final ProductJsonReader PRODUCT = GWT.create(ProductJsonReader.class);
-}
-}}}    
-When using external mappings there are a few things to notice:
-  * The @Json or @Xml annotation must contain the properties name
-  * All mappings are collected in a @JsonMappings or @XmlMappings annotation
-  * The @JsonMappings or @XmlMappings annotation must be placed on the reader / writer interface
-  * The reader / writer definitions must be static
-
-== Order ==
-TODO
-
-== Custom converter ==
-TODO
-
-== Custom getters / setters ==
-TODO
-
-= XML =
-== ID & IDREF ==
-Piriti supports the mapping of XML references using ID and IDREF. 
-{{{
-<employees>
-    <employee id="boss">
-        <name>Big Boss</name>
-        <team>
-            <member ref="seller" />
-        </team>
-    </employee>
-    <employee id="seller">
-        <name>Sally Seller</name>
-        <boss ref="boss" />
-    </employee>
-</employees>
-}}}
-See [XmlReferences XML references] for more info.
-
-== Namespaces ==
-Namespaces including default namespaces are supported in both the XML document and XPath expressions. See [XmlNamespaces namespaces] for further information.
-
-= JSON =
-== Native JSON Parser ==
-JSON data is *not* parsed using javascript `eval()` but the browsers native JSON parser (or a javascript emulation if no native parser is available). Hence the JSON data must confirm to the syntax described at [http://json.org/ JSON.org]. Especially the keys must be enclosed in ". So instead of 
-{{{
-{ readonly: true, name: "Foo", createdAt: "08.01.2010", count: 20 }
-}}}
-you have to use
-{{{
-{ "readonly": true, "name": "Foo", "createdAt": "08.01.2010", "count": 20 }
-}}}
-
-== JSONPath ==
-TODO
-
-== Serialization ==
-Piriti can serialize POJO instances to JSON using the same `@JsonField` annotations used for the parsing Part. See [JsonWriter POJO → JSON] for more details.
-
-= Extensions = 
-Currently there are two extensions for Piriti:
-  * [GxtExtension GXT extension]: Allows JSON / XML mapping to GXT models.
-  * [RestletExtension Restlet extension]: Offers representations which use an XML / JSON reader.
-
-= Limitations = 
-The following lists summarize the limitations in Piriti.
-  * Multi-dimensional arrays are not supported.
-  * Arrays of collections / maps are not supported.
-  * Untyped collections are not supported.
-  * Collections of collections / maps are not supported.
-  * Annotations are currently limited to fields.
-
-= Planed =
-In future releases the following features might be implemented:
-  * ~~Add support for namespaces in XML~~ (implemented in Piriti 0.4).
-  * ~~Add possibility to annotate setters instead of fields ~~ (implemented in Piriti 0.6).
-  * ~~Enable mappings for POJOs / GXT models without source code~~ (implemented in Piriti 0.5).
-  * Enable JAXB annotations for the mapping.
-  * ~~Replace JSONParser.parse() with native implementation~~ (implemented in Piriti 0.3.5).
-  * Add support for references in JSON (see [http://www.sitepen.com/blog/2008/06/17/json-referencing-in-dojo/ DOJO] for an example of references in JSON).
-  * Add the ability to also generate ~~JSON /~~ XML data from the annotated models (implemented in Piriti 0.5).
+The specific features for JSON and XML mapping are described here:
+  * [Json JSON] 
+    * [JsonPath JSONPath] 
+  * [Xml XML] 
+    * [XmlNamespaces Namespaces]
+    * [XmlReferences References]
+  
