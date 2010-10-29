@@ -1,10 +1,10 @@
 #summary Readers and Writer in Piriti
 
 Besides the annotations readers and writers are another important building block. Piriti knows four interfaces:
-  # JsonReader<T>: To map from JSON to POJO
-  # JsonWriter<T>: To serialize POJOs to JSON 
-  # XmlReader<T>: To map from XML to POJO
-  # XmlWriter<T>: To serialize POJOs to XML (not yet implemented)
+  # JsonReader`<T>`: To map from JSON to POJO
+  # JsonWriter`<T>`: To serialize POJOs to JSON 
+  # XmlReader`<T>`: To map from XML to POJO
+  # XmlWriter`<T>`: To serialize POJOs to XML (not yet implemented)
 
 Typically you define your readers and writer as nested interfaces (if you're familiar with UiBinder this should look familiar)
 {{{
