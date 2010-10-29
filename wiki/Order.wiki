@@ -17,4 +17,6 @@ When reading / writing JSON data the fields are proceesed in this order
   # username
   # surname
   # firstname
-  # age / valid (order is not specified)
+  # age or valid 
+  # age or valid (order is not specified)
+  
