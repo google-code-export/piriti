@@ -56,7 +56,7 @@ public class TimeEntry
     @Json double duration;
 }
 }}}
-To convert "4.5h" to double use the following converter
+To convert "4.5h" to double you could use the following converter
 {{{
 public DurationConverter extends Converter<Double>
 {

@@ -45,7 +45,7 @@ public class Project
     }
 }
 }}}
-There's no direct way to set the users directly. In this case you can implement a custom setter: 
+There's no direct way to set the members directly. In this case you can implement a custom setter: 
 {{{
 public class ProjectMembersSetter implements PropertySetter<Project, List<User>>
 {
@@ -64,6 +64,7 @@ public class ProjectMembersSetter implements PropertySetter<Project, List<User>>
 }
 }}}
 and use it in the mappping for members:
+{{{
 public class Project
 {
     ...
@@ -71,3 +72,4 @@ public class Project
     private List<User> members;
     ...
 }
+}}}
