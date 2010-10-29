@@ -1,5 +1,4 @@
 #summary External mappings in Piriti
-#labels Featured
 
 = External Mappings  =
 The previous samples all used the mapping annotations directly in the POJO. If you don't want to 'pollute' your POJOs with Piriti annotations or you don't have direct access to the POJOs source code, you can also define the mapping in an extra class:

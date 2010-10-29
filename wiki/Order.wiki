@@ -1,5 +1,4 @@
 #summary Ordering in Piriti
-#labels Featured
 
 = Order =
 Piriti processes all annotated fields in random order. If you depend on a specific order, you can use the `order` attribute. Suppose you have the following model:
