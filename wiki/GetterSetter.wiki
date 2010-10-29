@@ -52,7 +52,7 @@ public class ProjectMembersSetter implements PropertySetter<Project, List<User>>
     @Override
     public void set(Project model, List<User> value)
     {
-        clearMembers();
+        model.clearMembers();
         if (value != null)
         {
             for (User user : value)
