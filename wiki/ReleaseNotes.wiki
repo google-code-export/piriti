@@ -1,6 +1,9 @@
 #summary Release notes
 #labels Featured
 
+=== Piriti 0.6.1 ===
+  * Issue 15: Custom converters are now handled correctly
+
 === Piriti 0.6 ===
   * Breaking API changes: 
     * Renamed @JsonField to @Json and @XmlField to @Xml
