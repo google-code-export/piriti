@@ -95,6 +95,7 @@ as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/go
 <tr>
 <td>Enums</td>
 <td>`<fieldname>`/text()</td>
+<td>No format supported. If specified it is ignored.</td>
 <td>Custom converter supported</td>
 </tr>
 <tr>
