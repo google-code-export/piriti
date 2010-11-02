@@ -46,7 +46,10 @@ public interface Converter<T>
 
 For some mappings you can specify a custom converter (see [Json JSON] and [Xml XML] for details). Suppose you want to map the following JSON data:
 {{{
-{"24.10.2010", "4.5h"}
+{
+    "date": "24.10.2010", 
+    "duration": "4.5h"
+}
 }}}
 to this model
 {{{
@@ -87,3 +90,15 @@ public class TimeEntry
 }
 }}}
  
+== JSON Converters ==
+When you want to use custom converters to convert JSON data, make sure the JSON input comes as string. In the following example the JSON data won't be mapped and the fields value will be 0 (the default value)
+{{{
+{"data": 4.5}
+}}}
+
+{{{
+public class TimeEntry
+{
+    @Json(converter = SomeConverter.class) double data;
+}
+}}}
