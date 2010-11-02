@@ -90,8 +90,8 @@ public class TimeEntry
 }
 }}}
  
-== JSON Converters ==
-When you want to use custom converters to convert JSON data, make sure the JSON input comes as string. In the following example the JSON data won't be mapped and the fields value will be 0 (the default value)
+== Converters for JSON ==
+When you want to use custom converters for JSON data, make sure the JSON input comes as string. In the following example the JSON data won't be converted and mapped. The fields value will be 0 (the default value)
 {{{
 {"data": 4.5}
 }}}
