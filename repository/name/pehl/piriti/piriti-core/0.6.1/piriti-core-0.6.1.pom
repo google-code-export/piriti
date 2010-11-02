@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <!--
+        $LastChangedBy: harald.pehl 
+        $LastChangedRevision: 137 $
+    -->
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>name.pehl.piriti</groupId>
+        <artifactId>piriti-parent</artifactId>
+        <version>0.6.1</version>
+    </parent>
+
+
+    <artifactId>piriti-core</artifactId>
+    <name>Piriti Core</name>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt.inject</groupId>
+            <artifactId>gin</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>name/pehl/piriti/PiritiCoreGwtTestSuite.java</exclude>
+                        <exclude>name/pehl/piriti/client/gwttest/**/*Test.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>1.3.2.google</version>
+                <executions>
+                    <execution>
+                        <id>(******** development mode ********)</id>
+                        <configuration>
+                            <logLevel>INFO</logLevel>
+                            <extraJvmArgs>-Xmx512m</extraJvmArgs>
+                            <manualMode>false</manualMode>
+                            <productionMode>false</productionMode>
+                            <gwtVersion>${gwt.version}</gwtVersion>
+                            <module>name.pehl.piriti.PiritiTest</module>
+                            <includes>name/pehl/piriti/PiritiCoreGwtTestSuite.java</includes>
+                        </configuration>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>(******** production mode ********)</id>
+                        <configuration>
+                            <logLevel>INFO</logLevel>
+                            <extraJvmArgs>-Xmx512m</extraJvmArgs>
+                            <manualMode>false</manualMode>
+                            <productionMode>true</productionMode>
+                            <gwtVersion>${gwt.version}</gwtVersion>
+                            <module>name.pehl.piriti.PiritiTest</module>
+                            <includes>name/pehl/piriti/PiritiCoreGwtTestSuite.java</includes>
+                        </configuration>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
