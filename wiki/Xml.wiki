@@ -5,8 +5,8 @@ XML mapping is done using the @Xml annotation. This annotation has the following
   * property: The name of the field / property. Only necessary for [Features#External_Mappings external mappings].
   * value: An XPath expression to select the XML data. Defaults to "" which means that the fields name is taken as a base for the XPath expression.
   * format: The format to use when converting the XML data to the fields type. Defaults to "".
-  * stripWsnl: Flag whether to white spaces and new lines.
-  * converter: A custom [Converters converter]
+  * stripWsnl: Flag whether to white spaces and new lines. Defaults to true
+  * converter: A custom [Converters converter].
   * getter: A custom [GetterSetter getter]
   * setter: A custom [GetterSetter setter]  
 
