@@ -49,25 +49,25 @@ Otherwise must be a valid date format as described by [http://google-web-toolkit
 <td>double, Double</td>
 <td>`<fieldname>`</td>
 <td>If no format is specified the JSON data is expected to be a JSON number, otherwise the JSON data is expected to be a JSON string and the format must be a valid number format as described by  [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-<td>Custom converter supported</td>
+<td>Custom converter supported (JSON data is expected to be a JSON string)</td>
 </tr>
 <tr>
 <td>float, Float</td>
 <td>`<fieldname>`</td>
 <td>If no format is specified the JSON data is expected to be a JSON number, otherwise the JSON data is expected to be a JSON string and the format must be a valid number format as described by  [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-<td>Custom converter supported</td>
+<td>Custom converter supported (JSON data is expected to be a JSON string)</td>
 </tr>
 <tr>
 <td>int, Integer</td>
 <td>`<fieldname>`</td>
 <td>If no format is specified the JSON data is expected to be a JSON number, otherwise the JSON data is expected to be a JSON string and the format must be a valid number format as described by  [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-<td>Custom converter supported</td>
+<td>Custom converter supported (JSON data is expected to be a JSON string)</td>
 </tr>
 <tr>
 <td>long, Long</td>
 <td>`<fieldname>`</td>
 <td>If no format is specified the JSON data is expected to be a JSON number, otherwise the JSON data is expected to be a JSON string and the format must be a valid number format as described by  [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-<td>Custom converter supported</td>
+<td>Custom converter supported (JSON data is expected to be a JSON string)</td>
 </tr>
 <tr>
 <td>short, Short</td>
