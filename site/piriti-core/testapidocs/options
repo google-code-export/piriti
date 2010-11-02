@@ -1,5 +1,5 @@
 -classpath
-'/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/classes:/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/test-classes:/home/pehlh/MavenRepo/org/easymock/easymock/2.4/easymock-2.4.jar:/home/pehlh/MavenRepo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/MavenRepo/com/google/gwt/gwt-dev/2.0.4/gwt-dev-2.0.4.jar:/home/pehlh/MavenRepo/name/pehl/totoe/0.1/totoe-0.1.jar:/home/pehlh/MavenRepo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/MavenRepo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/MavenRepo/com/google/gwt/gwt-user/2.0.4/gwt-user-2.0.4.jar:/home/pehlh/MavenRepo/junit/junit/4.7/junit-4.7.jar'
+'/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/classes:/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/test-classes:/home/pehlh/Repo/org/easymock/easymock/3.0/easymock-3.0.jar:/home/pehlh/Repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/Repo/org/objenesis/objenesis/1.2/objenesis-1.2.jar:/home/pehlh/Repo/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:/home/pehlh/Repo/com/google/gwt/gwt-dev/2.1.0/gwt-dev-2.1.0.jar:/home/pehlh/Repo/name/pehl/totoe/0.2.1/totoe-0.2.1.jar:/home/pehlh/Repo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/Repo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-user/2.1.0/gwt-user-2.1.0.jar:/home/pehlh/Repo/junit/junit/4.8.1/junit-4.8.1.jar'
 -encoding
 'UTF-8'
 -protected
@@ -15,7 +15,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Piriti Core API 0.5'
+'Piriti Core API 0.6.1'
 -link
 'http://google-web-toolkit.googlecode.com/svn/javadoc/2.0'
 -link
@@ -26,9 +26,11 @@
 'http://java.sun.com/javase/6/docs/api'
 -linkoffline
 'http://code.google.com/p/piriti/piriti-gxt/apidocs' '/home/pehlh/Projekte/GoogleCode/Piriti/impl/gxt/target/site/testapidocs'
+-linkoffline
+'http://code.google.com/p/piriti/piriti-playground/apidocs' '/home/pehlh/Projekte/GoogleCode/Piriti/impl/playground/target/site/testapidocs'
 -stylesheetfile
 '/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/site/testapidocs/stylesheet.css'
 -use
 -version
 -windowtitle
-'Piriti Core API 0.5'
+'Piriti Core API 0.6.1'

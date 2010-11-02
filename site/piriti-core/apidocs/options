@@ -1,5 +1,5 @@
 -classpath
-'/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/classes:/home/pehlh/MavenRepo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/MavenRepo/com/google/gwt/gwt-dev/2.0.4/gwt-dev-2.0.4.jar:/home/pehlh/MavenRepo/name/pehl/totoe/0.1/totoe-0.1.jar:/home/pehlh/MavenRepo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/MavenRepo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/MavenRepo/com/google/gwt/gwt-user/2.0.4/gwt-user-2.0.4.jar'
+'/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/classes:/home/pehlh/Repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-dev/2.1.0/gwt-dev-2.1.0.jar:/home/pehlh/Repo/name/pehl/totoe/0.2.1/totoe-0.2.1.jar:/home/pehlh/Repo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/Repo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-user/2.1.0/gwt-user-2.1.0.jar'
 -encoding
 'UTF-8'
 -protected
@@ -15,7 +15,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Piriti Core API 0.5'
+'Piriti Core API 0.6.1'
 -link
 'http://google-web-toolkit.googlecode.com/svn/javadoc/2.0'
 -link
@@ -26,9 +26,11 @@
 'http://code.google.com/p/piriti/piriti-gxt/apidocs' '/home/pehlh/Projekte/GoogleCode/Piriti/impl/gxt/target/site/apidocs'
 -linkoffline
 'http://code.google.com/p/piriti/piriti-restlet/apidocs' '/home/pehlh/Projekte/GoogleCode/Piriti/impl/restlet/target/site/apidocs'
+-linkoffline
+'http://code.google.com/p/piriti/piriti-sample/apidocs' '/home/pehlh/Projekte/GoogleCode/Piriti/impl/sample/target/site/apidocs'
 -stylesheetfile
 '/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/site/apidocs/stylesheet.css'
 -use
 -version
 -windowtitle
-'Piriti Core API 0.5'
+'Piriti Core API 0.6.1'
