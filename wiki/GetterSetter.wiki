@@ -45,7 +45,7 @@ public class Project
     }
 }
 }}}
-There's no direct way to set the members directly. In this case you can implement a custom setter: 
+There's no way to set the members directly. In this case you can implement a custom setter: 
 {{{
 public class ProjectMembersSetter implements PropertySetter<Project, List<User>>
 {
@@ -57,7 +57,7 @@ public class ProjectMembersSetter implements PropertySetter<Project, List<User>>
         {
             for (User user : value)
             {
-                model.addUser(user);
+                model.addMember(user);
             }
         }
     }
