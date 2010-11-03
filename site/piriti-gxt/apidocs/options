@@ -1,5 +1,5 @@
 -classpath
-'/home/pehlh/Projekte/GoogleCode/Piriti/impl/gxt/target/classes:/home/pehlh/MavenRepo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/MavenRepo/com/extjs/gxt/2.1.1/gxt-2.1.1.jar:/home/pehlh/MavenRepo/name/pehl/piriti/piriti-core/0.5/piriti-core-0.5-tests.jar:/home/pehlh/MavenRepo/com/google/gwt/gwt-dev/2.0.4/gwt-dev-2.0.4.jar:/home/pehlh/MavenRepo/name/pehl/totoe/0.1/totoe-0.1.jar:/home/pehlh/MavenRepo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/MavenRepo/name/pehl/piriti/piriti-core/0.5/piriti-core-0.5.jar:/home/pehlh/MavenRepo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/MavenRepo/com/google/gwt/gwt-user/2.0.4/gwt-user-2.0.4.jar'
+'/home/pehlh/Projekte/GoogleCode/Piriti/impl/gxt/target/classes:/home/pehlh/Repo/com/extjs/gxt/2.1.1/gxt-2.1.1.jar:/home/pehlh/Repo/name/pehl/piriti/piriti-core/0.6.1/piriti-core-0.6.1-tests.jar:/home/pehlh/Repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-dev/2.1.0/gwt-dev-2.1.0.jar:/home/pehlh/Repo/name/pehl/totoe/0.2.1/totoe-0.2.1.jar:/home/pehlh/Repo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/Repo/name/pehl/piriti/piriti-core/0.6.1/piriti-core-0.6.1.jar:/home/pehlh/Repo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-user/2.1.0/gwt-user-2.1.0.jar'
 -encoding
 'UTF-8'
 -protected
@@ -15,20 +15,20 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Piriti GXT API 0.5'
+'Piriti GXT API 0.6.1'
 -link
 'http://google-web-toolkit.googlecode.com/svn/javadoc/2.0'
 -link
 'http://totoe.googlecode.com/svn/site/apidocs'
--link
-'http://java.sun.com/javase/6/docs/api'
 -linkoffline
 'http://code.google.com/p/piriti/piriti-core/apidocs' '/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/site/apidocs'
 -linkoffline
 'http://code.google.com/p/piriti/piriti-restlet/apidocs' '/home/pehlh/Projekte/GoogleCode/Piriti/impl/restlet/target/site/apidocs'
+-linkoffline
+'http://code.google.com/p/piriti/piriti-sample/apidocs' '/home/pehlh/Projekte/GoogleCode/Piriti/impl/sample/target/site/apidocs'
 -stylesheetfile
 '/home/pehlh/Projekte/GoogleCode/Piriti/impl/gxt/target/site/apidocs/stylesheet.css'
 -use
 -version
 -windowtitle
-'Piriti GXT API 0.5'
+'Piriti GXT API 0.6.1'
