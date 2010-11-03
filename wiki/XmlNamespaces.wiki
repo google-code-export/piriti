@@ -9,7 +9,7 @@ When mapping XML documents we have to distinguish two use cases:
   # XML documents *without* a default namespace
   # XML documents *with* a default namespace
 
-= Default Namespace = 
+= No Default Namespace =
 That's the easy part, so we start with this. Suppose you have the following XML document
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
@@ -113,7 +113,7 @@ public class Player
 }}}
 
 
-= No Default Namespace =
+= Default Namespace = 
 Things get a little bit more complicated if your XML uses a default namespace (DNS). When you want to use the DNS in your XPath expression you also have to provide a prefix for that DNS. Let's add a default namespace to our {{{lotteryTicket.xml}}}:
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
