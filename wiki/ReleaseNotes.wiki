@@ -1,6 +1,9 @@
 #summary Release notes
 #labels Featured
 
+=== Piriti 0.6.2 ===
+  * Issue 16: Removed reference to @Nullable
+
 === Piriti 0.6.1 ===
   * Issue 15: Custom converters are now handled correctly
 
