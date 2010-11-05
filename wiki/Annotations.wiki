@@ -29,20 +29,20 @@ Mappings collected in @XmlMappings:
 {{{   
 public abstract class Animal
 {
-    @Xml String name;
-    @Xml int legs;
-    @Xml double intelligence;
+    String name;
+    int legs;
+    double intelligence;
 }
    
 public class Bird extends Animal
 {
-    @Xml int wingspan;
+    int wingspan;
 }
    
-@JsonMappings({@Json(property = "name"), 
-    @Json(property = "legs"),
-    @Json(property = "intelligence"),
-    @Json(property = "wingspan"),
+@XmlMappings({@Json(property = "name"), 
+    @Xml(property = "legs"),
+    @Xml(property = "intelligence"),
+    @Xml(property = "wingspan"),
 })
 public interface BirdReader extends JsonReader<Bird>
 {
