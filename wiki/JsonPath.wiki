@@ -1,8 +1,42 @@
 #summary JSONPath description
 
 = Introduction =
+When using @Json to select some JSON data, Piriti uses the annotations value as key to the JSON data. But sometimes there's no 1:1 correlation between the POJO property and the JSON key. Say you want to create flat model objects from nested JSON structures:
+
+{{{
+public class Person
+{
+    String name;
+    String street;
+    String city;
+}
+}}}
+
+{{{
+{
+    "address": {
+        "street": "Hirbeldirbel 1",
+        "city": "Equalizerhofen"
+    },
+    "name": "Hans Dampf"
+}
+}}}
+
+To map street and city you have to use JSONPath expressions:
+{{{
+public class Person
+{
+    // Reader definition omitted
+    @Json String name;
+    @Json("address.street") String street;
+    @Json("address.city") String city;
+}
+}}}
+
+= Implementation =
 TODO
 
-See 
+= Reference = 
+JSONPath is based on the javascript library from Stefan Gössner. See the following links for more examples and the syntax
   * [http://code.google.com/p/jsonpath/]
   * [http://goessner.net/articles/JsonPath/]
