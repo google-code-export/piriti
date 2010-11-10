@@ -28,15 +28,17 @@ public class Person
 {
     // Reader definition omitted
     @Json String name;
-    @Json("address.street") String street;
-    @Json("address.city") String city;
+    @Json("@.address.street") String street;
+    @Json("@.address.city") String city;
 }
 }}}
 
-= Implementation =
-TODO
-
 = Reference = 
 JSONPath is based on the javascript library from Stefan Gössner. See the following links for more examples and the syntax
-  * [http://code.google.com/p/jsonpath/]
-  * [http://goessner.net/articles/JsonPath/]
+  * [http://code.google.com/p/jsonpath/ JSONPath Project]
+  * [http://goessner.net/articles/JsonPath/ Introduction and examples]
+  * [http://code.google.com/p/jsonpath/wiki/Javascript Usage]
+  * [http://code.google.com/p/jsonpath/wiki/ExprSyntax Syntax]
+
+= Implementation =
+TODO
