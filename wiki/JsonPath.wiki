@@ -22,7 +22,7 @@ public class Person
 }
 }}}
 
-To map street and city you have to use JSONPath expressions:
+To map street and city you have to use JSONPath expressions (@ references the current JSONObject):
 {{{
 public class Person
 {
