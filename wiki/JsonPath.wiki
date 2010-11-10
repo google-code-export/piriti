@@ -34,7 +34,7 @@ public class Person
 }}}
 
 = Reference = 
-JSONPath is based on the javascript library from Stefan Gössner. See the following links for more examples and the syntax
+JSONPath is based on the javascript library from Stefan Gössner. See the following links for more examples and the full syntax:
   * [http://code.google.com/p/jsonpath/ JSONPath Project]
   * [http://goessner.net/articles/JsonPath/ Introduction and examples]
   * [http://code.google.com/p/jsonpath/wiki/Javascript Usage]
