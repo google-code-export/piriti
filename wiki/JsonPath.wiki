@@ -14,11 +14,11 @@ public class Person
 
 {{{
 {
+    "name": "Hans Dampf",
     "address": {
         "street": "Hirbeldirbel 1",
         "city": "Equalizerhofen"
-    },
-    "name": "Hans Dampf"
+    }
 }
 }}}
 
