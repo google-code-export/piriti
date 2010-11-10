@@ -41,4 +41,7 @@ JSONPath is based on the javascript library from Stefan Gössner. See the follow
   * [http://code.google.com/p/jsonpath/wiki/ExprSyntax Syntax]
 
 = Implementation =
-TODO
+Piriti looks at the value of the @Json annotation. In case it detects any of the following characters the value is interpreted as JSONPath:
+{{{
+'$', '@', '.', '[', ']', '*', '#', ',', ':', '?', '(', ')'
+}}}
