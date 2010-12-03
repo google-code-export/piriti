@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <!-- $LastChangedBy: harald.pehl $LastChangedRevision: 137 $ -->
-    <modelVersion>4.0.0</modelVersion>
+    <!-- $LastChangedBy: harald.pehl $LastChangedRevision: 1418 $ -->
+
+
     <parent>
         <groupId>name.pehl.piriti</groupId>
         <artifactId>piriti-parent</artifactId>
         <version>0.6.2</version>
     </parent>
-
-
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>piriti-sample</artifactId>
     <name>Piriti Sample</name>
     <packaging>war</packaging>
@@ -32,20 +32,8 @@
             <artifactId>taoki</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-servlet</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>aopalliance</groupId>
-            <artifactId>aopalliance</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.gwt.inject</groupId>
-            <artifactId>gin</artifactId>
         </dependency>
         <dependency>
             <groupId>org.restlet.gae</groupId>
@@ -119,11 +107,11 @@
 
 
     <build>
+        <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.1-beta-1</version>
                 <configuration>
                     <webResources>
                         <resource>
@@ -139,21 +127,19 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
-                <version>1.3.2.google</version>
                 <configuration>
-                    <logLevel>INFO</logLevel>
-                    <port>8888</port>
-                    <module>name.pehl.piriti.sample.PiritiSample</module>
-                    <extraJvmArgs>-Xmx512m</extraJvmArgs>
                     <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
+                    <port>8888</port>
                     <runTarget>/index.html</runTarget>
-                    <webXml>war/WEB-INF/web.xml</webXml>
-                    <gwtVersion>${gwt.version}</gwtVersion>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                    <module>name.pehl.piriti.sample.PiritiSample</module>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>compile</goal>
+                            <goal>compile</goal>
+                            <goal>resources</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -170,6 +156,15 @@
                     <additionalProjectnatures>
                         <projectnature>com.google.appengine.eclipse.core.gaeNature</projectnature>
                     </additionalProjectnatures>
+                    <additionalConfig>
+                        <file>
+                            <name>.settings/com.google.gwt.eclipse.core.prefs</name>
+                            <content><![CDATA[
+eclipse.preferences.version=1
+entryPointModules=name.pehl.piriti.sample.PiritiSample
+                            ]]></content>
+                        </file>
+                    </additionalConfig>
                     <excludes>
                         <exclude>com.google.gwt:gwt-user</exclude>
                         <exclude>com.google.appengine:appengine-api-1.0-sdk</exclude>
@@ -199,6 +194,7 @@
                 </dependencies>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <goals>gae:deploy</goals>
