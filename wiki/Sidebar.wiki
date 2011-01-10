@@ -21,7 +21,6 @@
   * [Extensions]
     * [GxtExtension GXT Extension]
     * [RestletExtension Restlet Extension]
-  * [SampleApplication Sample Application]
   * [BuildFromSource Build From Source]
   * [ReleaseNotes Release Notes]
   * [Planed Planed Features]  
