@@ -3,7 +3,6 @@
 
 === Piriti 0.6.4 ===
   * Partial release: Only Piriti Core and Restlet are part of this release. Piriti GXT will follow as soon as GXT is GWT 2.2 compatible.
-  * Requires GWT 2.2 and GIN 1.5
   * Issue 19: Json strings are now escaped correctly
   * Issue 23: Added support for java.sql.`*`
   * Issue 24: Fixed code generation for collection implementations
