@@ -46,6 +46,8 @@ For non-maven users make sure you have at least the jar files from the following
   * [http://code.google.com/p/google-gin/ google-gin]
   * [http://code.google.com/p/totoe/ totoe]
 
+Please note that starting with version 0.6.4 Piriti requires GWT 2.2 and GIN 1.5 or higher!
+
 = Module =
 To actually use Piriti make sure that you inherit the following module:
 {{{
