@@ -6,7 +6,7 @@
   * Issue 19: Json strings are now escaped correctly
   * Issue 23: Added support for java.sql.`*`
   * Issue 24: Fixed code generation for collection implementations
-  * Issue 27: Piriti 0.6.4 requires GWT 2.2
+  * Issue 27: Piriti 0.6.4 requires GWT 2.2, GIN 1.5 and Guice 3.x
 
 === Piriti 0.6.3 ===
   * Fixed bug when using private fields and inheritance
