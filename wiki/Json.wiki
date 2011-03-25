@@ -103,6 +103,6 @@ Otherwise must be a valid date format as described by [http://google-web-toolkit
 <td>Typed collections of the above types</td>
 <td>`<fieldname>`</td>
 <td>If a format is specified it is applied for all collection elements.</td>
-<td>If a custom converter is specified it is applied to all array elements.</td>
+<td>If a custom converter is specified it is applied to all collection elements.</td>
 </tr>
 </table>
