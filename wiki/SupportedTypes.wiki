@@ -28,6 +28,7 @@ When mapping collections the following types are supported:
   * `LinkedList<T>`
   * `Set<T>`. `HashSet<T>` is choosen as the implementation.
   * `HashSet<T>`
+  * `LinkedHashSet<T>`
   * `SortedSet<T>`. `TreeSet<T>` is choosen as the implementation.
   * `TreeSet<T>`
 
