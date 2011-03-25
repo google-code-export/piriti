@@ -12,6 +12,9 @@ The mapping annotations do not work on all types. The following list shows which
   * char, Character
   * String
   * java.util.Date
+  * java.sql.Date
+  * java.sql.Time
+  * java.sql.Timestamp
   * Enums
   * All types T for which a reader is registered
   * Arrays of the above types
