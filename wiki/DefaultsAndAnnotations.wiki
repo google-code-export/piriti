@@ -1,51 +1,81 @@
-#summary Annotations Used in Piriti
+#summary Defaul Behaviour and Annotations in Piriti
 
-= Annotations =
-All mapping / serialization information in Piriti must be provided by annotations. The following annotations are available in Piriti-Core:
-  * @Json: Maps a single field to some JSON data
-  * @JsonMappings: Used for [ExternalMappings external mappings]
-  * @Xml: Maps a single field to some XML data
-  * @XmlMappings: Used for [ExternalMappings external mappings]
+= Default behaviour =
+== Fields ==
+When Piriti creates the reader / writer implementation for a type T, all fields of T and its superclasses which satisfy the following requirements are processed:
+  * The field is accessible. If the reader / writer interface is defined as nested static class or in the same package, the field must have at least default access. If the field isn't accessible, there has to be an appropriate getter / setter.
+  * The fields type must be [SupportedTypes supported] by Piriti   
+  * The field must not be transient or marked with the @Transient annotation
   
-The @Json and @Xml annotations must be either placed on fields or be part of @JsonFields or @XmlMappings. @JsonFields and @XmlMappings'are class level annotations. 
-
-Here are some examples on how to use the annotations:
+Suppose you have the following types (all in the same package): 
 {{{
-public class Book
+public abstract class Creature
 {
-    @Json String isbn;
-    @Json int pages;
-    @Json String title;
-    @Json Author author;
-    @Json List<String> reviews;
-    @Json List<Book> related;
-    
-    @Json("@.related[2].extraInfo") 
-    String extraInfoOfLastRelatedBook;
+    String kind;
 }
-}}}
-   
-Mappings collected in @XmlMappings:   
-{{{   
+
 public abstract class Animal
 {
     String name;
-    int legs;
-    double intelligence;
+    int age;
+    private String state;
 }
-   
-public class Bird extends Animal
+
+public abstract class Mammal extends Animal
 {
-    int wingspan;
+    private Gender gender;
+    
+    public Gender getHender()
+    {
+        return gender;
+    } 
 }
-   
-@XmlMappings({@Json(property = "name"), 
-    @Xml(property = "legs"),
-    @Xml(property = "intelligence"),
-    @Xml(property = "wingspan"),
-})
-public interface BirdReader extends JsonReader<Bird>
+
+@MapUpTo(Animal.class)
+public class Cat extends Mammal
 {
-    BirdJsonReader INSTANCE = GWT.create(BirdReader.class);
+    transient int size;
+    @Transient String race;
+    String color;
+    List<Cat> kitten;
+    Map<Stirng, String> metadata;
 }
 }}}
+and this reader definition
+{{{
+public CatReader extends JsonReader<Cat>
+{
+}
+}}}
+then the following fields are read by this reader:
+  * name
+  * age
+  * gender
+  * color
+  * kitten
+These fields are *not* processed:
+  * kind: It's in type which is out of reach (excluded by @MapUpTo)
+  * state: Field is private and no accessible getter was defined
+  * size: Field is transient
+  * race: Field was marked with @Transient
+  * metadata: Type is not supported
+
+== Path ==
+TODO
+ 
+== Conversion == 
+TODO
+ 
+= Annotations =
+The dafault behaviour can be customized using a handfuil of annotations:
+  * @Path
+  * @Format
+  * @Convert
+  * @Whitespace
+  * @Getter / @Setter
+  * @CreateWith 
+  * @MapUpTo
+  * @Order
+  * @Transient
+  * @Native
+TODO

@@ -55,6 +55,7 @@ public class BookstoreModule extends AbstractModule
         bind(BookJsonReader.class).asEagerSingleton();
         ...
     }
+}    
 }}}    
 {{{
 public class ReadBookAction
@@ -74,4 +75,4 @@ Please make sure you bind the reader and writer implementations as eager singelt
 
 
 === Genereted Code ===
-In any case a reader / writer implementation is generated for you which (de)serializes all fields in the specified POJO and its superclasses. See [SupportedTypes supported types] and [default behaviour / annotations DefaultsAndAnnotations] for more details. 
+In any case a reader / writer implementation is generated for you which (de)serializes all fields in the specified POJO and its superclasses. See [DefaultsAndAnnotations default behaviour / annotations] and [SupportedTypes supported types] for more details. 

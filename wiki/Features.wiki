@@ -6,8 +6,8 @@ Piriti is able to (de)serialize fairly complex *JSON* and *XML* data. All mappin
 
 On the following pages the common features for both JSON and XML mapping are described:
   * [ReaderWriter Readers / Writers]
-  * [SupportedTypes Supported Types]
   * [DefaultsAndAnnotations Default Behaviour / Annotations]
+  * [SupportedTypes Supported Types]
   * [Inheritance]
   * [References]
   * [InstanceCreator Instance Creation]
