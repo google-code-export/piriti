@@ -2,17 +2,17 @@
 #labels Featured
 
 = Features =
-Piriti is able to map fairly complex *JSON* and *XML* data to arbitrary POJOs and GXT models. All mapping information is provided using annotations. The actual mapping code is generated for you using deferred binding and code generators. 
+Piriti is able to (de)serialize fairly complex *JSON* and *XML* data. All mapping information is based on reasonable defaults and a handful of annotations. The actual code is generated for you using deferred binding and generators. 
 
 On the following pages the common features for both JSON and XML mapping are described:
-  * [Annotations]
   * [ReaderWriter Readers / Writers]
   * [SupportedTypes Supported Types]
-  * [Converters]
-  * [GetterSetter Getters / Setters]
-  * [Order]
+  * [Default Behaviour / Annotations DefaultsAndAnnotations]
   * [Inheritance]
   * [References]
+  * [InstanceCreator Instance Creation]
+  * [Converters]
+  * [GetterSetter Getters / Setters]
   * [ExternalMappings External Mappings]
 
 The specific features for JSON and XML mapping are described here:
@@ -20,5 +20,4 @@ The specific features for JSON and XML mapping are described here:
     * [JsonPath JSONPath] 
   * [Xml XML] 
     * [XmlNamespaces Namespaces]
-    * [XmlReferences References]
   
