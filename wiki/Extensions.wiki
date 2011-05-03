@@ -1,6 +1,5 @@
 #summary Extensions in Piriti
 
 = Extensions = 
-Currently there are two extensions for Piriti:
-  * [GxtExtension GXT extension]: Allows JSON / XML mapping to GXT models.
+Currently there is one extension for Piriti:
   * [RestletExtension Restlet extension]: Offers representations which use an XML / JSON reader.
