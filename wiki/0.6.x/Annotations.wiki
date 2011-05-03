@@ -1,0 +1,51 @@
+#summary Annotations Used in Piriti
+
+= Annotations =
+All mapping / serialization information in Piriti must be provided by annotations. The following annotations are available in Piriti-Core:
+  * @Json: Maps a single field to some JSON data
+  * @JsonMappings: Used for [ExternalMappings external mappings]
+  * @Xml: Maps a single field to some XML data
+  * @XmlMappings: Used for [ExternalMappings external mappings]
+  
+The @Json and @Xml annotations must be either placed on fields or be part of @JsonFields or @XmlMappings. @JsonFields and @XmlMappings'are class level annotations. 
+
+Here are some examples on how to use the annotations:
+{{{
+public class Book
+{
+    @Json String isbn;
+    @Json int pages;
+    @Json String title;
+    @Json Author author;
+    @Json List<String> reviews;
+    @Json List<Book> related;
+    
+    @Json("@.related[2].extraInfo") 
+    String extraInfoOfLastRelatedBook;
+}
+}}}
+   
+Mappings collected in @XmlMappings:   
+{{{   
+public abstract class Animal
+{
+    String name;
+    int legs;
+    double intelligence;
+}
+   
+public class Bird extends Animal
+{
+    int wingspan;
+}
+   
+@XmlMappings({@Json(property = "name"), 
+    @Xml(property = "legs"),
+    @Xml(property = "intelligence"),
+    @Xml(property = "wingspan"),
+})
+public interface BirdReader extends JsonReader<Bird>
+{
+    BirdJsonReader INSTANCE = GWT.create(BirdReader.class);
+}
+}}}

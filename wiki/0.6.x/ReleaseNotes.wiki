@@ -1,0 +1,80 @@
+#summary Release notes
+#labels Featured
+
+=== Piriti 0.6.4 ===
+  * Partial release: Only Piriti-Core and Piriti-Restlet are part of this release. Piriti-GXT will follow as soon as GXT is GWT 2.2 compatible.
+  * Issue 19: Json strings are now escaped correctly
+  * Issue 23: Added support for java.sql.`*`
+  * Issue 24: Fixed code generation for collection implementations
+  * Issue 27: Piriti 0.6.4 requires GWT 2.2, GIN 1.5 and Guice 3.x
+
+=== Piriti 0.6.3 ===
+  * Fixed bug when using private fields and inheritance
+
+=== Piriti 0.6.2 ===
+  * Issue 16: Removed reference to @Nullable
+
+=== Piriti 0.6.1 ===
+  * Issue 15: Custom converters are now handled correctly
+
+=== Piriti 0.6 ===
+  * Breaking API changes: 
+    * Renamed @JsonField to @Json and @XmlField to @Xml
+    * Renamed @JsonFields and @JsonModel to @JsonMappings
+    * Renamed @XmlFields and @XmlModel to @XmlMappings
+  * Added support for [http://www.sitepen.com/blog/2008/03/17/jsonpath-support/ JSONPath] expressions (see issue 12)
+  * Added order() to @Json and @Xml annotations to ensure a distinct processing order (see issue 11)
+  * Added support for custom converters (see issue 13)
+  * Added support for private fields and custom getters and setters (see issue 14)
+
+=== Piriti 0.51 ===
+  * Added support for custom key names when serializing to JSON (see issue 9)
+
+=== Piriti 0.5 ===
+  * Added support to serialize [JsonWriter POJOs to JSON]
+  * Added the possibilty to use [Features#External_Mappings external mappings] 
+
+=== Piriti 0.4.1 ===
+  * Added support for inheritance in POJOs and GXT models (see issue 6)
+
+=== Piriti 0.4 ===
+  * Added support for [Namespaces namespaces].
+  * Removed dependency to [http://code.google.com/p/gwtxpath gwtxpath]
+  * Added dependency to [http://code.google.com/p/totoe Totoe] which is now used for XML parsing and namespace support.
+
+=== Piriti 0.3.5 ===
+  * Fix for issue 5: Nested readers are now initialized correctly (thanks to dusan.maliarik)
+  * Added support for lowercase enum constants (thanks to dusan.maliarik)
+  * Switched to native JSON parser (thanks to Olivier Monaco) 
+
+=== Piriti 0.3.4 ===
+  * Fixed bug related to @XmlId / @XmlIdRef processing
+
+=== Piriti 0.3.3 ===
+  * Added @XmlId and @XmlIdRef to map references. See [XMLReferences XML references] for an example
+
+=== Piriti 0.3.2 ===
+  * Models can now have annotated fields of the same type. This works for 1-1 and 1-n relations
+  * Added saftey checks for null JSON values in generated JsonReader code
+
+=== Piriti 0.3.1 ===
+  * Added methods to JsonReader for reading lists of models
+  * Added methods to XmlReader for reading lists of models
+  * Finished Restlet extension
+  * Added sample application
+
+=== Piriti 0.3 ===
+  * Added support for JSON mapping
+  * Split Piriti into three modules: piriti-core, piriti-gxt and piriti-restlet
+  * Added a sample application
+
+=== Piriti 0.2.1 ===
+  * Added import statements in generated XmlReader implementations.
+  * Added GWT unit test for Book / Author example from [GettingStarted Getting Started Page]
+
+=== Piriti 0.2 ===
+  * Added collection and array mapping
+  * Discarded the mapping of maps
+
+=== Piriti 0.1 ===
+  * Initial release

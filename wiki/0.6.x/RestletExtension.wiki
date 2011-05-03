@@ -1,0 +1,93 @@
+#summary Extension for the Restlet GWT edition
+
+= Introduction =
+
+[http://www.restlet.org Restlet] is a RESTful Web framework for Java. There's also a [http://blog.noelios.com/2008/07/25/restlet-ported-to-gwt/ GWT edition] available. The Piriti Restlet extensions builts on top of that edition. Therefore the 2.x version of Restlet is used. There are two representations available which use the Piriti readers to convert JSON and XML data to your model (POJOs and/or GXT models). 
+
+== Read and convert JSON ==
+To read the JSON data you need an instance of JsonReader`<T>`
+{{{
+public class Book
+{
+    interface BookReader extends JsonReader<Book> {}
+    public static final BookReader JSON = GWT.create(BookReader.class);
+
+    // Fields annotated with @Json
+    ...
+}
+}}}
+
+Then you can read the JSON data like this:
+{{{
+ClientResource clientResource = 
+    new ClientResource("/resource/with/json/representation");
+clientResource.setOnResponse(new JsonModelResponse(Book.JSON)
+{
+    @Override
+    public void onSuccess(Book book, Request request, Response response)
+    {
+        ...
+    }
+
+    @Override
+    public void onError(IOException error, Request request, Response response)
+    {
+        ...
+    }
+});
+clientResource.get(MediaType.APPLICATION_JSON);
+}}}
+
+The entity returned by the resource has to be a valid JSON object. In case you want to read a list of books, the JSON object has to contain one key (name does not matter) with the array of books: 
+{{{
+{"books": [{"isbn": "0815", "title": "Foo"}, {"isbn": "1234", "title": "Bar"}]}
+}}}
+
+
+== Read and convert XML ==
+To read the XML data you need an instance of XmlReader`<T>`
+{{{
+public class Book
+{
+    interface BookReader extends XmlReader<Book> {}
+    public static final BookReader XML = GWT.create(BookReader.class);
+
+    // Fields annotated with @Xml
+    ...
+}
+}}}
+
+Then you can read the XML data like this:
+{{{
+ClientResource clientResource = 
+    new ClientResource("/resource/with/xml/representation");
+clientResource.setOnResponse(new XmlModelResponse(Book.XML)
+{
+    @Override
+    public void onSuccess(Book book, Request request, Response response)
+    {
+        ...
+    }
+
+    @Override
+    public void onError(IOException error, Request request, Response response)
+    {
+        ...
+    }
+});
+clientResource.get(MediaType.TEXT_XML);
+}}}
+
+The entity returned by the resource has to be a valid XML document. In case you want to read a list of books, the document must contain a list of book elements as direct children of the root element: 
+{{{
+<books>
+    <book>
+        <isbn>0815</isbn>
+        <title>Foo</title>
+    </book>
+    <book>
+        <isbn>1234</isbn>
+        <title>Bar</title>
+    </book>
+</books>
+}}}

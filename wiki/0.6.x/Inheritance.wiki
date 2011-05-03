@@ -1,0 +1,36 @@
+#summary Inheritance in Piriti
+
+= Inheritance =
+Inheritance in POJOs and GXT models is supported. Suppose you have the following class hirarchy:
+{{{
+abstract class Animal
+{
+    @Json String name;
+    @Json int legs;
+    @Json double intelligence;
+}
+
+abstract class Mammal extends Animal
+{
+    @Json Gender gender;
+}
+
+public class Cat extends Mammal
+{
+    public interface CatJsonReader extends JsonReader<Cat> {}
+    public static final CatJsonReader JSON = GWT.create(CatJsonReader.class);
+    
+    @Json String color;
+}
+}}}
+
+and the following JSON data
+{{{
+{ "name": "Snowball", "legs": 4, "intelligence": 0.4, "gender": "female", "color": "dark grey" }
+}}}
+
+You can read Snowball using
+{{{
+String json = ...;
+Cat snowball = Cat.JSON.read(json);
+}}}

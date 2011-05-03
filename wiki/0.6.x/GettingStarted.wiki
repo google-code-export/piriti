@@ -1,0 +1,55 @@
+#summary How to get started
+#labels Featured
+
+Actually Piriti consists of four modules:
+  * [Features Piriti-Core]: The core classes to map JSON and XML to POJOs and vice versa.
+  * [GxtExtension Piriti-GXT]: An extension to map the data to GXT ModelData instances. 
+  * [RestletExtension Piriti-Restlet]: An extension for the Restlet GWT edition. Contains representations which use the readers from Piriti Core. 
+
+= Prerequisites =
+Piriti relies on [http://code.google.com/p/google-gin/ google-gin] and [http://code.google.com/p/totoe/ totoe]. For maven users just add the following repositories to your pom and you're done (the repositories contain all necessary dependencies):
+{{{
+<repository>
+    <id>totoe-repo</id>
+    <name>Totoe Repository</name>
+    <url>http://totoe.googlecode.com/svn/repository</url>
+</repository>
+<repository>
+    <id>piriti-repo</id>
+    <name>Piriti Repository</name>
+    <url>http://piriti.googlecode.com/svn/repository</url>
+</repository>
+}}}
+
+Then depending on how much functionality you need add the following dependencies to your pom:
+{{{
+<dependency>
+    <groupId>name.pehl.piriti</groupId>
+    <artifactId>piriti-core</artifactId>
+    <scope>provided</scope>
+</dependency>
+<!-- For GXT model support -->
+<dependency>
+    <groupId>name.pehl.piriti</groupId>
+    <artifactId>piriti-gxt</artifactId>
+    <scope>provided</scope>
+</dependency>
+<!-- For Restlet support -->
+<dependency>
+    <groupId>name.pehl.piriti</groupId>
+    <artifactId>piriti-restlet</artifactId>
+    <scope>provided</scope>
+</dependency>
+}}}
+
+For non-maven users make sure you have at least the jar files from the following projects on your classpath:
+  * [http://code.google.com/p/google-gin/ google-gin]
+  * [http://code.google.com/p/totoe/ totoe]
+
+Please note that starting with version 0.6.4 Piriti requires GWT 2.2, GIN 1.5 and Guice 3.x!
+
+= Module =
+To actually use Piriti make sure that you inherit the following module:
+{{{
+<inherits name="name.pehl.piriti.Piriti" />
+}}}

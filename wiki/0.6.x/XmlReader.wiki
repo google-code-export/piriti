@@ -1,0 +1,107 @@
+#summary Mapping XML to POJOs
+
+= Introduction = 
+Let's assume you want to map the following XML
+{{{
+<book>
+    <isbn>978-0345417954</isbn>
+    <pages>432</pages>
+    <title>The Hotel New Hampshire</title>
+    <author>
+        <firstname>John</firstname>
+        <surname>Irving</surname>
+    </author>
+    <reviews>
+        <review>
+            A hectic gaudy saga with the verve of a Marx Brothers movie.
+        </review>
+        <review>
+            Rejoice! John Irving has written another book according to your world. 
+            You must read this book.
+        </review>
+        <review>
+            Spellbinding, intensely human, a high-wire act of 
+            dazzling virtuosity.
+        </review>
+    </reviews>
+</book>
+}}}
+
+Therefore you have the following POJOs in your GWT client
+{{{
+public class Book
+{
+    String isbn;
+    int pages;
+    String title;
+    Author author;
+    List<String> reviews;
+}
+
+public class Author
+{
+    String firstname;
+    String surname;
+}
+}}}
+
+To map the XML to your classes, all you have to do is annotate the relevant fields and define an interface of type XmlReader`<T>`;
+{{{
+public class Book
+{
+    interface BookReader extends XmlReader<Book> {}
+    public static final BookReader XML = GWT.create(BookReader.class);
+
+    @Xml String isbn;
+    @Xml int pages;
+    @Xml String title;
+    @Xml Author author;
+    @Xml("reviews/review") List<String> reviews;
+}
+
+public class Author
+{
+    interface AuthorReader extends XmlReader<Author> {}
+    public static final AuthorReader XML = GWT.create(AuthorReader.class);
+
+    @Xml String firstname;
+    @Xml String surname;
+}
+}}}
+
+Now you can map the XML by calling
+{{{
+Document document = new XmlParser().parse(xmlAsString);
+Book book = Book.XML.read(document);
+}}}
+
+== Array And Collection Mapping ==
+When mapping arrays and collections the XPath expression should return a list of elements:
+{{{
+<book>
+    ...
+    <reviews>
+        <review>
+            A hectic gaudy saga with the verve of a Marx Brothers movie.
+        </review>
+        <review>
+            Rejoice! John Irving has written another book according to your world. 
+            You must read this book.
+        </review>
+        <review>
+            Spellbinding, intensely human, a high-wire act of 
+            dazzling virtuosity.
+        </review>
+    </reviews>
+    ...
+</book>
+}}}
+{{{
+public class Book
+{
+    ...
+    @Xml("reviews/review") List<String> reviews;
+    ...
+}
+}}}
+In the example above the XPath expression "reviews/review" selects the three reviews which are inserted in a new list and assigned to Book.reviews.

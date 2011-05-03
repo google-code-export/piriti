@@ -1,0 +1,45 @@
+#summary Serializing POJOs to JSON
+
+= Introduction =
+POJOs can be serialized to JSON by using the same @Json annotations which are used for parsing. 
+
+To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface. In almost any cases you would also have a `JsonReader<T>` for parsing  
+{{{
+public class Book
+{
+    public interface BookReader extends JsonReader<Book> {}
+    public static final BookReader READER = GWT.create(BookReader.class);
+
+    public interface BookWriter extends JsonWriter<Book> {}
+    public static final BookWriter WRITER = GWT.create(BookWriter.class);
+
+    @Json String isbn;
+    @Json int pages;
+    @Json String title;
+    @Json Author author;
+    @Json List<String> reviews;
+    @Json List<Book> related;
+}
+
+public class Author
+{
+    public interface AuthorReader extends JsonReader<Author> {}
+    public static final AuthorReader READER = GWT.create(AuthorReader.class);
+
+    public interface AuthorWriter extends JsonWriter<Author> {}
+    public static final AuthorWriter WRITER = GWT.create(AuthorWriter.class);
+
+    @Json String firstname;
+    @Json String surname;
+    @Json Book bestseller;
+}
+}}}
+
+A typical scenario would be to parse the JSON received from the server, make some modifications and send back the modified JSON:
+{{{
+String json = ...; // received from the server
+Book book = Book.READER.read(json);
+book.title += " 2nd edition";
+json = Book.WRITER(book);
+// do some REST request
+}}} 
