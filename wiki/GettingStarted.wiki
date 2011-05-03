@@ -7,10 +7,10 @@ Actually Piriti consists of these sub projects:
 
 = Prerequisites =
 To use Piriti make sure you have the following dependencuies on your classpath:
-  * [http://code.google.com/webtoolkit/ GWT 2.2]
-  * [http://code.google.com/p/google-gin/ GIN 1.5]
-  * [http://code.google.com/p/google-guice/ Guice 3.0] 
-  * [http://code.google.com/p/totoe/ Totoe 0.2.3]
+  * [http://code.google.com/webtoolkit/ GWT 2.2] or better
+  * [http://code.google.com/p/google-gin/ GIN 1.5] or better
+  * [http://code.google.com/p/google-guice/ Guice 3.0] or better
+  * [http://code.google.com/p/totoe/ Totoe 0.2.3] or better
   
 For maven users just add the following repositories to your pom and you're done (the repositories contain all necessary dependencies):
 {{{
