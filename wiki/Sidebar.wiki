@@ -18,7 +18,6 @@
     * [XmlWriter POJO → XML]
     * [XmlNamespaces Namespaces]
   * [Extensions]
-    * [GxtExtension GXT Extension]
     * [RestletExtension Restlet Extension]
   * [FAQ]
   * [BuildFromSource Build From Source]
