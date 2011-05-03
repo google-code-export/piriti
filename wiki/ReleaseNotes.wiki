@@ -1,6 +1,40 @@
 #summary Release notes
 #labels Featured
 
+=== Piriti 0.7.0b1 ===
+Piriti 0.7.0 is a major release with breaking API changes, lots of new features and bugfixes. 
+
+Breaking API Changes:
+  * Piriti requires GWT 2.2 and GIN 1.5 
+  * Dropped GXT support
+  * Removed @Json, @JsonMappings, @Xml and @XmlMappings annotations  
+
+New Features:
+  * Devided Piriti into different modules:
+    * name.pehl.piriti.commons.Commons
+    * name.pehl.piriti.converter.Converter
+    * name.pehl.piriti.json.JSON
+    * name.pehl.piriti.property.Property
+    * name.pehl.piriti.xml.XML
+  * Simplified mapping setup: All properties in a POJO hirarchy are now mapped by default (issue 22)
+  * Added new annotations to overide default behaviour:
+    * @Order 
+    * @Path
+    * @Format
+    * @Native (issue 32)
+    * @Transient
+    * @CreateWith
+    * @MapUpTo
+  * Added @Mappings and @Mapping annotation for external mappings (JSON and XML)
+  * Added support for polymorhic assoziations (issue 30)
+  * Converters can now be used for any type (issue 29)
+  * Added XML serialisation (not yet implemented, but scheduled for the 0.7.0 release)
+  * Added support for IDs and IDREFs in JSON (not yet implemented, but scheduled for the 0.7.0 release) 
+
+Bugfixes:
+  * Issue 24: Fixed problems when mapping collection implementations
+  * Issue 31: GWT.create() is now used instead of new operator
+
 === Piriti 0.6.4 ===
   * Partial release: Only Piriti-Core and Piriti-Restlet are part of this release. Piriti-GXT will follow as soon as GXT is GWT 2.2 compatible.
   * Issue 19: Json strings are now escaped correctly
