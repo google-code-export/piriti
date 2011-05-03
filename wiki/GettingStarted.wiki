@@ -15,6 +15,10 @@ To use Piriti make sure you have the following dependencuies on your classpath:
 For maven users just add the following repositories to your pom and you're done (the repositories contain all necessary dependencies):
 {{{
 <repository>
+    <id>pehl-parent</id> 
+    <url>http://pehl-parent.googlecode.com/svn/repository</url>
+</repository>
+<repository>
     <id>totoe-repo</id>
     <name>Totoe Repository</name>
     <url>http://totoe.googlecode.com/svn/repository</url>
