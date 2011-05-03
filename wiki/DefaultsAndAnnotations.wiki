@@ -14,7 +14,7 @@ public abstract class Creature
     String kind;
 }
 
-public abstract class Animal
+public abstract class Animal extends Creature
 {
     String name;
     int age;
@@ -47,27 +47,27 @@ public CatReader extends JsonReader<Cat>
 {
 }
 }}}
-then the following fields are read by this reader:
+Then the following fields are mapped by this reader:
   * name
   * age
   * gender
   * color
   * kitten
 These fields are *not* processed:
-  * kind: It's in type which is out of reach (excluded by @MapUpTo)
+  * kind: It's in a class out of reach (excluded by @MapUpTo)
   * state: Field is private and no accessible getter was defined
   * size: Field is transient
   * race: Field was marked with @Transient
   * metadata: Type is not supported
 
 == Path ==
-TODO
+By default the fields name is taken as the key / path 
  
 == Conversion == 
-TODO
+Piriti has an internal... See [Converters] for further details.
  
 = Annotations =
-The dafault behaviour can be customized using a handfuil of annotations:
+The dafault behaviour can be customized using a handful of annotations:
   * @Path
   * @Format
   * @Convert
@@ -78,4 +78,14 @@ The dafault behaviour can be customized using a handfuil of annotations:
   * @Order
   * @Transient
   * @Native
-TODO
+
+== Path ==
+== Format ==
+== Convert ==
+== Whitespace ==
+== Getter / Setter ==
+== CreateWith  ==
+== MapUpTo ==
+== Order ==
+== Transient ==
+== Native ==
