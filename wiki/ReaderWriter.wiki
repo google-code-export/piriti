@@ -12,11 +12,11 @@ Typically you define your readers and writer as nested interfaces (if you're fam
 {{{
 public class Book
 {
-    public interface BookJsonWriter extends JsonWriter<Book> {}
-    public static final BookJsonWriter JSON_WRITER = GWT.create(BookJsonWriter.class);
-
     public interface BookJsonReader extends JsonReader<Book> {}
     public static final BookJsonReader JSON_READER = GWT.create(BookJsonReader.class);
+
+    public interface BookJsonWriter extends JsonWriter<Book> {}
+    public static final BookJsonWriter JSON_WRITER = GWT.create(BookJsonWriter.class);
 
     public interface BookXmlReader extends XmlReader<Book> {}
     public static final BookXmlReader XML_READER = GWT.create(BookXmlReader.class);
@@ -24,38 +24,53 @@ public class Book
     public interface BookXmlWriter extends XmlWriter<Book> {}
     public static final BookXmlWriter XML_WRITER = GWT.create(BookXmlWriter.class);
     
-    // The actual fields
+    String isbn;
+    String title;
     ...
+}    
 }}}
 
 
 === GIN Setup ===
 In case you use GIN, I recommend to let GIN inject the readers / writers implementations:
 {{{
-public class AcmeModule extends AbstractModule
+public class Book
+{
+    String isbn;
+    String title;
+    ...
+}    
+}}}
+{{{
+public interface BookJsonReader extends JsonReader<Book>
+{
+}
+}}}    
+{{{
+public class BookstoreModule extends AbstractModule
 {
     @Override
     protected void configure()
     {
-        bind(FooReader.class).asEagerSingleton();
-        bind(BarReader.class).asEagerSingleton();
+        bind(BookJsonReader.class).asEagerSingleton();
         ...
     }
 }}}    
 {{{
-public class SomeClassUsingReader
+public class ReadBookAction
 {
-    private final FooReader reader; 
+    private final BookJsonReader reader; 
      
     @Inject
-    public SomeClassUsingReader(FooReader reader)
+    public ReadBookAction(BookJsonReader reader)
     {
         this.reader = reader;
     }
     
     ...
+}    
 }}}
-Please make sure you bind the reader and writer implementations as eager singeltons. Otherwise relations between your POJOs might not get (de)serialized.  
+Please make sure you bind the reader and writer implementations as eager singeltons. Otherwise references between POJOs might not get (de)serialized.  
 
 
 === Genereted Code ===
