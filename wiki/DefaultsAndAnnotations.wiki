@@ -41,11 +41,9 @@ public class Cat extends Mammal
     Map<Stirng, String> metadata;
 }
 }}}
-and this reader definition
+and this reader definitions
 {{{
-public CatReader extends JsonReader<Cat>
-{
-}
+public CatReader extends JsonReader<Cat> {}
 }}}
 Then the following fields are mapped by this reader:
   * name
@@ -61,16 +59,27 @@ These fields are *not* processed:
   * metadata: Type is not supported
 
 == Path ==
-By default the fields name is taken as the key / path 
- 
-== Conversion == 
-Piriti has an internal... See [Converters] for further details.
- 
+By default the fields name is taken as the key / path to the JSON / XML data. That is in the above example for the color field there has to be a relevant key / element in the JSON / XML data:
+{{{
+{ 
+    ...
+    "color": "dark grey",
+    ...
+} 
+}}}
+{{{
+<cat>
+    ...
+    <color>dark grey</color>
+    ...
+</cat>
+}}} 
+
 = Annotations =
 The dafault behaviour can be customized using a handful of annotations:
   * @Path
-  * @Format
   * @Convert
+  * @Format
   * @Whitespace
   * @Getter / @Setter
   * @CreateWith 
@@ -80,8 +89,13 @@ The dafault behaviour can be customized using a handful of annotations:
   * @Native
 
 == Path ==
-== Format ==
+Use the @Path annotation to specify a special JSONPath / XPath. The selected data must match the fields type.
+
 == Convert ==
+
+== Format ==
+
+
 == Whitespace ==
 == Getter / Setter ==
 == CreateWith  ==
