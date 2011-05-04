@@ -10,7 +10,6 @@ On the following pages the common features for both JSON and XML mapping are des
   * [SupportedTypes Supported Types]
   * [Inheritance]
   * [References]
-  * [InstanceCreator Instance Creation]
   * [Converters]
   * [GetterSetter Getters / Setters]
   * [ExternalMappings External Mappings]
