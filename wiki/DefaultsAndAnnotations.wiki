@@ -1,5 +1,8 @@
 #summary Defaul Behaviour and Annotations in Piriti
 
+<wiki:toc max_depth="2" />
+
+
 = Default behaviour =
 == Fields ==
 When Piriti creates the reader / writer implementation for a type T, all fields of T and its superclasses which satisfy the following requirements are processed:
@@ -25,7 +28,7 @@ public abstract class Mammal extends Animal
 {
     private Gender gender;
     
-    public Gender getHender()
+    public Gender getGender()
     {
         return gender;
     } 
@@ -59,7 +62,7 @@ These fields are *not* processed:
   * metadata: Type is not supported
 
 == Path ==
-By default the fields name is taken as the key / path to the JSON / XML data. That is in the above example for the color field there has to be a relevant key / element in the JSON / XML data:
+By default the fields name is taken as the key / path to the JSON / XML data. That is in the above example there has to be a relevant key / element for the color field:
 {{{
 { 
     ...
@@ -89,17 +92,79 @@ The dafault behaviour can be customized using a handful of annotations:
   * @Native
 
 == Path ==
-Use the @Path annotation to specify a special JSONPath / XPath. The selected data must match the fields type.
+Use the @Path annotation to specify a special [JsonPath JSONPath] / XPath. The selected data must match the fields type.
 
 == Convert ==
+Use this converter to specify a custom converter. Converter must implement the interface name.pehl.piriti.converter.client.Converter`<T`> and are responsible for converting strings to T and vice versa. Piriti already comes with a list of [Converters built in converters] which handles most of the primitive / wrapper types, dates and enums. 
 
 == Format ==
-
+With the help of the @Format annotation you can either specify the format of the [Converters built in] or your own converter. 
 
 == Whitespace ==
+Use this annotation to specify how to handle leading and trailing whitespace. You can choose one of the following:
+  * PRESERVE
+  * REMOVE_WHITESPACE
+  * REMOVE_NEWLINE
+  * *REMOVE* (default)
+Please note that this is only about _leading_ and _trailing_ whitespace. Whitespace _within_ the data is not touched.
+
 == Getter / Setter ==
+Use these annotations to specify a custom Getter and/or Setter implementation. See [GetterSetter Getters / Setters] for further details.
+
 == CreateWith  ==
+Using this annotation you can specify an InstanceCreator implementation which is responsible for creating new instances of your POJO. See [InstanceCreator Instance Creation] for further details.
+
 == MapUpTo ==
+When (de)serializing a POJO all of it fields _and_ the fields in its superclasses are processed. Sometimes this is not what you want. Using the @MapUpTo annotation you can control up to which class the fields should be processed. See [Inheritance] for further details.
+
 == Order ==
+Piriti processes all fields in random order. If you depend on a specific order, you can use the @Order annotation. Suppose you have the following POJO:
+{{{
+public class User
+{
+    @Order(0) String username;
+    @Order(2) String firstname; 
+    @Order(1) String surname;
+    int age; 
+    boolean valid;
+}
+}}}
+
+When reading / writing the fields are proceesed in this order
+  # username
+  # surname
+  # firstname
+  # age or valid 
+  # age or valid (order is not specified)
+
 == Transient ==
+When (de)serializing a POJO _all_ non-transient (the keyword transient) fields are are processed. If you don't want to declare a field as transient you can always annotate the field with @Transient to exclude it during (de)serialization.
+
 == Native ==
+Fields annotated with @Native are processed during (de)serialization, but not mapped. This is kind of last resort when Piriti is not able to map the data. Fields annotated with @Native must have one of the follwoing types:
+  * String (for both XML and JSON mappings)
+  * JSONValue or subclass of JSONValue
+  * name.pehl.totoe.xml.client.Node or sublcass of Node
+  
+Given the XML input
+{{{
+<book>
+    <isbn>0815</isbn>
+    <metadata>
+        <key>1</key>
+        <value>foo</value>
+        <key>flag</key>
+        <value>true</value>
+        ...
+    </metadata>
+</book>
+}}}
+and the POJO
+{{{
+public class Book 
+{
+    String isbn;
+    @Native Element metadata; 
+}
+}}}
+you can access the native XML using Book.metadata 
