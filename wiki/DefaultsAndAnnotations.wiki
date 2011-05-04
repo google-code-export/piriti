@@ -8,7 +8,7 @@
 When Piriti creates the reader / writer implementation for a type T, all fields of T and its superclasses which satisfy the following requirements are processed:
   * The field is accessible. If the reader / writer interface is defined as nested static class or in the same package, the field must have at least default access. If the field isn't accessible, there has to be an appropriate getter / setter.
   * The fields type must be [SupportedTypes supported] by Piriti   
-  * The field must not be transient or marked with the [DefaultsAndAnnotations#Transient @Transient] annotation
+  * The field must not be transient or marked with the [#Transient @Transient] annotation
   
 Suppose you have the following types (all in the same package): 
 {{{
@@ -80,9 +80,9 @@ By default the fields name is taken as the key / path to the JSON / XML data. Th
 
 = Annotations =
 The dafault behaviour can be customized using a handful of annotations:
-  * @Path
-  * @Convert
-  * @Format
+  * [#Path @Path]
+  * [#Convert @Convert]
+  * [#Format @Format]
   * @Whitespace
   * @Getter / @Setter
   * @!CreateWith 
