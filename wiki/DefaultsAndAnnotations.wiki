@@ -134,19 +134,14 @@ public class Book
     
     // Getters & Setters omitted
 }
-
-static class BookkCreator extends XmlInstanceCreator<Book>
+}}}
+{{{
+public class BookkCreator extends XmlInstanceCreator<Book>
 {
-    public T newInstance(Node context)
+    public Book newInstance(Node context)
     {
-        Book book = null;
-        if (context instanceof Element)
-        {
-            Element bookElement = (Element) node;
-            String isbn = bookElement.selectValue("isbn");
-            book = new Book(isbn);
-        }
-        return book;
+        String isbn = context.selectValue("isbn");
+        return new Book(isbn);
     }
 }
 }}}
