@@ -74,5 +74,5 @@ public class ReadBookAction
 Please make sure you bind the reader and writer implementations as eager singeltons. Otherwise references between POJOs might not get (de)serialized.  
 
 
-=== Genereted Code ===
+=== Generated Code ===
 In any case a reader / writer implementation is generated for you which (de)serializes all fields in the specified POJO and its superclasses. See [DefaultsAndAnnotations default behaviour / annotations] and [SupportedTypes supported types] for more details. 
