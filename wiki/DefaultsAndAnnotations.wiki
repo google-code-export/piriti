@@ -55,7 +55,7 @@ Then the following fields are mapped by this reader:
   * color
   * kitten
 These fields are *not* processed:
-  * kind: It's in a class out of reach (excluded by @MapUpTo)
+  * kind: It's in a class out of reach (excluded by @!MapUpTo)
   * state: Field is private and no accessible getter was defined
   * size: Field is transient
   * race: Field was marked with @Transient
