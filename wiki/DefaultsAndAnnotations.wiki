@@ -83,13 +83,13 @@ The dafault behaviour can be customized using a handful of annotations:
   * [#Path @Path]
   * [#Convert @Convert]
   * [#Format @Format]
-  * [Whitespace @Whitespace]
+  * [#Whitespace @Whitespace]
   * [#Getter_/_Setter @Getter / @Setter]
-  * [CreateWith @!CreateWith] 
-  * [MapUpTo @!MapUpTo]
-  * [Order @Order]
-  * [Transient @Transient]
-  * [Native @Native]
+  * [#CreateWith @!CreateWith] 
+  * [#MapUpTo @!MapUpTo]
+  * [#Order @Order]
+  * [#Transient @Transient]
+  * [#Native @Native]
 
 == Path ==
 Use the @Path annotation to specify a special [JsonPath JSONPath] / XPath. The selected data must match the fields type.
