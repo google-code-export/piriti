@@ -1,15 +1,15 @@
 #summary References in Piriti
 
 = References =
-Because all reader / writer instances are registered against a global registry, references to other types that also have a reader / writer are recognized and mapped. The only requirement is, that the reader / writer definitions must be static:
+When a reader / writer is instantiated it is registered against a global registry. Therefore references to other types that also have a reader / writer are recognized and mapped:
 {{{
 public class Book
 {
     interface BookReader extends XmlReader<Book> {}
     public static final BookReader XML = GWT.create(BookReader.class);
 
-    @Xml String name;
-    @Xml Author author;
+    String name;
+    Author author;
 }
 
 public class Author
@@ -17,12 +17,59 @@ public class Author
     interface AuthorReader extends XmlReader<Author> {}
     public static final AuthorReader XML = GWT.create(AuthorReader.class);
 
-    @Xml String firstname;
-    @Xml String surname;
+    String firstname;
+    String surname;
+}
+}}}
+When reading a book from JSON / XML which also contains author information, the author is mapped and assigned to Book.author.
+
+== Requirement ==
+In order to use references following conditions must be met:
+  All readers / writers of types which make up the references must be initialized *before* the first reader / writer is used. 
+  
+In the example above AuthorReader has to be initialized _before_ BookReader.read() is called. Initialized means the call of GWT.create() has to happen. As long as you declare your reader / writer instances a static members, Piriti will take care of this. Once you have your reader / writer instances _outside_ of your POJO, you have to take care of the initialization by yourself:
+{{{
+public class Book
+{
+    String name;
+    Author author;
+}
+
+public class Author
+{
+    String firstname;
+    String surname;
+}
+}}}
+{{{
+public interface BookReader extends XmlReader<Book> {}
+}}}
+{{{
+public interface AuthorReader extends XmlReader<Author> {}
+}}}
+{{{
+public final class Readers 
+{
+    public static final BookReader BOOK_READER = GWT.create(BookReader.class);
+    public static final AuthorReader AUTHOR_READER = GWT.create(AuthorReader.class);
+    
+    public void initialize() {}
+}
+}}}
+{{{
+public class AppEntryPoint implements EntryPoint
+{
+    public void onModuleLoad()
+    {
+        Readers.initialize();
+    }
 }
 }}}
 
-When reading a book from JSON which also contains author information, the author is mapped and assigned to Book.author.
-
+Whenever possible I strongly recommend to use GIN to create and initialize your reader / writer instances. See [ReaderWriter#GIN_Setup GIN Setup]
+         
 == Polymorphic References ==
 TODO
+
+== ID and IDREF ==
+TODO 
