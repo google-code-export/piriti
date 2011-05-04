@@ -21,8 +21,8 @@ New Features:
     * @Order 
     * @Path
     * @Format
-    * @Native (issue 32)
-    * @Transient
+    * [DefaultsAndAnnotations#Native @Native] (issue 32)
+    * [DefaultsAndAnnotations#Transient @Transient]
     * @CreateWith
     * @MapUpTo
   * Added @Mappings and @Mapping annotation for external mappings (JSON and XML)

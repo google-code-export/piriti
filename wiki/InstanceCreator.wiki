@@ -1,4 +1,0 @@
-#summary How instances are created
-
-= Instance Creation =
-TODO

@@ -1,7 +1,7 @@
 #summary Supported Types in Piriti
 
 = Supported Types =
-The mapping annotations do not work on all types. The following list shows which types are supported by Piriti.
+Piriti is able to process a large range of different type:
   * boolean, Boolean
   * byte, Byte
   * short, Short

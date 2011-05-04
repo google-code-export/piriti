@@ -112,7 +112,44 @@ Please note that this is only about _leading_ and _trailing_ whitespace. Whitesp
 Use these annotations to specify a custom Getter and/or Setter implementation. See [GetterSetter Getters / Setters] for further details.
 
 == !CreateWith ==
-Using this annotation you can specify an InstanceCreator implementation which is responsible for creating new instances of your POJO. See [InstanceCreator Instance Creation] for further details.
+Using this annotation you can specify an InstanceCreator implementation which is responsible for creating new instances of your POJO. Therefore the InstanceCreator is provided with a context which is a JSONValue for JSON input and a Node for XML data. InstanceCreators can be useful when your POJO has no default constructor:
+{{{
+<book>
+    <isbn>978-0345417954</isbn>
+    <title>The Hotel New Hampshire</title>
+    ...
+</book>
+}}} 
+{{{
+@CreateWith(BookkCreator.class)
+public class Book
+{
+    private final String isbn;
+    private String title;
+    
+    public Book(String isbn)
+    {
+        this.isbn = isbn;
+    }
+    
+    // Getters & Setters omitted
+}
+
+static class BookkCreator extends XmlInstanceCreator<Book>
+{
+    public T newInstance(Node context)
+    {
+        Book book = null;
+        if (context instanceof Element)
+        {
+            Element bookElement = (Element) node;
+            String isbn = bookElement.selectValue("isbn");
+            book = new Book(isbn);
+        }
+        return book;
+    }
+}
+}}}
 
 == !MapUpTo ==
 When (de)serializing a POJO all of it fields _and_ the fields in its superclasses are processed. Sometimes this is not what you want. Using the @MapUpTo annotation you can control up to which class the fields should be processed. See [Inheritance] for further details.
@@ -138,7 +175,7 @@ When reading / writing the fields are proceesed in this order
   # age or valid (order is not specified)
 
 == Transient ==
-When (de)serializing a POJO _all_ non-transient (the keyword transient) fields are are processed. If you don't want to declare a field as transient you can always annotate the field with @Transient to exclude it during (de)serialization.
+When (de)serializing a POJO _all_ non-transient (the keyword transient) fields are processed. If you don't want to declare a field as transient you can still annotate the field with @Transient to exclude it during (de)serialization.
 
 == Native ==
 Fields annotated with @Native are processed during (de)serialization, but not mapped. This is kind of last resort when Piriti is not able to map the data. Fields annotated with @Native must have one of the follwoing types:
@@ -167,4 +204,4 @@ public class Book
     @Native Element metadata; 
 }
 }}}
-you can access the native XML using Book.metadata 
+you can access the native XML element using Book.metadata 

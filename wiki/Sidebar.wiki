@@ -5,7 +5,6 @@
     * [SupportedTypes Supported Types]
     * [Inheritance]
     * [References]
-    * [InstanceCreator Instance Creation]
     * [Converters]
     * [GetterSetter Getters / Setters]
     * [ExternalMappings External Mappings]

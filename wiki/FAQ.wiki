@@ -3,3 +3,7 @@
 <wiki:toc max_depth="1" />
 
 = References are not mapped =
+
+= Different paths for JSON and XML =
+
+= Select distinct JSON / XML data for mapping = 
