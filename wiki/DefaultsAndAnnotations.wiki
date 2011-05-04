@@ -111,7 +111,7 @@ Please note that this is only about _leading_ and _trailing_ whitespace. Whitesp
 == Getter / Setter ==
 Use these annotations to specify a custom Getter and/or Setter implementation. See [GetterSetter Getters / Setters] for further details.
 
-== CreateWith  ==
+== CreateWith ==
 Using this annotation you can specify an InstanceCreator implementation which is responsible for creating new instances of your POJO. See [InstanceCreator Instance Creation] for further details.
 
 == MapUpTo ==
