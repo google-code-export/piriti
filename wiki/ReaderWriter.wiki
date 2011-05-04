@@ -32,7 +32,7 @@ public class Book
 
 
 === GIN Setup ===
-In case you use GIN, I recommend to let GIN inject the readers / writers implementations:
+In case you use GIN, I recommend to let GIN create and inject the reader / writer implementations:
 {{{
 public class Book
 {
