@@ -23,3 +23,6 @@ public class Author
 }}}
 
 When reading a book from JSON which also contains author information, the author is mapped and assigned to Book.author.
+
+== Polymorphic References ==
+TODO
