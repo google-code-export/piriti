@@ -1,18 +1,18 @@
 #summary Inheritance in Piriti
 
 = Inheritance =
-Inheritance in POJOs and GXT models is supported. Suppose you have the following class hirarchy:
+Inheritance in POJOs is supported out of the box. Suppose you have the following class hirarchy:
 {{{
 abstract class Animal
 {
-    @Json String name;
-    @Json int legs;
-    @Json double intelligence;
+    String name;
+    int legs;
+    double intelligence;
 }
 
 abstract class Mammal extends Animal
 {
-    @Json Gender gender;
+    Gender gender;
 }
 
 public class Cat extends Mammal
@@ -20,7 +20,7 @@ public class Cat extends Mammal
     public interface CatJsonReader extends JsonReader<Cat> {}
     public static final CatJsonReader JSON = GWT.create(CatJsonReader.class);
     
-    @Json String color;
+    String color;
 }
 }}}
 
@@ -34,3 +34,17 @@ You can read Snowball using
 String json = ...;
 Cat snowball = Cat.JSON.read(json);
 }}}
+
+== !MapUpTo ==
+When (de)serializing POJOs Piriti automatically walks up the class hirarchy (upto but not including java.lang.Object). You can stop that by using the !@MapUpTo annotation. If change the mapping to  
+{{{
+@MapUpTo(Animal.class)
+public class Cat extends Mammal
+{
+    public interface CatJsonReader extends JsonReader<Cat> {}
+    public static final CatJsonReader JSON = GWT.create(CatJsonReader.class);
+    
+    String color;
+}
+}}}
+the fields name, legs and intelligence won't be processed.

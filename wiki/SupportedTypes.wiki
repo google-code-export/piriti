@@ -16,7 +16,7 @@ Piriti is able to process a large range of different type:
   * java.sql.Time
   * java.sql.Timestamp
   * Enums
-  * All types T for which a reader is registered
+  * All types T for which a reader / writer is registered
   * Arrays of the above types
   * Typed collections of the above types
 

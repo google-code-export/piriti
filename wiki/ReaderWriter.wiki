@@ -8,7 +8,7 @@ Readers and writers are one of the basic building blocks. Piriti knows four inte
   
 
 === Classic Setup ===
-Typically you define your readers and writer as nested interfaces (if you're familiar with UiBinder this shouldn't be a big challenge)
+Typically you define your readers and writer as nested interfaces (if you're familiar with !UiBinder this shouldn't be a big challenge)
 {{{
 public class Book
 {
