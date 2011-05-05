@@ -26,7 +26,7 @@ public class Author
 }}}
 When reading a book from JSON / XML which also contains author information, the author is mapped and assigned to Book.author.
 
-== Requirement ==
+== Requirements ==
 In order to use references following conditions must be met:
   All readers / writers of types which make up the references must be initialized *before* the first reader / writer is used. 
   
