@@ -1,6 +1,8 @@
 #summary References in Piriti
 
-= References =
+<wiki:toc max_depth="2" />
+
+= References in Java =
 When a reader / writer is instantiated it is registered against a global registry. Therefore references to other types that also have a reader / writer are recognized and mapped:
 {{{
 public class Book
@@ -168,6 +170,101 @@ public class MediumCreator extends JsonInstanceCreator<Medium>
 }
 }}}
   
+The important part here is that you need an indicator in your JSON / XML data to decide which instance to create. Otherwise polymorphic references wonn't work.     
 
-== ID and IDREF ==
-TODO 
+= References in JSON / XML =
+
+== Introduction ==
+Often you have references in XML. Piriti can resolve those references if expressed by ID and IDREF. Let's take the following XML document as an example:
+{{{
+<company>
+    <employees>
+        <employee id="boss">
+            <name>Big Boss</name>
+            <team>
+                <member ref="seller" />
+                <member ref="engineer" />
+            </team>
+            <department ref="board" />
+        </employee>
+        <employee id="seller">
+            <name>Sally Seller</name>
+            <boss ref="boss" />
+            <department ref="sales" />
+        </employee>
+        <employee id="engineer">
+            <name>Ed Engineer</name>
+            <boss ref="boss" />
+            <team>
+                <member ref="coder" />
+                <member ref="tester" />
+            </team>
+            <department ref="it" />
+        </employee>
+        <employee id="coder">
+            <name>Carl Coder</name>
+            <boss ref="engineer" />
+            <department ref="it" />
+        </employee>
+        <employee id="tester">
+            <name>Tom Tester</name>
+            <boss ref="engineer" />
+            <department ref="it" />
+        </employee>
+    </employees>
+    <departments>
+        <department id="board">
+            <name>Board</name>
+            <employees members="boss" />
+        </department>
+        <department id="sales">
+            <name>Sales</name>
+            <employees members="seller" />
+        </department>
+        <department id="it">
+            <name>IT</name>
+            <employees members="engineer coder tester" />
+        </department>
+    </departments>
+</company>
+}}}
+The XML document uses references for
+  * team members
+  * employees of a department and
+  * departments itself
+
+Piriti supports the mapping of those references. So you end up with references to other POJOs in the mapped POJO. In the given example the 'boss' POJO has references to the 'seller' and 'engineer' POJO.
+
+== Mapping ==
+Let's take a look at the mapping: 
+{{{
+public class Employee
+{
+    public interface EmployeeReader extends XmlReader<Employee> {}
+    public static final EmployeeReader XML = GWT.create(EmployeeReader.class);
+
+    @Id @Path("@id") String id;
+    String name;
+    @IdRef @Path("boss/@ref") Employee boss;
+    @IdRef @Path("team/member/@ref") List<Employee> team;
+    @IdRef @Path("department/@ref") Department department;
+}
+
+public class Department
+{
+    public interface DepartmentReader extends XmlReader<Department> {}
+    public static final DepartmentReader XML = GWT.create(DepartmentReader.class);
+
+    @Id @Path("@id") String id;
+    String name;
+    @IdRef @Path("employees/@members") Employee[] employees;
+}
+}}}
+
+== @Id ==
+Identifiers in the XML document have to be marked with the @Id annotation. If necessary specify an XPath expressions to select the id value. The selected value is mapped to a String member of the POJO. The @Id annotation can be used only once in a POJO. The POJO instance which contains the @Id annotation is put into an internal map using the identifier as key. 
+
+== @!IdRef == 
+Using the @!IdRef annotation you can define reference to other elements in the XML document. These elements must contain an identifier marked with @Id. specify an XPath expressions to select one or multiple strings. 
+  * One string value: The type of the field marked with the @!IdRef annotation has to be a type with a registered reader. 
+  * Multiple string values: The type of the field has to be an array or collection of types with a registered reader. 
