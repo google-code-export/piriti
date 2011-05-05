@@ -70,10 +70,104 @@ public class AppEntryPoint implements EntryPoint
 }
 }}}
 
-Whenever possible I strongly recommend to use [ReaderWriter#GIN_Setup GIN] to create and initialize your reader / writer instances.
+Whenever possible I strongly recommend to use [ReaderWriter#GIN_Setup GIN] to create and initialize your reader / writer instances. Doing so you can be sure that all readers / writers are initialized and registered before you (de)serialize your first POJO. 
          
 == Polymorphic References ==
-TODO
+Piriti supports the mapping of polymorphic references as shown in the following example (reader definitions omitted)
+{{{
+{
+  "mediums": [
+    {
+      "id": "isbn-978-0345417954",
+      "title": "The Hotel New Hampshire",
+      "pages": 432
+    },
+    {
+      "id": "cd-1234",
+      "title": "Stadium Arcadium",
+      "tracks": 28
+    },
+    {
+      "id": "dvd-5678",
+      "title": "Reservoir Dogs",
+      "duration": 99
+    }
+  ]
+}
+}}}
+{{{
+public class Library
+{
+    List<Medium> mediums;
+}
+
+public abstract class Medium
+{
+    String id;
+    String title;
+}
+
+public class Book extends Medium
+{
+    int pages;
+}
+
+public class Cd extends Medium
+{
+    int tracks;
+}
+
+public class Dvd extends Medium
+{
+    int duration;
+}
+}}} 
+
+In order to map the medium list in Library Piriti has to know how to create concrete instances of Medium subclasses. Therefore you have to specify an [DefaultsAndAnnotations#CreateWith InstanceCreator] using the @!CreateWith annotation:
+{{{
+public class Library
+{
+    @CreateWith(MediumCreator.class)
+    List<Medium> mediums;
+}
+}}}
+{{{
+public class MediumCreator extends JsonInstanceCreator<Medium>
+{
+    @Override
+    public Medium newInstance(JSONValue context)
+    {
+        Medium medium = null;
+        JSONObject jsonObject = context.isObject();
+        if (jsonObject != null)
+        {
+            JSONValue idValue = jsonObject.get("id");
+            if (idValue != null)
+            {
+                JSONString idString = idValue.isString();
+                if (idString != null)
+                {
+                    String id = idString.stringValue();
+                    if (id.startsWith("isbn-"))
+                    {
+                        medium = new Book();
+                    }
+                    else if (id.startsWith("cd-"))
+                    {
+                        medium = new Cd();
+                    }
+                    if (id.startsWith("dvd-"))
+                    {
+                        medium = new Dvd();
+                    }
+                }
+            }
+        }
+        return medium;
+    }
+}
+}}}
+  
 
 == ID and IDREF ==
 TODO 
