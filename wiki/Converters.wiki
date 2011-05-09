@@ -57,17 +57,7 @@ When reading data from JSON / XML, please note that you can only use converters 
     "duration": "4.5h"
 }
 }}}
-to this model
-{{{
-public class TimeEntry
-{
-    boolean expired;
-    int age;
-    Data date;
-    double duration;
-}
-}}}
-you can only use converters for `date` and `duration`. An implementation for `duration` could look like this:
+you can only use converters for `date` and `duration`. An converter for `duration` could be implemented like this:
 {{{
 public DurationConverter extends Converter<Double>
 {
@@ -89,7 +79,6 @@ public DurationConverter extends Converter<Double>
     }
 }
 }}}
-Finally you have to apply the converter:
 {{{
 public class TimeEntry
 {
