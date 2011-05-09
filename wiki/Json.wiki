@@ -1,7 +1,7 @@
 #summary JSON related features
 
 = Introduction =
-JSON (de)serialization works by selecting a "path" expression. In the simplest case the path is just the key of the JSON data. For more complex cases, you can also use a [JsonPath JSONPath expression]. If necessary, the selected data is converted to the type of the annotated property.
+JSON (de)serialization works by selecting a "path" expression. In the simplest case the path is just the key of the JSON data. For more complex cases, you can also use a [#JSONPath JSONPath expression]. If necessary, the selected data is converted to the type of the annotated property.
 
 == JSON → POJO ==
 Let's assume you want to map the following JSON data

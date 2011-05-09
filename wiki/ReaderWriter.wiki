@@ -1,10 +1,10 @@
 #summary Readers and Writer in Piriti
 
 Readers and writers are one of the basic building blocks. They are used to read / write a sinlge POJO or a list of POJOs from / to JSON or XML. Therefore Piriti knows four interfaces:
-  # JsonReader`<T>`: To map from JSON to POJO
-  # JsonWriter`<T>`: To serialize POJOs to JSON 
-  # XmlReader`<T>`: To map from XML to POJO
-  # XmlWriter`<T>`: To serialize POJOs to XML (not yet implemented)
+  # !JsonReader`<T>`: To map from JSON to POJO
+  # !JsonWriter`<T>`: To serialize POJOs to JSON 
+  # !XmlReader`<T>`: To map from XML to POJO
+  # !XmlWriter`<T>`: To serialize POJOs to XML (not yet implemented)
   
 
 === Classic Setup ===
