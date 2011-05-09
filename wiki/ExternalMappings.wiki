@@ -59,7 +59,33 @@ When using external mappings there are a few things to notice:
   * The @Mappings annotation must be placed on the reader writer interface
   
 == Order of annotations ==
-Sometimes you want to have both JSON and XML readers / writers. The mapping configuration is almost identical except some path expressions for some fields. In this case you can use the external mappings to _overwrite_ the [Annotations#Path default path names]:
+Sometimes you want to have both JSON and XML readers / writers. The mapping configuration is almost identical except for some path expressions of some fields. In this case you can use external mappings to _overwrite_ the [Annotations#Path default path names]:
+{{{
+{
+  "isbn": "978-0345417954",
+  "pages": 432,
+  "title": "The Hotel New Hampshire",
+  "author": {...},
+  "reviews": [...],
+   "related": [...]
+}}}
+{{{
+}}}
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+    <isbn>978-0345417954</isbn>
+    <pages>432</pages>
+    <title>The Hotel New Hampshire</title>
+    <author>...</author>
+    <reviews>
+        <review>....</review>
+        ...
+    </reviews>
+    <related>
+        <book>...</book>
+        ...
+    </related>
+</book>    
 {{{
 public class Book
 {
@@ -77,8 +103,8 @@ public class Book
     int pages;
     String title;
     Author author;
-    List<String> reviews;
-    List<Book> related;
+    List<String> reviews; // default path ok for JSON but not for XML
+    List<Book> related; // default path ok for JSON but not for XML
     String extraInfoOfLastRelatedBook;
 }
 }}}
