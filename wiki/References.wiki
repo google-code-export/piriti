@@ -125,7 +125,7 @@ public class Dvd extends Medium
 }
 }}} 
 
-In order to map the medium list in Library Piriti has to know how to create concrete instances of Medium subclasses. Therefore you have to specify an [DefaultsAndAnnotations#CreateWith InstanceCreator] using the @!CreateWith annotation:
+In order to map the medium list in Library, Piriti has to know how to create concrete instances of Medium subclasses. Therefore you have to specify an [Annotations#CreateWith InstanceCreator] using the @!CreateWith annotation:
 {{{
 public class Library
 {
@@ -265,6 +265,6 @@ public class Department
 Identifiers in the XML document have to be marked with the @Id annotation. If necessary specify an XPath expressions to select the id value. The selected value is mapped to a String member of the POJO. The @Id annotation can be used only once in a POJO. The POJO instance which contains the @Id annotation is put into an internal map using the identifier as key. 
 
 == @!IdRef == 
-Using the @!IdRef annotation you can define reference to other elements in the XML document. These elements must contain an identifier marked with @Id. specify an XPath expressions to select one or multiple strings. 
+Using the @!IdRef annotation you can define reference to other elements in the XML document. These elements must contain an identifier marked with @Id. Specify an XPath expressions to select one or multiple strings. 
   * One string value: The type of the field marked with the @!IdRef annotation has to be a type with a registered reader. 
   * Multiple string values: The type of the field has to be an array or collection of types with a registered reader. 

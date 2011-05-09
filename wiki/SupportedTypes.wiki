@@ -1,7 +1,7 @@
 #summary Supported Types in Piriti
 
 = Supported Types =
-Piriti is able to process a large range of different type:
+Piriti is able to process a large range of different types:
   * boolean, Boolean
   * byte, Byte
   * short, Short

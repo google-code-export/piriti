@@ -1,7 +1,7 @@
 #summary Inheritance in Piriti
 
 = Inheritance =
-Inheritance in POJOs is supported out of the box. Suppose you have the following class hirarchy:
+Inheritance of POJOs is supported out of the box. Suppose you have the following class hirarchy:
 {{{
 abstract class Animal
 {

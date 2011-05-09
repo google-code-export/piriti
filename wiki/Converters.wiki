@@ -2,15 +2,18 @@
 
 = Converters =
 Most of the data read from JSON and XML is converted to the fields type using specific converters. When serializing POJOs to JSON / XML these converters are used to convert from the fields type to string. Piriti uses an internal registry with these default converters:
-  * boolean / Boolean → BooleanConverter
-  * byte / Byte → ByteConverter
-  * char / Character → CharacterConverter
-  * Date → DateConverter
-  * double / Double → DoubleConverter
-  * float / Float → FloatConverter
-  * int / Integer → IntegerConverter
-  * long / Long → LongConverter
-  * short / Short → ShortConverter
+  * boolean / Boolean → !BooleanConverter
+  * byte / Byte → !ByteConverter
+  * char / Character → !CharacterConverter
+  * double / Double → !DoubleConverter
+  * float / Float → !FloatConverter
+  * int / Integer → !IntegerConverter
+  * long / Long → !LongConverter
+  * short / Short → !ShortConverter
+  * Date → !DateConverter
+  * java.sql.Date → !SqlDateConverter
+  * java.sql.Time → !TimeConverter 
+  * java.sql.Timestamp → !TimestampConverter
   
 All converters implement the Converter interface:
 {{{
@@ -44,9 +47,12 @@ public interface Converter<T>
 }
 }}}
 
-For some mappings you can specify a custom converter (see [Json JSON] and [Xml XML] for details). Suppose you want to map the following JSON data:
+== When to use ==
+When reading data from JSON / XML, please note that you can only use converters if the input is string. When reading from XML, this is always true. But when reading from JSON converters can only be used for strings. Booleans and numbers cannot be converted using a custom converter! So in the following example 
 {{{
 {
+    "expired": true,
+    "age": 24,
     "date": "24.10.2010", 
     "duration": "4.5h"
 }
@@ -55,11 +61,13 @@ to this model
 {{{
 public class TimeEntry
 {
-    @Json Data date;
-    @Json double duration;
+    boolean expired;
+    int age;
+    Data date;
+    double duration;
 }
 }}}
-To convert "4.5h" to double you could use the following converter
+you can only use converters for `date` and `duration`. An implementation for `duration` could look like this:
 {{{
 public DurationConverter extends Converter<Double>
 {
@@ -81,27 +89,13 @@ public DurationConverter extends Converter<Double>
     }
 }
 }}}
-and change the mapping to use the converter
+Finally you have to apply the converter:
 {{{
 public class TimeEntry
 {
-    @Json Data date;
-    @Json(converter = DurationConverter.class) double duration;
+    boolean expired;
+    int age;
+    Data date;
+    @Convert(DurationConverter.class) double duration;
 }
-}}}
- 
-== Converters for JSON ==
-When you want to use custom converters for JSON data, make sure the JSON input comes as string. In the following example the JSON data won't be converted and mapped. The fields value will be 0 (the default value)
-{{{
-public class Foo
-{
-    public interface FooReader extends JsonWriter<Foo> {}
-    public static final FooReader READER = GWT.create(FooReader.class);
-
-    @Json(converter = BarConverter.class) int bar;
-}
-
-
-Foo foo = Foo.READER.read("{\"bar\": 4.5}");
-assert foo.bar == 0;
 }}}
