@@ -1,7 +1,7 @@
   * [GettingStarted Getting Started]
   * [Features]
     * [ReaderWriter Readers / Writers]
-    * [DefaultsAndAnnotations Default Behaviour / Annotations]
+    * [Annotations]
     * [SupportedTypes Supported Types]
     * [Inheritance]
     * [References]
