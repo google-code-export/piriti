@@ -3,7 +3,7 @@
 I'm not the first guy who thought about JSON / XML mapping in GWT. Thus Piriti is not the only framework able to deal with JSON / XML data. This page gives an overview of the different techniques and frameworks to (de)serialize JSON and/or XML data. Please note that this list is not exhaustive. Furthermore the rating might be somewhat subjective ;-)
   
 == [http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsOverlay.html JavaScript Overlay Types] ==
-JavaScript overlay types were introduced in GWT 1.5 to to make it easy to integrate entire families of JavaScript objects into your GWT project. 
+!JavaScript overlay types were introduced in GWT 1.5 to to make it easy to integrate entire families of !JavaScript objects into your GWT project. 
 Pro
   * Quick and easy way to map simple JSON data
 Cons
@@ -12,10 +12,10 @@ Cons
   * No custom paths, converters, format, ...   
 
 == [http://code.google.com/p/google-web-toolkit/wiki/AutoBean AutoBean] ==
-AutoBeans are a concept added in GWT 2.1.1. They provide automatically-generated implementations of bean-like interfaces and a low-level serialization mechanism for those interfaces.
+!AutoBeans are a concept added in GWT 2.1.1. They provide automatically-generated implementations of bean-like interfaces and a low-level serialization mechanism for those interfaces.
 Pro
   * Officially supported by GWT 
-  * Used by RequestFactory
+  * Used by !RequestFactory
   * Can be used in both client and server code
   * Lots of customizations possible
 Cons
