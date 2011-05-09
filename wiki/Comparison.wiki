@@ -1,2 +1,18 @@
 #summary Comparison to other JSON / XML mappers
 
+I'm not the first guy who thought about JSON / XML mapping in GWT. Thus Piriti is not the only framework able to deal with JSON / XML data. This page gives a... 
+
+== JavaScript Overlay Types ==
+[http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsOverlay.html]
+
+== AutoBean ==
+[http://code.google.com/p/google-web-toolkit/wiki/AutoBean]
+
+== RestyGWT ==
+[http://restygwt.fusesource.org/documentation/restygwt-user-guide.html#JSON_Encoder_Decoders]
+
+== Rocket GWT ==
+[http://code.google.com/p/rocket-gwt/wiki/JsonSerialization]
+
+== Acris ==
+[http://code.google.com/p/acris/wiki/GWTJsonizer]
