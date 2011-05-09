@@ -1,119 +1,286 @@
 #summary XML related features
 
-XML mapping is done using the @Xml annotation. This annotation has the following attributes:
-  * order: The processing order
-  * property: The name of the field / property. Only necessary for [Features#External_Mappings external mappings].
-  * value: An XPath expression to select the XML data. Defaults to "" which means that the fields name is taken as a base for the XPath expression.
-  * format: The format to use when converting the XML data to the fields type. Defaults to "".
-  * stripWsnl: Flag whether to white spaces and new lines. Defaults to true
-  * converter: A custom [Converters converter].
-  * getter: A custom [GetterSetter getter]
-  * setter: A custom [GetterSetter setter]  
+= Introduction =
+XML (de)serialization works by selecting a "path" expression. If no XPath expression is given, the fields name is taken as a base for the XPath expression. The XML is selected and converted if necessary to the type of the annotated property.
 
-The @Xml annotation is specified for every field you want to map. If no XPath expression is given, the fields name is taken as a base for the XPath expression. The XML is selected and converted if necessary to the type of the annotated property. For some types you can specify a format and a custom converter which is used to parse / serialize the XML data to / from the properties type.
-The annotation must be placed on a field in the POJO or must be part of the @XmlMappings annotation. When placed on a field and the field is not accessible, Piriti tries to use setters / getters instead. 
-<table cellpadding="3" cellspacing="0" border="1">
-<tr>
-<th align="left">Type</th>
-<th align="left">Default XPath expression</th>
-<th align="left">Format options</th>
-<th>Converter options</th>
-</tr>
-<tr>
-<td>boolean, Boolean</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-<td>No custom converter supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>byte, Byte</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-<td>No custom converter supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>char, Character</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-<td>No custom converter supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>java.util.Date</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified a [http://piriti.googlecode.com/svn/site/apidocs/constant-values.html#name.pehl.gwt.piriti.client.converter.DateConverter.DEFAULT_FORMAT default format] is used.<br/> 
-Otherwise must be a valid date format as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/DateTimeFormat.html DateTimeFormat]</td>
-<td>Custom converter supported</td>
-</tr>
-<tr>
-<td>double, Double</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Double.html#parseDouble(java.lang.String) Double.parseDouble(String)].<br/> 
-Otherwise must be a valid number format
-as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-<td>Custom converter supported</td>
-</tr>
-<tr>
-<td>float, Float</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Float.html#parseFloat(java.lang.String) Float.parseFloat(String)].<br/> 
-Otherwise must be a valid number format
-as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-<td>Custom converter supported</td>
-</tr>
-<tr>
-<td>int, Integer</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Integer.html#parseInt(java.lang.String) Integer.parseInt(String)].<br/> 
-Otherwise must be a valid number format
-as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-<td>Custom converter supported</td>
-</tr>
-<tr>
-<td>long, Long</td>
-<td>`<fieldname>`/text()</td>
-<td>If no format is specified the XML data is converted using
-[http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Long.html#parseLong(java.lang.String) Long.parseLong(String)].<br/> 
-Otherwise must be a valid number format
-as described by [http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/i18n/client/NumberFormat.html NumberFormat]</td>
-<td>Custom converter supported</td>
-</tr>
-<tr>
-<td>short, Short</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-<td>No custom converter supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>String</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-<td>Custom converter supported</td>
-</tr>
-<tr>
-<td>Enums</td>
-<td>`<fieldname>`/text()</td>
-<td>No format supported. If specified it is ignored.</td>
-<td>Custom converter supported</td>
-</tr>
-<tr>
-<td>All types T for which a XmlReader`<T>` is registered</td>
-<td>`<fieldname>`</td>
-<td>No format supported. If specified it is ignored.</td>
-<td>No custom converter supported. If specified it is ignored.</td>
-</tr>
-<tr>
-<td>Arrays of the above types</td>
-<td>`<fieldname>`</td>
-<td>If a format is specified it is applied for all array elements.</td>
-<td>If a custom converter is specified it is applied to all array elements.</td>
-</tr>
-<tr>
-<td>Typed collections of the above types</td>
-<td>`<fieldname>`</td>
-<td>If a format is specified it is applied for all collection elements.</td>
-<td>If a custom converter is specified it is applied to all collection elements.</td>
-</tr>
-</table>
+== XML → POJO ==
+Let's assume you want to map the following XML
+{{{
+<book>
+    <isbn>978-0345417954</isbn>
+    <pages>432</pages>
+    <title>The Hotel New Hampshire</title>
+    <author>
+        <firstname>John</firstname>
+        <surname>Irving</surname>
+    </author>
+    <reviews>
+        <review>
+            A hectic gaudy saga with the verve of a Marx Brothers movie.
+        </review>
+        <review>
+            Rejoice! John Irving has written another book according to your world. 
+            You must read this book.
+        </review>
+        <review>
+            Spellbinding, intensely human, a high-wire act of 
+            dazzling virtuosity.
+        </review>
+    </reviews>
+</book>
+}}}
+
+Therefore you have the following POJOs in your GWT client
+{{{
+public class Book
+{
+    String isbn;
+    int pages;
+    String title;
+    Author author;
+    List<String> reviews;
+}
+
+public class Author
+{
+    String firstname;
+    String surname;
+}
+}}}
+
+To map the XML to your classes, all you have to do to define an interface of type XmlReader`<T>` and configure XPath expressions:
+{{{
+public class Book
+{
+    interface BookReader extends XmlReader<Book> {}
+    public static final BookReader XML = GWT.create(BookReader.class);
+
+    String isbn;
+    int pages;
+    String title;
+    Author author;
+    @Path("reviews/review") List<String> reviews;
+}
+
+public class Author
+{
+    interface AuthorReader extends XmlReader<Author> {}
+    public static final AuthorReader XML = GWT.create(AuthorReader.class);
+
+    String firstname;
+    String surname;
+}
+}}}
+
+Now you can map the XML by calling
+{{{
+Document document = new XmlParser().parse(xmlAsString);
+Book book = Book.XML.read(document);
+}}}
+
+== Array And Collection Mapping ==
+When mapping arrays and collections the XPath expression should return a list of elements:
+{{{
+<book>
+    ...
+    <reviews>
+        <review>
+            A hectic gaudy saga with the verve of a Marx Brothers movie.
+        </review>
+        <review>
+            Rejoice! John Irving has written another book according to your world. 
+            You must read this book.
+        </review>
+        <review>
+            Spellbinding, intensely human, a high-wire act of 
+            dazzling virtuosity.
+        </review>
+    </reviews>
+    ...
+</book>
+}}}
+{{{
+public class Book
+{
+    ...
+    @Path("reviews/review") List<String> reviews;
+    ...
+}
+}}}
+In the example above the XPath expression "reviews/review" selects the three reviews which are inserted in a new list and assigned to Book.reviews.
+
+== POJO → XML ==
+Not yet implemented!
+
+== Namespaces ==
+Piriti supports namespaces in XML documents and XPath expressions. This is possible because the XML is not parsed with GWTs built-in [http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsXML.html parser], but with the parser from [http://code.google.com/p/totoe/ Totoe] which supports namespaces. 
+
+When mapping XML documents we have to distinguish two use cases:
+  # XML documents *without* a default namespace
+  # XML documents *with* a default namespace
+
+=== No Default Namespace ===
+That's the easy part, so we start with this. Suppose you have the following XML document
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<lotteryTicket date="10.10.2010" xmlns:foo="http://code.google.com/p/piriti/foo"
+    xmlns:bar="http://code.google.com/p/piriti/bar">
+
+    <foo:player foo:gender="male" age="42">
+        <foo:firstname>Homer</foo:firstname>
+        <foo:surname>Simpson</foo:surname>
+        <bar:address bar:type="home" foo:valid="true">
+            24, evergreen terrace, springfield
+        </bar:address>
+    </foo:player>
+
+    <numbers game="6x49">
+        <number>4</number>
+        <number>8</number>
+        <number>15</number>
+        <number>16</number>
+        <number>23</number>
+        <number>42</number>
+    </numbers>
+</lotteryTicket>
+}}}
+
+Now you want to map this XML to the following POJOs
+{{{
+public class LotteryTicket
+{
+    Date date;
+    Player player;
+    String game;
+    List<Integer> numbers;
+}
+
+public class Player
+{
+    Gender gender;
+    int age;
+    String firstname;
+    String surname;
+    String address;
+    String addressType;
+    boolean validAddress;
+}
+
+public enum Gender
+{
+    FEMALE,
+    MALE
+}
+}}}
+
+To do this you need to:
+  # specify the namespaces when parsing the XML and
+  # include the namespace prefix in the XPath expression of your {{{@Xml}}} annotation.
+
+==== Specify namespaces ====
+When parsing the XML you have to specify the namespaces. This can be done in two ways:
+  * By providing a whilespace-seperated list of namespace declarations as those would appear in an XML document:
+    {{{
+String namespaces = "xmlns:foo=\"http://code.google.com/p/piriti/foo\" "
+    + "xmlns:bar=\"http://code.google.com/p/piriti/bar\"";
+Document document = new XmlParser().parse(xmlAsString, namespaces);
+    }}}
+  * By providing a map with the namespace prefix as key and the namespace URI as value:
+    {{{
+Map<String,String> namespaces = new HashMap<String,String>();
+namespaces.put("foo", "http://code.google.com/p/piriti/foo");
+namespaces.put("bar", "http://code.google.com/p/piriti/bar");
+Document document = new XmlParser().parse(xmlAsString, namespaces);
+    }}}
+
+==== Include the namespace prefix in the annotations ====
+In the annotations of your POJOs you have to adjust the XPath expressions to include the namespace prefix:
+{{{
+public class LotteryTicket
+{
+    public interface LotteryTicketReader extends XmlReader<LotteryTicket> {}
+    public static final LotteryTicketReader XML = GWT.create(LotteryTicketReader.class);
+
+    @Path("@date") @Format("dd.MM.yyyy") Date date;
+    @Path("foo:player") Player player;
+    @Path("numbers/@game") String game;
+    @Path("numbers/number") List<Integer> numbers;
+}
+
+public class Player
+{
+    public interface PlayerXmlReader extends XmlReader<Player> {}
+    public static final PlayerXmlReader XML = GWT.create(PlayerXmlReader.class);
+
+    @Path("@foo:gender") Gender gender;
+    @Path("@age") int age;
+    @Path("foo:firstname") String firstname;
+    @Path("foo:surname") String surname;
+    @Path("bar:address") String address;
+    @Path("bar:address/@bar:type") String addressType;
+    @Path("bar:address/@foo:valid") boolean validAddress;
+}
+}}}
+
+
+=== Default Namespace ===
+Things get a little bit more complicated if your XML uses a default namespace (DNS). When you want to use the DNS in your XPath expression you also have to provide a prefix for that DNS. Let's add a default namespace to our {{{lotteryTicket.xml}}}:
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<lotteryTicket xmlns="http://code.google.com/p/piriti"
+    xmlns:foo="http://code.google.com/p/piriti/foo"
+    xmlns:bar="http://code.google.com/p/piriti/bar" date="10.10.2010">
+
+    <foo:player foo:gender="male" age="42">
+        <foo:firstname>Homer</foo:firstname>
+        <foo:surname>Simpson</foo:surname>
+        <bar:address bar:type="home" foo:valid="true">
+            24, evergreen terrace, springfield
+        </bar:address>
+    </foo:player>
+
+    <numbers game="6x49">
+        <number>4</number>
+        <number>8</number>
+        <number>15</number>
+        <number>16</number>
+        <number>23</number>
+        <number>42</number>
+    </numbers>
+</lotteryTicket>
+}}}
+Now this document uses the default namespace {{{http://code.google.com/p/piriti}}}. 
+
+==== Specify namespaces ====
+When parsing the XML you now have to specify a prefix for the DNS. You can choose whtever you like as long as it is not already used (I will use "dns" in the following examples): 
+  * Providing a whilespace-seperated list of namespace declarations as those would appear in an XML document (plus the dns prefix):
+    {{{
+String namespaces = "xmlns:dns=\"http://code.google.com/p/piriti\" "
+    + "xmlns:foo=\"http://code.google.com/p/piriti/foo\" "
+    + "xmlns:bar=\"http://code.google.com/p/piriti/bar\"";
+Document document = new XmlParser().parse(xmlAsString, namespaces);
+    }}}
+  * By providing a map with the namespace prefix as key and the namespace URI as value  (plus the dns prefix):
+    {{{
+Map<String,String> namespaces = new HashMap<String,String>();
+namespaces.put("dns", "http://code.google.com/p/piriti");
+namespaces.put("foo", "http://code.google.com/p/piriti/foo");
+namespaces.put("bar", "http://code.google.com/p/piriti/bar");
+Document document = new XmlParser().parse(xmlAsString, namespaces);
+    }}}
+
+==== Include the namespace prefix in the annotations ====
+Finally the prefix of the DNS has to be added to the annotations in your POJOs:
+{{{
+public class LotteryTicketDns
+{
+    public interface LotteryTicketReader extends XmlReader<LotteryTicketDns> {}
+    public static final LotteryTicketReader XML = GWT.create(LotteryTicketReader.class);
+
+    @Path("@date") @Format("dd.MM.yyyy") Date date;
+    @Path("foo:player") Player player;
+    @Path("dns:numbers/@game") String game;
+    @Path("dns:numbers/dns:number") List<Integer> numbers;
+}
+}}}
+As the mapping for {{{Player}}} does not use the DNS the code does not change compared to the first example without a default namespace.
