@@ -12,7 +12,7 @@ public class Book
     interface BookReader extends JsonReader<Book> {}
     public static final BookReader JSON = GWT.create(BookReader.class);
 
-    // Fields annotated with @Json
+    // Fields 
     ...
 }
 }}}
@@ -52,7 +52,7 @@ public class Book
     interface BookReader extends XmlReader<Book> {}
     public static final BookReader XML = GWT.create(BookReader.class);
 
-    // Fields annotated with @Xml
+    // Fields 
     ...
 }
 }}}
