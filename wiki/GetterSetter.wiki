@@ -1,12 +1,12 @@
 #summary Getters and Setters in Piriti
 
 = Getters / Setters =
-When mapping data from JSON / XML to POJOs Piriti tries to assign the mapped values to the annotated fields. If the fields are not accessible Piriti tries to use setter methods. Sometimes you want to have private fields and no setter. In order to still map the data you can use custom getters / setters. Suppose you have the following POJO:
+When mapping data from JSON / XML to POJOs Piriti tries to assign the mapped values to the annotated fields. If the fields are not accessible Piriti tries to use default getters / setter methods. Sometimes you want to have private fields and no setter. In order to still map the data you can use custom getters / setters. Suppose you have the following POJO:
 {{{
 public class Project
 {
-    @Json private String name;
-    @Json private List<User> members;
+    private String name;
+    private List<User> members;
 
 
     public Project()
@@ -68,7 +68,7 @@ and use it in the mappping for members:
 public class Project
 {
     ...
-    @Json(setter = ProjectMembersSetter.class) 
+    @Setter(ProjectMembersSetter.class) 
     private List<User> members;
     ...
 }

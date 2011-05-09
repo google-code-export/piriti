@@ -1,7 +1,7 @@
 #summary External mappings in Piriti
 
 = External Mappings  =
-The previous samples all used the mapping annotations directly in the POJO. If you don't want to 'pollute' your POJOs with Piriti annotations or you don't have direct access to the POJOs source code, you can also define the mapping in an extra class:
+The previous samples all used the mapping annotations directly in the POJO. If you don't want to 'pollute' your POJOs with Piriti annotations or you don't have direct access to the POJOs source code, you can also define the mapping annotations on the reader / writer interface:
 {{{
 public class Order
 {
@@ -33,27 +33,52 @@ public class Product
 
 public class Readers
 {
-    @JsonMappings({
-        @Json(property = "date", format = "dd.MM.yyyy"), 
-        @Json(property = "items")})
+    @Mappings({
+        @Mapping(value = "date", format = "dd.MM.yyyy"), 
+        @Mapping("items")})
     public interface OrderJsonReader extends JsonReader<Order> {}
     public static final OrderJsonReader ORDER = GWT.create(OrderJsonReader.class);
 
-    @JsonMappings({
-        @Json(property = "product"), 
-        @Json(property = "amount")})
+    @Mappings({
+        @Mapping("product"), 
+        @Mapping("amount")})
     public interface OrderItemJsonReader extends JsonReader<OrderItem> {}
     public static final OrderItemJsonReader ORDER_ITEM = GWT.create(OrderItemJsonReader.class);
 
-    @JsonMappings({
-        @Json(property = "id"), 
-        @Json(property = "name"), 
-        @Json(property = "price")})
+    @Mappings({
+        @Mapping("id"), 
+        @Mapping("name"), 
+        @Mapping("price")})
     public interface ProductJsonReader extends JsonReader<Product> {}
     public static final ProductJsonReader PRODUCT = GWT.create(ProductJsonReader.class);
 }
 }}}    
 When using external mappings there are a few things to notice:
-  * The @Json or @Xml annotation must contain the properties name
-  * All mappings are collected in a @JsonMappings or @XmlMappings annotation
-  * The @JsonMappings or @XmlMappings annotation must be placed on the reader writer interface
+  * The @Mapping annotation must contain the properties name
+  * All mappings are collected in the @Mappings annotation
+  * The @Mappings annotation must be placed on the reader writer interface
+  
+== Order of annotations ==
+Sometimes you want to have both JSON and XML readers / writers. The mapping configuration is almost identical except some path expressions for some fields. In this case you can use the external mappings to _overwrite_ the [Annotations#Path default path names]:
+{{{
+public class Book
+{
+    @Mappings(@Mapping(value = "extraInfoOfLastRelatedBook", path = "@.related[2].extraInfo"))    
+    public interface BookJsonReader extends JsonReader<Book> {}
+    public static final BookJsonReader JSON_READER = GWT.create(BookJsonReader.class);
+
+    @Mappings({@Mapping(value = "reviews", path = "reviews/review"),
+        @Mapping(value = "related", path = "related/book"),
+        @Mapping(value = "extraInfoOfLastRelatedBook", path = "//related/book[3]/extraInfo/text()")})    
+    public interface BookXmlReader extends XmlReader<Book> {}
+    public static final BookXmlReader XML_READER = GWT.create(BookXmlReader.class);
+
+    String isbn;
+    int pages;
+    String title;
+    Author author;
+    List<String> reviews;
+    List<Book> related;
+    String extraInfoOfLastRelatedBook;
+}
+}}}
