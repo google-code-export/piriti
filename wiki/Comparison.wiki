@@ -1,18 +1,48 @@
 #summary Comparison to other JSON / XML mappers
 
-I'm not the first guy who thought about JSON / XML mapping in GWT. Thus Piriti is not the only framework able to deal with JSON / XML data. This page gives a... 
+I'm not the first guy who thought about JSON / XML mapping in GWT. Thus Piriti is not the only framework able to deal with JSON / XML data. This page gives an overview of the different techniques and frameworks to (de)serialize JSON and/or XML data. Please note that this list is not exhaustive. Furthermore the rating might be somewhat subjective ;-)
+  
+== [http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsOverlay.html JavaScript Overlay Types] ==
+JavaScript overlay types were introduced in GWT 1.5 to to make it easy to integrate entire families of JavaScript objects into your GWT project. 
+Pro
+  * Quick and easy way to map simple JSON data
+Cons
+  * No support of XML
+  * No JSON serialization
+  * No custom paths, converters, format, ...   
 
-== JavaScript Overlay Types ==
-[http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsOverlay.html]
+== [http://code.google.com/p/google-web-toolkit/wiki/AutoBean AutoBean] ==
+AutoBeans are a concept added in GWT 2.1.1. They provide automatically-generated implementations of bean-like interfaces and a low-level serialization mechanism for those interfaces.
+Pro
+  * Officially supported by GWT 
+  * Used by RequestFactory
+  * Can be used in both client and server code
+  * Lots of customizations possible
+Cons
+  * No support of XML
+  * No custom paths, converters, format, ...
+  * Too much boilerplate IMHO   
+  
+== [http://restygwt.fusesource.org/documentation/restygwt-user-guide.html#JSON_Encoder_Decoders RestyGWT] ==
+RestyGWT is a GWT generator for REST services and JSON encoded data transfer objects. Using RestyGWT you can (de)serialize JSON data in a very similar manner to Piriti.   
+Pro
+  * Easy to use (convention over configuration)
+Cons
+  * No support of XML
+  * No custom paths, converters, format, ...   
 
-== AutoBean ==
-[http://code.google.com/p/google-web-toolkit/wiki/AutoBean]
-
-== RestyGWT ==
-[http://restygwt.fusesource.org/documentation/restygwt-user-guide.html#JSON_Encoder_Decoders]
-
-== Rocket GWT ==
-[http://code.google.com/p/rocket-gwt/wiki/JsonSerialization]
-
-== Acris ==
-[http://code.google.com/p/acris/wiki/GWTJsonizer]
+== [http://code.google.com/p/rocket-gwt/wiki/JsonSerialization RocketGWT] ==
+The Rocket GWT library/framework consists of a number of components that can assist developers get more out of GWT. One component deals with JSON (de)serialization
+Cons
+  * Based on Javadoc comments
+  * Seems to be somewhat outdated
+  
+== [http://code.google.com/p/acris/wiki/GWTJsonizer Acris] ==
+Acris is a framework for building applications, web sites and portals using Google Web Toolkit. It supports an annotation based JSON (de)serialization package.
+Pro
+  * Custom deserializers
+  * Custom instantiators
+  * Map support
+Cons
+  * No support of XML
+  * References must be defined as nested classes 
