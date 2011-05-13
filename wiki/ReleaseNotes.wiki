@@ -4,12 +4,12 @@
 === Piriti 0.7.0b1 ===
 Piriti 0.7.0 is a major release with breaking API changes, lots of new features and bugfixes. 
 
-Breaking API Changes:
+*Breaking API Changes:*
   * Piriti requires GWT 2.2 and GIN 1.5 
   * Dropped GXT support
-  * Removed @Json, @JsonMappings, @Xml and @XmlMappings annotations  
+  * Removed @Json, @!JsonMappings, @Xml and @!XmlMappings annotations  
 
-New Features:
+*New Features:*
   * Devided Piriti into different modules:
     * name.pehl.piriti.commons.Commons
     * name.pehl.piriti.converter.Converter
@@ -18,20 +18,20 @@ New Features:
     * name.pehl.piriti.xml.XML
   * Simplified mapping setup: All properties in a POJO hirarchy are now mapped by default (issue 22)
   * Added new annotations to overide default behaviour:
-    * @Order 
-    * @Path
-    * @Format
-    * [DefaultsAndAnnotations#Native @Native] (issue 32)
-    * [DefaultsAndAnnotations#Transient @Transient]
-    * @CreateWith
-    * @MapUpTo
-  * Added @Mappings and @Mapping annotation for external mappings (JSON and XML)
-  * Added support for polymorhic assoziations (issue 30)
+    * [Annotations#Order @Order]
+    * [Annotations#Path @Path]
+    * [Annotations#Format @Format]
+    * [Annotations#Native @Native] (issue 32)
+    * [Annotations#Transient @Transient]
+    * [Annotations#CreateWith @CreateWith]
+    * [Annotations#MapUpTo @MapUpTo]
+  * Added @Mappings and @Mapping annotation for [ExternalMappings external mappings] (JSON and XML)
+  * Added support for [References#Polymorphic_References polymorhic assoziations] (issue 30)
   * Converters can now be used for any type (issue 29)
   * Added XML serialisation (not yet implemented, but scheduled for the 0.7.0 release)
   * Added support for IDs and IDREFs in JSON (not yet implemented, but scheduled for the 0.7.0 release) 
 
-Bugfixes:
+*Bugfixes:*
   * Issue 24: Fixed problems when mapping collection implementations
   * Issue 31: GWT.create() is now used instead of new operator
 
