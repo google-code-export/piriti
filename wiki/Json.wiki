@@ -1,6 +1,6 @@
 #summary JSON related features
 
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="3" />
 
 = Introduction =
 JSON (de)serialization works by selecting a "path" expression. In the simplest case the path is just the key of the JSON data. For more complex cases, you can also use a [#JSONPath JSONPath expression]. If necessary, the selected data is converted to the type of the annotated property.
