@@ -1,6 +1,6 @@
 #summary XML related features
 
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="3" />
 
 = Introduction =
 XML (de)serialization works by selecting a "path" expression. If no XPath expression is given, the fields name is taken as a base for the XPath expression. The XML is selected and converted if necessary to the type of the annotated property.
