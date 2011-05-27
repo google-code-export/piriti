@@ -59,7 +59,7 @@ When reading data from JSON / XML, please note that you can only use converters 
 }}}
 you can only use converters for `date` and `duration`. A converter for `duration` could be implemented like this:
 {{{
-public DurationConverter extends Converter<Double>
+public DurationConverter implements Converter<Double>
 {
     @Override
     public Double convert(String value, String format)
