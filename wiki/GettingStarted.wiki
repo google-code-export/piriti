@@ -11,7 +11,6 @@ To use Piriti make sure you have the following dependencuies on your classpath:
   * [http://code.google.com/p/google-gin/ GIN 1.5] or better
   * [http://code.google.com/p/google-guice/ Guice 3.0] or better
   * [http://code.google.com/p/totoe/ Totoe 0.2.3] or better
-  * [http://commons.apache.org/lang/api-3.0-beta/index.html commons-lang3]
   
 For maven users just add the following repositories to your pom and you're done (the repositories contain all necessary dependencies):
 {{{
