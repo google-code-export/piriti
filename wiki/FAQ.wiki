@@ -9,7 +9,7 @@ To map references it is important that all readers are initialized _before_ the 
 If you want to have both JSON and XML readers you can share most of the settings, but will most likely have different paths. In this case you can use external mappings to overwrite the default path names. See [ExternalMappings#Order_of_annotations external mappings] for more details. 
 
 = Select distinct JSON / XML data for mapping = 
-Suppose you got the following response and you just want to map the "result" node to a "User" POJO.
+Suppose you got the following JSON data and you just want to map the "result" node to a "User" POJO.
 {{{
 {
   "version":"1.0",
