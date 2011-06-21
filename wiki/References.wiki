@@ -125,7 +125,7 @@ public class Dvd extends Medium
 }
 }}} 
 
-In order to map the medium list in Library, Piriti has to know how to create concrete instances of Medium subclasses. Therefore you have to specify an [Annotations#CreateWith InstanceCreator] using the @!CreateWith annotation:
+In order to map the medium list in Library, Piriti has to know how to create concrete instances of Medium subclasses. Therefore you have to specify an [Annotations#CreateWith InstanceCreator] for the list using the @!CreateWith annotation:
 {{{
 public class Library
 {
