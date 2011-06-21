@@ -3,7 +3,7 @@
 <wiki:toc max_depth="1" />
 
 = References are not mapped =
-To map references it is important that all readers are initialized _before_ the first POJO is read. Initialized means the call of GWT.create() has to happen. As long as you declare your reader / writer instances a static members, Piriti will take care of this. Once you have your reader / writer instances _outside_ of your POJO, you have to take care of the initialization by yourself. See [References#Requirements reference requirements] for more details.
+To map references it is important that all readers are initialized _before_ the first POJO is read. Initialized means the call of GWT.create() has to happen. As long as you declare your reader / writer instances as static members, Piriti will take care of this. Once you have your reader / writer instances _outside_ of your POJO, you have to take care of the initialization by yourself. See [References#Requirements reference requirements] for more details.
 
 = Different paths for JSON and XML =
 If you want to have both JSON and XML readers you can share most of the settings, but will most likely have different paths. In this case you can use external mappings to overwrite the default path names. See [ExternalMappings#Order_of_annotations external mappings] for more details. 
