@@ -22,9 +22,7 @@ Suppose you got the following JSON data and you just want to map the "result" no
 }}}
 This can be done using the following approach:
 {{{
-JSONObject json = new JsonParser().parse(response.getText());
+JSONObject json = JSONParser.parseStrict(response.getText()).isObject();
 JSONObject result = JsonPath.select(json, "@.result").isObject();
-if (result != null) {
-   User user = UserReader.INSTANCE.read(result);
-}
+User user = UserReader.INSTANCE.read(result);
 }}}
