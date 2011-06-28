@@ -3,7 +3,7 @@
   <groupId>name.pehl.piriti</groupId>
   <artifactId>piriti-parent</artifactId>
   <versioning>
-    <release>0.7.0b1</release>
+    <release>0.7b2</release>
     <versions>
       <version>0.6.4</version>
       <version>0.6.3</version>
@@ -20,7 +20,8 @@
       <version>0.6</version>
       <version>0.6.1</version>
       <version>0.7.0b1</version>
+      <version>0.7b2</version>
     </versions>
-    <lastUpdated>20110609212820</lastUpdated>
+    <lastUpdated>20110628065751</lastUpdated>
   </versioning>
 </metadata>

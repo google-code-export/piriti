@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <!-- $LastChangedBy: harald.pehl $LastChangedRevision: 1418 $ -->
+
+
+    <!-- The super pom contains most of the configuration -->
+    <parent>
+        <groupId>name.pehl</groupId>
+        <artifactId>superpom</artifactId>
+        <version>14</version>
+    </parent>
+
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>name.pehl.piriti</groupId>
+    <artifactId>piriti-parent</artifactId>
+    <version>0.7b2</version>
+    <packaging>pom</packaging>
+    <name>Piriti</name>
+    <description>Annotation based JSON and XML mapper for GWT</description>
+    <url>http://code.google.com/p/piriti/</url>
+
+
+    <scm>
+        <connection>scm:svn:http://piriti.googlecode.com/svn/trunk</connection>
+        <developerConnection>scm:svn:https://piriti.googlecode.com/svn/trunk</developerConnection>
+        <tag>HEAD</tag>
+        <url>http://piriti.googlecode.com/svn/trunk</url>
+    </scm>
+    <distributionManagement>
+        <repository>
+            <id>piriti-repo</id>
+            <name>Piriti Repository</name>
+            <url>svn:https://piriti.googlecode.com/svn/repository</url>
+        </repository>
+        <site>
+            <id>piriti-site</id>
+            <name>Piriti Site</name>
+            <url>svn:https://piriti.googlecode.com/svn/site</url>
+        </site>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>pehl-parent</id>
+            <url>http://pehl-parent.googlecode.com/svn/repository</url>
+        </repository>
+    </repositories>
+
+
+    <modules>
+        <module>core</module>
+        <module>playground</module>
+        <module>restlet</module>
+    </modules>
+
+
+    <!-- Global dependencies used in all modules -->
+    <dependencies>
+        <dependency>
+            <groupId>name.pehl</groupId>
+            <artifactId>totoe</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-assistedinject</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <classifier>sources</classifier>
+        </dependency>
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt.inject</groupId>
+            <artifactId>gin</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/java</directory>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <configuration>
+                    <classpathContainers>
+                        <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+                        <classpathContainer>com.google.gwt.eclipse.core.GWT_CONTAINER</classpathContainer>
+                    </classpathContainers>
+                    <additionalBuildcommands>
+                        <buildcommand>com.google.gwt.eclipse.core.gwtProjectValidator</buildcommand>
+                    </additionalBuildcommands>
+                    <additionalProjectnatures>
+                        <projectnature>com.google.gwt.eclipse.core.gwtNature</projectnature>
+                    </additionalProjectnatures>
+                    <excludes>
+                        <exclude>com.google.gwt:gwt-user</exclude>
+                        <exclude>com.google.gwt:gwt-dev</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
