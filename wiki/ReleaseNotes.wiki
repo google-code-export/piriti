@@ -1,6 +1,9 @@
 #summary Release notes
 #labels Featured
 
+=== Piriti 0.7b2 ===
+This version is a small bugfix which fixes a wrong module reference in name.pehl.piriti.json.JSON.
+
 === Piriti 0.7.0b1 ===
 Piriti 0.7.0 is a major release with breaking API changes, lots of new features and bugfixes. 
 
