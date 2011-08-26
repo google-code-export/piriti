@@ -33,6 +33,16 @@ When mapping collections the following types are supported:
   * `TreeSet<T>`
 
 == Limitations == 
+  * Types with type parameters are not supported. The following will not work:
+{{{
+public class Foo<T>
+{
+    public interface FooReader extends FooReader<Foo<?>> {}
+    public static final GenericsWriter READER = GWT.create(FooWriter.class);
+   
+   T data;
+}
+}}}
   * Multi-dimensional arrays are not supported.
   * Arrays of collections / maps are not supported.
   * Untyped collections are not supported.
