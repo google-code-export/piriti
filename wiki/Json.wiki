@@ -47,7 +47,7 @@ To map the JSON to your classes, all you have to do is to define an interface of
 public class Book
 {
     interface BookReader extends JsonReader<Book> {}
-    public static final BookReader JSON = GWT.create(BookReader.class);
+    public static final BookReader READER = GWT.create(BookReader.class);
 
     String isbn;
     int pages;
@@ -59,7 +59,7 @@ public class Book
 public class Author
 {
     interface AuthorReader extends JsonReader<Author> {}
-    public static final AuthorReader JSON = GWT.create(AuthorReader.class);
+    public static final AuthorReader READER = GWT.create(AuthorReader.class);
 
     String firstname;
     String surname;
@@ -69,7 +69,7 @@ public class Author
 Now you can map the JSON by calling
 {{{
 String jsonString = ...; // the above JSON data
-Book book = Book.JSON.read(jsonString);
+Book book = Book.READER.read(jsonString);
 }}}
 
 Please note that Piriti does *not* use javascript `eval()` but the browsers native JSON parser (or a javascript emulation if no native parser is available). Hence the JSON data must confirm to the syntax described at [http://json.org/ JSON.org]. Especially the keys must be enclosed in ". So instead of 
@@ -84,7 +84,7 @@ you have to use
 == POJO → JSON ==
 POJOs can be serialized to JSON by using the same @Json annotations which are used for parsing. 
 
-To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface. In almost any cases you would also have a `JsonReader<T>` for parsing  
+To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface.   
 {{{
 public class Book
 {
@@ -94,12 +94,12 @@ public class Book
     public interface BookWriter extends JsonWriter<Book> {}
     public static final BookWriter WRITER = GWT.create(BookWriter.class);
 
-    @Json String isbn;
-    @Json int pages;
-    @Json String title;
-    @Json Author author;
-    @Json List<String> reviews;
-    @Json List<Book> related;
+    String isbn;
+    int pages;
+    String title;
+    Author author;
+    List<String> reviews;
+    List<Book> related;
 }
 
 public class Author
@@ -110,9 +110,9 @@ public class Author
     public interface AuthorWriter extends JsonWriter<Author> {}
     public static final AuthorWriter WRITER = GWT.create(AuthorWriter.class);
 
-    @Json String firstname;
-    @Json String surname;
-    @Json Book bestseller;
+    String firstname;
+    String surname;
+    Book bestseller;
 }
 }}}
 
