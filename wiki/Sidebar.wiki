@@ -8,7 +8,7 @@
     * [Converters]
     * [GetterSetter Getters / Setters]
     * [ExternalMappings External Mappings]
-    * [Events]]
+    * [Events]
   * [Json JSON] 
   * [Xml XML] 
   * [Extensions]
