@@ -1,30 +1,54 @@
 -classpath
-'/home/pehlh/Projekte/GoogleCode/Piriti/impl/target/classes:/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/target/classes:/home/pehlh/Projekte/GoogleCode/Piriti/impl/gxt/target/classes:/home/pehlh/Projekte/GoogleCode/Piriti/impl/playground/target/classes:/home/pehlh/Projekte/GoogleCode/Piriti/impl/restlet/target/classes:/home/pehlh/Projekte/GoogleCode/Piriti/impl/sample/target/classes:/home/pehlh/Repo/org/restlet/gae/org.restlet.ext.servlet/2.0.1/org.restlet.ext.servlet-2.0.1.jar:/home/pehlh/Repo/com/google/gwt/inject/gin/1.0/gin-1.0.jar:/home/pehlh/Repo/name/pehl/totoe/0.2.1/totoe-0.2.1.jar:/home/pehlh/Repo/com/google/inject/guice/2.0/guice-2.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-user/2.1.0/gwt-user-2.1.0.jar:/home/pehlh/Repo/com/google/appengine/orm/datanucleus-appengine/1.0.7.final/datanucleus-appengine-1.0.7.final.jar:/home/pehlh/Repo/com/extjs/gxt/2.1.1/gxt-2.1.1.jar:/home/pehlh/Repo/ch/qos/logback/logback-classic/0.9.22/logback-classic-0.9.22.jar:/home/pehlh/Repo/org/datanucleus/datanucleus-core/1.1.5/datanucleus-core-1.1.5.jar:/home/pehlh/Repo/org/restlet/gae/org.restlet/2.0.1/org.restlet-2.0.1.jar:/home/pehlh/Repo/org/restlet/gwt/org.restlet.ext.xml/2.0.1/org.restlet.ext.xml-2.0.1.jar:/home/pehlh/Repo/com/google/inject/extensions/guice-servlet/2.0/guice-servlet-2.0.jar:/home/pehlh/Repo/org/restlet/gwt/org.restlet/2.0.1/org.restlet-2.0.1.jar:/home/pehlh/Repo/ch/qos/logback/logback-core/0.9.22/logback-core-0.9.22.jar:/home/pehlh/Repo/name/pehl/piriti/piriti-core/0.6.1/piriti-core-0.6.1-tests.jar:/home/pehlh/Repo/name/pehl/piriti/piriti-restlet/0.6.1/piriti-restlet-0.6.1.jar:/home/pehlh/Repo/javax/jdo/jdo2-api/2.3-eb/jdo2-api-2.3-eb.jar:/home/pehlh/Repo/org/restlet/gae/org.restlet.lib.org.json/2.0/org.restlet.lib.org.json-2.0.jar:/home/pehlh/Repo/name/pehl/taoki/0.2.1/taoki-0.2.1.jar:/home/pehlh/Repo/name/pehl/piriti/piriti-core/0.6.1/piriti-core-0.6.1.jar:/home/pehlh/Repo/org/slf4j/slf4j-api/1.6.0/slf4j-api-1.6.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-servlet/2.1.0/gwt-servlet-2.1.0.jar:/home/pehlh/Repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/Repo/org/restlet/gae/org.restlet.ext.json/2.0.1/org.restlet.ext.json-2.0.1.jar:/home/pehlh/Repo/com/google/gwt/gwt-dev/2.1.0/gwt-dev-2.1.0.jar:/home/pehlh/Repo/org/apache/geronimo/specs/geronimo-servlet_2.5_spec/1.2/geronimo-servlet_2.5_spec-1.2.jar:/home/pehlh/Repo/name/pehl/piriti/piriti-gxt/0.6.1/piriti-gxt-0.6.1.jar:/home/pehlh/Repo/com/google/appengine/appengine-api-1.0-sdk/1.3.8/appengine-api-1.0-sdk-1.3.8.jar:/home/pehlh/Repo/org/restlet/gwt/org.restlet.ext.json/2.0.1/org.restlet.ext.json-2.0.1.jar:/home/pehlh/Repo/javax/transaction/jta/1.1/jta-1.1.jar'
+'/home/pehlh/Projekte/GWT_GAE/Piriti/impl/target/classes:/home/pehlh/Projekte/GWT_GAE/Piriti/impl/core/target/classes:/home/pehlh/Projekte/GWT_GAE/Piriti/impl/playground/target/classes:/home/pehlh/Projekte/GWT_GAE/Piriti/impl/restlet/target/classes:/home/pehlh/Repo/name/pehl/piriti/piriti-core/0.7b3/piriti-core-0.7b3-tests.jar:/home/pehlh/Repo/name/pehl/totoe/0.2.4/totoe-0.2.4.jar:/home/pehlh/Repo/com/google/gwt/inject/gin/1.5.0/gin-1.5.0.jar:/home/pehlh/Projekte/GWT_GAE/Piriti/impl/core/target/classes:/home/pehlh/Repo/com/google/inject/guice/3.0/guice-3.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-user/2.4.0-rc1/gwt-user-2.4.0-rc1.jar:/home/pehlh/Repo/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar:/home/pehlh/Repo/javax/inject/javax.inject/1/javax.inject-1.jar:/home/pehlh/Repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/pehlh/Repo/com/google/gwt/gwt-dev/2.4.0-rc1/gwt-dev-2.4.0-rc1.jar:/home/pehlh/Repo/com/google/inject/extensions/guice-assistedinject/3.0/guice-assistedinject-3.0.jar:/home/pehlh/Repo/org/restlet/gwt/org.restlet.ext.xml/2.1-M4/org.restlet.ext.xml-2.1-M4.jar:/home/pehlh/Repo/org/restlet/gwt/org.restlet.ext.json/2.1-M4/org.restlet.ext.json-2.1-M4.jar:/home/pehlh/Repo/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar:/home/pehlh/Repo/org/restlet/gwt/org.restlet/2.1-M4/org.restlet-2.1-M4.jar'
 -encoding
 'UTF-8'
 -protected
 -sourcepath
-'/home/pehlh/Projekte/GoogleCode/Piriti/impl/core/src/main/java:/home/pehlh/Projekte/GoogleCode/Piriti/impl/gxt/src/main/java:/home/pehlh/Projekte/GoogleCode/Piriti/impl/restlet/src/main/java:/home/pehlh/Projekte/GoogleCode/Piriti/impl/sample/src/main/java'
+'/home/pehlh/Projekte/GWT_GAE/Piriti/impl/core/src/main/java:/home/pehlh/Projekte/GWT_GAE/Piriti/impl/restlet/src/main/java'
 -author
 -bottom
-'Copyright &#169; 2010 <a href="http://harald.pehl.name">Harald Pehl</a>. All Rights Reserved.'
+'Copyright &#169; 2011 <a href="http://harald.pehl.name">Harald Pehl</a>. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
-'/home/pehlh/Projekte/GoogleCode/Piriti/impl/target/site/apidocs'
+'/home/pehlh/Projekte/GWT_GAE/Piriti/impl/target/site/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'Piriti API 0.6.1'
+'Piriti API 0.7b3'
+-link
+'http://download.oracle.com/javase/6/docs/api'
 -link
 'http://google-web-toolkit.googlecode.com/svn/javadoc/2.0'
 -link
-'http://totoe.googlecode.com/svn/site/apidocs'
+'http://dev.sencha.com/deploy/gxtdocs'
 -link
-'http://java.sun.com/javase/6/docs/api'
+'http://google-guice.googlecode.com/svn/trunk/javadoc'
+-link
+'http://google-gin.googlecode.com/svn/trunk/javadoc'
+-link
+'http://objectify-appengine.googlecode.com/svn/trunk/javadoc'
+-link
+'http://www.restlet.org/documentation/2.0/gae/api'
+-link
+'http://www.restlet.org/documentation/2.0/gwt/api'
+-link
+'http://kaitiro.googlecode.com/svn/site/apidocs'
+-link
+'http://piriti.googlecode.com/svn/site/apidocs'
+-link
+'http://taoki.googlecode.com/svn/site/apidocs'
+-link
+'http://taputapu.googlecode.com/svn/site/apidocs'
+-link
+'http://tire-d8.googlecode.com/svn/site/apidocs'
+-link
+'http://totoe.googlecode.com/svn/site/apidocs'
+-linkoffline
+'http://download.oracle.com/javase/6/docs/api' '/home/pehlh/Projekte/GWT_GAE/Piriti/impl/target/javadoc-bundle-options'
 -stylesheetfile
-'/home/pehlh/Projekte/GoogleCode/Piriti/impl/target/site/apidocs/stylesheet.css'
+'/home/pehlh/Projekte/GWT_GAE/Piriti/impl/target/site/apidocs/stylesheet.css'
 -use
 -version
 -windowtitle
-'Piriti API 0.6.1'
+'Piriti API 0.7b3'
