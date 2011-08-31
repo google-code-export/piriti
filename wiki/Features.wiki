@@ -13,6 +13,7 @@ On the following pages the common features for both JSON and XML mapping are des
   * [Converters]
   * [GetterSetter Getters / Setters]
   * [ExternalMappings External Mappings]
+  * [Events]
 
 The specific features for JSON and XML mapping are described here:
   * [Json JSON] 

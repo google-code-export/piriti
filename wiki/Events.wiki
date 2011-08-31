@@ -1,0 +1,17 @@
+#summary Events and Handlers in Piriti
+
+= Events =
+When POJOs are (de)serialized by Piriti you can register event handlers to get notified
+  * after a POJO was read from JSON / XML 
+  * before a POJO is written as JSON / XML 
+
+The events, handlers and relevant interfaces are all based on the event handlers used by GWT. See [http://code.google.com/webtoolkit/doc/latest/DevGuideUiHandlers.html] for details. 
+
+== Reading POJOs from JSON / XML == 
+`JsonReader<T>` and `XmlReader<T>` both extend the interface `HasReadModelHandler<T>` which offers the method `addReadModelHandler(ReadModelHandler<T>)`.     
+
+== Writing POJOs as JSON / XML == 
+`JsonWriter<T>` and `XmlWriter<T>` both extend the interface `HasWriteModelHandler<T>` which offers the method `addWriteModelHandler(WriteModelHandler<T>)`.     
+
+== Example == 
+Todo...
