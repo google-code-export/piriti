@@ -8,10 +8,10 @@ When POJOs are (de)serialized by Piriti you can register event handlers to get n
 The events, handlers and relevant interfaces are all based on the event handlers used by GWT. See [http://code.google.com/webtoolkit/doc/latest/DevGuideUiHandlers.html] for details. 
 
 == Reading POJOs from JSON / XML == 
-`JsonReader<T>` and `XmlReader<T>` both extend the interface `HasReadModelHandler<T>` which offers the method `addReadModelHandler(ReadModelHandler<T>)`.     
+`JsonReader<T>` and `XmlReader<T>` both extend the interface `HasModelReadHandler<T>` which offers the method `addModelReadHandler(ModelReadHandler<T>)`.     
 
 == Writing POJOs as JSON / XML == 
-`JsonWriter<T>` and `XmlWriter<T>` both extend the interface `HasWriteModelHandler<T>` which offers the method `addWriteModelHandler(WriteModelHandler<T>)`.     
+`JsonWriter<T>` and `XmlWriter<T>` both extend the interface `HasModelWriteHandler<T>` which offers the method `addModelWriteHandler(ModelWriteHandler<T>)`.     
 
 == Example == 
 Todo...
