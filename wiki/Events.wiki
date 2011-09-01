@@ -29,7 +29,6 @@ public class Person
 
     public interface PersonXmlWriter extends XmlWriter<Person> {}
     public static final PersonXmlWriter XML_WRITER = GWT.create(PersonXmlWriter.class);
-    // @formatter:on
 
     String firstname;
     String surname;
