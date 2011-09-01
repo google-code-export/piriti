@@ -14,4 +14,54 @@ The events, handlers and relevant interfaces are all based on the event handlers
 `JsonWriter<T>` and `XmlWriter<T>` both extend the interface `HasModelWriteHandler<T>` which offers the method `addModelWriteHandler(ModelWriteHandler<T>)`.     
 
 == Example == 
-Todo...
+In this simple example every mapped person is logged by the event handler `LogHandler<Person>`:
+{{{
+public class Person
+{
+    public interface PersonJsonWriter extends JsonWriter<Person> {}
+    public static final PersonJsonWriter JSON_WRITER = GWT.create(PersonJsonWriter.class);
+
+    public interface PersonJsonReader extends JsonReader<Person> {}
+    public static final PersonJsonReader JSON_READER = GWT.create(PersonJsonReader.class);
+
+    public interface PersonXmlReader extends XmlReader<Person> {}
+    public static final PersonXmlReader XML_READER = GWT.create(PersonXmlReader.class);
+
+    public interface PersonXmlWriter extends XmlWriter<Person> {}
+    public static final PersonXmlWriter XML_WRITER = GWT.create(PersonXmlWriter.class);
+    // @formatter:on
+
+    String firstname;
+    String surname;
+}
+
+public class LogHandler implements ModelWriteHandler<Person>, ModelReadHandler<Person>
+{
+    @Override
+    public void onModelRead(ModelReadEvent<Person> event)
+    {
+        logger.info("Read person " + event.getModel());
+    }
+
+    @Override
+    public void onModelWrite(ModelWriteEvent<Person> event)
+    {
+        logger.info("About to write person " + event.getModel());
+    }
+}
+
+public class Main implements EntryPoint
+{
+    public void onModuleLoad()
+    {
+        LogHandler handler = new LogHandler();
+        Person.JSON_WRITER.addModelWriteHandler(handler); 
+        Person.JSON_READER.addModelWriteHandler(handler); 
+        Person.XML_WRITER.addModelWriteHandler(handler); 
+        Person.XML_READER.addModelWriteHandler(handler); 
+
+        // start reading / writing JSON / XML
+        ...
+    }
+} 
+}}}
