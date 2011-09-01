@@ -54,10 +54,10 @@ public class Main implements EntryPoint
     public void onModuleLoad()
     {
         LogHandler handler = new LogHandler();
+        Person.JSON_READER.addModelReadHandler(handler); 
         Person.JSON_WRITER.addModelWriteHandler(handler); 
-        Person.JSON_READER.addModelWriteHandler(handler); 
+        Person.XML_READER.addModelReadHandler(handler); 
         Person.XML_WRITER.addModelWriteHandler(handler); 
-        Person.XML_READER.addModelWriteHandler(handler); 
 
         // start reading / writing persons
         ...
