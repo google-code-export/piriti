@@ -6,26 +6,26 @@ JAXB support is currently under development. Therefore this page describe the cu
 
 = Supported annotations =
 == Class ==
-* `@XmlRootElement`
-* `@XmlType`
-* `@XmlAccessorOrder`
-* `@XmlAccessorType`
+  * `@XmlRootElement`
+  * `@XmlType`
+  * `@XmlAccessorOrder`
+  * `@XmlAccessorType`
 
 == Enum ==
-* `@XmlEnum`
-* `@XmlEnumValue`
-* `@XmlRootElement`
-* `@XmlType`
+  * `@XmlEnum`
+  * `@XmlEnumValue`
+  * `@XmlRootElement`
+  * `@XmlType`
 
 == Property / Field == 
-* `@XmlElements`
-* `@XmlElement`
-* `@XmlElementWrapper`
-* `@XmlElementRefs`
-* `@XmlElementRef`
-* `@XmlList`
-* `@XmlAttribute`
-* `@XmlValue`
-* `@XmlTransient`
-* `@XmlID`
-* `@XmlIDREF`
+  * `@XmlElements`
+  * `@XmlElement`
+  * `@XmlElementWrapper`
+  * `@XmlElementRefs`
+  * `@XmlElementRef`
+  * `@XmlList`
+  * `@XmlAttribute`
+  * `@XmlValue`
+  * `@XmlTransient`
+  * `@XmlID`
+  * `@XmlIDREF`
