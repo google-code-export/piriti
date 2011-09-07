@@ -1,0 +1,31 @@
+#summary JAXB support
+
+= Introduction =
+*Please note*:
+JAXB support is currently under development. Therefore this page describe the current status rather than the finished documentation.   
+
+= Supported annotations =
+== Class ==
+* `@XmlRootElement`
+* `@XmlType`
+* `@XmlAccessorOrder`
+* `@XmlAccessorType`
+
+== Enum ==
+* `@XmlEnum`
+* `@XmlEnumValue`
+* `@XmlRootElement`
+* `@XmlType`
+
+== Property / Field == 
+* `@XmlElements`
+* `@XmlElement`
+* `@XmlElementWrapper`
+* `@XmlElementRefs`
+* `@XmlElementRef`
+* `@XmlList`
+* `@XmlAttribute`
+* `@XmlValue`
+* `@XmlTransient`
+* `@XmlID`
+* `@XmlIDREF`
