@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>name.pehl.piriti</groupId>
+  <artifactId>piriti-parent</artifactId>
+  <version>0.7-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20111209.135823</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20111209135823</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.7-20111209.135823-1</value>
+        <updated>20111209135823</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
