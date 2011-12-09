@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>name.pehl.piriti</groupId>
+  <artifactId>piriti-core</artifactId>
+  <version>0.7-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20111209.140534</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20111209140534</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>0.7-20111209.140534-1</value>
+        <updated>20111209140534</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.7-20111209.140534-1</value>
+        <updated>20111209140534</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
