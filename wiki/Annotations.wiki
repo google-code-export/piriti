@@ -96,7 +96,7 @@ The dafault behaviour can be customized using a handful of annotations:
 Use the @Path annotation to specify a special [Json#JSONPath JSONPath] / XPath. The selected data must match the fields type.
 
 == Convert ==
-Use this converter to specify a custom converter. Converter must implement the interface name.pehl.piriti.converter.client.Converter`<T`> and are responsible for converting strings to T and vice versa. Piriti already comes with a list of [Converters built in converters] which handles most of the primitive / wrapper types, dates and enums. 
+Use this annotation to specify a custom converter. Converter must implement the interface name.pehl.piriti.converter.client.Converter`<T`> and are responsible for converting strings to T and vice versa. Piriti already comes with a list of [Converters built in converters] which handles most of the primitive / wrapper types, dates and enums. 
 
 == Format ==
 With the help of the @Format annotation you can either specify the format for the [Converters built in] or custom converter. 
