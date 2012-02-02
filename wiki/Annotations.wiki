@@ -114,6 +114,7 @@ Use these annotations to specify a custom Getter and/or Setter implementation. S
 
 == !CreateWith ==
 Using this annotation you can specify an !InstanceCreator implementation which is responsible for creating new instances of your POJO. To use an !InstanceCreator you have to place a @!CreateWith annotation to your POJO class or in case of [ExternalMappings external mappings] to your reader interface. The !InstanceCreator is called with a context which is a JSONValue for JSON input and a Node for XML data. !InstanceCreators can be useful when your POJO has no default constructor. 
+
 Please note that an !InstanceCreator is only useful for POJOs with an own reader. To customize the creation of other instances like dates, strings, numbers) use a custom [Converters converter].
 {{{
 <book>
