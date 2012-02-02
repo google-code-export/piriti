@@ -148,7 +148,7 @@ public class BookkCreator extends XmlInstanceCreator<Book>
     }
 }
 }}}
-The only exception to the rules described above is the mapping of [References#Polymorphic_References polymorphic references]. In this case you can also use an !InstanceCreator and the @!CreateWith annotation for collections. 
+The onyl exception to this is the mapping of [References#Polymorphic_References polymorphic references]. In this case you can use an !InstanceCreator and the @!CreateWith annotation for arrays and collections. 
 
 == !MapUpTo ==
 When (de)serializing a POJO all of it fields _and_ the fields in its superclasses are processed. Sometimes this is not what you want. Using the @!MapUpTo annotation you can control up to which class the fields should be processed. See [Inheritance#MapUpTo Inheritance] for further details.
