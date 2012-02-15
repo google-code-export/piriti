@@ -50,7 +50,7 @@ public class Author
 }
 }}}
 
-To map the XML to your classes, all you have to do to define an interface of type XmlReader`<T>` and configure XPath expressions:
+To map the XML to your classes, all you have to do to define an interface of type !XmlReader`<T>` and configure XPath expressions:
 {{{
 public class Book
 {
@@ -79,6 +79,9 @@ Now you can map the XML by calling
 Document document = new XmlParser().parse(xmlAsString);
 Book book = Book.XML.read(document);
 }}}
+
+== POJO → XML ==
+Not yet implemented!
 
 == Array And Collection Mapping ==
 When mapping arrays and collections the XPath expression should return a list of elements:
@@ -110,9 +113,6 @@ public class Book
 }
 }}}
 In the example above the XPath expression "reviews/review" selects the three reviews which are inserted in a new list and assigned to Book.reviews.
-
-== POJO → XML ==
-Not yet implemented!
 
 = Namespaces =
 Piriti supports namespaces in XML documents and XPath expressions. This is possible because the XML is not parsed with GWTs built-in [http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsXML.html parser], but with the parser from [http://code.google.com/p/totoe/ Totoe] which supports namespaces. 
