@@ -125,7 +125,7 @@ json = Book.WRITER(book);
 // do some REST request
 }}} 
 
-== JSONPath ==
+= JSONPath =
 By default Piriti uses the fields name as key to the JSON data. But sometimes there's no 1:1 correlation between the field and the JSON key. Say you want to create flat model objects from nested JSON structures:
 
 {{{
@@ -158,14 +158,14 @@ public class Person
 }
 }}}
 
-= Reference = 
+== Reference == 
 JSONPath is based on the javascript library from Stefan Gössner. See the following links for more examples and the full syntax:
   * [http://code.google.com/p/jsonpath/ JSONPath Project]
   * [http://goessner.net/articles/JsonPath/ Introduction and examples]
   * [http://code.google.com/p/jsonpath/wiki/Javascript Usage]
   * [http://code.google.com/p/jsonpath/wiki/ExprSyntax Syntax]
 
-= Implementation =
+== Implementation ==
 When generating the mapping code, Piriti looks at the value of the @Path annotation. In case it detects any of the following characters, the value is interpreted as JSONPath:
 {{{
 '$', '@', '.', '[', ']', '*', '#', ',', ':', '?', '(', ')'

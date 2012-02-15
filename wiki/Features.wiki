@@ -2,7 +2,7 @@
 #labels Featured
 
 = Features =
-Piriti is able to (de)serialize fairly complex *JSON* and *XML* data. All mapping information is based on reasonable defaults and a handful of annotations. The actual code is generated for you using deferred binding and generators. 
+Piriti is able to (de)serialize fairly complex *JSON* and *XML* data. All mapping information is based on reasonable defaults and a handful annotations. The actual code is generated for you using deferred binding and generators. 
 
 On the following pages the common features for both JSON and XML mapping are described:
   * [ReaderWriter Readers / Writers]
