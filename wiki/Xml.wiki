@@ -114,14 +114,14 @@ In the example above the XPath expression "reviews/review" selects the three rev
 == POJO → XML ==
 Not yet implemented!
 
-== Namespaces ==
+= Namespaces =
 Piriti supports namespaces in XML documents and XPath expressions. This is possible because the XML is not parsed with GWTs built-in [http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsXML.html parser], but with the parser from [http://code.google.com/p/totoe/ Totoe] which supports namespaces. 
 
 When mapping XML documents we have to distinguish two use cases:
   # XML documents *without* a default namespace
   # XML documents *with* a default namespace
 
-=== No Default Namespace ===
+== No Default Namespace ==
 That's the easy part, so we start with this. Suppose you have the following XML document
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
@@ -179,7 +179,7 @@ To do this you need to:
   # specify the namespaces when parsing the XML and
   # include the namespace prefix in the XPath expression of your {{{@Xml}}} annotation.
 
-==== Specify namespaces ====
+=== Specify namespaces ===
 When parsing the XML you have to specify the namespaces. This can be done in two ways:
   * By providing a whilespace-seperated list of namespace declarations as those would appear in an XML document:
     {{{
@@ -195,7 +195,7 @@ namespaces.put("bar", "http://code.google.com/p/piriti/bar");
 Document document = new XmlParser().parse(xmlAsString, namespaces);
     }}}
 
-==== Include the namespace prefix in the annotations ====
+=== Include the namespace prefix in the annotations ===
 In the annotations of your POJOs you have to adjust the XPath expressions to include the namespace prefix:
 {{{
 public class LotteryTicket
@@ -225,7 +225,7 @@ public class Player
 }}}
 
 
-=== Default Namespace ===
+== Default Namespace ==
 Things get a little bit more complicated if your XML uses a default namespace (DNS). When you want to use the DNS in your XPath expression you also have to provide a prefix for that DNS. Let's add a default namespace to our {{{lotteryTicket.xml}}}:
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
@@ -253,7 +253,7 @@ Things get a little bit more complicated if your XML uses a default namespace (D
 }}}
 Now this document uses the default namespace {{{http://code.google.com/p/piriti}}}. 
 
-==== Specify namespaces ====
+=== Specify namespaces ===
 When parsing the XML you now have to specify a prefix for the DNS. You can choose whtever you like as long as it is not already used (I will use "dns" in the following examples): 
   * Providing a whilespace-seperated list of namespace declarations as those would appear in an XML document (plus the dns prefix):
     {{{
@@ -271,7 +271,7 @@ namespaces.put("bar", "http://code.google.com/p/piriti/bar");
 Document document = new XmlParser().parse(xmlAsString, namespaces);
     }}}
 
-==== Include the namespace prefix in the annotations ====
+=== Include the namespace prefix in the annotations ===
 Finally the prefix of the DNS has to be added to the annotations in your POJOs:
 {{{
 public class LotteryTicketDns
