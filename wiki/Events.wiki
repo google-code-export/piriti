@@ -65,4 +65,4 @@ public class Main implements EntryPoint
 } 
 }}}
 
-As you can see the read event carries information about the model and the context. the context is a JSONValue for JSON and a node in case of XML. The write event holds the model written and its representation as string.
+As you can see the read event carries information about the model and the context. The context is a JSONValue for JSON and a node in case of XML. The write event holds the model written and its representation as string.

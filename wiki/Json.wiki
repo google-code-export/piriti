@@ -42,7 +42,7 @@ public class Author
 }
 }}}
 
-To map the JSON to your classes, all you have to do is to define an interface of type JsonReader`<T>`:
+To map the JSON to your classes, all you have to do is to define an interface of type !JsonReader`<T>`:
 {{{
 public class Book
 {
@@ -82,7 +82,7 @@ you have to use
 }}}
 
 == POJO → JSON ==
-POJOs can be serialized to JSON by using the same @Json annotations which are used for parsing. 
+POJOs can be serialized to JSON by using the same annotations which are used for parsing. 
 
 To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface.   
 {{{
@@ -123,7 +123,7 @@ Book book = Book.READER.read(json);
 book.title += " 2nd edition";
 json = Book.WRITER(book);
 // do some REST request
-}}} 
+}}}
 
 = JSONPath =
 By default Piriti uses the fields name as key to the JSON data. But sometimes there's no 1:1 correlation between the field and the JSON key. Say you want to create flat model objects from nested JSON structures:
@@ -169,4 +169,28 @@ JSONPath is based on the javascript library from Stefan Gössner. See the follow
 When generating the mapping code, Piriti looks at the value of the @Path annotation. In case it detects any of the following characters, the value is interpreted as JSONPath:
 {{{
 '$', '@', '.', '[', ']', '*', '#', ',', ':', '?', '(', ')'
+}}}
+
+= Limitations =
+Please note that fields which uses JSONPath expression *cannot* be serialized. Those fields are skipped by the generated writer implementations. Serializing 
+{{{
+public class Person
+{
+    // Reader definition omitted
+    String name;
+    @Path("@.address.street") String street;
+    @Path("@.address.city") String city;
+}
+
+...
+Person p = new Person();
+p.name = "Hans Dampf";
+p.street = "Hirbeldirbel 1";
+p.city = "Equalizerhofen";
+}}}
+will result in 
+{{{
+{
+    "name": "Hans Dampf"
+}
 }}}
