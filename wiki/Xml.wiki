@@ -49,7 +49,7 @@ public class Author
 }
 }}}
 
-To map the XML to your classes, all you have to do to define an interface of type !XmlReader`<T>` and configure XPath expressions. When using relative XPath expression, please note that they're relative to the element which belongs to the element currently mappped. Thus in the following example they're relative to the `<book`> element:
+To map the XML to your classes, all you have to do to define an interface of type !XmlReader`<T>` and configure XPath expressions. When using relative XPath expressions, please note that they're relative to the element currently mappped. Thus in the following example "@isbn" and "reviews/review" are relative to the `<book`> element:
 {{{
 public class Book
 {
