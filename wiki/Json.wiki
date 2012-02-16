@@ -172,11 +172,13 @@ When generating the mapping code, Piriti looks at the value of the @Path annotat
 }}}
 
 = Limitations =
-Please note that fields which uses JSONPath expression *cannot* be serialized. Those fields are skipped by the generated writer implementations. Serializing 
+Please note that fields with JSONPath expressions *cannot* be serialized. Those fields are skipped by the generated writers: 
 {{{
 public class Person
 {
-    // Reader definition omitted
+    public interface PersonWriter extends JsonWriter<Person> {}
+    public static final PersonWriter WRITER = GWT.create(PersonWriter.class);
+    
     String name;
     @Path("@.address.street") String street;
     @Path("@.address.city") String city;
@@ -187,6 +189,8 @@ Person p = new Person();
 p.name = "Hans Dampf";
 p.street = "Hirbeldirbel 1";
 p.city = "Equalizerhofen";
+
+String json = Person.WRITER.toJson(p);
 }}}
 will result in 
 {{{
