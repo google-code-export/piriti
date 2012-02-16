@@ -106,6 +106,6 @@ public class Book
     Author author;
     List<String> reviews; // default path ok for JSON but not for XML
     List<Book> related; // default path ok for JSON but not for XML
-    String extraInfoOfLastRelatedBook; // default path will be overwritten for JSON and XML
+    String extraInfoOfLastRelatedBook; // default path overwritten for JSON and XML
 }
 }}}

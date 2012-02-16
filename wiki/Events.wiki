@@ -3,7 +3,7 @@
 = Events =
 When POJOs are (de)serialized by Piriti you can register event handlers to get notified
   * after a POJO was read from JSON / XML 
-  * before a POJO is written as JSON / XML 
+  * after a POJO is written to JSON / XML 
 
 The events, handlers and relevant interfaces are all based on the event handlers used by GWT. See [http://code.google.com/webtoolkit/doc/latest/DevGuideUiHandlers.html] for details. 
 
@@ -34,18 +34,18 @@ public class Person
     String surname;
 }
 
-public class LogHandler implements ModelWriteHandler<Person>, ModelReadHandler<Person>
+public class LogHandler<C> implements ModelReadHandler<Person, C>, ModelWriteHandler<Person>
 {
     @Override
     public void onModelRead(ModelReadEvent<Person> event)
     {
-        logger.info("Read person " + event.getModel());
+        logger.info("Read person " + event.getModel() + " from " + event.getContext());
     }
 
     @Override
     public void onModelWrite(ModelWriteEvent<Person> event)
     {
-        logger.info("About to write person " + event.getModel());
+        logger.info("Wrote person " + event.getModel() + " to " + event.getRepresentation());
     }
 }
 
@@ -64,3 +64,5 @@ public class Main implements EntryPoint
     }
 } 
 }}}
+
+As you can see the read event carries information about the model and the context. the context is a JSONValue for JSON and a node in case of XML. The write event holds the model written and its representation as string.
