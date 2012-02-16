@@ -75,4 +75,4 @@ Please make sure you bind the reader and writer implementations as eager singelt
 
 
 === Generated Code ===
-In any case a reader / writer implementations are generated for you. By default all fields in the specified POJO and its superclasses are (de)serializes to/from JSON/XML. See [Annotations annotations] and [SupportedTypes supported types] for more details. 
+In any case a reader / writer implementations are generated for you. By default all fields in the specified POJO and its superclasses are (de)serialized to/from JSON/XML. See [Annotations annotations] and [SupportedTypes supported types] for more details. 

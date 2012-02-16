@@ -6,7 +6,7 @@
 
 = Default behaviour =
 == Fields ==
-When Piriti creates the reader / writer implementation for a type T, all fields of T and its superclasses which satisfy the following requirements are processed:
+When Piriti generates the reader / writer implementation for a type T, all fields of T and its superclasses which satisfy the following requirements are processed:
   * The field is accessible. If the reader / writer interface is defined as nested static class or in the same package, the field must have at least default access. If the field isn't accessible, there has to be an appropriate getter / setter.
   * The fields type must be [SupportedTypes supported] by Piriti   
   * The field must not be transient or marked with the [#Transient @Transient] annotation
@@ -148,7 +148,7 @@ public class BookkCreator extends XmlInstanceCreator<Book>
     }
 }
 }}}
-The onyl exception to this is the mapping of [References#Polymorphic_References polymorphic references]. In this case you can use an !InstanceCreator and the @!CreateWith annotation for arrays and collections. The element type of the array / collection must be in turn a POJO with an own reader.
+The only exception to this is the mapping of [References#Polymorphic_References polymorphic references]. In this case you can use an !InstanceCreator and the @!CreateWith annotation for arrays and collections. The element type of the array / collection must be in turn a POJO with an own reader.
 
 == !MapUpTo ==
 When (de)serializing a POJO all of it fields _and_ the fields in its superclasses are processed. Sometimes this is not what you want. Using the @!MapUpTo annotation you can control up to which class the fields should be processed. See [Inheritance#MapUpTo Inheritance] for further details.
