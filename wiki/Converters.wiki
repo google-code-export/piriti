@@ -41,11 +41,12 @@ public interface Converter<T>
 }
 }}}
 
-== Custom converters ==
+== Customization ==
 You can customize the built-in converters or write your own:
 {{{
 public class BackAndForth
 {
+    // reader 
     @Format("dd.MM.yy") Date date;
     @Convert(DurationConverter.class) int duration;
 }
@@ -75,5 +76,33 @@ The example uses the @Format annotation so customize the built-in !DateConverter
 {
   "date": "20.09.04",
   "duration": "4h"
+}
+}}}
+
+== Format ==
+For some built-in converters you can specify a custom format using the @Format annotation:
+  * !DoubleConverter
+  * !FloatConverter
+  * !IntegerConverter
+  * !LongConverter
+  * !DateConverter
+
+If you want to use a format for your custom converter you have to provide a constructor which takes the format string. The easiest way to do this is to extend from !FormatableConverter`<T`>:
+{{{
+public abstract class FormatableConverter<T> extends AbstractConverter<T>
+{
+    private final String format;
+
+
+    public FormatableConverter(String format)
+    {
+        this.format = format;
+    }
+
+
+    public String getFormat()
+    {
+        return format;
+    }
 }
 }}}
