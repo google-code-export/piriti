@@ -28,7 +28,7 @@ public class Author
 When reading a book from JSON / XML which also contains author information, the author is mapped and assigned to Book.author.
 
 == Requirements ==
-In order to use references following conditions must be met:
+In order to use references the following condition must be met:
   All readers / writers of types which make up the references must be initialized *before* the first reader / writer is used. 
   
 In the above example !AuthorReader has to be initialized _before_ !BookReader.read() is called. Initialized means the call of GWT.create() has to happen. As long as you declare your reader / writer instances as static members, Piriti will take care of this. Once you have your reader / writer instances _outside_ of your POJO, you have to take care of the initialization by yourself:
@@ -173,10 +173,10 @@ public class MediumCreator extends JsonInstanceCreator<Medium>
   
 The important part here is that you need an indicator in your JSON / XML data to decide which instance to create. Otherwise polymorphic references wonn't work.     
 
-= References in JSON / XML =
+= References in XML =
 
 == Introduction ==
-Often you have references in XML. Piriti can resolve those references if expressed by ID and IDREF. Let's take the following XML document as an example:
+Often you have references in XML. Piriti can resolve those references if expressed by ID and IDREF. Let's take the following XML document as an example (references in JSON are not supported):
 {{{
 <company>
     <employees>

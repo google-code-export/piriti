@@ -36,7 +36,7 @@ Cat snowball = Cat.JSON.read(json);
 }}}
 
 == !MapUpTo ==
-When (de)serializing POJOs Piriti automatically walks up the class hirarchy (upto but not including java.lang.Object). You can stop that by using the @!MapUpTo annotation. If you change the mapping to  
+When (de)serializing POJOs Piriti automatically walks up the class hirarchy (upto but not including java.lang.Object). You can change that by using the @!MapUpTo annotation:  
 {{{
 @MapUpTo(Animal.class)
 public class Cat extends Mammal
@@ -47,7 +47,7 @@ public class Cat extends Mammal
     String color;
 }
 }}}
-the fields 
+In this setup the fields 
   * name
   * legs and 
   * intelligence 
