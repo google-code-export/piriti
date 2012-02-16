@@ -1,6 +1,17 @@
 #summary Release notes
 #labels Featured
 
+=== Piriti 0.7 ===
+  * Splited Piriti into 
+    ** piriti-user
+    ** piriti-dev
+    ** piriti-restlet
+  * Added XML serialization
+  * Changed converter interface
+  * Added Piriti to Maven Central
+  * Changed groupId for maven dependencies 
+  * Rewrote internal code generation process to use velocity templates
+
 === Piriti 0.7b2 ===
   * Fixed wrong module reference in name.pehl.piriti.json.JSON
 
