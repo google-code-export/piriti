@@ -4,7 +4,7 @@ Readers and writers are one of the basic building blocks. They are used to read 
   # !JsonReader`<T>`: To map from JSON to POJO
   # !JsonWriter`<T>`: To serialize POJOs to JSON 
   # !XmlReader`<T>`: To map from XML to POJO
-  # !XmlWriter`<T>`: To serialize POJOs to XML (not yet implemented)
+  # !XmlWriter`<T>`: To serialize POJOs to XML
   
 
 === Classic Setup ===
@@ -71,8 +71,8 @@ public class ReadBookAction
     ...
 }    
 }}}
-Please make sure you bind the reader and writer implementations as eager singeltons. Otherwise references between POJOs might not get (de)serialized.  
+Please make sure you bind the reader and writer implementations as eager singeltons. Otherwise [References#References_in_Java references] between POJOs might not get (de)serialized.  
 
 
 === Generated Code ===
-In any case a reader / writer implementation is generated for you which (de)serializes all fields in the specified POJO and its superclasses. See [Annotations annotations] and [SupportedTypes supported types] for more details. 
+In any case a reader / writer implementations are generated for you. By default all fields in the specified POJO and its superclasses are (de)serializes to/from JSON/XML. See [Annotations annotations] and [SupportedTypes supported types] for more details. 
