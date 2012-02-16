@@ -14,7 +14,7 @@ To use Piriti make sure you have the following dependencies on your classpath:
   * [http://code.google.com/p/google-guice/ Guice 3.0]
   * [http://code.google.com/p/totoe/ Totoe 0.3]
   
-For maven users add the following dependencies to your pom (Piriti is in Maven Central):
+For maven users add the following dependencies to your pom (Piriti is in [http://search.maven.org/#search%7Cga%7C1%7Cpiriti Maven Central]):
 {{{
 <dependency>
     <groupId>name.pehl</groupId>
