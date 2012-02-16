@@ -49,14 +49,14 @@ public class Author
 }
 }}}
 
-To map the XML to your classes, all you have to do to define an interface of type !XmlReader`<T>` and configure XPath expressions:
+To map the XML to your classes, all you have to do to define an interface of type !XmlReader`<T>` and configure XPath expressions. When using relative XPath expression, please note that they're relative to the element which belongs to the element currently mappped. Thus in the following example they're relative to the `<book`> element:
 {{{
 public class Book
 {
     interface BookReader extends XmlReader<Book> {}
     public static final BookReader XML = GWT.create(BookReader.class);
 
-    @Path("@id") String isbn;
+    @Path("@isbn") String isbn;
     int pages;
     String title;
     Author author;
