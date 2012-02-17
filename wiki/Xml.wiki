@@ -346,7 +346,7 @@ public class LotteryTicketDns
 As the mapping for {{{Player}}} does not use the DNS the code does not change compared to the first example without a default namespace.
 
 = Limitations =
-Please note that only a limited set of XPath expression can be serialized by !XmlWriters. The following list shows the supported XPath expressions when serializing POJOs to XML. 
+Namespaces are currently not supported by !XmlWriters. Also please note that only a limited set of XPath expression can be serialized. The following list shows the supported XPath expressions when serializing POJOs to XML. 
   * `a/b/c/.../x/y/z`
   * `a/b/c/.../x/y/@z` or just 
   * `@z` 
