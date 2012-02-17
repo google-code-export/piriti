@@ -347,13 +347,14 @@ As the mapping for {{{Player}}} does not use the DNS the code does not change co
 
 = Limitations =
 Please note that only a limited set of XPath expression can be serialized by !XmlWriters. The following list shows the supported XPath expressions when serializing POJOs to XML. 
-  * a/b/c/.../x/y/z
-  * a/b/c/.../x/y/@z or just @z - the attribute must be the last part of the XPath expression and cannot be used for collections
-All other XPath expressions are skipped! Here are some examples of XPath expressions which are not supported:
-  * bookstore//book/excerpt//emph 
-  * book/`*`/last-name 
-  * author`[1`]
-  * /bookstore/book`[price`>35.00`]
+  * `a/b/c/.../x/y/z`
+  * `a/b/c/.../x/y/@z` or just 
+  * `@z` 
+The attribute must be the last part of the XPath expression and cannot be used for collections. All other XPath expressions are skipped! Here are some examples of XPath expressions which are not supported:
+  * `bookstore//book/excerpt//emph`
+  * `book/*/last-name`
+  * `author[1]`
+  * `/bookstore/book[price>35.00]`
 
 According to this rules the following code
 {{{
