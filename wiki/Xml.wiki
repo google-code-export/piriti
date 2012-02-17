@@ -375,13 +375,15 @@ Person p = new Person();
 p.first = "Homer";
 p.middle = "Jay";
 p.last = "Simpson";
-p.age = 42;
+p.age = 36;
+p.street = "742 Evergreen Terrace";
+p.city = "Springfield";
 
 String xml = Person.WRITER.toXml(p);
 }}}
 will result in this XML
 {{{
-<person age="42">
+<person age="36">
     <deeply>
         <nested>
             <name>
