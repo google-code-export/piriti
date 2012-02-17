@@ -1,4 +1,4 @@
-svn upo#summary XML related features
+#summary XML related features
 
 <wiki:toc max_depth="3" />
 
