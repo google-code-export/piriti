@@ -1,4 +1,4 @@
-#summary XML related features
+svn upo#summary XML related features
 
 <wiki:toc max_depth="3" />
 
@@ -82,7 +82,7 @@ Book book = Book.XML.read(document);
 == POJO → XML ==
 TODO
 
-== Array And Collection Mapping ==
+== Array and collection mapping ==
 When mapping arrays and collections the XPath expression should return a list of elements:
 {{{
 <book>
@@ -176,7 +176,7 @@ public enum Gender
 
 To do this you need to:
   # specify the namespaces when parsing the XML and
-  # include the namespace prefix in the XPath expression of your {{{@Xml}}} annotation.
+  # include the namespace prefix in the annotations
 
 === Specify namespaces ===
 When parsing the XML you have to specify the namespaces. This can be done in two ways:

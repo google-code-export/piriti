@@ -82,9 +82,7 @@ you have to use
 }}}
 
 == POJO → JSON ==
-POJOs can be serialized to JSON by using the same annotations which are used for parsing. 
-
-To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface.   
+POJOs can be serialized to JSON by using the same annotations which are used for parsing. To generate JSON from existings POJO instances you have to define a `JsonWriter<T>` interface.   
 {{{
 public class Book
 {
@@ -124,6 +122,31 @@ book.title += " 2nd edition";
 json = Book.WRITER(book);
 // do some REST request
 }}}
+
+When POJOs are serialized null values will be processed:
+{{{
+Book book = new Book();
+book.isbn = null;
+book.pages = 0;
+book.title = "";
+book.author = null;
+book.reviews = new ArrayList<String>();
+book.related = null;
+
+String json = Book.WRITER.toJson(book);
+}}} 
+will result in 
+{{{
+{
+    "isbn": null,
+    "pages": 0,
+    "title": "",
+    "author": null,
+    "reviews": [],
+    "related": null
+}
+}}}
+
 
 = JSONPath =
 By default Piriti uses the fields name as key to the JSON data. But sometimes there's no 1:1 correlation between the field and the JSON key. Say you want to create flat model objects from nested JSON structures:
