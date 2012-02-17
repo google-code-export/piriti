@@ -80,7 +80,66 @@ Book book = Book.XML.read(document);
 }}}
 
 == POJO → XML ==
-TODO
+POJOs can be serialized to XML by using the same annotations which are used for parsing. To generate XML from existings POJO instances you have to define a `XmlWriter<T>` interface.
+{{{
+public class Book
+{
+    public interface BookReader extends XmlReader<Book> {}
+    public static final BookReader READER = GWT.create(BookReader.class);
+
+    public interface BookWriter extends XmlWriter<Book> {}
+    public static final BookWriter WRITER = GWT.create(BookWriter.class);
+
+    @Path("@isbn") String isbn;
+    int pages;
+    String title;
+    Author author;
+    @Path("reviews/review") List<String> reviews;
+}
+
+public class Author
+{
+    public interface AuthorReader extends XmlReader<Author> {}
+    public static final AuthorReader READER = GWT.create(AuthorReader.class);
+
+    public interface AuthorWriter extends XmlWriter<Author> {}
+    public static final AuthorWriter WRITER = GWT.create(AuthorWriter.class);
+
+    String firstname;
+    String surname;
+}
+}}}
+
+A typical scenario would be to parse the XML received from the server, make some modifications and send back the modified XML:
+{{{
+String xml = ...; // received from the server
+Book book = Book.READER.read(xml);
+book.title += " 2nd edition";
+xml = Book.WRITER.toXml(book);
+// do some REST request
+}}}
+
+When POJOs are serialized null values will be result in empty elements. In case they're mapped to attributes, the attributes will be skipped:
+{{{
+Book book = new Book();
+book.isbn = null;
+book.pages = 0;
+book.title = "";
+book.author = null;
+book.reviews = new ArrayList<String>();
+
+String xml = Book.WRITER.toXml(book);
+}}} 
+will result in 
+{{{
+<book>
+    <pages>0</pages>
+    <title/>
+    <author/>
+    <reviews/>
+</book>
+}}}
+
 
 == Array and collection mapping ==
 When mapping arrays and collections the XPath expression should return a list of elements:
@@ -287,4 +346,50 @@ public class LotteryTicketDns
 As the mapping for {{{Player}}} does not use the DNS the code does not change compared to the first example without a default namespace.
 
 = Limitations =
-TODO
+Please note that only a limited set of XPath expression can be serialized by !XmlWriters. The following list shows the supported XPath expression when serializing POJOs to XML. 
+  * a/b/c/.../x/y/z
+  * a/b/c/.../x/y/@z or just @z - the attribute must be the last part of the XPath expression and cannot be used for collections
+All other XPath expressions are skipped! Here are some examples of XPath expressions which are not supported:
+  * bookstore//book/excerpt//emph 
+  * book/*/last-name 
+  * author[1]
+  * /bookstore/book[price>35.00]
+
+According to this rules the following code
+{{{
+public class Person
+{
+    public interface PersonWriter extends XmlWriter<Person> {}
+    public static final PersonWriter WRITER = GWT.create(PersonWriter.class);
+    
+    @Path("deeply/nested/name/first") String first;
+    @Path("deeply/nested/name/middle") String middle;
+    @Path("deeply/nested/name/last") String last;
+    @Path("@age") int age;
+    @Path("//adress/street") String street;
+    @Path("//adress/street") String city;
+}
+...
+Person p = new Person();
+p.first = "Homer";
+p.middle = "Jay";
+p.last = "Simpson";
+p.age = 42;
+
+String xml = Person.WRITER.toXml(p);
+}}}
+will result in this XML
+{{{
+<person age="42">
+    <deeply>
+        <nested>
+            <name>
+                <first>Homer</first>
+                <middle>Jay</middle>
+                <last>Simpson</last>
+            </name>
+        </nested>
+    </deeply>
+</person>
+}}}
+  

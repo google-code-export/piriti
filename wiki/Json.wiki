@@ -97,7 +97,6 @@ public class Book
     String title;
     Author author;
     List<String> reviews;
-    List<Book> related;
 }
 
 public class Author
@@ -110,7 +109,6 @@ public class Author
 
     String firstname;
     String surname;
-    Book bestseller;
 }
 }}}
 
@@ -119,7 +117,7 @@ A typical scenario would be to parse the JSON received from the server, make som
 String json = ...; // received from the server
 Book book = Book.READER.read(json);
 book.title += " 2nd edition";
-json = Book.WRITER(book);
+json = Book.WRITER.toJson(book);
 // do some REST request
 }}}
 
@@ -131,7 +129,6 @@ book.pages = 0;
 book.title = "";
 book.author = null;
 book.reviews = new ArrayList<String>();
-book.related = null;
 
 String json = Book.WRITER.toJson(book);
 }}} 
@@ -142,8 +139,7 @@ will result in
     "pages": 0,
     "title": "",
     "author": null,
-    "reviews": [],
-    "related": null
+    "reviews": []
 }
 }}}
 
@@ -206,7 +202,6 @@ public class Person
     @Path("@.address.street") String street;
     @Path("@.address.city") String city;
 }
-
 ...
 Person p = new Person();
 p.name = "Hans Dampf";
