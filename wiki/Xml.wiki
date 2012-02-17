@@ -353,7 +353,7 @@ All other XPath expressions are skipped! Here are some examples of XPath express
   * bookstore//book/excerpt//emph 
   * book/`*`/last-name 
   * author`[1`]
-  * /bookstore/book[price>35.00]
+  * /bookstore/book`[price`>35.00`]
 
 According to this rules the following code
 {{{
