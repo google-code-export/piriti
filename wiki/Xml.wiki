@@ -173,7 +173,6 @@ public class Book
 In the example above the XPath expression "reviews/review" selects the three reviews which are inserted in a new list and assigned to Book.reviews.
 
 = References in XML =
-
 == Introduction ==
 Often you have references in XML. Piriti can resolve those references if expressed by ID and IDREF. Let's take the following XML document as an example (references in JSON are not supported):
 {{{
