@@ -458,7 +458,7 @@ The attribute must be the last part of the XPath expression and cannot be used f
   * `author[1]`
   * `/bookstore/book[price>35.00]`
 
-According to this rules the following code
+According to these rules the following code
 {{{
 public class Person
 {
