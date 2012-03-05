@@ -42,7 +42,7 @@ public class Cat extends Mammal
     @Transient String race;
     String color;
     List<Cat> kitten;
-    Map<Stirng, String> metadata;
+    Map<String, String> metadata;
 }
 }}}
 and this reader definitions
