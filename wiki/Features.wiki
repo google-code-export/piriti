@@ -17,7 +17,4 @@ On the following pages the common features for both JSON and XML mapping are des
 
 The specific features for JSON and XML mapping are described here:
   * [Json JSON] 
-    * [Json#JSONPath JSONPath] 
   * [Xml XML] 
-    * [Xml#Namespaces Namespaces]
-  
