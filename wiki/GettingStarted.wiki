@@ -19,20 +19,20 @@ For maven users add the following dependencies to your pom (Piriti is in [http:/
 <dependency>
     <groupId>name.pehl</groupId>
     <artifactId>piriti-user</artifactId>
-    <version>0.7</version>
+    <version>0.8</version>
     <scope>provided</scope>
 </dependency>
 <dependency>
     <groupId>name.pehl</groupId>
     <artifactId>piriti-dev</artifactId>
-    <version>0.7</version>
+    <version>0.8</version>
     <scope>provided</scope>
 </dependency>
 <!-- For Restlet support -->
 <dependency>
     <groupId>name.pehl</groupId>
     <artifactId>piriti-restlet</artifactId>
-    <version>0.7</version>
+    <version>0.8</version>
     <scope>provided</scope>
 </dependency>
 }}}
