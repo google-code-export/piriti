@@ -1,6 +1,9 @@
 #summary Release notes
 #labels Featured
 
+=== Piriti 0.8 ===
+  * Issue 54: Collection of enums caused compilation errors in generated code.
+
 === Piriti 0.7 ===
   * Splited Piriti into 
     ** piriti-user
